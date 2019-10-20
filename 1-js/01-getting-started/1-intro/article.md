@@ -1,120 +1,129 @@
-# An Introduction to JavaScript
+# Въведение в JavaScript
 
-Let's see what's so special about JavaScript, what we can achieve with it, and which other technologies play well with it.
+Нека да видим какво е специалното относно JavaScript-а, какво можем да постигнем с него и кои други технологии си играят с него.
 
-## What is JavaScript?
+## Какво е JavaScript ?
 
-*JavaScript* was initially created to *"make web pages alive"*.
+*JavaScript* първоначално е създаден *"за да направи уеб страниците живи"*.
 
-The programs in this language are called *scripts*. They can be written right in a web page's HTML and run automatically as the page loads.
+Програмите с този език са наречени *скриптове*. Те могат да се пишат направо в HTML-а на уеб страницата и да се зареждате автоматично когато страницата се зареди.
 
-Scripts are provided and executed as plain text. They don't need special preparation or compilation to run.
+Скриптовете са предоставени и изпълнени като обикновен текст. Не им е необходимо специална подготовка или компилация за да се пускат.
 
-In this aspect, JavaScript is very different from another language called [Java](https://en.wikipedia.org/wiki/Java_(programming_language)).
+В този аспект, JavaScript е много по-различен от езика наречен [Java](https://en.wikipedia.org/wiki/Java_(programming_language)).
 
-```smart header="Why is it called <u>Java</u>Script?"
-When JavaScript was created, it initially had another name: "LiveScript". But Java was very popular at that time, so it was decided that positioning a new language as a "younger brother" of Java would help.
+```smart header="Why <u>Java</u>Script?"
+Когато JavaScript е създаден, първоначално е имало друго име: "LiveScript". Но Java-та е била много популярна по това време, и така създателите на езика решили позиционирането на този нов език като "малко братче" на Java-та евентуално да му помогне.
 
-But as it evolved, JavaScript became a fully independent language with its own specification called [ECMAScript](http://en.wikipedia.org/wiki/ECMAScript), and now it has no relation to Java at all.
+В момента езика JavaScript се разви драстично и стана напълно независим език със собствена спецификация, наречена [ECMAScript](http://en.wikipedia.org/wiki/ECMAScript), и сега тя изобщо няма отношение към Java.
 ```
 
-Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called [the JavaScript engine](https://en.wikipedia.org/wiki/JavaScript_engine).
+Съвременния JavaScript може да се изпълни не само в браузъра, но и в сървъри, така и във всяко устройство, което има специална програма наречена [the JavaScript engine](https://en.wikipedia.org/wiki/JavaScript_engine).
 
-The browser has an embedded engine sometimes called a "JavaScript virtual machine".
+Браузърът има вграден двигател, понякога наричан "JavaScript virtual machine".
 
-Different engines have different "codenames". For example:
+Различните двигатели имат различни "кодови имена". Например:
 
-- [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- in Chrome and Opera.
-- [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- in Firefox.
-- ...There are other codenames like "Trident" and "Chakra" for different versions of IE, "ChakraCore" for Microsoft Edge, "Nitro" and "SquirrelFish" for Safari, etc.
+- [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- в браузърите Chrome и Opera.
+- [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- в браузъра Firefox.
+- ...Има и други кодови имена като "Trident" и "Chakra" за различните версии на браузъра IE, "ChakraCore" за браузъра Microsoft Edge, "Nitro" и "SquirrelFish" за браузъра Safari, и т.н.
 
-The terms above are good to remember because they are used in developer articles on the internet. We'll use them too. For instance, if "a feature X is supported by V8", then it probably works in Chrome and Opera.
+Хубаво е да запомните термините по-горе, защото са използвани в статиите на разрабочиците в интернет. Ние също ще ги използваме. Например, ако "свойство Х е поддържан от V8", то вероятно ще работи в браузърите Chrome и Opera.
 
 ```smart header="How do engines work?"
 
-Engines are complicated. But the basics are easy.
+Двигателите са сложни, но основното им е лесно.
 
-1. The engine (embedded if it's a browser) reads ("parses") the script.
-2. Then it converts ("compiles") the script to the machine language.
-3. And then the machine code runs, pretty fast.
+1. Двигателят (вградет ако е браузър) чете ("анализира") скрипта.
+2. Тогава го конвертира ("компилира") скрипт-а в машинен език.
+3. И след тогава машинния код се изпълнява доста бързо.
 
-The engine applies optimizations at each step of the process. It even watches the compiled script as it runs, analyzes the data that flows through it, and applies optimizations to the machine code based on that knowledge. When it's done, scripts run quite fast.
+Вдигателят прилага оптимизации във всяка стъпка от процеса. Даже гледа компилирания скрипт, което се изпълнява, анализира данните, които протичат през него и прилага оптимазиции на машинния код на база тези данни. Когато всичко е готово скрипт-ът се изпълнява доста бързо.
 ```
 
-## What can in-browser JavaScript do?
+## Какво може JavaScript в браузъра ?
 
-Modern JavaScript is a "safe" programming language. It does not provide low-level access to memory or CPU, because it was initially created for browsers which do not require it.
+Модерният JavaScript е "безопасен" програмен език. То не предоставя ниско ниво на достъп на паметта и процесора, защото първоначално е създаден за браузърите, които не изискват подобно нещо.
 
-JavaScript's capabilities greatly depend on the environment it's running in. For instance, [Node.js](https://wikipedia.org/wiki/Node.js) supports functions that allow JavaScript to read/write arbitrary files, perform network requests, etc.
+Способностите на JavaScript-a силно зависят от средата, която се изпълнява. Например [Node.js](https://wikipedia.org/wiki/Node.js) поддържа функции, които позволяват на JavaScript-а да чете/пише случайни файлове, да изпълнява мрежови заявки и т.н.
 
-In-browser JavaScript can do everything related to webpage manipulation, interaction with the user, and the webserver.
+JavaScript-a в браузъра може да направи всичко относно манипулирането на уеб страниците, взаимодействието с потребителите и със сървъра.
 
-For instance, in-browser JavaScript is able to:
+Например, в браузърите, JavaScript е способен на:
 
-- Add new HTML to the page, change the existing content, modify styles.
-- React to user actions, run on mouse clicks, pointer movements, key presses.
-- Send requests over the network to remote servers, download and upload files (so-called [AJAX](https://en.wikipedia.org/wiki/Ajax_(programming)) and [COMET](https://en.wikipedia.org/wiki/Comet_(programming)) technologies).
-- Get and set cookies, ask questions to the visitor, show messages.
-- Remember the data on the client-side ("local storage").
+- Да добави HTML код на страницата.
+- Да променя съществуващото съдържание на страниците.
+- Да променя стилизацията.
+- Да реагира на действията на потребителя: при кликане на мишката, при натискане на бутон или просто задвижване на показателя.
+- Да изпраща заявки чрез интернет към отдалечени сървъри (т.нар. [AJAX заявки](https://en.wikipedia.org/wiki/Ajax_(programming)) и [COMET](https://en.wikipedia.org/wiki/Comet_(programming)) technologies).
+- Да изтегля и да качва файлове.
+- Да изтегля и да установи бисквити.
+- Да пита посетителите и да им покаже съобщения.
+- Да запомни данните от страната на клиента (т.нар. "local storage" - локално хранилище).
 
-## What CAN'T in-browser JavaScript do?
+## Какво не може JavaScript-а в браузъра?
 
-JavaScript's abilities in the browser are limited for the sake of the user's safety. The aim is to prevent an evil webpage from accessing private information or harming the user's data.
+Възможностите на JavaScript-a в браузъра са ограничени заради безопасността на потребителя. Целта е да се предотврати на зловредните страници достъпът на личната информация на потребителите или навреждането на данните на потребителите.
 
+Примерите на такива ограничения вкючват:
 Examples of such restrictions include:
 
-- JavaScript on a webpage may not read/write arbitrary files on the hard disk, copy them or execute programs. It has no direct access to OS system functions.
+- JavaScript-а от уеб страницата не може да чете/запише случайни файлове в харддиск-а, да ги копира или да стартира/изпълнява програми. То няма директен достъп до функциите на операционната система.
 
-    Modern browsers allow it to work with files, but the access is limited and only provided if the user does certain actions, like "dropping" a file into a browser window or selecting it via an `<input>` tag.
+    Модерните браузъри позволяват работата с файлове, но достъпът им е ограничен. Браузърът могат да има достъп само ако потребителят направи определени действия, като "дроп-ване" на файл в браузъра или избирането на даден файл чрез `<input>` tag-а.
 
-    There are ways to interact with camera/microphone and other devices, but they require a user's explicit permission. So a JavaScript-enabled page may not sneakily enable a web-camera, observe the surroundings and send the information to the [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
-- Different tabs/windows generally do not know about each other. Sometimes they do, for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other if they come from different sites (from a different domain, protocol or port).
+    Има начини то да взаимодейства с камера/микрофон и други устройства, но те изискват разрешение от потребителя. И така, страниците с активиран JavaScript не могат подло да активират камерата, да наблюдават околноста и да праща тези данни на [Агенцията за Национална Сигурност](https://bg.wikipedia.org/wiki/%D0%90%D0%B3%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B7%D0%B0_%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%B0_%D1%81%D0%B8%D0%B3%D1%83%D1%80%D0%BD%D0%BE%D1%81%D1%82).
 
-    This is called the "Same Origin Policy". To work around that, *both pages* must agree for data exchange and contain a special JavaScript code that handles it. We'll cover that in the tutorial.
+- Различните табове/прозорци в общи линии не знаят за един друг. Понякога да, например когато един прозорец използва JavaScript за да отвори друг. Но дори тогава, JavaScript-а от едната страница може и да няма достъп до другия ако са от различни страници (от различни домейни,протоколи или порти)
 
-    This limitation is, again, for the user's safety. A page from `http://anysite.com` which a user has opened must not be able to access another browser tab with the URL `http://gmail.com` and steal information from there.
-- JavaScript can easily communicate over the net to the server where the current page came from. But its ability to receive data from other sites/domains is crippled. Though possible, it requires explicit agreement (expressed in HTTP headers) from the remote side. Once again, that's a safety limitation.
+    Това е наречено "Same Origin Policy" или Същинска Политика за Произход. За да проработи това, *и двете страници* трябва да се съгласят за обмен на данни и да съдържат специален JavaScript код, който се справя с това. Ще разгледаме това по-късно в ръководството.
+
+    Това ограничение, отново, е за безопасността на потребителите. Например страницата с адрес `http://anysite.com`, което потребителят е отворил не би трябвало да има достъп до друг таб в браузъра с URL адрес `http://gmail.com`, който да краде информацията от там.
+
+- JavaScript-а много лесно може да комуникира, чрез интернет, със сървъра откъдето текущата страница произлиза. Но способнастите му да извлича данни от други страници/домейни е усложнен. Макар и възможно, то се нуждае от изрично съгласие (описано в HTTP заявките) от отдалечената страна. Отново, това са обезопасителни ограничения.
 
 ![](limitations.svg)
 
-Such limits do not exist if JavaScript is used outside of the browser, for example on a server. Modern browsers also allow plugin/extensions which may ask for extended permissions.
+Такива ограничения не съществуват ако JavaScript-a е използван извън браузъра, например в сървърите. Също, модерните браузъри имат плъгин-и/разширения, които биха питали за допълнителни разрешения.
 
-## What makes JavaScript unique?
+## Какво прави JavaScript-a уникален?
 
-There are at least *three* great things about JavaScript:
+Има поне *три* чудесни неща относно JavaScript:
 
 ```compare
-+ Full integration with HTML/CSS.
-+ Simple things are done simply.
-+ Support by all major browsers and enabled by default.
++ Пълна интеграция с HTML и CSS.
++ Простите неща се правят просто.
++ Поддържан от основните браузъри и е активиран по подразбиране.
 ```
-JavaScript is the only browser technology that combines these three things.
 
-That's what makes JavaScript unique. That's why it's the most widespread tool for creating browser interfaces.
+JavaScript е единствената браузърна технология, който комбинира всичките тези три неща.
 
-That said, JavaScript also allows to create servers, mobile applications, etc.
+Това е което прави JavaScript-а толкова уникален. Затова е толкова широк разпространен инструмент за създаване на браузърни интерфейси.
 
-## Languages "over" JavaScript
+Също така, JavaScript ни позволява за създаването на сървъри, мобилни приложения и други.
 
-The syntax of JavaScript does not suit everyone's needs. Different people want different features.
+## Езици "над" JavaScript
 
-That's to be expected, because projects and requirements are different for everyone.
+Синтаксисът на JavaScript-a не отговаря на нуждите на всеки. Различните хора искат различни качества.
 
-So recently a plethora of new languages appeared, which are *transpiled* (converted) to JavaScript before they run in the browser.
+Това е очаквано, защото проектите и изискванията са различни за всеки.
 
-Modern tools make the transpilation very fast and transparent, actually allowing developers to code in another language and auto-converting it "under the hood".
+Така наскоро се появи множество нови езици, които са *transpiled* (преобразувани) в JavaScript, преди да стартират в браузъра.
 
-Examples of such languages:
+Съвременните инструменти правят транспилацията много бърза и прозрачна, като всъщност позволяват на разработчиците да кодират на друг езици и автоматично да го конвертират "под капака'.
 
-- [CoffeeScript](http://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
-- [TypeScript](http://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
-- [Flow](http://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
-- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+Примери на такива езици са:
 
-There are more. Of course, even if we use one of transpiled languages, we should also know JavaScript to really understand what we're doing.
+- [CoffeeScript](http://coffeescript.org/) е "синтактичната захар" за JavaScript. То въвежда по-къс синтаксис като ни позволява да пишем по-четим и прецизен код. Обикновенно Ruby разработчиците го харесват.
+- - [TypeScript](http://www.typescriptlang.org/) e език съсредоточен да добави "писане на стрикни типове данни" за да опрости разработване и поддръжката на сложни системи. Разработва се от Microsoft.
+- [Flow](http://flow.org/) също добава типизирани данни, но по по-различен начин. Разработва се от Facebook.
+- [Dart](https://www.dartlang.org/) е самостоятелен език, което си има свобствен двигател, което работи в не-браузърни среди (като мобилни приложения), но също може да се транспилира до JavaScript. Разработва се от Google.
 
-## Summary
+Има и други. Разбира се, дори да използваме един от транспилираните езици, ние също трябва да знаем JavaScript, за да разберем наистина какво правим.
 
-- JavaScript was initially created as a browser-only language, but is now used in many other environments as well.
-- Today, JavaScript has a unique position as the most widely-adopted browser language with full integration with HTML/CSS.
-- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+## Обобщение
+
+- JavaScript първоначално е създаден като "език за браузъра", но в момента се използва и много други среди.
+- Настоящем, JavaScript има уникалната позиция като най-широко разпространения език с пълна интеграция с HTML и CSS.
+- Има много езици, които се "транспилират" в JavaScript код и предоставят определени подобрения. Препоръчително е да се погледнат, поне за кратко, след като овладеете JavaScript-a.
+  

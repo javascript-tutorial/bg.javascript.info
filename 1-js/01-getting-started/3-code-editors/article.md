@@ -1,46 +1,46 @@
-# Code editors
+# Редактори на код
 
-A code editor is the place where programmers spend most of their time.
+Редакторите на код е мястото, където програмистите прекарват по-голямата част от времето си.
 
-There are two main types of code editors: IDEs and lightweight editors. Many people use one tool of each type.
+Има два главни типа редактори: IDE (т. нар. *Integrated development environment* - Интегрирана среда за разработка) и леки редактори. Много хора използват по един инструмент от всеки тип.
 
-## IDE
+## IDE - Интегрирана среда за разработка
 
-The term [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) (Integrated Development Environment) refers to a powerful editor with many features that usually operates on a "whole project." As the name suggests, it's not just an editor, but a full-scale "development environment."
+Термина [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) (Интегрирана Среда за Разработка) е много мощен редактор с много функции, който попринцип управлява "целия проект". Както от името разбрахте, то не е само редактор, а пълномащабна **"среда за разработка"**.
 
-An IDE loads the project (which can be many files), allows navigation between files, provides autocompletion based on the whole project (not just the open file), and integrates with a version management system (like [git](https://git-scm.com/)), a testing environment, and other "project-level" stuff.
+Интегрираната среда за разработка зарежда целия проект (което може да съдържа много файлове), позволява навигирането между файловете, осигурява автоматично довършване в зависимост от целия проект (не само от отворения файл), интегрира се със сисмети за управление на версиите (като [git](https://git-scm.com/)), включва среда за тестване и много други функции свързвани с проекта.
 
-If you haven't selected an IDE yet, consider the following options:
+Ако още не сте избрали интегрирана среда за разработка, обмислете следните опции:
 
-- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
-- [WebStorm](http://www.jetbrains.com/webstorm/) (cross-platform, paid).
+- [Visual Studio Code](https://code.visualstudio.com/) (междуплатформена, безплатен).
+- [WebStorm](http://www.jetbrains.com/webstorm/) (междуплатформена, платен).
 
-For Windows, there's also "Visual Studio", not to be confused with "Visual Studio Code". "Visual Studio" is a paid and mighty Windows-only editor, well-suited for the .NET platform. It's also good at JavaScript. There's also a free version [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+За ОС Windows, съществува също и **"Visual Studio"**, но не го объркайте с *"Visual Studio Code"*. **"Visual Studio"** е платен и мощен редактор само във ОС Windows, незаменим за .NET платформата. Също е добър за писане на JavaScript. Същестува и безплатна версия на *"Visual Studio"* наречена *[Visual Studio Community](https://www.visualstudio.com/vs/community/)*.
 
-Many IDEs are paid, but have a trial period. Their cost is usually negligible compared to a qualified developer's salary, so just choose the best one for you.
+Повечето среди за разработка са платени, но имат пробен период. Цената им попринцип е незначителна, ако ги сравним с доходите на разработчиците, така че изберете най-добрия за вас.
 
-## Lightweight editors
+## Леки редактори
 
-"Lightweight editors" are not as powerful as IDEs, but they're fast, elegant and simple.
+"Леките редактори" не са силни колкото средите за разработка, но са много бързи, елеганти и прости.
 
-They are mainly used to open and edit a file instantly.
+Използвани са предимно да отварят и редактират файла на момента.
 
-The main difference between a "lightweight editor" and an "IDE" is that an IDE works on a project-level, so it loads much more data on start, analyzes the project structure if needed and so on. A lightweight editor is much faster if we need only one file.
+Главната разлика между "леките редактори" и средите за разработка е това че средите за разработка работят на нивото на проекта, като зареждат много повече данни при пускането си, анализират структурата на проекта ако е необходимо и т.н. Леките редактори са много по-бързи, ако отворите само един файл.
 
-In practice, lightweight editors may have a lot of plugins including directory-level syntax analyzers and autocompleters, so there's no strict border between a lightweight editor and an IDE.
+Напрактика, леките редактори имат много повече добавки включващи анализатор на синтаксиса на ниво директория и автоматично довършване, така че няма строга граница между леките редактори и средите за разработка.
 
-The following options deserve your attention:
+Следните опции заслужават вниманието ви:
 
-- [Atom](https://atom.io/) (cross-platform, free).
-- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
-- [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
-- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
-- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+- [Atom](https://atom.io/) (междуплатформена, безплатен).
+- [Visual Studio Code](https://code.visualstudio.com/) (междуплатформена, безплатен).
+- [Sublime Text](http://www.sublimetext.com) (междуплатформена, споделен).
+- [Notepad++](https://notepad-plus-plus.org/) (OS Windows, безплатен).
+- [Vim](http://www.vim.org/) и [Emacs](https://www.gnu.org/software/emacs/) също са яки, ако знаете как да ги използвате
 
-## Let's not argue
+## Нека да не спорим
 
-The editors in the lists above are those that either I or my friends whom I consider good developers have been using for a long time and are happy with.
+Горе посочените редактори са тези, които са смятани за добри, тъй като разработчиците са ги използвали дълго време и са доволни от тях.
 
-There are other great editors in our big world. Please choose the one you like the most.
+Има и други отлични редактори по нашия свят. Изберете този, който най-много ви харесва.
 
-The choice of an editor, like any other tool, is individual and depends on your projects, habits, and personal preferences.
+Изборът на редактор, също като другите инструменти, е индивидуално и зависи от проектите, навиците и персоналните предпочитания.
