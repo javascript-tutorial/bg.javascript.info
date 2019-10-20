@@ -1,37 +1,40 @@
 
-# Authoring
+# За Авторите
 
-This describes important stuff about authoring new articles of the tutorial.
+В този файл се описва важните неща относно създаване на нови статии в ръководството.
 
-## Internal links
+## Вътрешни връзки
 
-All tutorial links should start from the root, not including the domain.
+Всички линкове в ръководството трябва да започнат от основната папка и не трябва да съдържат домейн.
 
-✅ OK:
-
-```md
-We'll cover that in the chapter [about functions](/function-basics)
-```
-
-❌ Not ok:
+✅ Добро:
 
 ```md
-We'll cover that in the chapter [about functions](https://javascript.info/function-basics)
+Ще разгледаме това в главата [Основи на функциите](/function-basics)
 ```
 
-Also, to reference a chapter, there's a special "info:" scheme, like this:
+❌ Лошо:
 
 ```md
-We'll cover that in the chapter <info:function-basics>.
+Ще разгледаме това в главата [Основи на функциите](https://javascript.info/function-basics)
 ```
 
-Becomes:
+Също таква за да реферираме към дадена глава имаме специална "info:" схема:
+
+Това:
+
+```md
+Ще разгледаме това в главата <info:function-basics>.
+```
+
+Се превръща в това:
+
 ```html
-We'll cover that in the chapter <a href="/function-basics">Function basics</a>.
+Ще разгледаме това в главата <a href="/function-basics">Основни на функциите</a>.
 ```
 
-The title is auto-inserted from the referenced article. That has the benefit of keeping the right title if the article gets renamed.
+Заглавието е автоматично добавено от реферираната статия. Това ни помага да запазим името на заглавието ако статията се преименува.
 
-## TODO
+## ДА СЕ НАПРАВИ
 
-Ask @iliakan to for more details.
+Попитайте @iliakan за повече информация.
