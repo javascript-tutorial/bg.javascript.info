@@ -1,80 +1,79 @@
-# The Modern JavaScript Tutorial in Bulgarian
+# Модерния ръководител на езика за програмиране JavaScript
 
-This repository hosts the translation of <https://javascript.info> in Bulgarian.
+Това хранилище съдържа българския превод на "*Модерния ръководител на езика за програмиране JavaScript*", публикувано в [https://javascript.info](https://javascript.info).
 
+**Ето как можете да спомогнете за проекта:**
 
-**That's how you can contribute:**
+- Погледнете [прогреса на българския превод](https://github.com/javascript-tutorial/bg.javascript.info/issues/1).
+- Изберете свободна статия, която искате да превеждате.
+- Добавете коментар с заглавието на статията, напр. `An Introduction to JavaScript`.
+    - Нашия бот ще го маркира, така че всички да разберат, че ти я превеждаш.
+    - Коментарът ти трябва да съдържа само заглавието на статията.
+- "Fork"-нете хранилището, преведете го и ни изпратете "Pull Request" когато е говото.
+    - Заглавието на "Pull Request"-а трябва да съвпада с заглавието на статията. Ботът ще напише номера й на дадения проблем.
 
-- See the [Bulgarian Translate Progress](https://github.com/javascript-tutorial/bg.javascript.info/issues/1) issue.
-- Choose an unchecked article you'd like to translate.
-- Add a comment with the article title to the issue, e.g. `An Introduction to JavaScript`.
-    - Our bot will mark it in the issue, for everyone to know that you're translating it.
-    - Your comment should contain only the title.
-- Fork the repository, translate and send a PR when done.
-    - PR title should match article title, the bot will write it's number into the issue.
+Моля, любезно разрешете на поддръжниците да преглеждат, обединяват или да поискат промени в превода ви.
 
-Please kindly allow maintainers to review and merge or request changes in your translation.
-   
-If maintainers do not respond, or if you'd like to become a maintainer, write us at the [main repo](https://github.com/javascript-tutorial/en.javascript.info/issues/new).
-    
-**Let others know what you're translating, in message boards or chats in your language. Invite them to join!**
+Ако поддръжниците не отговарят или искаш да станеш поддръжник, пиши ни в [главното хранилище](https://github.com/javascript-tutorial/en.javascript.info/issues/new).
 
-🎉 Thank you!
+**Нека другите знаят какво превеждате, в таблото за съобщения или чатове на вашия език. Поканете ги да се присъединят!**
 
-Your name and the contribution size will appear in the "About project" page when the translation gets published.
+🎉 Благодарим Ви!
 
-P.S. The full list of languages can be found at <https://javascript.info/translate>.
+Името ти и размера на приноса ти ще се появи в страницата "About project" (За проекта) когато преводът се публикува.
 
-## Structure
+Пълния списък със езиците може да се намери в <https://javascript.info/translate>.
 
-Every chapter, an article or a task resides in its own folder.
+## Структура
 
-The folder is named `N-url`, where `N` – is the number for sorting (articles are ordered), and `url` is the URL-slug on the site.
+Всяка глава, статия или задача има своята папка.
 
-The folder has one of files:
+Папката е именовано така `N-url`, където `N` е номер със цел сортиране и `url` където е част от линк с името на материала.
 
-- `index.md` for a section,
-- `article.md` for an article,
-- `task.md` for a task formulation (+`solution.md` with the solution text if any).
+Типът на материала се определя чрез файла вътре в папката:
 
-A file starts with the `# Title Header`, and then the text in Markdown-like format, editable in a simple text editor. 
+- `index.md` означава глава
+- `article.md` означава статия
+- `task.md` означава задача (решението трябва да бъде описано в `solution.md` файла)
 
-Additional resources and examples for the article or the task, are also in the same folder.
+Всяка от тези файлове започва от `# Title header`, след това текст с Markdown формат, лесно редактиран със обикновен текстов редактор.
 
-## Translation Tips
+Допълнителните ресурси и примери за дадена статия или задача също са в същата папка.
 
-Please keep line breaks and paragraphs "as is": don't add newlines and don't remove existing ones. Makes it easy to merge future changes from the English version into the translation. 
+## Съвети за превод
 
-If you see that the English version can be improved – great, please send a PR to it.
+Моля запазете прекъсванията на линиите и параграфите "както са": не добавете и не премахвайте същестуващите такива.
+Направете го лесно за сливане на бъдещи промени от английската версия към превода.
 
-### Terms
+Ако виждате, че английската версия може да се бъде подобрен - чудесно, изпратете ни "Pull Request" за него.
 
-- Some specification terms are not to be translated, e.g. "Function Declaration" can be left "as is".
-- For other terms like `resolved promise`, `slash`, `regexp`, and so on - look for a glossary, hopefully there's one for your language already. If not, look for translations in manuals, such as [MDN](https://developer.mozilla.org/en-US/).
+### Термини
 
+- Някои специфични термини може и да не са превеждат, напр. "Function Declaration" (на български: Декларация за функция) могат да останат каквито са.
+- За други термини като `resolved promise`, `slash`, `regexp`, и др. - погледнете в терминологичен речник. Ако го няма, погледнете наръчниците за превод, напр. в [MDN](https://developer.mozilla.org/en-US/).
 
-### Terms with meaning
+### Термини със значение
 
-In English many terms have an obvious meaning. For a person who doesn't understand English, there's no such meaning.
+На английски много термини имат очевидно значение. За човек, който не разбира английски, няма такова значение.
 
-Please keep that in mind, sometimes explanations or additional translations are needed, e.g.
+Моля, имейте това предвид, че понякога са необходими допълнителни обяснения или превод, например такива м/у английския и испанския:
 
 ```md
 `ReadableStream` objects allows to read data chunk-by-chunk.
 ```
 
 ```md
-`ReadableStream` ("flujo legible") objeto ... 
+`ReadableStream` ("flujo legible") objeto ...
 ```
 
-### Text in Code Blocks
+### Текстовете в полетата с код
 
-- Translate comments.
-- Translate user-messages and example strings.
-- Don't translate variables, classes, identifiers.
-- Ensure that the code works after the translation :)
+- Преведете коментарите.
+- Преведете съобщенията от потребителите и примерните изречения/думи.
+- НЕ превеждайте име на на променливите, класовете или идентификаторите.
+- Бъдете сигурни, че след превода кодът работи :)
 
-Example:
+Примерно:
 
 ```js
 // Example
@@ -82,52 +81,51 @@ const text = "Hello, world";
 document.querySelector('.hello').innerHTML = text;
 ```
 
-✅ DO (translate comment):
+✅ Добро (преведи коментар):
 
 ```js
-// Ejemplo
-const text = 'Hola mundo';
+// Например
+const text = 'Здравей свят';
 document.querySelector('.hello').innerHTML = text;
 ```
 
-❌ DON'T (translate class):
+❌ Лошо (НЕ превеждате имена на класове):
 
 ```js
-// Ejemplo
-const text = 'Hola mundo';
-// ".hello" is a class
-// DO NOT TRANSLATE
-document.querySelector('.hola').innerHTML = text;
+// Например
+const text = 'Здравей свят';
+// ".hello" е име на клас
+// НЕ ПРЕВЕЖДАЙТЕ
+document.querySelector('.здравей').innerHTML = text;
 ```
 
-Please note, that sometimes code is followed by pictures, and if you translate text `Hello` -> `Hola` in the code, you need to translate text in picturess as well.
+Моля забележете, че понякога кодът е следват от снимка. Ако преведете например текста `Hello` -> `Здравей` в кода, то вие трябва да го преведете и в снимката.
 
-In that case it's probably easier not to translate such text. See more about translating images later.
+При този случай сигурно ще е по-лесно да не се превежда повобен текст. По-късно ще видите повече за превеждането на снимки.
 
+### Външни връзки
 
-### External Links
+Ако външната връзка е към Wikipedia, напр. `https://en.wikipedia.org/wiki/JavaScript`, и версията на тази статия съществува на вашия език в прилично качество, то ще е по-добре да промените тази връзка с версията на вашия език.
 
-If an external link is to Wikipedia, e.g. `https://en.wikipedia.org/wiki/JavaScript`, and a version of that article exists in your language that is of decent quality, link to that version instead.
-
-Example:
+Например:
 
 ```md
 [JavaScript](https://en.wikipedia.org/wiki/JavaScript) is a programming language.
 ```
 
-✅ OK (en -> es):
+✅ Добро (en -> bg):
 
 ```md
-[JavaScript](https://es.wikipedia.org/wiki/JavaScript) es un lenguaje de programación.
+[JavaScript](https://bg.wikipedia.org/wiki/JavaScript) (чете се джаваскрипт) е интерпретируем език за програмиране, ...
 ```
 
-For links to MDN, a partially translated version is ok.
+За връзки към MDN е достатъчно и частичните преведени версии.
 
-If a linked article has no translated version, leave the link "as is".
+Ако статията във външната връзка няма преведена версия на вашия език, оставете ги "каквито са".
 
-### Metadata
+### Метаданни
 
-Some files, usually tasks, have YAML metadata at the top, delimited by `---`:
+Някои файлове, попринцип задачите, имат YAML метаданни най-отгоре и са разграничени с `---`:
 
 ```md
 importance: 5
@@ -136,35 +134,35 @@ importance: 5
 ...
 ```
 
-Please don't translate "importance" (and other top metadata).
+Моля НЕ превеждайте "importance" (или други подобни метаданни).
 
-### Anchors
+### Анкери
 
-Some headers have `[#anchor]` at the end, e.g.
+Някои заглавия имат `[#anchor]` в края, напр.
 
 ```md
 ## Spread operator [#spread-operator]
 ```
 
-Please don't translate or remove the `[#...]` part, it's for URL anchors.
+Моля, НЕ превеждайте или Не премахвайте парчето с `[#...]`, то е за URL-а.
 
+### Снимки
 
-### Images
+Повечето илюстрации използват "SVG" формат. Текстът в тях се заменя с преведените им варианти.
 
-Most illustrations use SVG format, the text in there can be replaced with a translated variant.
+Преведения текст е в `images.yml` файл в главната директория на ръководство.
 
-The translated text is in `images.yml` file in the tutorial root.
+Файловия формат е YAML:
 
-The file format is YAML:
 ```yaml
-image.svg:        # image file
-  "hello world":  # English phrase
-    text: "Hola mundo"  # translation
-    position: "centre"  # "center" or "right", if needed to center or right-align the translation
+image.svg:        # Файл на изображението
+  "hello world":  # Английска фраза
+    text: "Hola mundo"  # превод
+    position: "centre"  # "center" или "right", ако е необходимо центриране или дясното подравняване на превода
 ```
 
-## Running locally
+## Пускане локално
 
-You can run the tutorial server locally to see how the translation looks.
+Може да стартирате сървъра на ръководството локално, за да видите как изглежда.
 
-The server and install instructions are at <https://github.com/javascript-tutorial/server>. 
+Сървърът и инструкциите за инсталиране са в следната връзка > <https://github.com/javascript-tutorial/server>.
