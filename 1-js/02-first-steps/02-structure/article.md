@@ -1,44 +1,44 @@
-# Code structure
+# Структура на кода.
 
-The first thing we'll study is the building blocks of code.
+Първото нещо което ще научм са парчетата елементи от кода.
 
-## Statements
+## Инструкции
 
-Statements are syntax constructs and commands that perform actions.
+Инструкциите са команди който изпълняват дадени действия.
 
-We've already seen a statement, `alert('Hello, world!')`, which shows the message "Hello, world!".
+Ние вече сме виждали дадена инструкция, `alert('Здравей свят!')`, която показва съобщението "Здравей, свят!".
 
-We can have as many statements in our code as we want. Statements can be separated with a semicolon.
+Може да имаме колкото си искаме инструкции в нашият код. Инструкциите могат да бъдат разделени със точка и запетая.
 
-For example, here we split "Hello World" into two alerts:
-
-```js run no-beautify
-alert('Hello'); alert('World');
-```
-
-Usually, statements are written on separate lines to make the code more readable:
+В този пример , ние разделяме "Здравей свят" на два alert:
 
 ```js run no-beautify
-alert('Hello');
-alert('World');
+alert('Здравей'); alert('Свят');
 ```
 
-## Semicolons [#semicolon]
-
-A semicolon may be omitted in most cases when a line break exists.
-
-This would also work:
+Принципно, инструкциите се пишат на отделни редове за да направят кодът ни по четим:
 
 ```js run no-beautify
-alert('Hello')
-alert('World')
+alert('Здравей');
+alert('Свят');
 ```
 
-Here, JavaScript interprets the line break as an "implicit" semicolon. This is called an [automatic semicolon insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
+## Точка и запетая [#semicolon]
 
-**In most cases, a newline implies a semicolon. But "in most cases" does not mean "always"!**
+Точката и запетаята може да се пропусне в повечето случай ако редът свършва.
 
-There are cases when a newline does not mean a semicolon. For example:
+Това също ще работи:
+
+```js run no-beautify
+alert('Здравей')
+alert('Свят')
+```
+
+Тук , Javascript тълкува прекъсването на реда , като точка и запетая. Това се нарича [автоматично вмъкване на точка и запетая](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
+
+**В повечето случай , нов ред означава точка и запетая. Но "В повечето случай" не означава "винаги"!**
+
+Има случай когато нов ред не означава точка и запетая. Пример:
 
 ```js run no-beautify
 alert(3 +
@@ -46,114 +46,114 @@ alert(3 +
 + 2);
 ```
 
-The code outputs `6` because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so the semicolon is not required. And in this case that works as intended.
+Даденият код изкарва `6`  защото JavaScript не вмъква точка и запетая тук. По интуиция е очевидно, че ако линията свърши със плюс `"+"`, тогава това е "непълен израз", и точка и запетая не е нужна. И в този случай това работи по предназначение.
 
-**But there are situations where JavaScript "fails" to assume a semicolon where it is really needed.**
+**Но има дадени ситуации където JavaScript се "проваля" да предположи къде точка и запетая е нужна.**
 
-Errors which occur in such cases are quite hard to find and fix.
+Грешки които се появяват в тези случай са трудни за намиране и оправяне.
 
-````smart header="An example of an error"
-If you're curious to see a concrete example of such an error, check this code out:
+````smart header="Пример за грешка"
+Ако сте любопитни да видите даден пример за такава грешка , вижте следният код:
 
 ```js run
 [1, 2].forEach(alert)
 ```
 
-No need to think about the meaning of the brackets `[]` and `forEach` yet. We'll study them later. For now, just remember the result of the code: it shows `1` then `2`.
+Не нужно да знаем значението на скобите `[]` и на `forEach` yet. Ще ги изучаваме по-късно. Засега запомнете резултата от кода: показва `1` и после `2`.
 
-Now, let's add an `alert` before the code and *not* finish it with a semicolon:
+Сега , нека добавим `alert` преди кода и да *не* поставим точка и запетая.
 
 ```js run no-beautify
-alert("There will be an error")
+alert("Ще има грешка")
 
 [1, 2].forEach(alert)
 ```
 
-Now if we run the code, only the first `alert` is shown and then we have an error!
+Сега ако изпълним кода , само първият `alert` ще се покаже и след това ще имаме грешка!
 
-But everything is fine again if we add a semicolon after `alert`:
+Но всичко е наред ако добавим точка и запетая след първият `alert`:
 ```js run
-alert("All fine now");
+alert("Всичко е наред сега");
 
 [1, 2].forEach(alert)  
 ```
 
-Now we have the "All fine now" message followed by `1` and `2`.
+Сега имаме съобщението "Всичко е наред" следвано от `1` и `2`.
 
 
-The error in the no-semicolon variant occurs because JavaScript does not assume a semicolon before square brackets `[...]`.
+Грешката във примера без точка и запетая се получава защото JavaScript не може да прецени че има точка и запетая преди скобите `[...]`. 
 
-So, because the semicolon is not auto-inserted, the code in the first example is treated as a single statement. Here's how the engine sees it:
+Тогава , защото точката и запетаята не е автоматично поставена , кодът във първият пример се разглежда като един израз. Ето как го вижда машината ни:
 
 ```js run no-beautify
-alert("There will be an error")[1, 2].forEach(alert)
+alert("Ще има грешка")[1, 2].forEach(alert)
 ```
 
-But it should be two separate statements, not one. Such a merging in this case is just wrong, hence the error. This can happen in other situations.
+Но това трябва да са две отделни инструкции, не една. Такова слепване в този случай е грешно , следователно води до грешка. Това може да се случи в някои други ситуации.
 ````
 
-We recommend putting semicolons between statements even if they are separated by newlines. This rule is widely adopted by the community. Let's note once again -- *it is possible* to leave out semicolons most of the time. But it's safer -- especially for a beginner -- to use them.
+Препоръчваме да поставяте точка и запетая между инструкциите дори когато те са отделени със нов ред. Това правило е широко разпорстранено в обществото на разработчици. Неква отбежележим още веднъж -- *че е възможно* да не се поставя точка и запетая в повечето случай. Но е по-безопасно -- най вече при начинаещи -- да се поставя.
 
-## Comments
+## Коментари
 
-As time goes on, programs become more and more complex. It becomes necessary to add *comments* which describe what the code does and why.
+Във времето , програмите стават все по сложни. Става необходимо да се добавят *коментари* които описват какво ни прави кода и защо
 
-Comments can be put into any place of a script. They don't affect its execution because the engine simply ignores them.
+Коментарите могат да бъдат поставени на всяко място в програмата. Те не повлияват на изпълнението, защото машината ги игнорира.
 
-**One-line comments start with two forward slash characters `//`.**
+**Коментар на един ред заповат със две наклонени черти. `//`.**
 
-The rest of the line is a comment. It may occupy a full line of its own or follow a statement.
+Останалата част от реда е коментар. Той може да заема целият ред или да бъде след дадена инструкция. 
 
-Like here:
+Както тук:
 ```js run
-// This comment occupies a line of its own
-alert('Hello');
+// Този коментар заема целият ред.
+alert('Здравей');
 
-alert('World'); // This comment follows the statement
+alert('Свят'); // Този коментар е след инструкция.
 ```
 
-**Multiline comments start with a forward slash and an asterisk <code>/&#42;</code> and end with an asterisk and a forward slash <code>&#42;/</code>.**
+**Многоредовият коментар започва със наклонена черта и звезда <code>/&#42;</code> и завършва със наклонена черта и звезда <code>&#42;/</code>.**
 
-Like this:
+Както тук:
 
 ```js run
-/* An example with two messages.
-This is a multiline comment.
+/* Пример с две съобщения.
+Това е многоредов коментар.
 */
 alert('Hello');
 alert('World');
 ```
 
-The content of comments is ignored, so if we put code inside <code>/&#42; ... &#42;/</code>, it won't execute.
+Съдържанието на коментара се пропуска, и ако имаме код вътре <code>/&#42; ... &#42;/</code>, той няма да се изпълни.
 
-Sometimes it can be handy to temporarily disable a part of code:
+Понякога е полезно да деактивираме временно част от кода ни:
 
 ```js run
-/* Commenting out the code
-alert('Hello');
+/* Коментираме кода
+alert('Здравей');
 */
-alert('World');
+alert('Свят');
 ```
 
-```smart header="Use hotkeys!"
-In most editors, a line of code can be commented out by pressing the `key:Ctrl+/` hotkey for a single-line comment and something like `key:Ctrl+Shift+/` -- for multiline comments (select a piece of code and press the hotkey). For Mac, try `key:Cmd` instead of `key:Ctrl`.
+```smart header="Използвайте клавишни комбинации!"
+В повечето редактори , ред от код може да бъде коментирант с натискането  на  `key:Ctrl+/` клавишна комбинация за един ред коментар и нещо като `key:Ctrl+Shift+/` -- за многоредов коментар (изберете парче от кода и натиснете клавишната комбинация). За Mac, пробвайте `key:Cmd` вместо `key:Ctrl`.
 ```
 
-````warn header="Nested comments are not supported!"
-There may not be `/*...*/` inside another `/*...*/`.
+````warn header="Вложени коментари не се подържат!"
+Не може да има `/*...*/` вътре в друг `/*...*/`.
 
-Such code will die with an error:
+Такъв код ще умре с грешка:
 
 ```js run no-beautify
 /*
-  /* nested comment ?!? */
+  /* вложен коментар ?!? */
 */
-alert( 'World' );
+alert( 'Свят' );
 ```
 ````
 
-Please, don't hesitate to comment your code.
+Моля, не се колебайте да коментирате кода си!
 
-Comments increase the overall code footprint, but that's not a problem at all. There are many tools which minify code before publishing to a production server. They remove comments, so they don't appear in the working scripts. Therefore, comments do not have negative effects on production at all.
+Коментарите увеличават общият размер на кода, но това не е проблем като цяло. Има много инструменти които минимизират кода преди да се публикува на сървър. Те премахват коментари, за да не се появяват в работещи скриптове. Следователно коментарите изобщо нямат отрицателен ефект върху производството.
 
-Later in the tutorial there will be a chapter <info:code-quality> that also explains how to write better comments.
+По късно във този учебник ще има раздел  <info:code-quality> който обеснява как да пишем по-добри коментари.
