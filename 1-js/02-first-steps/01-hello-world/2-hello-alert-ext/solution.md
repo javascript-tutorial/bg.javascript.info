@@ -1,8 +1,8 @@
-The HTML code:
+HTML кодът:
 
 [html src="index.html"]
 
-For the file `alert.js` in the same folder:
+За файла `alert.js`, намиращ се в същата директория:
 
 [js src="alert.js"]
 
