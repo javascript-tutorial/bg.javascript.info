@@ -1,85 +1,84 @@
-# The modern mode, "use strict"
+# Модерният режим, "use strict"
 
-For a long time, JavaScript evolved without compatibility issues. New features were added to the language while old functionality didn't change.
+За дълго време, JavaScript се разви без проблеми със съвместимостта. Нови допълнения бяха добавени към езика докато старите функционалности не се промениха.
 
-That had the benefit of never breaking existing code. But the downside was that any mistake or an imperfect decision made by JavaScript's creators got stuck in the language forever.
+Това имаше предимството да не нарушаваме вече съществуващия код. Лошата страна на това, бе че всяка грешка или несъвършено решение направено от създателите на езика JavaScript, беше забивано в езика завинаги.
 
-This was the case until 2009 when ECMAScript 5 (ES5) appeared. It added new features to the language and modified some of the existing ones. To keep the old code working, most such modifications are off by default. You need to explicitly enable them with a special directive: `"use strict"`.
+Това беше така до 2009 г., когато се появи ECMAScript 5 (ES5). То добави нови функции към езика и модифицира някои от съществуващите. За да оставят стария код да работи, повечето такива модификации са изключени по подразбиране. Изрично трябва да ги активирате със специална директива: `"use strict"` в кода си.
 
 ## "use strict"
 
-The directive looks like a string: `"use strict"` or `'use strict'`. When it is located at the top of a script, the whole script works the "modern" way.
+Директивата прилича на обикновено изречение: `"use strict"` или `'use strict'`. Когато то е поставено най-отноре, кодът ни започва да работи по "модерния" начин.
 
-For example:
+Например:
 
 ```js
 "use strict";
 
-// this code works the modern way
+// Този код работи по модерния начин
 ...
 ```
 
-We will learn functions (a way to group commands) soon. Looking ahead, let's note that `"use strict"` can be put at the beginning of the function body instead of the whole script. Doing that enables strict mode in that function only. But usually, people use it for the whole script.
-
+Скоро ще научим функции (начин за групиране на команди). Нека да отбележим, че можем да поставим `"use strict"` в началото на тялото на функцията вместо в самия код. Когато направим така, разрешаваме строгия режим единствено в тази функция. Обикновено, повечето хора го използват за целия кода.
 
 ````warn header="Ensure that \"use strict\" is at the top"
-Please make sure that `"use strict"` is at the top of your scripts, otherwise strict mode may not be enabled.
+Моля бъдете сигурни, че `"use strict"` е най-отгоре на вашия код. В противен случай строгия режим може да не се активира.
 
-Strict mode isn't enabled here:
+Строгият режим не е активиран тук:
 
 ```js no-strict
-alert("some code");
+alert("някакъв код");
 // "use strict" below is ignored--it must be at the top
 
 "use strict";
 
-// strict mode is not activated
+// строгия режим не е активиран
 ```
+Само коментари могат да стоят над директивата `"use strict"`.
 
-Only comments may appear above `"use strict"`.
 ````
 
-```warn header="There's no way to cancel `use strict`"
-There is no directive like `"no use strict"` that reverts the engine to old behavior.
+```warn header="Няма начин да отменяте директивата \"use strict\""
+Няма директива като `"no use strict"`, което да обръща нещата обратно по старо му.
 
-Once we enter strict mode, there's no return.
+След като активираме строгия режим няма връщане назад.
 ```
 
-## Browser console
+## Конзолата на браузъра
 
-For the future, when you use a browser console to test features, please note that it doesn't `use strict` by default.
+За бъдеще, когато използваме конзолата на браузъра, за да изпробваме новости, забележете че то използва строгия резим `use strict` по подразбиране.
 
-Sometimes, when `use strict` makes a difference, you'll get incorrect results.
+Понякога, когато използваме строгия режим `usе strict`, нещата могат да се за различнават от обичайното. Можете да получите некоректни резултати.
 
-You can try to press `key:Shift+Enter` to input multiple lines, and put `use strict` on top, like this:
+Можете да пробвате като натиснете клавишните `key:Shift+Enter`, за да добавите нов ред към същестуващата линия и така да добавите допълнителен код към съществуващия и по този начин да използвате `use strict` най-отгоре в кода. Ето така:
 
 ```js
-'use strict'; <Shift+Enter for a newline>
-//  ...your code
-<Enter to run>
+'use strict'; <Shift+Enter за нов ред>
+//  ...твоят код
+<Enter за да изпълните кода>
 ```
 
-It works in most browsers, namely Firefox and Chrome.
+Това работи в повечето браузъри, като Firefox и Chrome.
 
-If it doesn't, the most reliable way to ensure `use strict` would be to input the code into console like this:
+Ако това не проработи, няй-надежния вариант да сме сигурни че използваме `use strict` би било да въведете кода в конзолата така:
 
 ```js
 (function() {
   'use strict';
 
-  // ...your code...
+  // ...твоят код...
 })()
 ```
 
-## Always "use strict"
+## Винаги използвайте "use strict"
 
-We have yet to cover the differences between strict mode and the "default" mode.
+Тепърва ще покриваме разликите между строгия и режима "по подразбиране".
 
-In the next chapters, as we learn language features, we'll note the differences between the strict and default modes. Luckily, there aren't many and they actually make our lives better.
+В следващите глави, докато научаваме все повече за езика, ще отбележим различията между строгия режим и режима по подразбиране. За щастие те не са много и праят живота ни по-добър.
 
-For now, it's enough to know about it in general:
+За сега е достатъчно да знаем основното за него:
 
-1. The `"use strict"` directive switches the engine to the "modern" mode, changing the behavior of some built-in features. We'll see the details later in the tutorial.
-2. Strict mode is enabled by placing `"use strict"` at the top of a script or function. Several language features, like "classes" and "modules", enable strict mode automatically.
-3. Strict mode is supported by all modern browsers.
-4. We recommended always starting scripts with `"use strict"`. All examples in this tutorial assume strict mode unless (very rarely) specified otherwise.
+1. Директивата `"use strict"` превключва на "модерния" режим, променя поведението на някои вградени функции. Ще разгледаме детайлите по-късно в ръководството.
+2. Строгия режим се активира като сложим `"use strict"` най-отгоре на кода ни ли дадена функция. Различните особености на езика, като "класове" и "модули", активират строгия режим автоматично.
+3. Строгия режим се поддържа от всички модерни браузъри.
+4. Препоръчваме ви винаги да започвате кода си с `"use strict"`. Всички примери в това ръководство използват строг режим, освен ако (много рядко) е посочено друго.
