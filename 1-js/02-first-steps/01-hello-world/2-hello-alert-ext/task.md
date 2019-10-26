@@ -1,9 +1,9 @@
-importance: 5
+важност: 5
 
 ---
 
-# Show an alert with an external script
+# Покажи нотификация чрез външен скрипт
 
-Take the solution of the previous task <info:task/hello-alert>. Modify it by extracting the script content into an external file `alert.js`, residing in the same folder.
+Вземете решението от предходната задача <info:task/hello-alert>. Модифицирайте го, като извлечете скрипта от съдържанието и го поставите в отделен, външен файл `alert.js`, намиращ се в същата директория.
 
-Open the page, ensure that the alert works.
+Отворете страницата и се уверете че работи.
