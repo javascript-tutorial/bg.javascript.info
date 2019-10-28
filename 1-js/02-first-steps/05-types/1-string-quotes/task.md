@@ -1,10 +1,10 @@
-importance: 5
+важност: 5
 
 ---
 
-# String quotes
+# Стрингови цитати
 
-What is the output of the script?
+Какъв е резултата от скрипта?
 
 ```js
 let name = "Ilya";

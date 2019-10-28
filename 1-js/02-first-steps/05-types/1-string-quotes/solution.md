@@ -1,15 +1,15 @@
 
-Backticks embed the expression inside `${...}` into the string.
+Вгради израза посредством примове и `${...}` в стринга.
 
 ```js run
 let name = "Ilya";
 
-// the expression is a number 1
+// изразът е числото 1
 alert( `hello ${1}` ); // hello 1
 
-// the expression is a string "name"
+// изразът е стринг "name"
 alert( `hello ${"name"}` ); // hello name
 
-// the expression is a variable, embed it
+// изразът е променлива, вгради я
 alert( `hello ${name}` ); // hello Ilya
 ```
