@@ -1,7 +1,7 @@
-In the code below, each line corresponds to the item in the task list.
+В кода по-долу всеки ред съответства на елемента в списъка със задачи.
 
 ```js run
-let admin, name; // can declare two variables at once
+let admin, name; // може да декларираме две променливи наведнъж
 
 name = "John";
 
@@ -9,4 +9,3 @@ admin = name;
 
 alert( admin ); // "John"
 ```
-

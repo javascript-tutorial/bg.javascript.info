@@ -1,21 +1,21 @@
-## The variable for our planet
+## Променливата за "ourPlanet"
 
-That's simple:
+Просто е:
 
 ```js
 let ourPlanetName = "Earth";
 ```
 
-Note, we could use a shorter name `planet`, but it might be not obvious what planet it refers to. It's nice to be more verbose. At least until the variable isNotTooLong.
+Забележете, бихме могли да използваме по-кратко име `planet`, но може да не е очевидно за коя планета се отнася. Хубаво е да си по-многословни. Поне докато променливата еПрекаленаДълга.
 
-## The name of the current visitor
+## Името на настоящия посетител
 
 ```js
 let currentUserName = "John";
 ```
 
-Again, we could shorten that to `userName` if we know for sure that the user is current.
+Отново можем да го съкратим до `userName`, ако знаем със сигурност, че потребителят е текущия.
 
-Modern editors and autocomplete make long variable names easy to write. Don't save on them. A name with 3 words in it is fine.
+Съвременните редактори и автодовършването правят дългите имена на променливите лесни за писане. Не пестете от тях. Име с 3 думи в него е добре.
 
-And if your editor does not have proper autocompletion, get [a new one](/code-editors).
+И ако вашият редактор няма правилно автоматично довършване, вземете [нов редактор](/code-editors).

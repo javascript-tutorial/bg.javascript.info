@@ -1,10 +1,10 @@
-importance: 2
+Важност: 2
 
 ---
 
-# Working with variables
+# Работа с променливи
 
-1. Declare two variables: `admin` and `name`.
-2. Assign the value `"John"` to `name`.
-3. Copy the value from `name` to `admin`.
-4. Show the value of `admin` using `alert` (must output "John").
+1. Декларирайте две променливи: `admin` и `name`.
+2. Присвойте на променливата `"John"` стойността `name`.
+3. Копирайте стойността от `name` в `admin`.
+4. Покажете стойността на `admin` използвайки функцията `alert` (трябва да ви покаже "John").

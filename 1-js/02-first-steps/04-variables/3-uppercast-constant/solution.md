@@ -1,5 +1,5 @@
-We generally use upper case for constants that are "hard-coded". Or, in other words, when the value is known prior to execution and directly written into the code.
+Обикновено използваме главни букви за константи, които са "ръчно кодирани". Или с други думи, когато стойността е известна преди изпълнението и директно се записва в кода.
 
-In this code, `birthday` is exactly like that. So we could use the upper case for it.
+В този код, `birthday` е точно такъв. Така че можем да използваме горния регистър за него.
 
-In contrast, `age` is evaluated in run-time. Today we have one age, a year after we'll have another one. It is constant in a sense that it does not change through the code execution. But it is a bit "less of a constant" than `birthday`: it is calculated, so we should keep the lower case for it.
+За разлика от тях, `age` се изчислява по време на изпълнение. Today we have one age, a year after we'll have another one. Днес имаме една възраст, година след това ще имаме още една. Той е постоянен в известен смисъл, че не се променя чрез изпълнението на кода. Но това е малко "по-малка от константа", отколкото `birthday`: то се изчислява, така че трябва да запазим малките букви за него.

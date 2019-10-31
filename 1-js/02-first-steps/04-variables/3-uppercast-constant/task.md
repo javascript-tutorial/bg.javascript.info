@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# Uppercase const?
+# Константи с големи букви?
 
-Examine the following code:
+Разгледайте следния код:
 
 ```js
 const birthday = '18.04.1982';
@@ -12,13 +12,13 @@ const birthday = '18.04.1982';
 const age = someCode(birthday);
 ```
 
-Here we have a constant `birthday` date and the `age` is calculated from `birthday` with the help of some code (it is not provided for shortness, and because details don't matter here).
+Тук имаме константа за дата на раждане `birthday` и за годините `age` е изчислен от `birthday` с помощ от някакъв код (то не е предвиден за краткост, защото тук подробностите нямат значение).
 
-Would it be right to use upper case for `birthday`? For `age`? Or even for both?
+Ще бъде ли правилно да се използва главни букви за `birthday`? За `age`? Или даже и за двете?
 
 ```js
-const BIRTHDAY = '18.04.1982'; // make uppercase?
+const BIRTHDAY = '18.04.1982'; // защо е с главни букви?
 
-const AGE = someCode(BIRTHDAY); // make uppercase?
+const AGE = someCode(BIRTHDAY); // защо е с главни букви?
 ```
 

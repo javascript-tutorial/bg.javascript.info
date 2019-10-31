@@ -1,8 +1,8 @@
-importance: 3
+Важност: 3
 
 ---
 
-# Giving the right name
+# Даване на правилното име
 
-1. Create a variable with the name of our planet. How would you name such a variable?
-2. Create a variable to store the name of a current visitor to a website. How would you name that variable?
+1. Създайте променлива с името на нашата планета. Как бихте нарекли такава променлива?
+2. Създайте променлива, за да запазите името на текущ посетител на уебсайт. Как бихте нарекли тази променлива?
