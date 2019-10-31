@@ -1,30 +1,30 @@
-# Comments
+# Коментари
 
-As we know from the chapter <info:structure>, comments can be single-line: starting with `//` and multiline: `/* ... */`.
+Както знаем от темата <info:structure>, коментарите могат да бъдат едноредови започващи с `//` или многоредови : `/* ... */`.
 
-We normally use them to describe how and why the code works.
+Ние ги ползваме да обясним как и защо работи кодът.
 
-At first sight, commenting might be obvious, but novices in programming often use them wrongly.
+На пръв поглед, коментарите могат да бъдат очевидни, но начинаещите в програмирането често ги използват грешно.
 
-## Bad comments
+## Лоши коментари
 
-Novices tend to use comments to explain "what is going on in the code". Like this:
+Начинаещите са склонни да използват коментарите за да обяснят "какво става в кода". Като този:
 
 ```js
-// This code will do this thing (...) and that thing (...)
-// ...and who knows what else...
-very;
-complex;
-code;
+// Този код ще прави тези неща (...) и тези неща (...)
+// ...и кой ли знае какво още...
+много;
+сложен;
+код;
 ```
 
-But in good code, the amount of such "explanatory" comments should be minimal. Seriously, the code should be easy to understand without them.
+Но в качественият код, количеството от тези "обясняващи" коментари трябва да бъде минимален. Кодът трябва да бъде лесен за разбиране.
 
-There's a great rule about that: "if the code is so unclear that it requires a comment, then maybe it should be rewritten instead".
+Има страхотно правило за това: "Ако кодът е неясен и изисква коментар, тогава може би трябва да се пренапише".
 
-### Recipe: factor out functions
+### Рецепта: Вкарвайте кода в функции
 
-Sometimes it's beneficial to replace a code piece with a function, like here:
+Понякога е полезно да заменим дадено парче код със функция, ето така:
 
 ```js
 function showPrimes(n) {
@@ -32,7 +32,7 @@ function showPrimes(n) {
   for (let i = 2; i < n; i++) {
 
 *!*
-    // check if i is a prime number
+    // проверяваме  дали i е просто число
     for (let j = 2; j < i; j++) {
       if (i % j == 0) continue nextPrime;
     }
@@ -43,7 +43,7 @@ function showPrimes(n) {
 }
 ```
 
-The better variant, with a factored out function `isPrime`:
+По - добрият вариант е като използваме отделна функция за `isPrime`:
 
 
 ```js
@@ -65,21 +65,21 @@ function isPrime(n) {
 }
 ```
 
-Now we can understand the code easily. The function itself becomes the comment. Such code is called *self-descriptive*.
+Сега ние можем да разберем кодът лесно. Самата  функция се превръща в коментар. Такъв код се нарича *самодокументиращ се*
 
-### Recipe: create functions
+### Рецепта: създавайте функции
 
-And if we have a long "code sheet" like this:
+Ако имаме толкова дълъг код:
 
 ```js
-// here we add whiskey
+// тук добавяме уиски
 for(let i = 0; i < 10; i++) {
   let drop = getWhiskey();
   smell(drop);
   add(drop, glass);
 }
 
-// here we add juice
+// тук добавяме сок
 for(let t = 0; t < 3; t++) {
   let tomato = getTomato();
   examine(tomato);
@@ -90,7 +90,7 @@ for(let t = 0; t < 3; t++) {
 // ...
 ```
 
-Then it might be a better variant to refactor it into functions like:
+Тогава ще бъде по-добре да рефакторирате кода във функции по този начин:
 
 ```js
 addWhiskey(glass);
@@ -111,70 +111,70 @@ function addJuice(container) {
 }
 ```
 
-Once again, functions themselves tell what's going on. There's nothing to comment. And also the code structure is better when split. It's clear what every function does, what it takes and what it returns.
+Тук също не са необходими коментари, фукнциите сами по себе си казват какво правят. Няма какво да се коментира.  Също така структурата на кода е по - добре разделена. Ясно е какво прави всяка една функция, какъв вход приема и какво връща.
 
-In reality, we can't totally avoid "explanatory" comments. There are complex algorithms. And there are smart "tweaks" for purposes of optimization. But generally we should try to keep the code simple and self-descriptive.
+В действителност не можем напълно да избегнем "описателните" коментари. Съществуват сложни алгоритми и трикове за оптимизация, където те са нужни. Но като цяло трябва да се опитаме да запазим кода прост и самодокументиращ се.
 
-## Good comments
+## Добри коментари
 
-So, explanatory comments are usually bad. Which comments are good?
+Така щом, описателните коментари обикновено са лоши. Кои коментари са добри?
 
-Describe the architecture
-: Provide a high-level overview of components, how they interact, what's the control flow in various situations... In short -- the bird's eye view of the code. There's a special language [UML](http://wikipedia.org/wiki/Unified_Modeling_Language) to build high-level architecture diagrams explaining the code. Definitely worth studying.
+Описващи архитектурата
+: Доставяте високо ниво на излгед на компонентите , как те си взаимодеистват,  какъв е контролният поток в различни ситуации. На кратко - гледка от птичи поглед към кода. Има специялен език [UML](https://bg.wikipedia.org/wiki/UML) за създаване на диаграми обясняващи архитектурата на кода. Определено си струва да се научат.
 
-Document function parameters and usage
-: There's a special syntax [JSDoc](http://en.wikipedia.org/wiki/JSDoc) to document a function: usage, parameters, returned value.
+Документирането на параметри на функция и тяхното използване
+: Има специялен синтаксис [JSDoc](http://en.wikipedia.org/wiki/JSDoc) който документира функциите: за какво се използват, параметри, и стойност, която се връща.
 
-    For instance:
+    Например:
     ```js
     /**
-     * Returns x raised to the n-th power.
+     * Връща x повдигнато на n-та степен.
      *
-     * @param {number} x The number to raise.
-     * @param {number} n The power, must be a natural number.
-     * @return {number} x raised to the n-th power.
+     * @param {number} x числото което бива повдигнато.
+     * @param {number} n Степента, трябва да е положително число.
+     * @return {number} х повдинато на n-та степен.
      */
     function pow(x, n) {
       ...
     }
     ```
 
-    Such comments allow us to understand the purpose of the function and use it the right way without looking in its code.
+    Такъв коментар ни позволява да разберем значението на фунцкията и да я използваме във правилният начин без да гледаме кода.
 
-    By the way, many editors like [WebStorm](https://www.jetbrains.com/webstorm/) can understand them as well and use them to provide autocomplete and some automatic code-checking.
+   Между другото, много редактори, като [WebStorm](https://www.jetbrains.com/webstorm/), разпознават функциите много добре, за да извършват въвеждане на данни и различни автоматични проверки на кода.
 
-    Also, there are tools like [JSDoc 3](https://github.com/jsdoc3/jsdoc) that can generate HTML-documentation from the comments. You can read more information about JSDoc at <http://usejsdoc.org/>.
+    Също така има инструменти като  [JSDoc 3](https://github.com/jsdoc3/jsdoc) които генерират HTML - документация от коментари. Може да прочетете повече информация на <http://usejsdoc.org/>.
 
-Why is the task solved this way?
-: What's written is important. But what's *not* written may be even more important to understand what's going on. Why is the task solved exactly this way? The code gives no answer.
+Защо задачата е решена по този начин?
+Това което е написано, е важно. Но това, което *не* е написано може да бъде още по-важно за да разберете какво се случва. Защо задачата е решена по този начин? Кодът не дава този отговор.
 
-    If there are many ways to solve the task, why this one? Especially when it's not the most obvious one.
+    Ако има много начини за решение на тази задача, защо точно този? Особено като този не е от най-очевидните.
 
-    Without such comments the following situation is possible:
-    1. You (or your colleague) open the code written some time ago, and see that it's "suboptimal".
-    2. You think: "How stupid I was then, and how much smarter I'm now", and rewrite using the "more obvious and correct" variant.
-    3. ...The urge to rewrite was good. But in the process you see that the "more obvious" solution is actually lacking. You even dimly remember why, because you already tried it long ago. You revert to the correct variant, but the time was wasted.
+    Без такъв коментар следната ситуация е възможна:
+    1. Вие (или колегата ви) отваряте код, написан преди време, и виждате, какво трябва да се подобри.
+    2. Вие си мислите "Колко глупав съм бил тогава, и колко умен съм сега" , и го пренаписвате в "по-правилният и оптимален варант".
+    3. ...Имате желание за пренаписване на кода. Но в процеса виждате че всъщност липсва "по - очевидно" решение. Вие смътно си спомняте защо, защото сте го пробвали отдвана. Връщате се в правилният вариянт, но времето ви е загубено.
 
-    Comments that explain the solution are very important. They help to continue development the right way.
+    Коментарите които обесняват решението са много важни. Те помагат да се развива процеса на разработвнае по правилният начин.
 
-Any subtle features of the code? Where they are used?
-: If the code has anything subtle and counter-intuitive, it's definitely worth commenting.
+Има ли сложни тънкости кода? Къде се използват?
+Ако кода има нещо сложно и неочевидно , тогава определено си струва да го коментираме. 
 
-## Summary
+## Обобщение
 
-An important sign of a good developer is comments: their presence and even their absence.
+Важен знак, че един разработчик е добър са коментарите: тяхната прецизност и дори отсъствието им.
 
-Good comments allow us to maintain the code well, come back to it after a delay and use it more effectively.
+Добрите коментари ни позволяват да поддържаме добре кода, и като се върнем към него след време да го използваме ефективно.
 
-**Comment this:**
+**Коментирайте това:**
 
-- Overall architecture, high-level view.
-- Function usage.
-- Important solutions, especially when not immediately obvious.
+- Цялостна архитектура, високо ниво на изглед.
+- Използването на дадена фунцкия.
+- Важни решения, особено когато не са веднага очевидни.
 
-**Avoid comments:**
+**Избягвайте коменатри:**
 
-- That tell "how code works" and "what it does".
-- Put them in only if it's impossible to make the code so simple and self-descriptive that it doesn't require them.
+- Такива които ви казват "как работи кода" и "какво прави".
+- Ползвайте ги само тогава ако е невъзможно да направите кода лесен за четене и самоописателен, че да няма нужда от тях .
 
-Comments are also used for auto-documenting tools like JSDoc3: they read them and generate HTML-docs (or docs in another format).
+Коментарите се ползват от инструменти за автоматично документиране като JSDoc3: те ги четът и генерират HTML-docs ( или docs във друг формат).
