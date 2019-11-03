@@ -1,109 +1,108 @@
-# Interaction: alert, prompt, confirm
+# Взаимодействие: предупреждение, напомняне, потвърждаване
 
-In this part of the tutorial we cover JavaScript language "as is", without environment-specific tweaks.
+В тази част на ръководството ще обхващаме езика JavaScript "такъв, какъвто е", без специфични настройки специфични за среда.
 
-But we'll still be using the browser as our demo environment, so we should know at least a few of its user-interface functions. In this chapter, we'll get familiar with the browser functions `alert`, `prompt` and `confirm`.
+Но все пак ще използваме браузъра като нашата демо среда, така че трябва да знаем поне няколко от функциите му за потребителски интерфейс. В тази глава ще се запознаем с функциите на браузъра за `alert` (предупреждение), `prompt` (напомняне) и `confirm` (потвърждаване).
 
 ## alert
 
-Syntax:
+Синтаксис:
 
 ```js
 alert(message);
 ```
 
-This shows a message and pauses script execution until the user presses "OK".
+Това показва съобщение и спира изпълнението на скрипта, като потребителят натисне "OK".
 
-For example:
+Например:
 
 ```js run
 alert("Hello");
 ```
 
-The mini-window with the message is called a *modal window*. The word "modal" means that the visitor can't interact with the rest of the page, press other buttons, etc. until they have dealt with the window. In this case -- until they press "OK".
+Мини прозорецът със съобщението се нарича a "модален прозорец". Думата "модален" означава, че посетителят не може да взаимодейства с останалата част от страницата, да натисне други бутони и т.н. докато не се справят с прозореца. В такъв случай -- докато натиснат "OK".
 
 ## prompt
 
-The function `prompt` accepts two arguments:
+Функцията `prompt` приема два аргумента:
 
 ```js no-beautify
 result = prompt(title, [default]);
 ```
 
-It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
+То показва модален прозорец с текстово съобщение, поле за въвеждане за посетителя и бутони ОК / Отказ.
 
 `title`
-: The text to show the visitor.
+: Текстът за показване на посетителя.
 
 `default`
-: An optional second parameter, the initial value for the input field.
+: По желание втори параметър, началната стойност за полето за въвеждане.
 
-The visitor may type something in the prompt input field and press OK. Or they can cancel the input by pressing Cancel or hitting the `key:Esc` key.
+Посетителят може да напише нещо в полето за бързо въвеждане и да натисне ОК. Или могат да отменят въвеждането чрез натискане на Отказ или натискане на клавиша `key:Esc`.
 
-The call to `prompt` returns the text from the input field or `null` if the input was canceled.
+Извикването на `prompt` връща текста от полето за въвеждане или `null`, ако въвеждането е било отменено.
 
-For instance:
+Например:
 
 ```js run
-let age = prompt('How old are you?', 100);
+let age = prompt('На колко години сте?', 100);
 
-alert(`You are ${age} years old!`); // You are 100 years old!
+alert(`Ти си  на ${age} години!`); // Ти си на 100 години!
 ```
 
 ````warn header="In IE: always supply a `default`"
-The second parameter is optional, but if we don't supply it, Internet Explorer will insert the text `"undefined"` into the prompt.
+Вторият параметър е незадължителен, но ако не го предоставим, Internet Explorer ще вмъкне текста `"undefined"` в подканата.
 
-Run this code in Internet Explorer to see:
-
-```js run
-let test = prompt("Test");
-```
-
-So, for prompts to look good in IE, we recommend always providing the second argument:
+Пуснете този код в Internet Explorer, за да видите:
 
 ```js run
-let test = prompt("Test", ''); // <-- for IE
+let test = prompt("Тест");
 ```
-````
 
-## confirm
+Така че, за да изглеждат по-добре подканите в IE, препоръчваме винаги да предоставите втория аргумент:
 
-The syntax:
+```js run
+let test = prompt("Тест", ''); // <-- за IE
+```
+
+## потвърдете
+
+Синтаксиса:
 
 ```js
 result = confirm(question);
 ```
 
-The function `confirm` shows a modal window with a `question` and two buttons: OK and Cancel.
+Функцията `confirm` показва модален прозорец с `въпрос` и две бутони: OK и Cancel.
 
-The result is `true` if OK is pressed and `false` otherwise.
+Резултатът е `true` ако се натисне OK и `false` при Cansel.
 
-For example:
+Например:
 
 ```js run
-let isBoss = confirm("Are you the boss?");
+let isBoss = confirm("Ти ли си шефа?");
 
-alert( isBoss ); // true if OK is pressed
+alert( isBoss ); // true ако ОК се натисне
 ```
 
-## Summary
+## Обобщение
 
-We covered 3 browser-specific functions to interact with visitors:
+Разкрихме 3 специфични за браузъра функции за взаимодействие с посетителите:
 
 `alert`
-: shows a message.
+: показва съобщение.
 
 `prompt`
-: shows a message asking the user to input text. It returns the text or, if Cancel button or `key:Esc` is clicked, `null`.
+: показва съобщение като пита потребителя за някакъв текст. То връща текста, а при натискане на Cansel или клавиша `key:Esc` - `null`.
 
 `confirm`
-: shows a message and waits for the user to press "OK" or "Cancel". It returns `true` for OK and `false` for Cancel/`key:Esc`.
+: показва съобщение и чака потребителя да натисне ОК или Cansel. Връща `true` за ОК и `false` за Cancel/`key:Esc`.
 
-All these methods are modal: they pause script execution and don't allow the visitor to interact with the rest of the page until the window has been dismissed.
+Всички тези методи са модални: те поставят на пауза изпълнение на скриптове и не позволяват на посетителя да взаимодейства с останалата част от страницата, докато прозорецът не бъде отхвърлен.
 
-There are two limitations shared by all the methods above:
+Има две ограничения, споделени от всички методи по-горе:
 
-1. The exact location of the modal window is determined by the browser. Usually, it's in the center.
-2. The exact look of the window also depends on the browser. We can't modify it.
+1. Точното местоположение на модалния прозорец се определя от браузъра. Обикновено е в центъра.
+2. Точният вид на прозореца също зависи от браузъра. Не можем да го модифицираме.
 
-That is the price for simplicity. There are other ways to show nicer windows and richer interaction with the visitor, but if "bells and whistles" do not matter much, these methods work just fine.
+Това е цената за простотата. Има и други начини за показване на по-хубави прозорци и по-богато взаимодействие с посетителя, но ако са  "звънци и свирки" нямат голямо значение, тези методи работят просто добре.
