@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Type conversions
+# Преобразуване на типове
 
-What are results of these expressions?
+Какви са резултатите от следните изрази?
 
 ```js no-beautify
 "" + 1 + 0
@@ -24,4 +24,4 @@ undefined + 1
 " \t \n" - 2
 ```
 
-Think well, write down and then compare with the answer.
+Помислете добре, запишете и след това ги сравнете с отговорите.

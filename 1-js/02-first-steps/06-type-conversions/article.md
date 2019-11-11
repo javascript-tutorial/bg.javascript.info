@@ -1,159 +1,160 @@
-# Type Conversions
+# Преобразуване на типове
 
-Most of the time, operators and functions automatically convert the values given to them to the right type. 
+През повечето време, операторите и функциите автоматично преобразуват подадените им стойности в правилният тип. 
 
-For example, `alert` automatically converts any value to a string to show it. Mathematical operations convert values to numbers.
+Например, `alert` автоматично преобразува всяка подадена стойност в символен низ(string) и я показва. Математическите операции преобразува стойностите в числа(number).
 
-There are also cases when we need to explicitly convert a value to the expected type.
+Има и случаи, когато трябва изрично да преобразуваме стойност в очаквания тип.
 
-```smart header="Not talking about objects yet"
-In this chapter, we won't cover objects. Instead, we'll study primitives first. Later, after we learn about objects, we'll see how object conversion works in the chapter <info:object-toprimitive>.
+```smart header="Все още не говорим за обекти"
+В тази глава няма да покриваме обекти. Вместо това първо ще изучим примитивните типове. По-късно, след като научим за обектите, ще видим как работи преобразуването на обекти в главата <info:object-toprimitive>.
 ```
 
-## String Conversion
+## Преобразуване в символен низ(string)
 
-String conversion happens when we need the string form of a value.
+Преобразуването в символен низ се случва, когато имаме нужда от текстовата форма на стойност.
 
-For example, `alert(value)` does it to show the value.
+Например, `alert(стойност)` го прави за да покаже стойността.
 
-We can also call the `String(value)` function to convert a value to a string:
+Също така можем да извикаме `String(стойност)` функцията за да преобразуваме стойността в символен низ:
 
 ```js run
 let value = true;
-alert(typeof value); // boolean
+alert(typeof value); // булев тип
 
 *!*
-value = String(value); // now value is a string "true"
-alert(typeof value); // string
+value = String(value); // сега променливата е от тип символен низ
+alert(typeof value); // символен низ
 */!*
 ```
 
-String conversion is mostly obvious. A `false` becomes `"false"`, `null` becomes `"null"`, etc.
+Преобразуването в символен низ е доста буквално. Стойността `false` става символен низ `"false"`, `null` става символен низ `"null"`, и т.н.
 
-## Numeric Conversion
+## Преубразуване в число(number)
 
-Numeric conversion happens in mathematical functions and expressions automatically.
+Преобразуването в число се случва автоматично в математически функции и изрази.
 
-For example, when division `/` is applied to non-numbers:
+Например, когато делене `/` се използва с нечислов тип:
 
 ```js run
-alert( "6" / "2" ); // 3, strings are converted to numbers
+alert( "6" / "2" ); // 3, символите се преобразуват в числа
 ```
 
-We can use the `Number(value)` function to explicitly convert a `value` to a number:
+Също така можем да извикаме  `Number(стойност)` функцията за да преобразуваме изрично стойността в число:
 
 ```js run
 let str = "123";
-alert(typeof str); // string
+alert(typeof str); // символен низ
 
-let num = Number(str); // becomes a number 123
+let num = Number(str); // преобразуване в числото 123
 
-alert(typeof num); // number
+alert(typeof num); // число
 ```
 
-Explicit conversion is usually required when we read a value from a string-based source like a text form but expect a number to be entered.
+Изричното преобразуване обикновено се изисква, когато четем стойност от източник, базиран на символен низ, като текстова форма, но очакваме да бъде въведено число.
 
-If the string is not a valid number, the result of such a conversion is `NaN`. For instance:
+Ако символният низ не е валидно число, резултатът от такова преобразуване е `NaN`. Например:
 
 ```js run
-let age = Number("an arbitrary string instead of a number");
+let age = Number("произволен символен низ вместо число");
 
-alert(age); // NaN, conversion failed
+alert(age); // NaN, неуспешно преобразуване
 ```
 
-Numeric conversion rules:
+Правила за преобразуване в число:
 
-| Value |  Becomes... |
+| Стойност |  Преобразува се в... |
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
-|<code>true&nbsp;and&nbsp;false</code> | `1` and `0` |
-| `string` | Whitespaces from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
+|<code>true&nbsp;и&nbsp;false</code> | `1` и `0` |
+| `string` | Празните интервали от началото и края се премахват. Ако оставащият символен низ е празен, резултатът е `0`. В противен случай числото се "чете" от символния низ. При грешка връща `NaN`. |
 
-Examples:
+Примери:
 
 ```js run
 alert( Number("   123   ") ); // 123
-alert( Number("123z") );      // NaN (error reading a number at "z")
+alert( Number("123z") );      // NaN (грешка при четене на номер в "z")
 alert( Number(true) );        // 1
 alert( Number(false) );       // 0
 ```
 
-Please note that `null` and `undefined` behave differently here: `null` becomes zero while `undefined` becomes `NaN`.
+Моля, имайте предвид, че `null` и `undefined` се държат различно тук: `null` се преобразува в 0, докато `undefined` се преобразува в `NaN`.
 
-````smart header="Addition '+' concatenates strings"
-Almost all mathematical operations convert values to numbers. A notable exception is addition `+`. If one of the added values is a string, the other one is also converted to a string.
+````smart header="Събирането '+' свързва (присъединява) символни низове"
+Почти всички математически операции преобразуват стойностите в числа. Изключение е събирането `+`. Ако една от добавените стойности е символен низ, другата също се преобразува в символен низ.
 
-Then, it concatenates (joins) them:
+След това тя ги свързва (присъединява):
 
 ```js run
-alert( 1 + '2' ); // '12' (string to the right)
-alert( '1' + 2 ); // '12' (string to the left)
+alert( 1 + '2' ); // '12' (символен низ отдясно)
+alert( '1' + 2 ); // '12' (символен низ отляво)
 ```
 
-This only happens when at least one of the arguments is a string. Otherwise, values are converted to numbers.
+Това се случва само когато поне един от аргументите е символен низ. В противен случай стойностите се преобразуват в числа.
 ````
 
-## Boolean Conversion
+## Преобразуване в булев тип(boolean)
 
-Boolean conversion is the simplest one.
+Конвертирането в булев тип е най-лесното.
 
-It happens in logical operations (later we'll meet condition tests and other similar things) but can also be performed explicitly with a call to `Boolean(value)`.
+ТО се случва в логически операции (по-късно ще разгледаме проврки на условия и други подобни неща),но може да се изпълни и изрично с повикване на `Boolean(стойност)`.
 
-The conversion rule:
+Правила за преобразуване:
 
-- Values that are intuitively "empty", like `0`, an empty string, `null`, `undefined`, and `NaN`, become `false`.
-- Other values become `true`.
+- Стойности, които са интуитивно "празни", като `0`, празен символен низ, `null`, `undefined`, и `NaN`, се преобразуват във `false`.
+- Другите стойности се преобразуват в `true`.
 
-For instance:
+Например:
 
 ```js run
 alert( Boolean(1) ); // true
 alert( Boolean(0) ); // false
 
-alert( Boolean("hello") ); // true
+alert( Boolean("Здравей") ); // true
 alert( Boolean("") ); // false
 ```
 
-````warn header="Please note: the string with zero `\"0\"` is `true`"
-Some languages (namely PHP) treat `"0"` as `false`. But in JavaScript, a non-empty string is always `true`.
+````warn header="Моля, обърнете внимание: символен низ съдържащ нула `\"0\"` е `true`"
+Накои езици (а именно PHP) преобразуват `"0"` в `false`. Но в JavaScript, не празен символен низ е винаги `true`.
 
 ```js run
 alert( Boolean("0") ); // true
-alert( Boolean(" ") ); // spaces, also true (any non-empty string is true)
+alert( Boolean(" ") ); // празнен интервал, съще true (не празен символен низ е true)
 ```
 ````
 
-## Summary
+## Обобщение
 
-The three most widely used type conversions are to string, to number, and to boolean.
+Трите най-широко използвани преобразувания на типове са в символен низ, в число и булев тип.
 
-**`String Conversion`** -- Occurs when we output something. Can be performed with `String(value)`. The conversion to string is usually obvious for primitive values.
+**`Преобразуване в символен низ`** -- Възниква, когато изкаме да покажем нещо. Може да се изпълни с `String(стойност)`. Преобразуването в символен низ обикновено е буквално за примитивните стойности.
 
-**`Numeric Conversion`** -- Occurs in math operations. Can be performed with `Number(value)`.
+**`Преобразуване в число`** -- Възниква в математически операции. Може да се изпълни с 
+`Number(стойност)`.
 
-The conversion follows the rules:
+Преобразуването в число следва следните правилата:
 
-| Value |  Becomes... |
+| Стойност |  Преобразува се в... |
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;/&nbsp;false</code> | `1 / 0` |
-| `string` | The string is read "as is", whitespaces from both sides are ignored. An empty string becomes `0`. An error gives `NaN`. |
+| `string` | Празните интервали от началото и края се премахват. Ако оставащият символен низ е празен, резултатът е 0. В противен случай числото се “чете” от символния низ. При грешка връща NaN. |
 
-**`Boolean Conversion`** -- Occurs in logical operations. Can be performed with `Boolean(value)`.
+**`Преобразуване в булев тип`** -- Възниква в логически операции. Може да се изпълни с `Boolean(стойност)`.
 
-Follows the rules:
+Преобразуването в булев тип следва следните правилата:
 
-| Value |  Becomes... |
+| Стойност |  Преобразува се в... |
 |-------|-------------|
 |`0`, `null`, `undefined`, `NaN`, `""` |`false`|
-|any other value| `true` |
+|всяка друга стойност| `true` |
 
 
-Most of these rules are easy to understand and memorize. The notable exceptions where people usually make mistakes are:
+Повечето от тези правила са лесни за разбиране и запаметяване. Изключения, при които хората обикновено правят грешки, са:
 
-- `undefined` is `NaN` as a number, not `0`.
-- `"0"` and space-only strings like `"   "` are true as a boolean.
+- `undefined` е `NaN` като число, не `0`.
+- `"0"` и символни низ само с празни интервали "   "` са true в булев тип.
 
-Objects aren't covered here. We'll return to them later in the chapter <info:object-toprimitive> that is devoted exclusively to objects after we learn more basic things about JavaScript.
+Тук не са обхванати обекти. Ще се върнем към тях по-късно в главата <info:object-toprimitive> която е посветена на обектите, след като научим повече основни неща за JavaScript.
