@@ -1,22 +1,22 @@
-importance: 5
+Важност: 5
 
 ---
 
-# Rewrite 'if..else' into '?'
+# Пренапишете 'if..else' към '?'
 
-Rewrite `if..else` using multiple ternary operators `'?'`.
+Пренапишете `if..else` като използвате многократно "ternary" оператора `'?'`.
 
-For readability, it's recommended to split the code into multiple lines.
+За по-добре четимост се препоръчва да се раздели кода на няколко реда.
 
 ```js
 let message;
 
 if (login == 'Employee') {
-  message = 'Hello';
+  message = 'Здравей';
 } else if (login == 'Director') {
-  message = 'Greetings';
+  message = 'Поздрави';
 } else if (login == '') {
-  message = 'No login';
+  message = 'Без вход';
 } else {
   message = '';
 }

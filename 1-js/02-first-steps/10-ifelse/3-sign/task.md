@@ -1,15 +1,15 @@
-importance: 2
+Важност: 2
 
 ---
 
-# Show the sign
+# Покажете знака
 
-Using `if..else`, write the code which gets a number via `prompt` and then shows in `alert`:
+Като използвате структура от `if..else`, напишете код, което изисква число от потребителя с функцията `prompt` и след това да покажете с функцията `alert`:
 
-- `1`, if the value is greater than zero,
-- `-1`, if less than zero,
-- `0`, if equals zero.
+- `1`, ако стойноста е по-голямо от нула,
+- `-1`, ако стойноста е по-малко от нула,
+- `0`, ако стойноста е равна на нула.
 
-In this task we assume that the input is always a number.
+В тази задача приемаме, че входът винаги е число.
 
 [demo src="if_sign"]

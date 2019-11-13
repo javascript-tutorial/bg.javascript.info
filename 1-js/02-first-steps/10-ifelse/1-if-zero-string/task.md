@@ -1,14 +1,13 @@
-importance: 5
+Важност: 5
 
 ---
 
-# if (a string with zero)
+# if (стринг с нула)
 
-Will `alert` be shown?
+Дали съобщението ще се покаже `alert`?
 
 ```js
 if ("0") {
   alert( 'Hello' );
 }
 ```
-

@@ -1,17 +1,17 @@
-importance: 5
+Важност: 5
 
 ---
 
-# Rewrite 'if' into '?'
+# Пренапишете 'if' към '?'
 
-Rewrite this `if` using the conditional operator `'?'`:
+Пренапишете този `if` като използвате услония оператор `'?'`:
 
 ```js
 let result;
 
 if (a + b < 4) {
-  result = 'Below';
+  result = 'По-долу';
 } else {
-  result = 'Over';
+  result = 'По-горе';
 }
 ```
