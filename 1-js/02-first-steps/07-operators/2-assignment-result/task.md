@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# Assignment result
+# Резултати от присвояване
 
-What are the values of `a` and `x` after the code below?
+Какви са стойностите на `a` and `x` след като се изпълни кода?
 
 ```js
 let a = 2;
