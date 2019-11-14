@@ -1,5 +1,5 @@
-The answer is:
+Отговорът е:
 
-- `a = 4` (multiplied by 2)
-- `x = 5` (calculated as 1 + 4)
+- `a = 4` (умножено 2)
+- `x = 5` (изчислено като 1 + 4)
 
