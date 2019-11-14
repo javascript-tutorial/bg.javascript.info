@@ -28,56 +28,56 @@ Before we move on, let's grasp some common terminology.
 
     Formally, in the examples above we have two different operators that share the same symbol: the negation operator, a unary operator that reverses the sign, and the subtraction operator, a binary operator that subtracts one number from another.
 
-## String concatenation, binary +
+## Свързване на символни низове(текст), двуаргументен +
 
-Now, let's see special features of JavaScript operators that are beyond school arithmetics.
+Сега, нека да разгледаме някои специални функции на JavaScript операторите, които са извън училищната аритметика.
 
-Usually, the plus operator `+` sums numbers.
+Обикновено, оператора плус `+` събира числа.
 
-But, if the binary `+` is applied to strings, it merges (concatenates) them:
+Но, ако двуаргоментниият плус `+` се използва със символни низове(текст), то ги слива(обединява):
 
 ```js
-let s = "my" + "string";
-alert(s); // mystring
+let s = "моят" + "текст";
+alert(s); // моят текст
 ```
 
-Note that if one of the operands is a string, the other one is converted to a string too.
+Забележете, че ако един от аргументите е символен низ(текст), то и другият аргумент е преобразуван в такъв.
 
-For example:
+Например:
 
 ```js run
 alert( '1' + 2 ); // "12"
 alert( 2 + '1' ); // "21"
 ```
 
-See, it doesn't matter whether the first operand is a string or the second one. The rule is simple: if either operand is a string, the other one is converted into a string as well.
+Вижте, няма значение дали първият аргумент е символен низ(текст) или вторият. Правилото е просто: ако единият от аргументите е символен низ(текст), то и другият също е преобразуван в символен низ(текст).
 
-However, note that operations run from left to right. If there are two numbers followed by a string, the numbers will be added before being converted to a string:
+Имайте предвид обаче, че операциите вървят отляво надясно. Ако има две числа, последвани от символен низ(текст), числата ще бъдат добавени, преди да бъдат преобразувани в символен низ(текст):
 
 
 ```js run
-alert(2 + 2 + '1' ); // "41" and not "221"
+alert(2 + 2 + '1' ); // "41",а не "221"
 ```
 
-String concatenation and conversion is a special feature of the binary plus `+`. Other arithmetic operators work only with numbers and always convert their operands to numbers.
+Свързване на символни низове(текст) и преобразуването в такива е особеност на двуаргоментния плюс `+`. Други аритметични оператори работят само с числа и винаги преобразуват своите аргументи в числа.
 
-For instance, subtraction and division:
+Например, изваждане и делене:
 
 ```js run
 alert( 2 - '1' ); // 1
 alert( '6' / '2' ); // 3
 ```
 
-## Numeric conversion, unary +
+## Преобразуване в число, едноаргументен +
 
-The plus `+` exists in two forms: the binary form that we used above and the unary form.
+Плюсът `+` има две форми: двуаргументна форма, която разгледахме по-горе, и едноаргумента форма.
 
-The unary plus or, in other words, the plus operator `+` applied to a single value, doesn't do anything to numbers. But if the operand is not a number, the unary plus converts it into a number.
+Едноаргументният плус, или с други думи, операторът плус `+` приложен към един аргумент, не прави нищо, когато е приложен към число. Но ако аргумента не е число, едноаргументният плус преобразува този аргумент в такова.
 
-For example:
+Например:
 
 ```js run
-// No effect on numbers
+// Няма ефект в/у числа
 let x = 1;
 alert( +x ); // 1
 
@@ -85,43 +85,43 @@ let y = -2;
 alert( +y ); // -2
 
 *!*
-// Converts non-numbers
+// Преобразува в числови стойности
 alert( +true ); // 1
 alert( +"" );   // 0
 */!*
 ```
 
-It actually does the same thing as `Number(...)`, but is shorter.
+Всъщност, прави същото нещо като функцията `Number(...)`, но е по-кратък.
 
-The need to convert strings to numbers arises very often. For example, if we are getting values from HTML form fields, they are usually strings. What if we want to sum them?
+Необходимостта от преобразуването на символни низове(текст) в числа възниква много често. Например, когато получаваме стойности от полетата на форма в HTML, те обикновено са под формата на символен низ(текст). Ами ако искаме да ги съберем?
 
-The binary plus would add them as strings:
+ Двуаргоментният плюс ще ги свърже в символен низ(текст):
 
 ```js run
 let apples = "2";
 let oranges = "3";
 
-alert( apples + oranges ); // "23", the binary plus concatenates strings
+alert( apples + oranges ); // "23", Двуаргоментният плюс свързва символни низизове(текст)
 ```
 
-If we want to treat them as numbers, we need to convert and then sum them:
+Ако искаме да ги използваме като числа, ние трябва да ги преобразуваме в такива и след това да ги съберем:
 
 ```js run
 let apples = "2";
 let oranges = "3";
 
 *!*
-// both values converted to numbers before the binary plus
+// и двете стойности са конвертиррани в числа, преди да използваме двуаргоментен плюс
 alert( +apples + +oranges ); // 5
 */!*
 
-// the longer variant
+// по-дългият вариянт
 // alert( Number(apples) + Number(oranges) ); // 5
 ```
 
-From a mathematician's standpoint, the abundance of pluses may seem strange. But from a programmer's standpoint, there's nothing special: unary pluses are applied first, they convert strings to numbers, and then the binary plus sums them up.
+От математическа гледна точка, изобилието от плюсове може да изглежда странно. Но от гледна точка на програмист, няма нищо странно: едноаргументните плюсове са приложени първи, те преобразувант символните низове(текст) в числа, а след това двуаргументният плус ги събира.
 
-Why are unary pluses applied to values before the binary ones? As we're going to see, that's because of their *higher precedence*.
+А защо едноаргументните плюсове се прилагат към стойностите пред двуаргументният? Както ще видим, това е заради тяхното по-голямо * предимство *.
 
 ## Operator precedence
 
