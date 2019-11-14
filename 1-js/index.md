@@ -1,4 +1,4 @@
-# The JavaScript language
+# Езикът JavaScript
 
 Here we learn JavaScript, starting from scratch and go on to advanced concepts like OOP.
 
