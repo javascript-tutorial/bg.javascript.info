@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# The postfix and prefix forms
+# Форми за постфикс и префикс
 
-What are the final values of all variables `a`, `b`, `c` and `d` after the code below?
+Какви са крайните стойности на всички променливи `a`, `b`, `c` и `d` след като се изпълни кода?
 
 ```js
 let a = 1, b = 1;
