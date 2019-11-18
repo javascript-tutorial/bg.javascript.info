@@ -1,66 +1,68 @@
-# Comparisons
+# Сравнения
 
-We know many comparison operators from maths:
+Ние познаваме много оператори за сравнение от математика:
 
-- Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.
-- Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Equals: `a == b` (please note the double equals sign `=`. A single symbol `a = b` would mean an assignment).
-- Not equals. In maths the notation is <code>&ne;</code>, but in JavaScript it's written as an assignment with an exclamation sign before it: <code>a != b</code>.
+- По-голямо/По-малко: <code>a &gt; b</code>, <code>a &lt; b</code>.
+- По-голямо/По-мялко или равно: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
+- Равно: `a == b` (моля, обърнете внимание на знака с двойно равно `=`.Единичният знак `a = b` означва присвояване).
+- Не е равно. В математиката се обзначава, като <code>&ne;</code>, но в JavaScript се записва със знака за присвояване с удивителна пред него: <code>a != b</code>.
 
-## Boolean is the result
+## Резултатът е от булев тип
 
-Like all other operators, a comparison returns a value. In this case, the value is a boolean.
+както всички оператори, сравняването също връща стойност. В този случай, стойността е от булев тип.
 
-- `true` -- means "yes", "correct" or "the truth".
-- `false` -- means "no", "wrong" or "not the truth".
+- `true` -- означава "да", "правилно" или "истина".
+- `false` -- означава "не", "грешно" или "лъжа".
 
-For example:
-
-```js run
-alert( 2 > 1 );  // true (correct)
-alert( 2 == 1 ); // false (wrong)
-alert( 2 != 1 ); // true (correct)
-```
-
-A comparison result can be assigned to a variable, just like any value:
+Например:
 
 ```js run
-let result = 5 > 4; // assign the result of the comparison
-alert( result ); // true
+alert( 2 > 1 );  // true (правилно)
+alert( 2 == 1 ); // false (грешно)
+alert( 2 != 1 ); // true (истина)
 ```
 
-## String comparison
-
-To see whether a string is greater than another, JavaScript uses the so-called "dictionary" or "lexicographical" order.
-
-In other words, strings are compared letter-by-letter.
-
-For example:
+Резултатът от сравнение може да бъде присвоен на променлива, както всяка друга стойност:
 
 ```js run
-alert( 'Z' > 'A' ); // true
-alert( 'Glow' > 'Glee' ); // true
-alert( 'Bee' > 'Be' ); // true
+let result = 5 > 4; // присвояване на резулта от сравняването
+alert( result ); // вярно
 ```
 
-The algorithm to compare two strings is simple:
+## Сравняване на символни низове(текст)
 
-1. Compare the first character of both strings.
-2. If the first character from the first string is greater (or less) than the other string's, then the first string is greater (or less) than the second. We're done.
-3. Otherwise, if both strings' first characters are the same, compare the second characters the same way.
-4. Repeat until the end of either string.
-5. If both strings end at the same length, then they are equal. Otherwise, the longer string is greater.
+За да се види дали един символен низ(текс) е по-голям от друг, JavaScript използва така нареченият "речник" или "лексикографски" ред.
 
-In the examples above, the comparison `'Z' > 'A'` gets to a result at the first step while the strings `"Glow"` and `"Glee"` are compared character-by-character:
+С други думи, символите низове се сравняват символ по символ.
 
-1. `G` is the same as `G`.
-2. `l` is the same as `l`.
-3. `o` is greater than `e`. Stop here. The first string is greater.
+Например:
 
-```smart header="Not a real dictionary, but Unicode order"
-The comparison algorithm given above is roughly equivalent to the one used in dictionaries or phone books, but it's not exactly the same.
+```js run
+alert( 'Z' > 'A' ); // вярно
+alert( 'Glow' > 'Glee' ); // вярно
+alert( 'Bee' > 'Be' ); // вярно
+```
 
-For instance, case matters. A capital letter `"A"` is not equal to the lowercase `"a"`. Which one is greater? The lowercase `"a"`. Why? Because the lowercase character has a greater index in the internal encoding table JavaScript uses (Unicode). We'll get back to specific details and consequences of this in the chapter <info:string>.
+Алгоритъмът за сравняване на символни низове(текст) е прост:
+
+1. Сравнява първият символ на двата низа.
+2. Ако първият символ от първият ние е по-голям(или по-малък) от този на втория низ, то първият ние по-голям(или по-малък) от вторият. Готово.
+3. Иначе, ако двата първи символа и на двата низа са равни, сравнява вторите символи по същия начин.
+4. Повтаря докато не стигне края на един от двата низа.
+5. Ако и двата низа имат еднаква дължина, то те са равни. Иначе, по-дългият низ е по-голям.
+
+В горните примери сравнението `'Z' > 'A'` стига до резултат на първата стъпка, докато низовете `"Glow"` и `"Glee"`
+се сравняват по символ по символ:
+
+1. `G` е същото като `G`.
+2. `l` е същото като `l`.
+3. `o` е по-голямо от `e`. Спира тук. Първият низ е по-голям.
+
+```smart header="Не истински речник, а по реда на Unicode"
+Алгоритъмът за сравнение, даден по-горе, е приблизително еквивалентен на този, използван в речниците или телефонните указатели, но не е абсолютно същия.
+
+Например, дали е главна или малка буква е значение. Главна буква `"A"` не е равна на малката буква `"a"`. Кое е по-голямо? Малката буква `"a"`. Защо? Тъй като малкият символ има по-голям индекс във вътрешната таблица за кодиране, която JavaScript използва (Unicode). 
+Ще се върнем към конкретни подробности и последиците от това в главата <info:string>.
 ```
 
 ## Comparison of different types
