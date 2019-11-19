@@ -1,4 +1,4 @@
-# Сравнения
+# Оператори за сравнения
 
 Ние познаваме много оператори за сравнение от математика:
 
@@ -65,80 +65,80 @@ alert( 'Bee' > 'Be' ); // вярно
 Ще се върнем към конкретни подробности и последиците от това в главата <info:string>.
 ```
 
-## Comparison of different types
+## Сравнение на различни типове
 
-When comparing values of different types, JavaScript converts the values to numbers.
+Когато сравняваме стойности от различен тип, JavaScript преобразува стойностите в число.
 
-For example:
-
-```js run
-alert( '2' > 1 ); // true, string '2' becomes a number 2
-alert( '01' == 1 ); // true, string '01' becomes a number 1
-```
-
-For boolean values, `true` becomes `1` and `false` becomes `0`.
-
-For example:
+Например:
 
 ```js run
-alert( true == 1 ); // true
-alert( false == 0 ); // true
+alert( '2' > 1 ); // вярно, символа '2' се преобразува в числото 2
+alert( '01' == 1 ); // вярно, символният низ '01' се преобразува в числото 1
 ```
 
-````smart header="A funny consequence"
-It is possible that at the same time:
+За стойности от булев тип, `true` се преобразува в `1` и `false` се преобразува в `0`.
 
-- Two values are equal.
-- One of them is `true` as a boolean and the other one is `false` as a boolean.
+например:
 
-For example:
+```js run
+alert( true == 1 ); // вярно
+alert( false == 0 ); // вярно
+```
+
+````smart header="Забавно последствие"
+Възможно е в същото време:
+
+- Две стойности са равни.
+- Едната е `true` като булев тип, а другата да е `false` като булев тип.
+
+Например:
 
 ```js run
 let a = 0;
-alert( Boolean(a) ); // false
+alert( Boolean(a) ); // грешно
 
 let b = "0";
-alert( Boolean(b) ); // true
+alert( Boolean(b) ); // вярно
 
-alert(a == b); // true!
+alert(a == b); // вярно!
 ```
 
-From JavaScript's standpoint, this result is quite normal. An equality check converts values using the numeric conversion (hence `"0"` becomes `0`), while the explicit `Boolean` conversion uses another set of rules.
+От гледна точка на JavaScript, този резултат е доста нормален. Проверка за равенство преобразува стойности, използвайки числовото преобразуване(т.е. `"0"` се преобразува в `0`), докато изричното `Boolean` преобразуване използва други правила.
 ````
 
-## Strict equality
+## Строго равенство
 
-A regular equality check `==` has a problem. It cannot differentiate `0` from `false`:
-
-```js run
-alert( 0 == false ); // true
-```
-
-The same thing happens with an empty string:
+При нормалната проверка за равенство `==` има проблем. Тя не различава `0` от `false`:
 
 ```js run
-alert( '' == false ); // true
+alert( 0 == false ); // вярно
 ```
 
-This happens because operands of different types are converted to numbers by the equality operator `==`. An empty string, just like `false`, becomes a zero.
-
-What to do if we'd like to differentiate `0` from `false`?
-
-**A strict equality operator `===` checks the equality without type conversion.**
-
-In other words, if `a` and `b` are of different types, then `a === b` immediately returns `false` without an attempt to convert them.
-
-Let's try it:
+Същото нещо се получава и при празен символен низ:
 
 ```js run
-alert( 0 === false ); // false, because the types are different
+alert( '' == false ); // вярно
 ```
 
-There is also a "strict non-equality" operator `!==` analogous to `!=`.
+Това се случва, защото операндите от различни типове се преобразуват в числа от оператора на равенството `==`. Празният символен низ, точно като `false`, се преобразува в нула.
 
-The strict equality operator is a bit longer to write, but makes it obvious what's going on and leaves less room for errors.
+Какво да правим, ако искаме да се разграничим `0` от `false`?
 
-## Comparison with null and undefined
+**Операторът за строго равенство `===` проверява равенството без преобразуване на типа.**
+
+С други думи, Ако `a` и `b` са от различен тип, тогава `a === b` веднага връща `false` без да прави опит да преобразува типовете.
+
+Нека да опитаме:
+
+```js run
+alert( 0 === false ); // грешно, bзащото са от различен тип
+```
+
+Също така има и оператор за "строго неравенство" - `!==`, като аналог на `!=`.
+
+Операторът за строго равенство е малко по-дълъг за писане, но прави очевидно какво се случва и оставя по-малко място за грешки.
+
+## Сравняване с null и undefined
 
 There's a non-intuitive behavior when `null` or `undefined` are compared to other values.
 
