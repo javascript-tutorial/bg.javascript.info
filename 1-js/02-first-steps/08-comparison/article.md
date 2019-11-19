@@ -65,7 +65,7 @@ alert( 'Bee' > 'Be' ); // вярно
 Ще се върнем към конкретни подробности и последиците от това в главата <info:string>.
 ```
 
-## Сравнение на различни типове
+## Сравняване на различни типове
 
 Когато сравняваме стойности от различен тип, JavaScript преобразува стойностите в число.
 
@@ -140,72 +140,72 @@ alert( 0 === false ); // грешно, bзащото са от различен 
 
 ## Сравняване с null и undefined
 
-There's a non-intuitive behavior when `null` or `undefined` are compared to other values.
+Има неинтуитивно поведение `null` или `undefined` са срявнявани с други стойности.
 
-For a strict equality check `===`
-: These values are different, because each of them is a different type.
-
-    ```js run
-    alert( null === undefined ); // false
-    ```
-
-For a non-strict check `==`
-: There's a special rule. These two are a "sweet couple": they equal each other (in the sense of `==`), but not any other value.
+За строга проверка за равенство `===`
+: Тези стойности са различни, защото всяка от тях е различен тип.
 
     ```js run
-    alert( null == undefined ); // true
+    alert( null === undefined ); // грешно
     ```
 
-For maths and other comparisons `< > <= >=`
-: `null/undefined` are converted to numbers: `null` becomes `0`, while `undefined` becomes `NaN`.
+За не строга проверка `==`
+: Има специално правило. Тези двете са "сладка двойка": те са равни една на друга (в смисъла на `==`), но не и на друга стойност.
 
-Now let's see some funny things that happen when we apply these rules. And, what's more important, how to not fall into a trap with them.
+    ```js run
+    alert( null == undefined ); // вярно
+    ```
 
-### Strange result: null vs 0
+За математически и други сравнения `< > <= >=`
+: `null/undefined` се преобразуват в числа: `null` става `0`, доакато `undefined` става `NaN`.
 
-Let's compare `null` with a zero:
+Сега нека видим някои смешни неща, които се случват, когато прилагаме тези правила. И, което е по-важно, как да не попаднете в капан с тях.
 
-```js run
-alert( null > 0 );  // (1) false
-alert( null == 0 ); // (2) false
-alert( null >= 0 ); // (3) *!*true*/!*
-```
+### Странен резултат: null vs 0
 
-Mathematically, that's strange. The last result states that "`null` is greater than or equal to zero", so in one of the comparisons above it must be `true`, but they are both false.
-
-The reason is that an equality check `==` and comparisons `> < >= <=` work differently. Comparisons convert `null` to a number, treating it as `0`. That's why (3) `null >= 0` is true and (1) `null > 0` is false.
-
-On the other hand, the equality check `==` for `undefined` and `null` is defined such that, without any conversions, they equal each other and don't equal anything else. That's why (2) `null == 0` is false.
-
-### An incomparable undefined
-
-The value `undefined` shouldn't be compared to other values:
+Нека да сравним `null` с нула:
 
 ```js run
-alert( undefined > 0 ); // false (1)
-alert( undefined < 0 ); // false (2)
-alert( undefined == 0 ); // false (3)
+alert( null > 0 );  // (1) грешно
+alert( null == 0 ); // (2) грешно
+alert( null >= 0 ); // (3) *!*правилно*/!*
 ```
 
-Why does it dislike zero so much? Always false!
+Математически погледнато, това е странно. Последният резултат твърди, че "`null` е по-голямо или равно на нула", следователно в едно от по-горните твърдения резултатът трябва да е `true`, но идвата са отрицателни.
 
-We get these results because:
+Причината е там, че проверката за равенство `==` и тази за сравнение `> < >= <=` работят разлочо. При проверка за равенство `null` се преобразува в число, третирайки я като `0`. Ето защо (3) `null >= 0` е вярно, а (1) `null > 0` е грешно.
 
-- Comparisons `(1)` and `(2)` return `false` because `undefined` gets converted to `NaN` and `NaN` is a special numeric value which returns `false` for all comparisons.
-- The equality check `(3)` returns `false` because `undefined` only equals `null`, `undefined`, and no other value.
+От друга страна, проверката за равенство `==` за `undefined` и `null` се дефинира така, че, без да се преобразува, те са равни един на друг и на никой друг. Ето защо (2) `null == 0` е грешно.
 
-### Evade problems
+### Несравнимо undefined
 
-Why did we go over these examples? Should we remember these peculiarities all the time? Well, not really. Actually, these tricky things will gradually become familiar over time, but there's a solid way to evade problems with them:
+Стойността `undefined` не трябва да се сравнява с други стойности:
 
-Just treat any comparison with `undefined/null` except the strict equality `===` with exceptional care.
+```js run
+alert( undefined > 0 ); // грешно (1)
+alert( undefined < 0 ); // грешно (2)
+alert( undefined == 0 ); // грешно (3)
+```
 
-Don't use comparisons `>= > < <=` with a variable which may be `null/undefined`, unless you're really sure of what you're doing. If a variable can have these values, check for them separately.
+Защо не харесва нулата? Винаги е грешно!
 
-## Summary
+Получихме този резултат, защото:
 
-- Comparison operators return a boolean value.
-- Strings are compared letter-by-letter in the "dictionary" order.
-- When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
-- The values `null` and `undefined` equal `==` each other and do not equal any other value.
-- Be careful when using comparisons like `>` or `<` with variables that can occasionally be `null/undefined`. Checking for `null/undefined` separately is a good idea.
+- Сравнения `(1)` и `(2)` връщат `грешно`, защото `undefined` се преобразува в `NaN` и `NaN`е специален числов тип, който връща `false` за всички сравнения.
+- Проверката за равенство `(3)` връща `грешно`, защото `undefined` е ранвно само на `null`, `undefined`, и на никоя друга стойност.
+
+### Избягвайте проблемите
+
+Защо прегледахме тези примери? Трябва ли да помним тези особености през цялото време? Е, всъщност не. Всъщност тези сложни неща постепенно ще станат познати с течение на времето, но има солиден начин да избягвате проблемите с тях:
+
+Просто третирайте всяко сравнение с `undefined/null`, с изключение на строгото равенство `===`, с огромно внимание.
+
+Не използвайте сравненията `>= > < <=` със стойност, която може да е `null/undefined`, освен ако наистина не сте сигурни в това, което правите. Ако променлива може да има тези стойности, проверете ги отделно.
+
+## Обобшение
+
+- Операторите за сравнение връщат булева стойност.
+- Символните низове(текст) се сравняват символ по символ в "лексикографски" ред.
+- Когато се сравняват стойности от различни типове, те се преобразуват в числа (с изключение на строга проверка за равенство).
+- Стойностите `null` и `undefined` са равни `==` само една на друга, и на никоя друга стойност.
+- Бъдете внимателни, когато използвате сравнения като `>` или `<` с променливи, които понякога могат да бъдат `null/undefined`. Проверката за `null/undefined` отделно е добра идея.
