@@ -1,209 +1,211 @@
-# Comparisons
+# Оператори за сравнения
 
-We know many comparison operators from maths:
+Ние познаваме много оператори за сравнение от математика:
 
-- Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.
-- Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Equals: `a == b` (please note the double equals sign `=`. A single symbol `a = b` would mean an assignment).
-- Not equals. In maths the notation is <code>&ne;</code>, but in JavaScript it's written as an assignment with an exclamation sign before it: <code>a != b</code>.
+- По-голямо/По-малко: <code>a &gt; b</code>, <code>a &lt; b</code>.
+- По-голямо/По-мaлко или равно: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
+- Равно: `a == b` (моля, обърнете внимание на знака с двойно равно `=`.Единичният знак `a = b` означава присвояване).
+- Неравенство. В математиката се изписва като <code>&ne;</code>, но в JavaScript се записва със знака за присвояване с удивителна пред него: <code>a != b</code>.
 
-## Boolean is the result
+## Резултатът е от булев тип
 
-Like all other operators, a comparison returns a value. In this case, the value is a boolean.
+както всички оператори, сравняването също връща стойност. В този случай, стойността е от булев тип.
 
-- `true` -- means "yes", "correct" or "the truth".
-- `false` -- means "no", "wrong" or "not the truth".
+- `true` -- означава "да", "правилно" или "истина".
+- `false` -- означава "не", "грешно" или "лъжа".
 
-For example:
-
-```js run
-alert( 2 > 1 );  // true (correct)
-alert( 2 == 1 ); // false (wrong)
-alert( 2 != 1 ); // true (correct)
-```
-
-A comparison result can be assigned to a variable, just like any value:
+Например:
 
 ```js run
-let result = 5 > 4; // assign the result of the comparison
-alert( result ); // true
+alert( 2 > 1 );  // true (правилно)
+alert( 2 == 1 ); // false (грешно)
+alert( 2 != 1 ); // true (истина)
 ```
 
-## String comparison
-
-To see whether a string is greater than another, JavaScript uses the so-called "dictionary" or "lexicographical" order.
-
-In other words, strings are compared letter-by-letter.
-
-For example:
+Резултатът от сравнение може да бъде присвоен на променлива, както всяка друга стойност:
 
 ```js run
-alert( 'Z' > 'A' ); // true
-alert( 'Glow' > 'Glee' ); // true
-alert( 'Bee' > 'Be' ); // true
+let result = 5 > 4; // присвояване на резултата от сравнението
+alert( result ); // вярно
 ```
 
-The algorithm to compare two strings is simple:
+## Сравняване на символни низове(текст)
 
-1. Compare the first character of both strings.
-2. If the first character from the first string is greater (or less) than the other string's, then the first string is greater (or less) than the second. We're done.
-3. Otherwise, if both strings' first characters are the same, compare the second characters the same way.
-4. Repeat until the end of either string.
-5. If both strings end at the same length, then they are equal. Otherwise, the longer string is greater.
+За да се види дали един символен низ(текс) е по-голям от друг, JavaScript използва така нареченият "речник" или "лексикографски" ред.
 
-In the examples above, the comparison `'Z' > 'A'` gets to a result at the first step while the strings `"Glow"` and `"Glee"` are compared character-by-character:
+С други думи, символите низове се сравняват символ по символ.
 
-1. `G` is the same as `G`.
-2. `l` is the same as `l`.
-3. `o` is greater than `e`. Stop here. The first string is greater.
-
-```smart header="Not a real dictionary, but Unicode order"
-The comparison algorithm given above is roughly equivalent to the one used in dictionaries or phone books, but it's not exactly the same.
-
-For instance, case matters. A capital letter `"A"` is not equal to the lowercase `"a"`. Which one is greater? The lowercase `"a"`. Why? Because the lowercase character has a greater index in the internal encoding table JavaScript uses (Unicode). We'll get back to specific details and consequences of this in the chapter <info:string>.
-```
-
-## Comparison of different types
-
-When comparing values of different types, JavaScript converts the values to numbers.
-
-For example:
+Например:
 
 ```js run
-alert( '2' > 1 ); // true, string '2' becomes a number 2
-alert( '01' == 1 ); // true, string '01' becomes a number 1
+alert( 'Z' > 'A' ); // вярно
+alert( 'Glow' > 'Glee' ); // вярно
+alert( 'Bee' > 'Be' ); // вярно
 ```
 
-For boolean values, `true` becomes `1` and `false` becomes `0`.
+Алгоритъмът за сравняване на символни низове(текст) е прост:
 
-For example:
+1. Сравнява първият символ на двата низа.
+2. Ако първият символ от първият ние е по-голям(или по-малък) от този на втория низ, то първият ние по-голям(или по-малък) от вторият. Готово.
+3. Иначе, ако двата първи символа и на двата низа са равни, сравнява вторите символи по същия начин.
+4. Повтаря докато не стигне края на един от двата низа.
+5. Ако и двата низа имат еднаква дължина, то те са равни. Иначе, по-дългият низ е по-голям.
+
+В горните примери сравнението `'Z' > 'A'` стига до резултат на първата стъпка, докато низовете `"Glow"` и `"Glee"`
+се сравняват по символ по символ:
+
+1. `G` е същото като `G`.
+2. `l` е същото като `l`.
+3. `o` е по-голямо от `e`. Спира тук. Първият низ е по-голям.
+
+```smart header="Не истински речник, а по реда на Unicode"
+Алгоритъмът за сравнение, даден по-горе, е приблизително еквивалентен на този, използван в речниците или телефонните указатели, но не е абсолютно същия.
+
+Например, дали е главна или малка буква е значение. Главна буква `"A"` не е равна на малката буква `"a"`. Кое е по-голямо? Малката буква `"a"`. Защо? Тъй като малкият символ има по-голям индекс във вътрешната таблица за кодиране, която JavaScript използва (Unicode). 
+Ще се върнем към конкретни подробности и последиците от това в главата <info:string>.
+```
+
+## Сравняване на различни типове
+
+Когато сравняваме стойности от различен тип, JavaScript преобразува стойностите в число.
+
+Например:
 
 ```js run
-alert( true == 1 ); // true
-alert( false == 0 ); // true
+alert( '2' > 1 ); // вярно, символа '2' се преобразува в числото 2
+alert( '01' == 1 ); // вярно, символният низ '01' се преобразува в числото 1
 ```
 
-````smart header="A funny consequence"
-It is possible that at the same time:
+За стойности от булев тип, `true` се преобразува в `1` и `false` се преобразува в `0`.
 
-- Two values are equal.
-- One of them is `true` as a boolean and the other one is `false` as a boolean.
+например:
 
-For example:
+```js run
+alert( true == 1 ); // вярно
+alert( false == 0 ); // вярно
+```
+
+````smart header="Забавно последствие"
+Възможно е в същото време:
+
+- Две стойности са равни.
+- Едната е `true` като булев тип, а другата да е `false` като булев тип.
+
+Например:
 
 ```js run
 let a = 0;
-alert( Boolean(a) ); // false
+alert( Boolean(a) ); // грешно
 
 let b = "0";
-alert( Boolean(b) ); // true
+alert( Boolean(b) ); // вярно
 
-alert(a == b); // true!
+alert(a == b); // вярно!
 ```
 
-From JavaScript's standpoint, this result is quite normal. An equality check converts values using the numeric conversion (hence `"0"` becomes `0`), while the explicit `Boolean` conversion uses another set of rules.
+От гледна точка на JavaScript, този резултат е доста нормален. Проверка за равенство преобразува стойности, използвайки числовото преобразуване(т.е. `"0"` се преобразува в `0`), докато изричното `Boolean` преобразуване използва други правила.
 ````
 
-## Strict equality
+## Строго равенство
 
-A regular equality check `==` has a problem. It cannot differentiate `0` from `false`:
-
-```js run
-alert( 0 == false ); // true
-```
-
-The same thing happens with an empty string:
+При нормалната проверка за равенство `==` има проблем. Тя не различава `0` от `false`:
 
 ```js run
-alert( '' == false ); // true
+alert( 0 == false ); // вярно
 ```
 
-This happens because operands of different types are converted to numbers by the equality operator `==`. An empty string, just like `false`, becomes a zero.
-
-What to do if we'd like to differentiate `0` from `false`?
-
-**A strict equality operator `===` checks the equality without type conversion.**
-
-In other words, if `a` and `b` are of different types, then `a === b` immediately returns `false` without an attempt to convert them.
-
-Let's try it:
+Същото нещо се получава и при празен символен низ:
 
 ```js run
-alert( 0 === false ); // false, because the types are different
+alert( '' == false ); // вярно
 ```
 
-There is also a "strict non-equality" operator `!==` analogous to `!=`.
+Това се случва, защото операндите от различни типове се преобразуват в числа от оператора на равенството `==`. Празният символен низ, точно като `false`, се преобразува в нула.
 
-The strict equality operator is a bit longer to write, but makes it obvious what's going on and leaves less room for errors.
+Какво да правим, ако искаме да се разграничим `0` от `false`?
 
-## Comparison with null and undefined
+**Операторът за строго равенство `===` проверява равенството без преобразуване на типа.**
 
-There's a non-intuitive behavior when `null` or `undefined` are compared to other values.
+С други думи, Ако `a` и `b` са от различен тип, тогава `a === b` веднага връща `false` без да прави опит да преобразува типовете.
 
-For a strict equality check `===`
-: These values are different, because each of them is a different type.
+Нека да опитаме:
+
+```js run
+alert( 0 === false ); // грешно, bзащото са от различен тип
+```
+
+Също така има и оператор за "строго неравенство" - `!==`, като аналог на `!=`.
+
+Операторът за строго равенство е малко по-дълъг за писане, но прави очевидно какво се случва и оставя по-малко място за грешки.
+
+## Сравняване с null и undefined
+
+Има неинтуитивно поведение, когато `null` или `undefined` са срявнявани с други стойности.
+
+За строга проверка за равенство `===`
+: Тези стойности са различни, защото всяка от тях е различен тип.
 
     ```js run
-    alert( null === undefined ); // false
+    alert( null === undefined ); // грешно
     ```
 
-For a non-strict check `==`
-: There's a special rule. These two are a "sweet couple": they equal each other (in the sense of `==`), but not any other value.
+За не строга проверка `==`
+: Има специално правило. Тези двете са "сладка двойка": те са равни една на друга (в смисъла на `==`), но не и на друга стойност.
 
     ```js run
-    alert( null == undefined ); // true
+    alert( null == undefined ); // вярно
     ```
 
-For maths and other comparisons `< > <= >=`
-: `null/undefined` are converted to numbers: `null` becomes `0`, while `undefined` becomes `NaN`.
+За математически и други сравнения `< > <= >=`
+: `null/undefined` се преобразуват в числа: `null` става `0`, докато `undefined` става `NaN`.
 
-Now let's see some funny things that happen when we apply these rules. And, what's more important, how to not fall into a trap with them.
+Сега нека видим някои смешни неща, които се случват, когато прилагаме тези правила. И, което е по-важно, как да не попаднете в капан с тях.
 
-### Strange result: null vs 0
+### Странен резултат: null vs 0
 
-Let's compare `null` with a zero:
-
-```js run
-alert( null > 0 );  // (1) false
-alert( null == 0 ); // (2) false
-alert( null >= 0 ); // (3) *!*true*/!*
-```
-
-Mathematically, that's strange. The last result states that "`null` is greater than or equal to zero", so in one of the comparisons above it must be `true`, but they are both false.
-
-The reason is that an equality check `==` and comparisons `> < >= <=` work differently. Comparisons convert `null` to a number, treating it as `0`. That's why (3) `null >= 0` is true and (1) `null > 0` is false.
-
-On the other hand, the equality check `==` for `undefined` and `null` is defined such that, without any conversions, they equal each other and don't equal anything else. That's why (2) `null == 0` is false.
-
-### An incomparable undefined
-
-The value `undefined` shouldn't be compared to other values:
+Нека да сравним `null` с нула:
 
 ```js run
-alert( undefined > 0 ); // false (1)
-alert( undefined < 0 ); // false (2)
-alert( undefined == 0 ); // false (3)
+alert( null > 0 );  // (1) грешно
+alert( null == 0 ); // (2) грешно
+alert( null >= 0 ); // (3) *!*правилно*/!*
 ```
 
-Why does it dislike zero so much? Always false!
+Математически погледнато, това е странно. Последният резултат твърди, че "`null` е по-голямо или равно на нула", следователно в едно от по-горните твърдения резултатът трябва да е `true`, но и двата са отрицателни.
 
-We get these results because:
+Причината е там, че проверката за равенство `==` и тази за сравнение `> < >= <=` работят разлочо. При проверка за равенство `null` се преобразува в число, третирайки я като `0`. Ето защо (3) `null >= 0` е вярно, а (1) `null > 0` е грешно.
 
-- Comparisons `(1)` and `(2)` return `false` because `undefined` gets converted to `NaN` and `NaN` is a special numeric value which returns `false` for all comparisons.
-- The equality check `(3)` returns `false` because `undefined` only equals `null`, `undefined`, and no other value.
+От друга страна, проверката за равенство `==` за `undefined` и `null` се дефинира така, че, без да се преобразува, те са равни един на друг и на никой друг. Ето защо (2) `null == 0` е грешно.
 
-### Evade problems
+### Несравнимо undefined
 
-Why did we go over these examples? Should we remember these peculiarities all the time? Well, not really. Actually, these tricky things will gradually become familiar over time, but there's a solid way to evade problems with them:
+Стойността `undefined` не трябва да се сравнява с други стойности:
 
-Just treat any comparison with `undefined/null` except the strict equality `===` with exceptional care.
+```js run
+alert( undefined > 0 ); // грешно (1)
+alert( undefined < 0 ); // грешно (2)
+alert( undefined == 0 ); // грешно (3)
+```
 
-Don't use comparisons `>= > < <=` with a variable which may be `null/undefined`, unless you're really sure of what you're doing. If a variable can have these values, check for them separately.
+Защо не харесва нулата? Винаги е грешно!
 
-## Summary
+Получихме този резултат, защото:
 
-- Comparison operators return a boolean value.
-- Strings are compared letter-by-letter in the "dictionary" order.
-- When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
-- The values `null` and `undefined` equal `==` each other and do not equal any other value.
-- Be careful when using comparisons like `>` or `<` with variables that can occasionally be `null/undefined`. Checking for `null/undefined` separately is a good idea.
+- Сравнения `(1)` и `(2)` връщат `грешно`, защото `undefined` се преобразува в `NaN` и `NaN`е специален числов тип, който връща `false` за всички сравнения.
+- Проверката за равенство `(3)` връща `грешно`, защото `undefined` е равно само на `null`, `undefined`, и на никоя друга стойност.
+
+### Избягвайте проблемите
+
+Защо прегледахме тези примери? Трябва ли да помним тези особености през цялото време? Е, всъщност не. Всъщност тези сложни неща постепенно ще станат познати с течение на времето, но има солиден начин да избягвате проблемите с тях:
+
+Просто третирайте всяко сравнение с `undefined/null`, с изключение на строгото равенство `===`, с огромно внимание.
+
+Не използвайте сравненията `>= > < <=` със стойност, която може да е `null/undefined`, освен ако наистина не сте сигурни в това, което правите. Ако променлива може да има тези стойности, проверете ги отделно.
+
+## Обобщение
+
+- Операторите за сравнение връщат булева стойност.
+- Символните низове(текст) се сравняват символ по символ в "лексикографски" ред.
+- Когато се сравняват стойности от различни типове, те се преобразуват в числа (с изключение на строга проверка за равенство).
+- Стойностите `null` и `undefined` са равни `==` само една на друга, и на никоя друга стойност.
+- Бъдете внимателни, когато използвате сравнения като `>` или `<` с променливи, които понякога могат да бъдат `null/undefined`. Проверката за `null/undefined` отделно е добра идея.
