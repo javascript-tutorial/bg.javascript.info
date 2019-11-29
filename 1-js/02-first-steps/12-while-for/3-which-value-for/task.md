@@ -1,19 +1,19 @@
-importance: 4
+Важност: 4
 
 ---
 
-# Which values get shown by the "for" loop?
+# Кои стойности се показват от цикъла "for"?
 
-For each loop write down which values it is going to show. Then compare with the answer.
+За всеки цикъл напишете кои стойности ще се покажат. След това сравнете с отговора.
 
-Both loops `alert` same values or not?
+И двете цикли `показват` същите стойности или не?
 
-1. The postfix form:
+1. Постфикс формата:
 
     ```js
     for (let i = 0; i < 5; i++) alert( i );
     ```
-2. The prefix form:
+2. Префикс формата:
 
     ```js
     for (let i = 0; i < 5; ++i) alert( i );

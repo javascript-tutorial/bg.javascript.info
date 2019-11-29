@@ -1,4 +1,4 @@
-The answer: `1`.
+Отговор: `1`.
 
 ```js run
 let i = 3;
@@ -8,18 +8,18 @@ while (i) {
 }
 ```
 
-Every loop iteration decreases `i` by `1`. The check `while(i)` stops the loop when `i = 0`.
+Всяка итерация на цикъла намалява `i` по `1`. Проверката в `while(i)` спира цикъла, когато `i = 0`.
 
-Hence, the steps of the loop form the following sequence ("loop unrolled"):
+Следователно стъпките на цикъла от следната последователност ("неразгърнат цикъл"):
 
 ```js
 let i = 3;
 
-alert(i--); // shows 3, decreases i to 2
+alert(i--); // показва 3, намалява i на 2
 
-alert(i--) // shows 2, decreases i to 1
+alert(i--) // показва 2, намалява i на 1
 
-alert(i--) // shows 1, decreases i to 0
+alert(i--) // показва 1, намалява i tнаo 0
 
-// done, while(i) check stops the loop
+// готово, while(i) проверката спира цикъла
 ```

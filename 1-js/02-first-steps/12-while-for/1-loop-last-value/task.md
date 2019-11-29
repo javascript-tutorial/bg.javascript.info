@@ -1,10 +1,10 @@
-importance: 3
+Важност: 3
 
 ---
 
-# Last loop value
+# Стойност на последния цикъл
 
-What is the last value alerted by this code? Why?
+Каква е последната стойност, изпринтирана от този код? Защо?
 
 ```js
 let i = 3;

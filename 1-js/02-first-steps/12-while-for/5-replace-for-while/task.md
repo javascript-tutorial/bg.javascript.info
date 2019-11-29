@@ -1,10 +1,10 @@
-importance: 5
+Важност: 5
 
 ---
 
-# Replace "for" with "while"
+# Заменете "for" с "while"
 
-Rewrite the code changing the `for` loop to `while` without altering its behavior (the output should stay same).
+Пренапишете кода, променяйки `for` цикъла на `while` цикъл без да променя поведението му (изходът трябва да остане същият).
 
 ```js run
 for (let i = 0; i < 3; i++) {

@@ -1,9 +1,9 @@
-importance: 5
+Важност: 5
 
 ---
 
-# Output even numbers in the loop
+# Изведете четните числа в цикъла
 
-Use the `for` loop to output even numbers from `2` to `10`.
+Използвайте `for` цикъл за да изпринтирате четните числа от `2` включително до `10`.
 
 [demo]

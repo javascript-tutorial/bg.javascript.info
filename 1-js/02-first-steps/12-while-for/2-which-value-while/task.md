@@ -1,20 +1,20 @@
-importance: 4
+Важност: 4
 
 ---
 
-# Which values does the while loop show?
+# Кои стойности показва цикълът while?
 
-For every loop iteration, write down which value it outputs and then compare it with the solution.
+За всяка итерация на цикъла напишете коя стойност извежда и след това я сравнете с решението.
 
-Both loops `alert` the same values, or not?
+И двете цикли `показват` същите стойности, или не?
 
-1. The prefix form `++i`:
+1. Формата с префикса `++i`:
 
     ```js
     let i = 0;
     while (++i < 5) alert( i );
     ```
-2. The postfix form `i++`
+2. Формата с постфикс `i++`
 
     ```js
     let i = 0;
