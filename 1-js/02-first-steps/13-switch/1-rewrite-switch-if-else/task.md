@@ -16,7 +16,7 @@ switch (browser) {
   case 'Firefox':
   case 'Safari':
   case 'Opera':
-    alert( 'Окей, поддърваме тези браузъри също' );
+    alert( 'Окей, поддържаме тези браузъри също' );
     break;
 
   default:
