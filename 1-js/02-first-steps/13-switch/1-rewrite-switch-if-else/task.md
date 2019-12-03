@@ -2,25 +2,25 @@ importance: 5
 
 ---
 
-# Rewrite the "switch" into an "if"
+# Пренапиши конструкцията от "switch" към "if"
 
-Write the code using `if..else` which would correspond to the following `switch`:
+Напиши кода използвайки `if..else` което ще кореспондира с `switch`:
 
 ```js
 switch (browser) {
   case 'Edge':
-    alert( "You've got the Edge!" );
+    alert( "Имаш Edge!" );
     break;
 
   case 'Chrome':
   case 'Firefox':
   case 'Safari':
   case 'Opera':
-    alert( 'Okay we support these browsers too' );
+    alert( 'Окей, поддърваме тези браузъри също' );
     break;
 
   default:
-    alert( 'We hope that this page looks ok!' );
+    alert( 'Надяваме се тази страница да изглежда ОК!' );
 }
 ```
 
