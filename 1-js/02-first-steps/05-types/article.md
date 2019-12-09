@@ -10,9 +10,15 @@ message = 123456;
 
 Програмните езици, които позволяват такова поведение се наричат "динамично типизирани", което означава, че има типове данни, но самите променливите не биват обвързвани с тях.
 
+<<<<<<< HEAD
 В JavaScript има седем основни типове данни, като в тази глава ще се запознаем по-общо с тях, а в следващите глави, ще разгледаме всеки тип по отделно и в детайл. 
 
 ## Числен
+=======
+There are eight basic data types in JavaScript. Here, we'll cover them in general and in the next chapters we'll talk about each of them in detail.
+
+## Number
+>>>>>>> 5b195795da511709faf79a4d35f9c5623b6dbdbd
 
 ```js
 let n = 123;
@@ -62,14 +68,37 @@ n = 12.345;
 
 Ще разгледаме в по-подробно работа с числа в главата <info:number>.
 
+<<<<<<< HEAD
 ## Стринг
+=======
+## BigInt
+
+In JavaScript, the "number" type cannot represent integer values larger than <code>2<sup>53</sup></code> (or less than <code>-2<sup>53</sup></code> for negatives), that's a technical limitation caused by their internal representation. That's about 16 decimal digits, so for most purposes the limitation isn't a problem, but sometimes we need really big numbers, e.g. for cryptography or microsecond-precision timestamps.
+
+`BigInt` type was recently added to the language to represent integers of arbitrary length.
+
+A `BigInt` is created by appending `n` to the end of an integer literal:
+
+```js
+// the "n" at the end means it's a BigInt
+const bigInt = 1234567890123456789012345678901234567890n;
+```
+
+As `BigInt` numbers are rarely needed, we devoted them a separate chapter <info:bigint>.
+
+```smart header="Compatability issues"
+Right now `BigInt` is supported in Firefox and Chrome, but not in Safari/IE/Edge.
+```
+
+## String
+>>>>>>> 5b195795da511709faf79a4d35f9c5623b6dbdbd
 
 Стрингът в JavaScript трябва да бъде в кавички.
 
 ```js
 let str = "Hello";
 let str2 = 'Single quotes are ok too';
-let phrase = `can embed ${str}`;
+let phrase = `can embed another ${str}`;
 ```
 
 В JavaScript има три вида кавички.
@@ -78,7 +107,11 @@ let phrase = `can embed ${str}`;
 2. Единични кавички: `'Hello'`.
 3. Прим-ове (Backticks): <code>&#96;Hello&#96;</code>.
 
+<<<<<<< HEAD
 Двойните и единичните кавички са "прости" кавички, в JavaScript не се прави разлика между тях.
+=======
+Double and single quotes are "simple" quotes. There's practically no difference between them in JavaScript.
+>>>>>>> 5b195795da511709faf79a4d35f9c5623b6dbdbd
 
 Прим-овете са кавички с допълнителна функционалност. Те позволяват вграждане на променливи и изрази в стрингове, чрез обграждане в `${…}`, пример за това е: 
 
@@ -102,13 +135,22 @@ alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (двойните �
 
 Ще разгледаме по-подробно стринговете в главата <info:string>.
 
+<<<<<<< HEAD
 ```smart header="Типът *буква* (character) не съществува"
 В някои езици има специален тип "character", който може да съхранява един символ. Пример за това е типа `char` използван в езиците C и Java. 
+=======
+```smart header="There is no *character* type."
+In some languages, there is a special "character" type for a single character. For example, in the C language and in Java it is called "char".
+>>>>>>> 5b195795da511709faf79a4d35f9c5623b6dbdbd
 
 В JavaScript, този тип не съществува, а има само тип стринг, като един стринг може да е изграден от един или много символи.
 ```
 
+<<<<<<< HEAD
 ## Булева (логически тип)
+=======
+## Boolean (logical type)
+>>>>>>> 5b195795da511709faf79a4d35f9c5623b6dbdbd
 
 Логическия тип има само две стойности:`true` и `false`.
 
@@ -199,6 +241,8 @@ typeof undefined // "undefined"
 
 typeof 0 // "number"
 
+typeof 10n // "bigint"
+
 typeof true // "boolean"
 
 typeof "foo" // "string"
@@ -225,6 +269,7 @@ typeof alert // "function"  (3)
 3. Резултатът от `typeof alert` е `"function"`, защото `alert` е функция. Ще изучаваме по-подробно функциите в следващите глави, където ще видим, че в езика JavaScript не съществува специален тип "function". Функциите спадат към типа `object`, но оператора `typeof` ги третира различно и ни връща `"function"`, което само по себе си не е абсолютно правилно, но е доста удобно.
 
 
+<<<<<<< HEAD
 ## Заключение
 
 В езика JavaScript има седем основни типа данни.
@@ -237,6 +282,20 @@ typeof alert // "function"  (3)
 - `object` за по-сложни структури.
 - `symbol` за уникални идентификатори.
 
+=======
+## Summary
+
+There are 8 basic data types in JavaScript.
+
+- `number` for numbers of any kind: integer or floating-point, integers are limited by ±2<sup>53</sup>.
+- `bigint` is for integer numbers of arbitrary length.
+- `string` for strings. A string may have one or more characters, there's no separate single-character type.
+- `boolean` for `true`/`false`.
+- `null` for unknown values -- a standalone type that has a single value `null`.
+- `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
+- `object` for more complex data structures.
+- `symbol` for unique identifiers.
+>>>>>>> 5b195795da511709faf79a4d35f9c5623b6dbdbd
 
 Оператора `typeof` ни позволява да разберем какъв тип се съхранява в дадена променлива.
 
