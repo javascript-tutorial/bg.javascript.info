@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# Rewrite "if" into "switch"
+# Пренапиши конструкцията от "if" към "switch"
 
-Rewrite the code below using a single `switch` statement:
+Пренапиши кода по-долу използвайки една единствена `switch` конструкция:
 
 ```js run
 let a = +prompt('a?', '');

@@ -1,20 +1,20 @@
-To precisely match the functionality of `switch`, the `if` must use a strict comparison `'==='`.
+За да съвпаднат точно функционалностите на `switch`,`if` трябва да използва стриктно сравнение `'==='`.
 
-For given strings though, a simple `'=='` works too.
+За стрингове обаче, просто `'=='` също работи.
 
 ```js no-beautify
 if(browser == 'Edge') {
-  alert("You've got the Edge!");
+  alert("Имаш Edge!");
 } else if (browser == 'Chrome'
  || browser == 'Firefox'
  || browser == 'Safari'
  || browser == 'Opera') {
-  alert( 'Okay we support these browsers too' );
+  alert( 'Окей, поддържаме тези браузъри също' );
 } else {
-  alert( 'We hope that this page looks ok!' );
+  alert( 'Надяваме се тази страница да изглежда ОК!' );
 }
 ```
 
-Please note: the construct `browser == 'Chrome' || browser == 'Firefox' …` is split into multiple lines for better readability.
+Забележка: конструкцията `browser == 'Chrome' || browser == 'Firefox' …` е разделена на няколко реда за по-добра четливост.
 
-But the `switch` construct is still cleaner and more descriptive.
+Но `switch` конструкцията е все още по-чиста и описателна.
