@@ -1,4 +1,4 @@
-# Functions
+# Функции
 
 Quite often we need to perform a similar action in many places of the script.
 
@@ -10,17 +10,17 @@ We've already seen examples of built-in functions, like `alert(message)`, `promp
 
 ## Function Declaration
 
-To create a function we can use a *function declaration*.
+To create a function we can use a _function declaration_.
 
 It looks like this:
 
 ```js
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert("Hello everyone!");
 }
 ```
 
-The `function` keyword goes first, then goes the *name of the function*, then a list of *parameters* between the parentheses (comma-separated, empty in the example above) and finally the code of the function, also named "the function body", between curly braces.
+The `function` keyword goes first, then goes the _name of the function_, then a list of _parameters_ between the parentheses (comma-separated, empty in the example above) and finally the code of the function, also named "the function body", between curly braces.
 
 ```js
 function name(parameters) {
@@ -107,7 +107,7 @@ alert( userName ); // *!*Bob*/!*, the value was modified by the function
 
 The outer variable is only used if there's no local one.
 
-If a same-named variable is declared inside the function then it *shadows* the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
+If a same-named variable is declared inside the function then it _shadows_ the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
 
 ```js run
 let userName = 'John';
@@ -137,7 +137,7 @@ It's a good practice to minimize the use of global variables. Modern code has fe
 
 ## Parameters
 
-We can pass arbitrary data to functions using parameters (also called *function arguments*) .
+We can pass arbitrary data to functions using parameters (also called _function arguments_) .
 
 In the example below, the function has two parameters: `from` and `text`.
 
@@ -155,7 +155,6 @@ showMessage('Ann', "What's up?"); // Ann: What's up? (**)
 When the function is called in lines `(*)` and `(**)`, the given values are copied to local variables `from` and `text`. Then the function uses them.
 
 Here's one more example: we have a variable `from` and pass it to the function. Please note: the function changes `from`, but the change is not seen outside, because a function always gets a copy of the value:
-
 
 ```js run
 function showMessage(from, text) {
@@ -244,7 +243,6 @@ function showMessage(from, text) {
 
 ````
 
-
 ## Returning a value
 
 A function can return a value back into the calling code as the result.
@@ -305,13 +303,15 @@ function showMovie(age) {
 
 In the code above, if `checkAge(age)` returns `false`, then `showMovie` won't proceed to the `alert`.
 
-````smart header="A function with an empty `return` or without it returns `undefined`"
+``smart header="A function with an empty `return` or without it returns `undefined`"
 If a function does not return a value, it is the same as if it returns `undefined`:
 
 ```js run
-function doNothing() { /* empty */ }
+function doNothing() {
+  /* empty */
+}
 
-alert( doNothing() === undefined ); // true
+alert(doNothing() === undefined); // true
 ```
 
 An empty `return` is also the same as `return undefined`:
@@ -321,9 +321,10 @@ function doNothing() {
   return;
 }
 
-alert( doNothing() === undefined ); // true
+alert(doNothing() === undefined); // true
 ```
-````
+
+`````
 
 ````warn header="Never add a newline between `return` and the value"
 For a long expression in `return`, it might be tempting to put it on a separate line, like this:
@@ -351,7 +352,7 @@ return (
   )
 ```
 And it will work just as we expect it to.
-````
+`````
 
 ## Naming a function [#function-naming]
 
@@ -415,12 +416,11 @@ The first variant uses a label:
 ```js
 function showPrimes(n) {
   nextPrime: for (let i = 2; i < n; i++) {
-
     for (let j = 2; j < i; j++) {
       if (i % j == 0) continue nextPrime;
     }
 
-    alert( i ); // a prime
+    alert(i); // a prime
   }
 }
 ```
@@ -445,7 +445,7 @@ function isPrime(n) {
 }
 ```
 
-The second variant is easier to understand, isn't it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as *self-describing*.
+The second variant is easier to understand, isn't it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as _self-describing_.
 
 So, functions can be created even if we don't intend to reuse them. They structure the code and make it readable.
 
