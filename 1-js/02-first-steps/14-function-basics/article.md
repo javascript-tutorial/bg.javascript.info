@@ -57,120 +57,120 @@ showMessage();
 ```js run
 function showMessage() {
 *!*
-  let message = "Hello, I'm JavaScript!"; // local variable
+  let message = "Здравей, аз съм JavaScript!"; // локална вариация
 */!*
 
   alert( message );
 }
 
-showMessage(); // Hello, I'm JavaScript!
+showMessage(); // Здравей, аз съм JavaScript!
 
-alert( message ); // <-- Error! The variable is local to the function
+alert( message ); // <-- Грешка! Вариацията е локална във функцията
 ```
 
-## Outer variables
+## Външни вариации
 
-A function can access an outer variable as well, for example:
+Функцията също може да има достъп до външна вариация, като например:
 
 ```js run no-beautify
-let *!*userName*/!* = 'John';
+let *!*userName*/!* = 'Джон';
 
 function showMessage() {
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Здравей, ' + *!*userName*/!*;
   alert(message);
 }
 
-showMessage(); // Hello, John
+showMessage(); // Здравей, Джон
 ```
 
-The function has full access to the outer variable. It can modify it as well.
+Функцията има пълен достъп до външната вариация. Също така може да я модифицира.
 
-For instance:
+Като например:
 
 ```js run
-let *!*userName*/!* = 'John';
+let *!*userName*/!* = 'Джон';
 
 function showMessage() {
-  *!*userName*/!* = "Bob"; // (1) changed the outer variable
+  *!*userName*/!* = "Боб"; // (1) промени външната вариация
 
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Здравей, ' + *!*userName*/!*;
   alert(message);
 }
 
-alert( userName ); // *!*John*/!* before the function call
+alert( userName ); // *!*Джон*/!* преди изпълнението на функцията
 
 showMessage();
 
-alert( userName ); // *!*Bob*/!*, the value was modified by the function
+alert( userName ); // *!*Боб*/!*, стойността беше модифицирана от функцията
 ```
 
-The outer variable is only used if there's no local one.
+Външната вариация се изпълнява само, ако няма локална такава.
 
-If a same-named variable is declared inside the function then it _shadows_ the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
+Ако вариация със същото име е декларирана във функцията, то тогава _засенчва_ външната. Като например, в кода по-долу функцията използва локалната `userName`. Външната е игнорирана:
 
 ```js run
-let userName = 'John';
+let userName = 'Джон';
 
 function showMessage() {
 *!*
-  let userName = "Bob"; // declare a local variable
+  let userName = "Боб"; // декларира локална вариация
 */!*
 
-  let message = 'Hello, ' + userName; // *!*Bob*/!*
+  let message = 'Hello, ' + userName; // *!*Боб*/!*
   alert(message);
 }
 
-// the function will create and use its own userName
+// Функцията ще създаде и използва своя собствена userName
 showMessage();
 
-alert( userName ); // *!*John*/!*, unchanged, the function did not access the outer variable
+alert( userName ); // *!*Джон*/!*, непроменена, функцията нямаше достъп до външната вариация
 ```
 
-```smart header="Global variables"
-Variables declared outside of any function, such as the outer `userName` in the code above, are called *global*.
+```smart header="Глобални вариации"
+Вариации декларирани извън функции, като външната `userName` в кода по-горе, се наричат *глобални*.
 
-Global variables are visible from any function (unless shadowed by locals).
+Глобалните вариации са видими от всички функции (ако не са засенчени от локалните вариации).
 
-It's a good practice to minimize the use of global variables. Modern code has few or no globals. Most variables reside in their functions. Sometimes though, they can be useful to store project-level data.
+Добра практика е да се миниманизира използването на глобални вариации. Модерният код има малко на брой глобални вариации или те въобще отсъстват. Повечето вариации са декларирани в свои собствени функции. Понякога обаче, те могат да са полезни да сухраняват проекционни данни.
 ```
 
-## Parameters
+## Параметри
 
-We can pass arbitrary data to functions using parameters (also called _function arguments_) .
+Мовжем да задаваме своеобразна дата на функции изполвайки параметри (наричани също _функционални аргументи_) .
 
-In the example below, the function has two parameters: `from` and `text`.
+В примера по-долу, фукнцията има два параметъра: `from` и `text`.
 
 ```js run
-function showMessage(*!*from, text*/!*) { // arguments: from, text
+function showMessage(*!*from, text*/!*) { // аргументи: from, text
   alert(from + ': ' + text);
 }
 
 *!*
-showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
-showMessage('Ann', "What's up?"); // Ann: What's up? (**)
+showMessage('Ани', 'Здравей!'); // Ани: Здравей! (*)
+showMessage('Ани', "Как е?"); // Ани: Как е? (**)
 */!*
 ```
 
-When the function is called in lines `(*)` and `(**)`, the given values are copied to local variables `from` and `text`. Then the function uses them.
+Когато функцията е изпълнена в редовете `(*)` и `(**)`, дадените стойности са копирани в локалните вариации `from` и `text`. Функцията ги използва.
 
-Here's one more example: we have a variable `from` and pass it to the function. Please note: the function changes `from`, but the change is not seen outside, because a function always gets a copy of the value:
+Ето още един пример: имаме вариация `from` и я предаваме на функцията. Забележи: функцията променя `from`, но промяната не е видима извън нея, защото функцията винаги получава копие от стойността:
 
 ```js run
 function showMessage(from, text) {
 
 *!*
-  from = '*' + from + '*'; // make "from" look nicer
+  from = '*' + from + '*'; // прави "from" да изглежда по-добре
 */!*
 
   alert( from + ': ' + text );
 }
 
-let from = "Ann";
+let from = "Ани";
 
-showMessage(from, "Hello"); // *Ann*: Hello
+showMessage(from, "Здравей"); // *Ани*: Здравей
 
-// the value of "from" is the same, the function modified a local copy
-alert( from ); // Ann
+// стойността на "from" е същата, функцията модифицира локалното копие
+alert( from ); // Ани
 ```
 
 ## Default values
