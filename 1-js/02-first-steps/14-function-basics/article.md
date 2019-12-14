@@ -1,26 +1,25 @@
 # Функции
 
-Quite often we need to perform a similar action in many places of the script.
+Често ни се налага да извършваме сходни действия на много места в нашия код.
 
-For example, we need to show a nice-looking message when a visitor logs in, logs out and maybe somewhere else.
+Например, искаме да покажем добре изглеждащо съобщение, когато визитор се логне, излезе или може би някъде другаде.
+Функциите са главните "строителни блокове" на програмата. Те позволяват кода да бъде изпълнен много пъти без повторение.
 
-Functions are the main "building blocks" of the program. They allow the code to be called many times without repetition.
+Вече видяхме примери за вградени функции като `alert(message)`, `prompt(message, default)` и `confirm(question)`. Но ние също можем да създаваме функции.
 
-We've already seen examples of built-in functions, like `alert(message)`, `prompt(message, default)` and `confirm(question)`. But we can create functions of our own as well.
+## Декларация на функция
 
-## Function Declaration
+За да създадем функция използваме _декларация на функция_.
 
-To create a function we can use a _function declaration_.
-
-It looks like this:
+Изглежда така:
 
 ```js
 function showMessage() {
-  alert("Hello everyone!");
+  alert("Здравейте всички!");
 }
 ```
 
-The `function` keyword goes first, then goes the _name of the function_, then a list of _parameters_ between the parentheses (comma-separated, empty in the example above) and finally the code of the function, also named "the function body", between curly braces.
+Ключовата дума `function` е първа, следвана от името _на функцията_, след това лист от _параметри_ между скобите (разделени от запетаи, празно в примера по-горе) и най-накрая кода на функцията, познат още като "тяло на функцията", между "{}" скобите.
 
 ```js
 function name(parameters) {
@@ -28,13 +27,13 @@ function name(parameters) {
 }
 ```
 
-Our new function can be called by its name: `showMessage()`.
+Нашата нова функция може да бъде извикана по име: `showMessage()`.
 
-For instance:
+Например:
 
 ```js run
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert( 'Здравейте всички' );
 }
 
 *!*
@@ -43,17 +42,17 @@ showMessage();
 */!*
 ```
 
-The call `showMessage()` executes the code of the function. Here we will see the message two times.
+Името на функцията `showMessage()` изпълнява кода. Тук ще видим съобщението два пъти.
 
-This example clearly demonstrates one of the main purposes of functions: to avoid code duplication.
+Примерът ясно демонстрира една от главните цели на функцията: да избегнем дупликации на кода.
 
-If we ever need to change the message or the way it is shown, it's enough to modify the code in one place: the function which outputs it.
+Ако някога трябва да сменим съобщението или начина по който се показва, достатъчно е да сменим кода на едно място: функцията, която го изпълнява.
 
-## Local variables
+## Локални вариации
 
-A variable declared inside a function is only visible inside that function.
+Вариация декларирана във функцияата е видима единствено вътре във функцията.
 
-For example:
+Като например:
 
 ```js run
 function showMessage() {
