@@ -38,11 +38,7 @@
 2. Тогава го конвертира ("компилира") скрипт-а в машинен език.
 3. И след тогава машинния код се изпълнява доста бързо.
 
-<<<<<<< HEAD
 Вдигателят прилага оптимизации във всяка стъпка от процеса. Даже гледа компилирания скрипт, което се изпълнява, анализира данните, които протичат през него и прилага оптимазиции на машинния код на база тези данни. Когато всичко е готово скрипт-ът се изпълнява доста бързо.
-=======
-The engine applies optimizations at each step of the process. It even watches the compiled script as it runs, analyzes the data that flows through it, and further optimizes the machine code based on that knowledge.
->>>>>>> 2b5ac971c1bd8abe7b17cdcf724afd84799b6cbd
 ```
 
 ## Какво може JavaScript в браузъра ?
