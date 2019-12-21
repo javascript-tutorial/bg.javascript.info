@@ -1,26 +1,25 @@
-# Functions
+# Функции
 
-Quite often we need to perform a similar action in many places of the script.
+Често ни се налага да извършваме сходни действия на много места в нашия код.
 
-For example, we need to show a nice-looking message when a visitor logs in, logs out and maybe somewhere else.
+Например, искаме да покажем добре изглеждащо съобщение, когато визитор се логне, излезе или може би някъде другаде.
+Функциите са главните "строителни блокове" на програмата. Те позволяват кода да бъде изпълнен много пъти без повторение.
 
-Functions are the main "building blocks" of the program. They allow the code to be called many times without repetition.
+Вече видяхме примери за вградени функции като `alert(message)`, `prompt(message, default)` и `confirm(question)`. Но ние също можем да създаваме функции.
 
-We've already seen examples of built-in functions, like `alert(message)`, `prompt(message, default)` and `confirm(question)`. But we can create functions of our own as well.
+## Декларация на функция
 
-## Function Declaration
+За да създадем функция използваме _декларация на функция_.
 
-To create a function we can use a *function declaration*.
-
-It looks like this:
+Изглежда така:
 
 ```js
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert("Здравейте всички!");
 }
 ```
 
-The `function` keyword goes first, then goes the *name of the function*, then a list of *parameters* between the parentheses (comma-separated, empty in the example above) and finally the code of the function, also named "the function body", between curly braces.
+Ключовата дума `function` е първа, следвана от името _на функцията_, след това лист от _параметри_ между скобите (разделени от запетаи, празно в примера по-горе) и най-накрая кода на функцията, познат още като "тяло на функцията", между "{}" скобите.
 
 ```js
 function name(parameters) {
@@ -28,13 +27,13 @@ function name(parameters) {
 }
 ```
 
-Our new function can be called by its name: `showMessage()`.
+Нашата нова функция може да бъде извикана по име: `showMessage()`.
 
-For instance:
+Например:
 
 ```js run
 function showMessage() {
-  alert( 'Hello everyone!' );
+  alert( 'Здравейте всички' );
 }
 
 *!*
@@ -43,187 +42,186 @@ showMessage();
 */!*
 ```
 
-The call `showMessage()` executes the code of the function. Here we will see the message two times.
+Името на функцията `showMessage()` изпълнява кода. Тук ще видим съобщението два пъти.
 
-This example clearly demonstrates one of the main purposes of functions: to avoid code duplication.
+Примерът ясно демонстрира една от главните цели на функцията: да избегнем дупликации на кода.
 
-If we ever need to change the message or the way it is shown, it's enough to modify the code in one place: the function which outputs it.
+Ако някога трябва да сменим съобщението или начина по който се показва, достатъчно е да сменим кода на едно място: функцията, която го изпълнява.
 
-## Local variables
+## Локални вариации
 
-A variable declared inside a function is only visible inside that function.
+Вариация декларирана във функцияата е видима единствено вътре във функцията.
 
-For example:
+Като например:
 
 ```js run
 function showMessage() {
 *!*
-  let message = "Hello, I'm JavaScript!"; // local variable
+  let message = "Здравей, аз съм JavaScript!"; // локална вариация
 */!*
 
   alert( message );
 }
 
-showMessage(); // Hello, I'm JavaScript!
+showMessage(); // Здравей, аз съм JavaScript!
 
-alert( message ); // <-- Error! The variable is local to the function
+alert( message ); // <-- Грешка! Вариацията е локална във функцията
 ```
 
-## Outer variables
+## Външни вариации
 
-A function can access an outer variable as well, for example:
+Функцията също може да има достъп до външна вариация, като например:
 
 ```js run no-beautify
-let *!*userName*/!* = 'John';
+let *!*userName*/!* = 'Джон';
 
 function showMessage() {
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Здравей, ' + *!*userName*/!*;
   alert(message);
 }
 
-showMessage(); // Hello, John
+showMessage(); // Здравей, Джон
 ```
 
-The function has full access to the outer variable. It can modify it as well.
+Функцията има пълен достъп до външната вариация. Също така може да я модифицира.
 
-For instance:
+Като например:
 
 ```js run
-let *!*userName*/!* = 'John';
+let *!*userName*/!* = 'Джон';
 
 function showMessage() {
-  *!*userName*/!* = "Bob"; // (1) changed the outer variable
+  *!*userName*/!* = "Боб"; // (1) промени външната вариация
 
-  let message = 'Hello, ' + *!*userName*/!*;
+  let message = 'Здравей, ' + *!*userName*/!*;
   alert(message);
 }
 
-alert( userName ); // *!*John*/!* before the function call
+alert( userName ); // *!*Джон*/!* преди изпълнението на функцията
 
 showMessage();
 
-alert( userName ); // *!*Bob*/!*, the value was modified by the function
+alert( userName ); // *!*Боб*/!*, стойността беше модифицирана от функцията
 ```
 
-The outer variable is only used if there's no local one.
+Външната вариация се изпълнява само, ако няма локална такава.
 
-If a same-named variable is declared inside the function then it *shadows* the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
+Ако вариация със същото име е декларирана във функцията, то тогава _засенчва_ външната. Като например, в кода по-долу функцията използва локалната `userName`. Външната е игнорирана:
 
 ```js run
-let userName = 'John';
+let userName = 'Джон';
 
 function showMessage() {
 *!*
-  let userName = "Bob"; // declare a local variable
+  let userName = "Боб"; // декларира локална вариация
 */!*
 
-  let message = 'Hello, ' + userName; // *!*Bob*/!*
+  let message = 'Hello, ' + userName; // *!*Боб*/!*
   alert(message);
 }
 
-// the function will create and use its own userName
+// Функцията ще създаде и използва своя собствена userName
 showMessage();
 
-alert( userName ); // *!*John*/!*, unchanged, the function did not access the outer variable
+alert( userName ); // *!*Джон*/!*, непроменена, функцията нямаше достъп до външната вариация
 ```
 
-```smart header="Global variables"
-Variables declared outside of any function, such as the outer `userName` in the code above, are called *global*.
+```smart header="Глобални вариации"
+Вариации декларирани извън функции, като външната `userName` в кода по-горе, се наричат *глобални*.
 
-Global variables are visible from any function (unless shadowed by locals).
+Глобалните вариации са видими от всички функции (ако не са засенчени от локалните вариации).
 
-It's a good practice to minimize the use of global variables. Modern code has few or no globals. Most variables reside in their functions. Sometimes though, they can be useful to store project-level data.
+Добра практика е да се миниманизира използването на глобални вариации. Модерният код има малко на брой глобални вариации или те въобще отсъстват. Повечето вариации са декларирани в свои собствени функции. Понякога обаче, те могат да са полезни да сухраняват проекционни данни.
 ```
 
-## Parameters
+## Параметри
 
-We can pass arbitrary data to functions using parameters (also called *function arguments*) .
+Мовжем да задаваме своеобразна дата на функции изполвайки параметри (наричани също _функционални аргументи_) .
 
-In the example below, the function has two parameters: `from` and `text`.
+В примера по-долу, фукнцията има два параметъра: `from` и `text`.
 
 ```js run
-function showMessage(*!*from, text*/!*) { // arguments: from, text
+function showMessage(*!*from, text*/!*) { // аргументи: from, text
   alert(from + ': ' + text);
 }
 
 *!*
-showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
-showMessage('Ann', "What's up?"); // Ann: What's up? (**)
+showMessage('Ани', 'Здравей!'); // Ани: Здравей! (*)
+showMessage('Ани', "Как е?"); // Ани: Как е? (**)
 */!*
 ```
 
-When the function is called in lines `(*)` and `(**)`, the given values are copied to local variables `from` and `text`. Then the function uses them.
+Когато функцията е изпълнена в редовете `(*)` и `(**)`, дадените стойности са копирани в локалните вариации `from` и `text`. Функцията ги използва.
 
-Here's one more example: we have a variable `from` and pass it to the function. Please note: the function changes `from`, but the change is not seen outside, because a function always gets a copy of the value:
-
+Ето още един пример: имаме вариация `from` и я предаваме на функцията. Забележи: функцията променя `from`, но промяната не е видима извън нея, защото функцията винаги получава копие от стойността:
 
 ```js run
 function showMessage(from, text) {
 
 *!*
-  from = '*' + from + '*'; // make "from" look nicer
+  from = '*' + from + '*'; // прави "from" да изглежда по-добре
 */!*
 
   alert( from + ': ' + text );
 }
 
-let from = "Ann";
+let from = "Ани";
 
-showMessage(from, "Hello"); // *Ann*: Hello
+showMessage(from, "Здравей"); // *Ани*: Здравей
 
-// the value of "from" is the same, the function modified a local copy
-alert( from ); // Ann
+// стойността на "from" е същата, функцията модифицира локалното копие
+alert( from ); // Ани
 ```
 
-## Default values
+## Стойности по подразбиране
 
-If a parameter is not provided, then its value becomes `undefined`.
+Ако не е предоставен параметър, то тогава неговата стойност става `undefined`.
 
-For instance, the aforementioned function `showMessage(from, text)` can be called with a single argument:
+Като например, познатата ни вече функция `showMessage(from, text)` може да бъде извикана с един единствен аргумент:
 
 ```js
-showMessage("Ann");
+showMessage("Анн");
 ```
 
-That's not an error. Such a call would output `"Ann: undefined"`. There's no `text`, so it's assumed that `text === undefined`.
+Това не е грешка. Подобно изпълнение ще покаже `"Анн: undefined"`. Няма `text`, затова се предполага че `text === undefined`.
 
-If we want to use a "default" `text` in this case, then we can specify it after `=`:
+Ако искаме да използваме `text` по подразбиране в този случай, то тогава можем да го посочим след `=`:
 
 ```js run
-function showMessage(from, *!*text = "no text given"*/!*) {
+function showMessage(from, *!*text = "не е зададен текст"*/!*) {
   alert( from + ": " + text );
 }
 
-showMessage("Ann"); // Ann: no text given
+showMessage("Ann"); // Анн: не е зададен текст
 ```
 
-Now if the `text` parameter is not passed, it will get the value `"no text given"`
+Сега ако параметърът на `text` не е зададен, ще получи стойността `"не е зададен текст"`
 
-Here `"no text given"` is a string, but it can be a more complex expression, which is only evaluated and assigned if the parameter is missing. So, this is also possible:
+Тук `"не е зададен текст"` е стринг, но може да бъде по-сложен израз, който е единствено изчислен и възложен ако параматърът. Така че, това също е възможно:
 
 ```js run
 function showMessage(from, text = anotherFunction()) {
-  // anotherFunction() only executed if no text given
-  // its result becomes the value of text
+  // anotherFunction() изпълнява се само, ако не е зададен текст
+  // резултатът му става стойността на text
 }
 ```
 
-```smart header="Evaluation of default parameters"
-In JavaScript, a default parameter is evaluated every time the function is called without the respective parameter.
+```smart header="Оценяване на параметрите по подразбиране"
+При JavaScript, параметър по подразбиране се оценява всеки път, когато функцията е извикана без ресяективния параметър.
 
-In the example above, `anotherFunction()` is called every time `showMessage()` is called without the `text` parameter.
+В примера по-горе, `anotherFunction()` се извиква всеки път, когато `showMessage()` е извикана без `text` параметър.
 ```
 
-````smart header="Default parameters old-style"
-Old editions of JavaScript did not support default parameters. So there are alternative ways to support them, that you can find mostly in the old scripts.
+````smart header="Старомодни параметри по подразбиране"
+Старите версии на JavaScript не поддържат параметри по подразбиране. Така че има алтернативен начин да се поддържат, които могат да бъдат намерени главно в стари кодове.
 
-For instance, an explicit check for being `undefined`:
+Например, изрична проверка на `undefined`:
 
 ```js
 function showMessage(from, text) {
 *!*
   if (text === undefined) {
-    text = 'no text given';
+    text = 'не е зададен';
   }
 */!*
 
@@ -231,12 +229,12 @@ function showMessage(from, text) {
 }
 ```
 
-...Or the `||` operator:
+...Или `||` оператора:
 
 ```js
 function showMessage(from, text) {
-  // if text is falsy then text gets the "default" value
-  text = text || 'no text given';
+  // ако текста е неверен получава "default" стойност
+  text = text || 'не е зададен';
   ...
 }
 ```
@@ -244,12 +242,11 @@ function showMessage(from, text) {
 
 ````
 
+## Връщане на стойност
 
-## Returning a value
+Функция може да върне стойност в кода на извикване като резултат.
 
-A function can return a value back into the calling code as the result.
-
-The simplest example would be a function that sums two values:
+Най-простия пример би бил функция, която събира две стойности:
 
 ```js run no-beautify
 function sum(a, b) {
@@ -260,9 +257,9 @@ let result = sum(1, 2);
 alert( result ); // 3
 ```
 
-The directive `return` can be in any place of the function. When the execution reaches it, the function stops, and the value is returned to the calling code (assigned to `result` above).
+Директивата `return` може да бъде на всяко място във функцията. Когато функцията я достигне, функцията спира и стойността се връща в кода на повикване (зададена на `result` по-горе).
 
-There may be many occurrences of `return` in a single function. For instance:
+Възможно е да има много повторения на `return` в една единствена функция. Например:
 
 ```js run
 function checkAge(age) {
@@ -272,23 +269,23 @@ function checkAge(age) {
 */!*
   } else {
 *!*
-    return confirm('Do you have permission from your parents?');
+    return confirm('Имаш ли разрешение от родителите?');
 */!*
   }
 }
 
-let age = prompt('How old are you?', 18);
+let age = prompt('На колко години си?', 18);
 
 if ( checkAge(age) ) {
-  alert( 'Access granted' );
+  alert( 'Получен достъп' );
 } else {
-  alert( 'Access denied' );
+  alert( 'Отказан достъп' );
 }
 ```
 
-It is possible to use `return` without a value. That causes the function to exit immediately.
+Възможно е да използваме `return` без стойност. Това кара да излезем от функцията веднага.
 
-For example:
+Например:
 
 ```js
 function showMovie(age) {
@@ -298,50 +295,53 @@ function showMovie(age) {
 */!*
   }
 
-  alert( "Showing you the movie" ); // (*)
+  alert( "Показва ти филма" ); // (*)
   // ...
 }
 ```
 
-In the code above, if `checkAge(age)` returns `false`, then `showMovie` won't proceed to the `alert`.
+В кода по-горе, ако `checkAge(age)` върне `false`, тогава `showMovie` няма да продължи към `alert`.
 
-````smart header="A function with an empty `return` or without it returns `undefined`"
-If a function does not return a value, it is the same as if it returns `undefined`:
+``smart header="Функция с празен `return` или с липсващ такъв връща `undefined`"
+Ако функция не върне стойност, е същото ако върне `undefined`:
 
 ```js run
-function doNothing() { /* empty */ }
+function doNothing() {
+  /* празно */
+}
 
-alert( doNothing() === undefined ); // true
+alert(doNothing() === undefined); // true
 ```
 
-An empty `return` is also the same as `return undefined`:
+Празен `return` е също като `return undefined`:
 
 ```js run
 function doNothing() {
   return;
 }
 
-alert( doNothing() === undefined ); // true
+alert(doNothing() === undefined); // true
 ```
-````
 
-````warn header="Never add a newline between `return` and the value"
-For a long expression in `return`, it might be tempting to put it on a separate line, like this:
+`````
+
+````warn header="Никога не слагай нов ред между `return` и стойността"
+При дълъг израз в `return`, може да е изкушаващо да го разделим на отделен ред, ето така:
 
 ```js
 return
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
-That doesn't work, because JavaScript assumes a semicolon after `return`. That'll work the same as:
+Това не работи, защото JavaScript предполага точка и запетая ";" след `return`. Това работи също като:
 
 ```js
 return*!*;*/!*
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
 
-So, it effectively becomes an empty return.
+Което автоматично се превръща в празен "return".
 
-If we want the returned expression to wrap across multiple lines, we should start it at the same line as `return`. Or at least put the opening parentheses there as follows:
+Ако искаме да върнем израз в няколко реда, трябва да го започнем в същия ред като `return`. Или поне да сложим отварящата скоба на същия ред:
 
 ```js
 return (
@@ -350,82 +350,80 @@ return (
   whatever * f(a) + f(b)
   )
 ```
-And it will work just as we expect it to.
-````
+И ще работи точно както очакваме.
+`````
 
-## Naming a function [#function-naming]
+## Именуване на функция [#function-naming]
 
-Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does, so that someone reading the code gets an indication of what the function does.
+Функциите са действия. Така че техните имена са обикновенно глаголи. Трябва да са кратки, възможно най-акуратни и описващи какво прави функцията, така че някой четящ кода получава индикация за дейността на функцията.
 
-It is a widespread practice to start a function with a verbal prefix which vaguely describes the action. There must be an agreement within the team on the meaning of the prefixes.
+Общоприета практика е да започнем функция с глаголен префикс който описва действието. Трябва да има съгласие в екипа в това какво означават префиксите.
+Например, функции които започват с `"show"` обикновенно показват нещо.
 
-For instance, functions that start with `"show"` usually show something.
+Функции започващи с...
 
-Function starting with...
+- `"get…"` -- връщат стойност,
+- `"calc…"` -- изчисляват нещо,
+- `"create…"` -- създават нещо,
+- `"check…"` -- проверяват нещо и връщат булева, и т.н.
 
-- `"get…"` -- return a value,
-- `"calc…"` -- calculate something,
-- `"create…"` -- create something,
-- `"check…"` -- check something and return a boolean, etc.
-
-Examples of such names:
+Примери за такива имена:
 
 ```js no-beautify
-showMessage(..)     // shows a message
-getAge(..)          // returns the age (gets it somehow)
-calcSum(..)         // calculates a sum and returns the result
-createForm(..)      // creates a form (and usually returns it)
-checkPermission(..) // checks a permission, returns true/false
+showMessage(..)     // показва съобщение
+getAge(..)          // връща годините (получава ги някакси)
+calcSum(..)         // калкулира сбора и връща резултата
+createForm(..)      // създава форма (и обикновенно я връща)
+checkPermission(..) // проверява достъп, връща true/false
 ```
 
-With prefixes in place, a glance at a function name gives an understanding what kind of work it does and what kind of value it returns.
+С префикси, един поглед на името на функцията дава да се разбере каква работа извършва и какъв тип стойност връща.
 
-```smart header="One function -- one action"
-A function should do exactly what is suggested by its name, no more.
+```smart header="Една функция -- едно действие"
+Функция трябва да прави точно това, което показва името, не повече.
 
-Two independent actions usually deserve two functions, even if they are usually called together (in that case we can make a 3rd function that calls those two).
+Две различни действия обикновенно заслужават две функции, дори когато те нормално са извиквани заедно (в този случай можем да създадем трета функция, която извиква двете).
 
-A few examples of breaking this rule:
+Няколко примера на нарушаване на правилото:
 
-- `getAge` -- would be bad if it shows an `alert` with the age (should only get).
-- `createForm` -- would be bad if it modifies the document, adding a form to it (should only create it and return).
-- `checkPermission` -- would be bad if it displays the `access granted/denied` message (should only perform the check and return the result).
+- `getAge` -- ще бъде лошо, ако покаже `alert` с годините (трябва само да ги получи).
+- `createForm` -- ще е лошо, ако модифицира документа, добавяйки форма (трябва само да я създаде и върне).
+- `checkPermission` -- ще е лошо, ако покаже `access granted/denied` съобщение (трябва само да извърши проверката и върне резултата).
 
-These examples assume common meanings of prefixes. You and your team are free to agree on other meanings, but usually they're not much different. In any case, you should have a firm understanding of what a prefix means, what a prefixed function can and cannot do. All same-prefixed functions should obey the rules. And the team should share the knowledge.
+Тези примери очакват често срещани значения на префиксите. Ти и твоя екип сте свободни да се съгласите на значение, но нормални те не са много различни. Във всеки случай, трябва да имаш общо разбиране на това какво означават префиксите, какво префиксите на функциите могат и не могат да правят. Всички функции с общи префикси трябва да спазват правилата. И екипът трябва да се съгласува.
 ```
 
-```smart header="Ultrashort function names"
-Functions that are used *very often* sometimes have ultrashort names.
+```smart header="Ултра-кратки имена на функции"
+Функции, които се изпълняват много често понякога имат ултра-кратки имена.
 
-For example, the [jQuery](http://jquery.com) framework defines a function with `$`. The [Lodash](http://lodash.com/) library has its core function named `_`.
+Например, [jQuery](http://jquery.com) структурата дефинира функция с `$`. [Lodash](http://lodash.com/) библиотеката име своя собствена вътрешна функция с име `_`.
 
-These are exceptions. Generally functions names should be concise and descriptive.
+Има изключения. Като цяло името на функцията трябва да е сбито и описателно.
 ```
 
-## Functions == Comments
+## Функции == Коментари
 
-Functions should be short and do exactly one thing. If that thing is big, maybe it's worth it to split the function into a few smaller functions. Sometimes following this rule may not be that easy, but it's definitely a good thing.
+Функциите трябва да са кратки и да правят само едно нещо. Ако това нещо е голямо, може би си заслужава да разделим функцията на няколко по-кратки. Понякога следването на това правило може да не е лесно, но определено е нещо хубаво.
 
-A separate function is not only easier to test and debug -- its very existence is a great comment!
+Отделна функция е не само по-лесно да бъде тествана и отстранени грешките -- самото и съществуване е страхотен коментар!
 
-For instance, compare the two functions `showPrimes(n)` below. Each one outputs [prime numbers](https://en.wikipedia.org/wiki/Prime_number) up to `n`.
+Например, сравни двете функции `showPrimes(n)` по-долу. Всяка произвежда [prime numbers](https://en.wikipedia.org/wiki/Prime_number) до `n`.
 
-The first variant uses a label:
+Първият вариант използва етикет:
 
 ```js
 function showPrimes(n) {
   nextPrime: for (let i = 2; i < n; i++) {
-
     for (let j = 2; j < i; j++) {
       if (i % j == 0) continue nextPrime;
     }
 
-    alert( i ); // a prime
+    alert(i); // a prime
   }
 }
 ```
 
-The second variant uses an additional function `isPrime(n)` to test for primality:
+Вторият вариант използва допълнителна функция `isPrime(n)` да тества за основа:
 
 ```js
 function showPrimes(n) {
@@ -445,32 +443,32 @@ function isPrime(n) {
 }
 ```
 
-The second variant is easier to understand, isn't it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as *self-describing*.
+Вторият вариан е по-лесен за разбиране, нали? Вместо част от кода ние виждаме име на действието (`isPrime`). Понякога хората наричат такъв код _self-describing_ (самоописващ).
 
-So, functions can be created even if we don't intend to reuse them. They structure the code and make it readable.
+Така че функциите могат да бъдат създадени, дори когато не възнамеряваме да ги използваме отново. Те структурират кода и го правят по-лесен за четене.
 
-## Summary
+## Обобщение
 
-A function declaration looks like this:
+Декларация на функция изглежда така:
 
 ```js
 function name(parameters, delimited, by, comma) {
-  /* code */
+  /* код */
 }
 ```
 
-- Values passed to a function as parameters are copied to its local variables.
-- A function may access outer variables. But it works only from inside out. The code outside of the function doesn't see its local variables.
-- A function can return a value. If it doesn't, then its result is `undefined`.
+- Стойности зададени на функция като параметри се копират в нейните локални вариации.
+- Функция може да има достъп до други външни вариации. Но работи само отвътре навън. Кодът извън функцията не вижда нейните локални вариации.
+- Функция може да върне стойност. Ако не го направи, тогава резултатът е `undefined`.
 
-To make the code clean and easy to understand, it's recommended to use mainly local variables and parameters in the function, not outer variables.
+За да направим кога чист и лесен за разбиране, препоръчително е да използаме главно локални вариации и параметри във функцията, не външни вариации.
 
-It is always easier to understand a function which gets parameters, works with them and returns a result than a function which gets no parameters, but modifies outer variables as a side-effect.
+Винаги е по-лесно да разберем функция, която получава параметри, разботи с тях и връща резултат от функция, която не получава параметри, но модифицира външни вариации, като страничен ефект.
 
-Function naming:
+Именуване на функциите:
 
-- A name should clearly describe what the function does. When we see a function call in the code, a good name instantly gives us an understanding what it does and returns.
-- A function is an action, so function names are usually verbal.
-- There exist many well-known function prefixes like `create…`, `show…`, `get…`, `check…` and so on. Use them to hint what a function does.
+- Името трябва да описва ясно какво прави функцията. Когато видим извикване на функция в кода, добро име веднага ни дава да разберем какво прави и какво връща.
+- Функцията е действие, така че имената на функциите са обикновено глаголи.
+- Съществуват много добре известни префикси на функции като `create…`, `show…`, `get…`, `check…` и т.н. Използвай ги, за да подскажеш какво прави функцията.
 
-Functions are the main building blocks of scripts. Now we've covered the basics, so we actually can start creating and using them. But that's only the beginning of the path. We are going to return to them many times, going more deeply into their advanced features.
+Функциите да главните строителни болкове на скрипта. Сега ние се запознаваме с основното, така че да можем да започнем да ги създаваме и използваме. Но това е само началото на пътя. Ние ще се връщаме към тях много пъти, като се задълбочаваме в тяхните разширени функции.
