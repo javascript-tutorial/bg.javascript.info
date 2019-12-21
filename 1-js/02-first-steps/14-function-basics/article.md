@@ -175,53 +175,53 @@ alert( from ); // Ани
 
 ## Стойности по подразбиране
 
-If a parameter is not provided, then its value becomes `undefined`.
+Ако не е предоставен параметър, то тогава неговата стойност става `undefined`.
 
-For instance, the aforementioned function `showMessage(from, text)` can be called with a single argument:
+Като например, познатата ни вече функция `showMessage(from, text)` може да бъде извикана с един единствен аргумент:
 
 ```js
-showMessage("Ann");
+showMessage("Анн");
 ```
 
-That's not an error. Such a call would output `"Ann: undefined"`. There's no `text`, so it's assumed that `text === undefined`.
+Това не е грешка. Подобно изпълнение ще покаже `"Анн: undefined"`. Няма `text`, затова се предполага че `text === undefined`.
 
-If we want to use a "default" `text` in this case, then we can specify it after `=`:
+Ако искаме да използваме `text` по подразбиране в този случай, то тогава можем да го посочим след `=`:
 
 ```js run
-function showMessage(from, *!*text = "no text given"*/!*) {
+function showMessage(from, *!*text = "не е зададен текст"*/!*) {
   alert( from + ": " + text );
 }
 
-showMessage("Ann"); // Ann: no text given
+showMessage("Ann"); // Анн: не е зададен текст
 ```
 
-Now if the `text` parameter is not passed, it will get the value `"no text given"`
+Сега ако параметърът на `text` не е зададен, ще получи стойността `"не е зададен текст"`
 
-Here `"no text given"` is a string, but it can be a more complex expression, which is only evaluated and assigned if the parameter is missing. So, this is also possible:
+Тук `"не е зададен текст"` е стринг, но може да бъде по-сложен израз, който е единствено изчислен и възложен ако параматърът. Така че, това също е възможно:
 
 ```js run
 function showMessage(from, text = anotherFunction()) {
-  // anotherFunction() only executed if no text given
-  // its result becomes the value of text
+  // anotherFunction() изпълнява се само, ако не е зададен текст
+  // резултатът му става стойността на text
 }
 ```
 
-```smart header="Evaluation of default parameters"
-In JavaScript, a default parameter is evaluated every time the function is called without the respective parameter.
+```smart header="Оценяване на параметрите по подразбиране"
+При JavaScript, параметър по подразбиране се оценява всеки път, когато функцията е извикана без ресяективния параметър.
 
-In the example above, `anotherFunction()` is called every time `showMessage()` is called without the `text` parameter.
+В примера по-горе, `anotherFunction()` се извиква всеки път, когато `showMessage()` е извикана без `text` параметър.
 ```
 
-````smart header="Default parameters old-style"
-Old editions of JavaScript did not support default parameters. So there are alternative ways to support them, that you can find mostly in the old scripts.
+````smart header="Старомодни параметри по подразбиране"
+Старите версии на JavaScript не поддържат параметри по подразбиране. Така че има алтернативен начин да се поддържат, които могат да бъдат намерени главно в стари кодове.
 
-For instance, an explicit check for being `undefined`:
+Например, изрична проверка на `undefined`:
 
 ```js
 function showMessage(from, text) {
 *!*
   if (text === undefined) {
-    text = 'no text given';
+    text = 'не е зададен';
   }
 */!*
 
@@ -229,12 +229,12 @@ function showMessage(from, text) {
 }
 ```
 
-...Or the `||` operator:
+...Или `||` оператора:
 
 ```js
 function showMessage(from, text) {
-  // if text is falsy then text gets the "default" value
-  text = text || 'no text given';
+  // ако текста е неверен получава "default" стойност
+  text = text || 'не е зададен';
   ...
 }
 ```
@@ -242,11 +242,11 @@ function showMessage(from, text) {
 
 ````
 
-## Returning a value
+## Връщане на стойност
 
-A function can return a value back into the calling code as the result.
+Функция може да върне стойност в кода на извикване като резултат.
 
-The simplest example would be a function that sums two values:
+Най-простия пример би бил функция, която събира две стойности:
 
 ```js run no-beautify
 function sum(a, b) {
@@ -257,9 +257,9 @@ let result = sum(1, 2);
 alert( result ); // 3
 ```
 
-The directive `return` can be in any place of the function. When the execution reaches it, the function stops, and the value is returned to the calling code (assigned to `result` above).
+Директивата `return` може да бъде на всяко място във функцията. Когато функцията я достигне, функцията спира и стойността се връща в кода на повикване (зададена на `result` по-горе).
 
-There may be many occurrences of `return` in a single function. For instance:
+Възможно е да има много повторения на `return` в една единствена функция. Например:
 
 ```js run
 function checkAge(age) {
@@ -269,23 +269,23 @@ function checkAge(age) {
 */!*
   } else {
 *!*
-    return confirm('Do you have permission from your parents?');
+    return confirm('Имаш ли разрешение от родителите?');
 */!*
   }
 }
 
-let age = prompt('How old are you?', 18);
+let age = prompt('На колко години си?', 18);
 
 if ( checkAge(age) ) {
-  alert( 'Access granted' );
+  alert( 'Получен достъп' );
 } else {
-  alert( 'Access denied' );
+  alert( 'Отказан достъп' );
 }
 ```
 
-It is possible to use `return` without a value. That causes the function to exit immediately.
+Възможно е да използваме `return` без стойност. Това кара да излезем от функцията веднага.
 
-For example:
+Например:
 
 ```js
 function showMovie(age) {
@@ -295,25 +295,25 @@ function showMovie(age) {
 */!*
   }
 
-  alert( "Showing you the movie" ); // (*)
+  alert( "Показва ти филма" ); // (*)
   // ...
 }
 ```
 
-In the code above, if `checkAge(age)` returns `false`, then `showMovie` won't proceed to the `alert`.
+В кода по-горе, ако `checkAge(age)` върне `false`, тогава `showMovie` няма да продължи към `alert`.
 
-``smart header="A function with an empty `return` or without it returns `undefined`"
-If a function does not return a value, it is the same as if it returns `undefined`:
+``smart header="Функция с празен `return` или с липсващ такъв връща `undefined`"
+Ако функция не върне стойност, е същото ако върне `undefined`:
 
 ```js run
 function doNothing() {
-  /* empty */
+  /* празно */
 }
 
 alert(doNothing() === undefined); // true
 ```
 
-An empty `return` is also the same as `return undefined`:
+Празен `return` е също като `return undefined`:
 
 ```js run
 function doNothing() {
@@ -325,8 +325,8 @@ alert(doNothing() === undefined); // true
 
 `````
 
-````warn header="Never add a newline between `return` and the value"
-For a long expression in `return`, it might be tempting to put it on a separate line, like this:
+````warn header="Никога не слагай нов ред между `return` и стойността"
+При дълъг израз в `return`, може да е изкушаващо да го разделим на отделен ред, ето така:
 
 ```js
 return
