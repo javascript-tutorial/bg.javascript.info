@@ -332,16 +332,16 @@ alert(doNothing() === undefined); // true
 return
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
-That doesn't work, because JavaScript assumes a semicolon after `return`. That'll work the same as:
+Това не работи, защото JavaScript предполага точка и запетая ";" след `return`. Това работи също като:
 
 ```js
 return*!*;*/!*
  (some + long + expression + or + whatever * f(a) + f(b))
 ```
 
-So, it effectively becomes an empty return.
+Което автоматично се превръща в празен "return".
 
-If we want the returned expression to wrap across multiple lines, we should start it at the same line as `return`. Or at least put the opening parentheses there as follows:
+Ако искаме да върнем израз в няколко реда, трябва да го започнем в същия ред като `return`. Или поне да сложим отварящата скоба на същия ред:
 
 ```js
 return (
@@ -350,67 +350,66 @@ return (
   whatever * f(a) + f(b)
   )
 ```
-And it will work just as we expect it to.
+И ще работи точно както очакваме.
 `````
 
-## Naming a function [#function-naming]
+## Именуване на функция [#function-naming]
 
-Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does, so that someone reading the code gets an indication of what the function does.
+Функциите са действия. Така че техните имена са обикновенно глаголи. Трябва да са кратки, възможно най-акуратни и описващи какво прави функцията, така че някой четящ кода получава индикация за дейността на функцията.
 
-It is a widespread practice to start a function with a verbal prefix which vaguely describes the action. There must be an agreement within the team on the meaning of the prefixes.
+Общоприета практика е да започнем функция с глаголен префикс който описва действието. Трябва да има съгласие в екипа в това какво означават префиксите.
+Например, функции които започват с `"show"` обикновенно показват нещо.
 
-For instance, functions that start with `"show"` usually show something.
+Функции започващи с...
 
-Function starting with...
+- `"get…"` -- връщат стойност,
+- `"calc…"` -- изчисляват нещо,
+- `"create…"` -- създават нещо,
+- `"check…"` -- проверяват нещо и връщат булева, и т.н.
 
-- `"get…"` -- return a value,
-- `"calc…"` -- calculate something,
-- `"create…"` -- create something,
-- `"check…"` -- check something and return a boolean, etc.
-
-Examples of such names:
+Примери за такива имена:
 
 ```js no-beautify
-showMessage(..)     // shows a message
-getAge(..)          // returns the age (gets it somehow)
-calcSum(..)         // calculates a sum and returns the result
-createForm(..)      // creates a form (and usually returns it)
-checkPermission(..) // checks a permission, returns true/false
+showMessage(..)     // показва съобщение
+getAge(..)          // връща годините (получава ги някакси)
+calcSum(..)         // калкулира сбора и връща резултата
+createForm(..)      // създава форма (и обикновенно я връща)
+checkPermission(..) // проверява достъп, връща true/false
 ```
 
-With prefixes in place, a glance at a function name gives an understanding what kind of work it does and what kind of value it returns.
+С префикси, един поглед на името на функцията дава да се разбере каква работа извършва и какъв тип стойност връща.
 
-```smart header="One function -- one action"
-A function should do exactly what is suggested by its name, no more.
+```smart header="Една функция -- едно действие"
+Функция трябва да прави точно това, което показва името, не повече.
 
-Two independent actions usually deserve two functions, even if they are usually called together (in that case we can make a 3rd function that calls those two).
+Две различни действия обикновенно заслужават две функции, дори когато те нормално са извиквани заедно (в този случай можем да създадем трета функция, която извиква двете).
 
-A few examples of breaking this rule:
+Няколко примера на нарушаване на правилото:
 
-- `getAge` -- would be bad if it shows an `alert` with the age (should only get).
-- `createForm` -- would be bad if it modifies the document, adding a form to it (should only create it and return).
-- `checkPermission` -- would be bad if it displays the `access granted/denied` message (should only perform the check and return the result).
+- `getAge` -- ще бъде лошо, ако покаже `alert` с годините (трябва само да ги получи).
+- `createForm` -- ще е лошо, ако модифицира документа, добавяйки форма (трябва само да я създаде и върне).
+- `checkPermission` -- ще е лошо, ако покаже `access granted/denied` съобщение (трябва само да извърши проверката и върне резултата).
 
-These examples assume common meanings of prefixes. You and your team are free to agree on other meanings, but usually they're not much different. In any case, you should have a firm understanding of what a prefix means, what a prefixed function can and cannot do. All same-prefixed functions should obey the rules. And the team should share the knowledge.
+Тези примери очакват често срещани значения на префиксите. Ти и твоя екип сте свободни да се съгласите на значение, но нормални те не са много различни. Във всеки случай, трябва да имаш общо разбиране на това какво означават префиксите, какво префиксите на функциите могат и не могат да правят. Всички функции с общи префикси трябва да спазват правилата. И екипът трябва да се съгласува.
 ```
 
-```smart header="Ultrashort function names"
-Functions that are used *very often* sometimes have ultrashort names.
+```smart header="Ултра-кратки имена на функции"
+Функции, които се изпълняват много често понякога имат ултра-кратки имена.
 
-For example, the [jQuery](http://jquery.com) framework defines a function with `$`. The [Lodash](http://lodash.com/) library has its core function named `_`.
+Например, [jQuery](http://jquery.com) структурата дефинира функция с `$`. [Lodash](http://lodash.com/) библиотеката име своя собствена вътрешна функция с име `_`.
 
-These are exceptions. Generally functions names should be concise and descriptive.
+Има изключения. Като цяло името на функцията трябва да е сбито и описателно.
 ```
 
-## Functions == Comments
+## Функции == Коментари
 
-Functions should be short and do exactly one thing. If that thing is big, maybe it's worth it to split the function into a few smaller functions. Sometimes following this rule may not be that easy, but it's definitely a good thing.
+Функциите трябва да са кратки и да правят само едно нещо. Ако това нещо е голямо, може би си заслужава да разделим функцията на няколко по-кратки. Понякога следването на това правило може да не е лесно, но определено е нещо хубаво.
 
-A separate function is not only easier to test and debug -- its very existence is a great comment!
+Отделна функция е не само по-лесно да бъде тествана и отстранени грешките -- самото и съществуване е страхотен коментар!
 
-For instance, compare the two functions `showPrimes(n)` below. Each one outputs [prime numbers](https://en.wikipedia.org/wiki/Prime_number) up to `n`.
+Например, сравни двете функции `showPrimes(n)` по-долу. Всяка произвежда [prime numbers](https://en.wikipedia.org/wiki/Prime_number) до `n`.
 
-The first variant uses a label:
+Първият вариант използва етикет:
 
 ```js
 function showPrimes(n) {
@@ -424,7 +423,7 @@ function showPrimes(n) {
 }
 ```
 
-The second variant uses an additional function `isPrime(n)` to test for primality:
+Вторият вариант използва допълнителна функция `isPrime(n)` да тества за основа:
 
 ```js
 function showPrimes(n) {
@@ -444,32 +443,32 @@ function isPrime(n) {
 }
 ```
 
-The second variant is easier to understand, isn't it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as _self-describing_.
+Вторият вариан е по-лесен за разбиране, нали? Вместо част от кода ние виждаме име на действието (`isPrime`). Понякога хората наричат такъв код _self-describing_ (самоописващ).
 
-So, functions can be created even if we don't intend to reuse them. They structure the code and make it readable.
+Така че функциите могат да бъдат създадени, дори когато не възнамеряваме да ги използваме отново. Те структурират кода и го правят по-лесен за четене.
 
-## Summary
+## Обобщение
 
-A function declaration looks like this:
+Декларация на функция изглежда така:
 
 ```js
 function name(parameters, delimited, by, comma) {
-  /* code */
+  /* код */
 }
 ```
 
-- Values passed to a function as parameters are copied to its local variables.
-- A function may access outer variables. But it works only from inside out. The code outside of the function doesn't see its local variables.
-- A function can return a value. If it doesn't, then its result is `undefined`.
+- Стойности зададени на функция като параметри се копират в нейните локални вариации.
+- Функция може да има достъп до други външни вариации. Но работи само отвътре навън. Кодът извън функцията не вижда нейните локални вариации.
+- Функция може да върне стойност. Ако не го направи, тогава резултатът е `undefined`.
 
-To make the code clean and easy to understand, it's recommended to use mainly local variables and parameters in the function, not outer variables.
+За да направим кога чист и лесен за разбиране, препоръчително е да използаме главно локални вариации и параметри във функцията, не външни вариации.
 
-It is always easier to understand a function which gets parameters, works with them and returns a result than a function which gets no parameters, but modifies outer variables as a side-effect.
+Винаги е по-лесно да разберем функция, която получава параметри, разботи с тях и връща резултат от функция, която не получава параметри, но модифицира външни вариации, като страничен ефект.
 
-Function naming:
+Именуване на функциите:
 
-- A name should clearly describe what the function does. When we see a function call in the code, a good name instantly gives us an understanding what it does and returns.
-- A function is an action, so function names are usually verbal.
-- There exist many well-known function prefixes like `create…`, `show…`, `get…`, `check…` and so on. Use them to hint what a function does.
+- Името трябва да описва ясно какво прави функцията. Когато видим извикване на функция в кода, добро име веднага ни дава да разберем какво прави и какво връща.
+- Функцията е действие, така че имената на функциите са обикновено глаголи.
+- Съществуват много добре известни префикси на функции като `create…`, `show…`, `get…`, `check…` и т.н. Използвай ги, за да подскажеш какво прави функцията.
 
-Functions are the main building blocks of scripts. Now we've covered the basics, so we actually can start creating and using them. But that's only the beginning of the path. We are going to return to them many times, going more deeply into their advanced features.
+Функциите да главните строителни болкове на скрипта. Сега ние се запознаваме с основното, така че да можем да започнем да ги създаваме и използваме. Но това е само началото на пътя. Ние ще се връщаме към тях много пъти, като се задълбочаваме в тяхните разширени функции.
