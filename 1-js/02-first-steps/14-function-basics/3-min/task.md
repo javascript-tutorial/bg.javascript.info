@@ -1,16 +1,15 @@
-importance: 1
+значимост: 1
 
 ---
 
-# Function min(a, b)
+# Функция min(a, b)
 
-Write a function `min(a,b)` which returns the least of two numbers `a` and `b`.
+Напиши функция `min(a,b)` която връща последната от двете цифри `a` и `b`.
 
-For instance:
+Например:
 
 ```js
-min(2, 5) == 2
-min(3, -1) == -1
-min(1, 1) == 1
+min(2, 5) == 2;
+min(3, -1) == -1;
+min(1, 1) == 1;
 ```
-
