@@ -173,7 +173,7 @@ showMessage(from, "Здравей"); // *Ани*: Здравей
 alert( from ); // Ани
 ```
 
-## Default values
+## Стойности по подразбиране
 
 If a parameter is not provided, then its value becomes `undefined`.
 
