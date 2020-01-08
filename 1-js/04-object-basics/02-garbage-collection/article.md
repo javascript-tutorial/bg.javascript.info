@@ -1,38 +1,38 @@
-# Garbage collection
+# Garbage collection - Събирач на отпадъци
 
-Memory management in JavaScript is performed automatically and invisibly to us. We create primitives, objects, functions... All that takes memory.
+Управлението на паметта в JavaScript се извършва автоматично и невидимо за нас. Ние създаваме примитиви, обекти, функции ... Всичко, което отнема памет.
 
-What happens when something is not needed any more? How does the JavaScript engine discover it and clean it up?
+Какво се случва, когато нещо вече не е необходимо? Как двигателят на JavaScript го открива и почиства?
 
-## Reachability
+## Достъпност
 
-The main concept of memory management in JavaScript is *reachability*.
+Основната концепция за управление на паметта в JavaScript е *достъпността*.
 
-Simply put, "reachable" values are those that are accessible or usable somehow. They are guaranteed to be stored in memory.
+Просто казано, „достижими“ стойности са тези, които са достъпни или използваеми по някакъв начин. Гарантирано е, че се съхраняват в паметта.
 
-1. There's a base set of inherently reachable values, that cannot be deleted for obvious reasons.
+1. Има основен набор от присъщи стойности, които по очевидни причини не могат да бъдат изтрити.
 
-    For instance:
+    Например:
 
-    - Local variables and parameters of the current function.
-    - Variables and parameters for other functions on the current chain of nested calls.
-    - Global variables.
-    - (there are some other, internal ones as well)
+    - Локалните променливи и параметри на текущата функция.
+    - Променливи и параметри за други функции в текущата верига на вложените повиквания.
+    - Глобалните променливи.
+    - (има и други, вътрешни)
 
-    These values are called *roots*.
+    Тези стойности се наричат *roots* (корени).
 
-2. Any other value is considered reachable if it's reachable from a root by a reference or by a chain of references.
+2. Всяка друга стойност се счита за достижима, ако е достижима от корен чрез референция или от верига от референции.
 
-    For instance, if there's an object in a local variable, and that object has a property referencing another object, that object is considered reachable. And those that it references are also reachable. Detailed examples to follow.
+    Например, ако имаме обект в локална променлива, и този обект има свойство рефериращо друг обект, то този обект се смята достижим. И тези, които то реферира също за достъпни. Ето подробни примери.
 
-There's a background process in the JavaScript engine that is called [garbage collector](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)). It monitors all objects and removes those that have become unreachable.
+Има основен фонов процес в JavaScript двигателя, който се нарича [garbage collector](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) (т.н. Събирач на отпадъци). Той следи всички обекти и премахва тези, които са станали недостъпни.
 
-## A simple example
+## Един прост пример
 
-Here's the simplest example:
+Ето най-простият пример:
 
 ```js
-// user has a reference to the object
+// user реферира обект
 let user = {
   name: "John"
 };
@@ -40,9 +40,9 @@ let user = {
 
 ![](memory-user-john.svg)
 
-Here the arrow depicts an object reference. The global variable `"user"` references the object `{name: "John"}` (we'll call it John for brevity). The `"name"` property of John stores a primitive, so it's painted inside the object.
+Тук стрелката изобразява референцията на обект. Глобалната променлива `"user"` реферира обекта `{name: "John"}` (ще го наречем Джон за по-кратко). Свойството `"name"` на Джон съдържа примитивна променлива, затова е нарисуван вътре в обекта.
 
-If the value of `user` is overwritten, the reference is lost:
+Ако стойността на `user` се презапише, референцията се губи:
 
 ```js
 user = null;
@@ -50,14 +50,14 @@ user = null;
 
 ![](memory-user-john-lost.svg)
 
-Now John becomes unreachable. There's no way to access it, no references to it. Garbage collector will junk the data and free the memory.
+Сега Джон става недостъпен. Няма начин да получите достъп до него, няма референции към него. Събирачът на отпадъците ще изхвърли нежелана информация и ще освободи паметта.
 
-## Two references
+## Две референции
 
-Now let's imagine we copied the reference from `user` to `admin`:
+Сега нега да си представим това че копираме референцията от `user` на `admin`:
 
 ```js
-// user has a reference to the object
+// user реферира обект
 let user = {
   name: "John"
 };
@@ -69,16 +69,16 @@ let admin = user;
 
 ![](memory-user-john-admin.svg)
 
-Now if we do the same:
+Сега ако правим същото:
 ```js
 user = null;
 ```
 
-...Then the object is still reachable via `admin` global variable, so it's in memory. If we overwrite `admin` too, then it can be removed.
+...Тогава обектът все още е достъпен чрез глобалната променлива `admin`, така че то е паметта. Ако презапишем също и `admin` променливата, тогава то може да бъде премахнат.
 
-## Interlinked objects
+## Свързани обекти
 
-Now a more complex example. The family:
+Сега по-сложен пример. Семейството:
 
 ```js
 function marry(man, woman) {
@@ -98,15 +98,15 @@ let family = marry({
 });
 ```
 
-Function `marry` "marries" two objects by giving them references to each other and returns a new object that contains them both.
+Функцията `marry` "свързва" двата обекта като им дава референция и на двете, и връща нов обект, който съдържа тези обекти.
 
-The resulting memory structure:
+Получената структура на паметта:
 
 ![](family.svg)
 
-As of now, all objects are reachable.
+Към момента всички обекти са достъпни.
 
-Now let's remove two references:
+Сега нека премахнем две референции:
 
 ```js
 delete family.father;
@@ -115,98 +115,98 @@ delete family.mother.husband;
 
 ![](family-delete-refs.svg)
 
-It's not enough to delete only one of these two references, because all objects would still be reachable.
+Не е достатъчно да изтриете само една от тези две референции, защото всички обекти все още ще бъдат достъпни.
 
-But if we delete both, then we can see that John has no incoming reference any more:
+Но ако изтрием и двете, тогава можем да видим, че Джон вече няма входяща референция:
 
 ![](family-no-father.svg)
 
-Outgoing references do not matter. Only incoming ones can make an object reachable. So, John is now unreachable and will be removed from the memory with all its data that also became unaccessible.
+Изходящите референции нямат значение. Само входящите могат да направят обект достъпен. И така, Джон сега е недостъпен и ще бъде изваден от паметта с всичките му данни, които също станаха недостъпни.
 
-After garbage collection:
+След събирачът на отпадъци:
 
 ![](family-no-father-2.svg)
 
-## Unreachable island
+## Недостъпен остров
 
-It is possible that the whole island of interlinked objects becomes unreachable and is removed from the memory.
+Възможно е целият остров от взаимосвързани обекти да станат недостъпни и да бъдат премахнати от паметта.
 
-The source object is the same as above. Then:
+Изходният обект е същият като по-горе. Тогава:
 
 ```js
 family = null;
 ```
 
-The in-memory picture becomes:
+Картината в паметта става:
 
 ![](family-no-family.svg)
 
-This example demonstrates how important the concept of reachability is.
+Този пример показва колко важна е концепцията за достъпност.
 
-It's obvious that John and Ann are still linked, both have incoming references. But that's not enough.
+Очевидно е, че Джон и Ан все още са свързани, и двете имат входящи референции. Но това не е достатъчно.
 
-The former `"family"` object has been unlinked from the root, there's no reference to it any more, so the whole island becomes unreachable and will be removed.
+Бившият `"family"` обект е прекъсва връзката от корена, вече няма референция към него, така че целият остров става недостъпен и ще бъде премахнат.
 
-## Internal algorithms
+## Вътрешни алгоритми
 
-The basic garbage collection algorithm is called "mark-and-sweep".
+Основният алгоритъм на събирача на отпадъците се нарича "маркиране и почистване".
 
-The following "garbage collection" steps are regularly performed:
+Следните стъпки на "събирача на отпадъците" се извършват редовно:
 
-- The garbage collector takes roots and "marks" (remembers) them.
-- Then it visits and "marks" all references from them.
-- Then it visits marked objects and marks *their* references. All visited objects are remembered, so as not to visit the same object twice in the future.
-- ...And so on until every reachable (from the roots) references are visited.
-- All objects except marked ones are removed.
+- Взима корените и ги "маркира" (запаметява ги).
+- Тогава то посещава и "маркира" всички референции от тях.
+- Тогава то посещава маркираните обекти и маркира *техните* референции. Всички посетени обекти са запаметени, така че да не се посещава един и същ обект повече от един път.
+- ... И така нататък, докато не бъдат посетени всички достижими (от корените) референции.
+- Всички обекти с изключение на маркираните се премахват.
 
-For instance, let our object structure look like this:
+Например, нека структурата на обекта да изглежда така:
 
 ![](garbage-collection-1.svg)
 
-We can clearly see an "unreachable island" to the right side. Now let's see how "mark-and-sweep" garbage collector deals with it.
+Ясно можем да видим "недостъпен остров" от дясната страна. Сега да видим как "маркирането и почистването" на събирача на отпадъците се справя с него.
 
-The first step marks the roots:
+Първата стъпка бележи корените:
 
 ![](garbage-collection-2.svg)
 
-Then their references are marked:
+Тогава техните референции са маркирани:
 
 ![](garbage-collection-3.svg)
 
-...And their references, while possible:
+...И техните референции, докогато е възможно:
 
 ![](garbage-collection-4.svg)
 
-Now the objects that could not be visited in the process are considered unreachable and will be removed:
+Сега обектите, които не могат да бъдат посетени в процеса, се считат за недостъпни и ще бъдат премахнати:
 
 ![](garbage-collection-5.svg)
 
-We can also imagine the process as spilling a huge bucket of paint from the roots, that flows through all references and marks all reachable objects. The unmarked ones are then removed.
+Можем също да си представим процеса като разливане на огромна кофа боя от корените, която преминава през всички референции и маркира всички достижими обекти. След това немаркираните се премахват.
 
-That's the concept of how garbage collection works. JavaScript engines apply many optimizations to make it run faster and not affect the execution.
+Това е концепцията за това как работи събирачът на отпадъците. JavaScript двигателите прилагат много оптимизации, за да стартират по-бързо и да не повлияят на изпълнението.
 
-Some of the optimizations:
+Някои от оптимизациите са:
 
-- **Generational collection** -- objects are split into two sets: "new ones" and "old ones". Many  objects appear, do their job and die fast, they can be cleaned up aggressively. Those that survive for long enough, become "old" and are examined less often.
-- **Incremental collection** -- if there are many objects, and we try to walk and mark the whole object set at once, it may take some time and introduce visible delays in the execution. So the engine tries to split the garbage collection into pieces. Then the pieces are executed one by one, separately. That requires some extra bookkeeping between them to track changes, but we have many tiny delays instead of a big one.
-- **Idle-time collection** -- the garbage collector tries to run only while the CPU is idle, to reduce the possible effect on the execution.
+- **Generational collection** (Колекция от поколения) -- обектите се разделят на две групи: "нови" и "стари". Появяват се много предмети, вършат си работата и умират бързо, те могат да бъдат почистени агресивно. Тези, които оцеляват достатъчно дълго, стават "стари" и се изследват по-рядко.
+- **Incremental collection** (Постепенно събиране) -- ако има много обекти и се опитаме да ходим и маркираме целия набор от обекти наведнъж, може да отнеме известно време и да въведем видими закъснения в изпълнението. Така двигателят се опитва да раздели събирача на отпадъците на парчета. След това парчетата се изпълняват едно по едно, отделно. Това изисква някои допълнителни счетоводни услуги между тях, за да се проследят промените, но имаме много малки закъснения вместо големи.
+- **Idle-time collection** (Колекция на празен ход) -- Събирачът на отпадъците се опитва да работи само докато процесорът бездейства, за да намали възможния ефект върху изпълнението.
 
-There exist other optimizations and flavours of garbage collection algorithms. As much as I'd like to describe them here, I have to hold off, because different engines implement different tweaks and techniques. And, what's even more important, things change as engines develop, so studying deeper "in advance", without a real need is probably not worth that. Unless, of course, it is a matter of pure interest, then there will be some links for you below.
+Съществуват други оптимизации и аромати на алгоритмите на събирача на отпадъците. Колкото и да бих искал да ги опиша тук, трябва да отложа, защото различните двигатели прилагат различни оптимизации и техники. И, което е още по-важно, нещата се променят с развитието на двигателите, така че изучаването по-дълбоко „предварително“, без реална нужда, вероятно не си струва. Освен ако, разбира се, не става въпрос за чист интерес, тогава по-долу ще има някои връзки за вас.
 
 ## Summary
 
-The main things to know:
+Основните неща, които трябва да знаете:
 
-- Garbage collection is performed automatically. We cannot force or prevent it.
-- Objects are retained in memory while they are reachable.
-- Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole.
+- Събирачът на отпадъците се изпълнява автоматично. Не можем да го насилваме или предотвратяваме.
+- Обектите се запазват в паметта, докато са достъпни.
+- Референцията не е същото като достъпността (от корен): пакет от взаимосвързани обекти могат да станат недостъпни като цяло.
 
-Modern engines implement advanced algorithms of garbage collection.
+Съвременните двигатели прилагат усъвършенствани алгоритми за събирача на отпадъците.
 
-A general book "The Garbage Collection Handbook: The Art of Automatic Memory Management" (R. Jones et al) covers some of them.
+Общата книга "The Garbage Collection Handbook: The Art of Automatic Memory Management" (R. Jones et al) обхваща някои от тях.
 
-If you are familiar with low-level programming, the more detailed information about V8 garbage collector is in the article [A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection).
+Ако сте запознати с програмирането на ниско ниво, по-подробната информация за V8 събирача на отпадъците е в статията *[A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection)*.
 
-[V8 blog](https://v8.dev/) also publishes articles about changes in memory management from time to time. Naturally, to learn the garbage collection, you'd better prepare by learning about V8 internals in general and read the blog of [Vyacheslav Egorov](http://mrale.ph) who worked as one of V8 engineers. I'm saying: "V8", because it is best covered with articles in the internet. For other engines, many approaches are similar, but garbage collection differs in many aspects.
+[Блогът V8](https://v8.dev/) също публикува статии за промените в управлението на паметта от време на време. Естествено, за да научите събирача на отпадъците, по-добре се подгответе, като се запознаете с V8 вътрешността като цяло и прочетете блога на [Вячеслав Егоров](http://mrale.ph) работил като един от V8 инженерите. Казвам: "V8", защото е най-добре покрито със статии в интернет. За други двигатели много подходи са сходни, но събирачът на отпадъците се различава в много аспекти.
 
-In-depth knowledge of engines is good when you need low-level optimizations. It would be wise to plan that as the next step after you're familiar with the language.  
+Задълбочените познания на двигателите са добри, когато се нуждаете от оптимизации на ниско ниво. Би било разумно да планирате това като следваща стъпка, след като сте запознати с езика.
