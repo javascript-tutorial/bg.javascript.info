@@ -36,15 +36,15 @@ alert( sayHi ); // показва кода на функцията
 */!*
 ```
 
-Please note that the last line does not run the function, because there are no parentheses after `sayHi`. There are programming languages where any mention of a function name causes its execution, but JavaScript is not like that.
+Забележете, че последната линия от кода не стартира функцията, тъй като няма скоби след `sayHi`. Има програмни езици, в които всяко споменаване името на функцията предизвиква нейното изпълнение, но в JаvaScript не е така.
 
-In JavaScript, a function is a value, so we can deal with it as a value. The code above shows its string representation, which is the source code.
+В JavaScript, функцията е стойност, така че можем да я третираме като стойност. Горният код показва стринговата репрезентация, която е сорс кода.
 
-Surely, a function is a special value, in the sense that we can call it like `sayHi()`.
+Естествено функцията е специална стойност и в този смисъл можем да я извикаме така `sayHi()`.
 
-But it's still a value. So we can work with it like with other kinds of values.
+Но все пак е стойност. Така че можем да работим с нея, както и с другите видове стойности.
 
-We can copy a function to another variable:
+Можем да копираме функцията в друга променлива:
 
 ```js run no-beautify
 function sayHi() {   // (1) create
