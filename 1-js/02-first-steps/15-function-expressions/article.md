@@ -1,4 +1,4 @@
-# Function expressions
+# Function expressions (Функционални изрази)
 
 В JavaScript, функцията не е "магическа езикова структура", а специфичен вид стойност.
 
@@ -47,38 +47,38 @@ alert( sayHi ); // показва кода на функцията
 Можем да копираме функцията в друга променлива:
 
 ```js run no-beautify
-function sayHi() {   // (1) create
-  alert( "Hello" );
+function sayHi() {   // (1) създаване на функцията
+  alert( "Здравей" );
 }
 
-let func = sayHi;    // (2) copy
+let func = sayHi;    // (2) копиране на функцията в променлива
 
-func(); // Hello     // (3) run the copy (it works)!
-sayHi(); // Hello    //     this still works too (why wouldn't it)
+func(); // Здравей     // (3) стартирай копието (работи)!
+sayHi(); // Здравей    //     този код също работи (защо да не работи)
 ```
 
-Here's what happens above in detail:
+Ето какво се случва в кода в детайли:
 
-1. The Function Declaration `(1)` creates the function and puts it into the variable named `sayHi`.
-2. Line `(2)` copies it into the variable `func`. Please note again: there are no parentheses after `sayHi`. If there were, then `func = sayHi()` would write  *the result of the call* `sayHi()` into `func`, not *the function* `sayHi` itself.
-3. Now the function can be called as both `sayHi()` and `func()`.
+1. Декларацията на функцията `(1)` създава функцията и я записва в променлива, на име `sayHi`.
+2. Ред `(2)` копира я в променливата `func`. Забележете че няма скоби след `sayHi`. Ако имаше, тогава `func = sayHi()` щеше да изпише *резултата от извикването* `sayHi()` във `func`, не *кода на самата функция* `sayHi`.
+3. Сега функцията може да бъде извикана по двата начина `sayHi()` и `func()`.
 
-Note that we could also have used a Function Expression to declare `sayHi`, in the first line:
+Също така можеше да използваме Function Expression за да декларираме `sayHi`, на първия ред:
 
 ```js
 let sayHi = function() {
-  alert( "Hello" );
+  alert( "Здравей" );
 };
 
 let func = sayHi;
 // ...
 ```
 
-Everything would work the same.
+Всичко работи по същия начин.
 
 
-````smart header="Why is there a semicolon at the end?"
-You might wonder, why does Function Expression have a semicolon `;` at the end, but Function Declaration does not:
+````smart header="Защо има точка и запетая в края?"
+Може да се чудите, защо Функционалните изрази имат точка и запетая `;` в края, а декларацията на функцията няма:
 
 ```js
 function sayHi() {
@@ -90,27 +90,27 @@ let sayHi = function() {
 }*!*;*/!*
 ```
 
-The answer is simple:
-- There's no need for `;` at the end of code blocks and syntax structures that use them like `if { ... }`, `for {  }`, `function f { }` etc.
-- A Function Expression is used inside the statement: `let sayHi = ...;`, as a value. It's not a code block, but rather an assignment. The semicolon `;` is recommended at the end of statements, no matter what the value is. So the semicolon here is not related to the Function Expression itself, it just terminates the statement.
+Отговорът е прост:
+- Няма нужда от `;` в края на блока от код и синтактични структури, които ги използват, като `if { ... }`, `for {  }`, `function f { }` и др.
+- Функционалният израз се използва вътре в инструкцията: `let sayHi = ...;`, като стойност. Това не е блок от код, а по-скоро присвояване на стойност. Точката и запетаята `;` е препоръчително да се ползва в края на инструкциите, без значение каква е стойността. Така че точката и запетаята не е свързана с функционалния израз. Тя маркира краят на инструкцията.
 ````
 
-## Callback functions
+## Функции за обратно извикване
 
-Let's look at more examples of passing functions as values and using function expressions.
+Нека видим още примери за подаване на функции като стойности и използването на функционални изрази. 
 
-We'll write a function `ask(question, yes, no)` with three parameters:
+Ще напишем функция `ask(question, yes, no)` с 3 параметъра:
 
 `question`
-: Text of the question
+: Текст на въпроса
 
 `yes`
-: Function to run if the answer is "Yes"
+: Функция, която да се изпълни ако отговорът е "Да"
 
 `no`
-: Function to run if the answer is "No"
+: Функция, която да се изпълни ако отговорът е "Не"
 
-The function should ask the `question` and, depending on the user's answer, call `yes()` or `no()`:
+Фънкцията ще зададе въпроса `question` и в зависимост от отговора на потребителя, ще извика `yes()` или `no()`:
 
 ```js run
 *!*
@@ -121,24 +121,24 @@ function ask(question, yes, no) {
 */!*
 
 function showOk() {
-  alert( "You agreed." );
+  alert( "Вие се съгласихте." );
 }
 
 function showCancel() {
-  alert( "You canceled the execution." );
+  alert( "Вие прекратихте изпълнението." );
 }
 
-// usage: functions showOk, showCancel are passed as arguments to ask
-ask("Do you agree?", showOk, showCancel);
+// употреба: функции като showOk, showCancel се подават като аргументи за да питаме
+("Съгласни ли сте?", showOk, showCancel);
 ```
 
-In practice, such functions are quite useful. The major difference between a real-life `ask` and the example above is that real-life functions use more complex ways to interact with the user than a simple `confirm`. In the browser, such function usually draws a nice-looking question window. But that's another story.
+В действителност такива функции са доста полезни. Основната разлика между задаването на `въпроси` в реалния живот и примера горе е, че функциите в реалния живот използват много по-сложни начини да взаимодействат с потребителя, вместо обикновено `потвърди`. В браузъра тази функционалност обикновено извикава добре-изглеждащ прозорец с въпрос. Но това е друга история.
 
-**The arguments `showOk` and `showCancel` of `ask` are called *callback functions* or just *callbacks*.**
+**Аргументите `showOk` и `showCancel` на `ask` се наричат *callback functions* (функции за обратно извикване) или просто *callbacks*.**
 
-The idea is that we pass a function and expect it to be "called back" later if necessary. In our case, `showOk` becomes the callback for "yes" answer, and `showCancel` for "no" answer.
+Идеята е че подаваме функция и очакваме тя да бъде "повикана обратно" по-късно ако е необходимо. В нашия случай, `showOk` става callback при отговор "да", а `showCancel` за отговор "не".
 
-We can use Function Expressions to write the same function much shorter:
+Може да използваме функционални изрази да напишем съшата функция много по-кратко:
 
 ```js run no-beautify
 function ask(question, yes, no) {
@@ -148,92 +148,92 @@ function ask(question, yes, no) {
 
 *!*
 ask(
-  "Do you agree?",
-  function() { alert("You agreed."); },
-  function() { alert("You canceled the execution."); }
+  "Съгласен ли сте?",
+  function() { alert("Вие се съгласихте."); },
+  function() { alert("Вие прекратихте изпълнението."); }
 );
 */!*
 ```
 
-Here, functions are declared right inside the `ask(...)` call. They have no name, and so are called *anonymous*. Such functions are not accessible outside of `ask` (because they are not assigned to variables), but that's just what we want here.
+Тук функциите са декларирани направо в `ask(...)` извикването. Те нямат име и се наричат *анонимни*. Такива функции не са достъпни извън `ask` (защото не са записани в променливи), но точно това искаме тук.
 
-Such code appears in our scripts very naturally, it's in the spirit of JavaScript.
+Такъв код се появява в нашите скриптове съвсем естествено. Това е в духа на JavaScript.
 
-```smart header="A function is a value representing an \"action\""
-Regular values like strings or numbers represent the *data*.
+```smart header="Функцията е стойност, която представлява \"действие\""
+Обикновени стойности като стрингове или числа представляват *данни*.
 
-A function can be perceived as an *action*.
+Функцията може да се възприеме като *действие*.
 
-We can pass it between variables and run when we want.
+Може да я подадем между стойности и да я стартираме когато искаме.
 ```
 
 
-## Function Expression vs Function Declaration
+## Функционален израз и декларация на функция
 
-Let's formulate the key differences between Function Declarations and Expressions.
+Нека формулираме основните разлики между декларацията на функция и функционалните изрази.
 
-First, the syntax: how to differentiate between them in the code.
+Първо, синтаксисът: как да ги разграничаваме в кода.
 
-- *Function Declaration:* a function, declared as a separate statement, in the main code flow.
+- *Декларация на функция:* функция, декларирана като отделна инструкция в основния код.
 
     ```js
-    // Function Declaration
+    // Декларация на функция
     function sum(a, b) {
       return a + b;
     }
     ```
-- *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created at the right side of the "assignment expression" `=`:
+- *Функционален израз:* функция, създадена вътре в израз или вътре в друг синтактичен конструкт. Тук, функцията е създадена от дясната страна на "израза за присвояване на стойсност" `=`:
 
     ```js
-    // Function Expression
+    // Функционален израз
     let sum = function(a, b) {
       return a + b;
     };
     ```
 
-The more subtle difference is *when* a function is created by the JavaScript engine.
+По-сложна е разликата *кога* функцията е създадена от JavaScript машината.
 
-**A Function Expression is created when the execution reaches it and is usable only from that moment.**
+**Функционалeн израз се създава когато изпълненинето на кода го достигне и се използва само оттук нататък.**
 
-Once the execution flow passes to the right side of the assignment `let sum = function…` -- here we go, the function is created and can be used (assigned, called, etc. ) from now on.
+След като изпълнението на кода стигне до дясната страна на `let sum = function…` -- функцията се създава и може да се използва (да се подава като стойност, да се извиква т.н. ) от тук нататък.
 
-Function Declarations are different.
+Функционалните декларации са различни.
 
-**A Function Declaration can be called earlier than it is defined.**
+**Декларацията на функцията може да се извика преди да е дефинирана**
 
-For example, a global Function Declaration is visible in the whole script, no matter where it is.
+Например глобална декларация на функция е видима в целия скрипт без значение къде е.
 
-That's due to internal algorithms. When JavaScript prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an "initialization stage".
+Това е заради вътрешните алгоритми. Когато JavaScript се приготви да стартира скрипта, той първо търси глобално декларирани функции в него и създава функциите. Може да разглеждаме това като "етап на инициализация".
 
-And after all Function Declarations are processed, the code is executed. So it has access to these functions.
+И след като всички декларации на функции са обработени, кодът се изпълнява. Така има достъп до тези функции.
 
-For example, this works:
+Например това работи:
 
 ```js run refresh untrusted
 *!*
-sayHi("John"); // Hello, John
+sayHi("John"); // Здравей, John
 */!*
 
 function sayHi(name) {
-  alert( `Hello, ${name}` );
+  alert( `Здравей, ${name}` );
 }
 ```
 
-The Function Declaration `sayHi` is created when JavaScript is preparing to start the script and is visible everywhere in it.
+Декларацията на функцията `sayHi` е създадеба когато JavaScript се подготвя да стартира скрипта и се вижда навсякъде в него.
 
-...If it were a Function Expression, then it wouldn't work:
+...Ако това беше функционален израз, тогава нямаше да работи:
 
 ```js run refresh untrusted
 *!*
-sayHi("John"); // error!
+sayHi("John"); // грешка!
 */!*
 
-let sayHi = function(name) {  // (*) no magic any more
-  alert( `Hello, ${name}` );
+let sayHi = function(name) {  // (*) край на магията
+  alert( `Здравей, ${name}` );
 };
 ```
 
-Function Expressions are created when the execution reaches them. That would happen only in the line `(*)`. Too late.
+Функционалните изрази се създават когато изпълнението на кода ги достигне. Това ще се случи само на ред `(*)`. Твърде късно.
 
 Another special feature of Function Declarations is their block scope.
 
