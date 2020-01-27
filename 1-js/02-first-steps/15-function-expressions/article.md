@@ -1,38 +1,38 @@
 # Function expressions
 
-In JavaScript, a function is not a "magical language structure", but a special kind of value.
+В JavaScript, функцията не е "магическа езикова структура", а специфичен вид стойност.
 
-The syntax that we used before is called a *Function Declaration*:
+Синтаксисът, който използвахме преди, се нарича *Function Declaration* (деклариране на функция):
 
 ```js
 function sayHi() {
-  alert( "Hello" );
+  alert( "Здравей" );
 }
 ```
 
-There is another syntax for creating a function that is called a *Function Expression*.
+Има и друг синтаксис за създаване на функция, наречен *Function Expression*.
 
-It looks like this:
+Той изглежда така:
 
 ```js
 let sayHi = function() {
-  alert( "Hello" );
+  alert( "Здравей" );
 };
 ```
 
-Here, the function is created and assigned to the variable explicitly, like any other value. No matter how the function is defined, it's just a value stored in the variable `sayHi`.
+Тук, функцията се създава и присвоява на променливата експлицитно, като всяка друга стойност. Без значение как е дефинирана функцията, тя е просто стойност, записана в променливата `sayHi`.
 
-The meaning of these code samples is the same: "create a function and put it into the variable `sayHi`".
+Значението на тези примери код е едно и също: "създай функция и  я запиши в променливата `sayHi`".
 
-We can even print out that value using `alert`:
+Ние дори можем да отпечатаме тази стойност посредством `alert`:
 
 ```js run
 function sayHi() {
-  alert( "Hello" );
+  alert( "Здравей" );
 }
 
 *!*
-alert( sayHi ); // shows the function code
+alert( sayHi ); // показва кода на функцията
 */!*
 ```
 
