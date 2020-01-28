@@ -235,94 +235,94 @@ let sayHi = function(name) {  // (*) край на магията
 
 Функционалните изрази се създават когато изпълнението на кода ги достигне. Това ще се случи само на ред `(*)`. Твърде късно.
 
-Another special feature of Function Declarations is their block scope.
+Друга специална черта на Декларациите на функциите е техният обхват (block scope).
 
-**In strict mode, when a Function Declaration is within a code block, it's visible everywhere inside that block. But not outside of it.**
+**В стриктния режим (strict mode), когато декларацията на функцията е в блок от код, тя се вижда навсякъде в този блок но не и извън него.**
 
-For instance, let's imagine that we need to declare a function `welcome()` depending on the `age` variable that we get during runtime. And then we plan to use it some time later.
+Например да си представим че трябва да декларираме функция `welcome()` , която зависи от променливата `age`. Стойността на променливата получаваме по време на изпълнение на кода. След като декларираме функцията, ще я извикаме на по-късен етап. 
 
-If we use Function Declaration, it won't work as intended:
+Ако използваме функционална декларация, кодът няма да работи както искаме:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Каква е вашата възраст?", 18);
 
-// conditionally declare a function
+// условно деклариране на функция
 if (age < 18) {
 
   function welcome() {
-    alert("Hello!");
+    alert("Здравейте!");
   }
 
 } else {
 
   function welcome() {
-    alert("Greetings!");
+    alert("Поздравленияs!");
   }
 
 }
 
-// ...use it later
+// ...използваме я по-късно
 *!*
-welcome(); // Error: welcome is not defined
+welcome(); // Грешка: welcome не е дефинирана
 */!*
 ```
 
-That's because a Function Declaration is only visible inside the code block in which it resides.
+Това е защото функционалната декларация е видима само е блока от код, където е дефинирана.
 
-Here's another example:
+Ето друг пример:
 
 ```js run
-let age = 16; // take 16 as an example
+let age = 16; // вземи 16 като пример
 
 if (age < 18) {
 *!*
-  welcome();               // \   (runs)
+  welcome();                    // \   (стартира)
 */!*
-                           //  |
-  function welcome() {     //  |  
-    alert("Hello!");       //  |  Function Declaration is available
-  }                        //  |  everywhere in the block where it's declared
-                           //  |
+                                //  |
+  function welcome() {          //  |  
+    alert("Здравейте!");        //  |  Функционалната декларация е достъпна
+  }                             //  |  навсякъде в блока, където е декларирана
+                                //  |
 *!*
-  welcome();               // /   (runs)
+  welcome();                    // /   (стартира)
 */!*
 
 } else {
 
   function welcome() {    
-    alert("Greetings!");
+    alert("Поздравления!");
   }
 }
 
-// Here we're out of curly braces,
-// so we can not see Function Declarations made inside of them.
+// Тук сме извън къдравите скоби,
+// така че не виждаме функционалните декларации, направени вътре в тях.
 
 *!*
-welcome(); // Error: welcome is not defined
+welcome(); // Грешка: welcome не е дефиниран
 */!*
 ```
 
-What can we do to make `welcome` visible outside of `if`?
+Как да направим `welcome` видим извън `if`?
 
-The correct approach would be to use a Function Expression and assign `welcome` to the variable that is declared outside of `if` and has the proper visibility.
+Правилният подход е да използваме функционален израз и да запишем `welcome` в променливата, която е декларирана извън `if` и има подходяща видимост.
 
-This code works as intended:
+Този код работи правилно:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Каква е вашата възраст?", 18);
 
 let welcome;
 
 if (age < 18) {
 
   welcome = function() {
-    alert("Hello!");
+    alert("Здравейте!");
   };
 
 } else {
 
   welcome = function() {
-    alert("Greetings!");
+    alert("Поздравления!");
   };
 
 }
@@ -332,37 +332,37 @@ welcome(); // ok now
 */!*
 ```
 
-Or we could simplify it even further using a question mark operator `?`:
+Или може да опростим кода допълнитело като използваме тернарен оператор  `?`:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("Каква е вашата възраст?", 18);
 
 let welcome = (age < 18) ?
-  function() { alert("Hello!"); } :
-  function() { alert("Greetings!"); };
+  function() { alert("Здравейте!"); } :
+  function() { alert("Поздравления!"); };
 
 *!*
-welcome(); // ok now
+welcome(); // сега кодът е наред
 */!*
 ```
 
 
-```smart header="When to choose Function Declaration versus Function Expression?"
-As a rule of thumb, when we need to declare a function, the first to consider is Function Declaration syntax. It gives more freedom in how to organize our code, because we can call such functions before they are declared.
+```smart header="Кога да използваме функционални декларации и кога функционални изрази?"
+По принцип когато трябва да декларираме функция първо проверяваме дали може да използваме Функционалната декларация. Нейният синтаксис дава повече свобода при организирането на кода, тъй като можем да извикаме тези функции преди да са декларирани. 
 
-That's also better for readability, as it's easier to look up `function f(…) {…}` in the code than `let f = function(…) {…};`. Function Declarations are more "eye-catching".
+Те също тайа улесняват четимостта на кода тъй като е по-лесно да погледнем `function f(…) {…}` в кода, вместо `let f = function(…) {…};`. Функционалните декларации "хващат окото" по-лесно.
 
-...But if a Function Declaration does not suit us for some reason, or we need a conditional declaration (we've just seen an example), then Function Expression should be used.
+...Но ако по някаква причина функционалните декларации не са подходящи в конкретния случай, или имаме нужда от условна декларация (както в примера), тогава трябва да се използва функционален израз.
 ```
 
-## Summary
+## Обобщение
 
-- Functions are values. They can be assigned, copied or declared in any place of the code.
-- If the function is declared as a separate statement in the main code flow, that's called a "Function Declaration".
-- If the function is created as a part of an expression, it's called a "Function Expression".
-- Function Declarations are processed before the code block is executed. They are visible everywhere in the block.
-- Function Expressions are created when the execution flow reaches them.
+- Функциите са стойности. Те могат да се присвояват, копират или декларират навсякъде в кода.
+- Ако функцията е декларирана като отделна инструкция в кода, това се нарича "Function Declaration" (функционално деклариране).
+- Ако функцията е декларирана като част от израз, тя се нарича "Function Expression" (функционален израз).
+- Функционалните декларации се обработват преди да се изпълни блока от код. Те са видими навсякъде в блока от код.
+- Функционалните изрази се създават, когато изпълнението на програмата ги достигне.
 
-In most cases when we need to declare a function, a Function Declaration is preferable, because it is visible prior to the declaration itself. That gives us more flexibility in code organization, and is usually more readable.
+В повечето случаи когато трябва да декларираме функция, се препоръчва функционалната декларация, защото така функцията е видима преди нейното деклариране. Това позволява повече гъвкавост при организацията на кода и обикновено го прави по-четим.
 
-So we should use a Function Expression only when a Function Declaration is not fit for the task. We've seen a couple of examples of that in this chapter, and will see more in the future.
+Желателно е да използваме функционални изрази само когато функционалната декларация не е подходяща за конкретната задача. Видяхме няколко примери за това в тази глава и ще срещаме още в бъдеще. 
