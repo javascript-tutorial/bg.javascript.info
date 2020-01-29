@@ -1,16 +1,16 @@
-# Arrow functions, the basics
+# Функции със стрелки, основата
 
-There's another very simple and concise syntax for creating functions, that's often better than Function Expressions.
+Има още един много лесен и кратък синтаксис за създаване на функции, който често е по-добър от функционалните изрази. 
 
-It's called "arrow functions", because it looks like this:
+Нарича се "arrow functions" (функции със стрелки / стрелкови функции), защото изглежда така:
 
 ```js
 let func = (arg1, arg2, ...argN) => expression
 ```
 
-...This creates a function `func` that accepts arguments `arg1..argN`, then evaluates the `expression` on the right side with their use and returns its result.
+...Този код създава функция `func` която приема аргументи `arg1..argN`, след това  изчислява `израза` от дясната страна, който използва аргументите и връща резултат.
 
-In other words, it's the shorter version of:
+С други думи това е по-кратката версия на:
 
 ```js
 let func = function(arg1, arg2, ...argN) {
@@ -18,12 +18,12 @@ let func = function(arg1, arg2, ...argN) {
 };
 ```
 
-Let's see a concrete example:
+Нека видим конкретен пример:
 
 ```js run
 let sum = (a, b) => a + b;
 
-/* This arrow function is a shorter form of:
+/* Тази функция със стрелка е по-кратката версия на:
 
 let sum = function(a, b) {
   return a + b;
@@ -33,79 +33,79 @@ let sum = function(a, b) {
 alert( sum(1, 2) ); // 3
 ```
 
-As you can, see `(a, b) => a + b` means a function that accepts two arguments named `a` and `b`. Upon the execution, it evaluates the expression `a + b` and returns the result.
+Както виждате `(a, b) => a + b` означава функция, която приема два аргумента именувани `a` и `b`. По време на изпълнението, тя изчислява израза `a + b` и връща резултата.
 
-- If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
+- Ако имаме само един аргумент, скобите около параметъра може да не се пишат. Така синтаксисът става дори още по-кратък.
 
-    For example:
+    Например:
 
     ```js run
     *!*
     let double = n => n * 2;
-    // roughly the same as: let double = function(n) { return n * 2 }
+    // почти същото като: let double = function(n) { return n * 2 }
     */!*
 
     alert( double(3) ); // 6
     ```
 
-- If there are no arguments, parentheses will be empty (but they should be present):
+- Ако няма аргументи, скобите ще са празни (но те трябва да присъстват):
 
     ```js run
-    let sayHi = () => alert("Hello!");
+    let sayHi = () => alert("Здравейте!");
 
     sayHi();
     ```
 
-Arrow functions can be used in the same way as Function Expressions.
+Функциите със стрелки могат да се използват по същия начин като функционалните изрази.
 
-For instance, to dynamically create a function:
+Например за да се създаде функция динамично:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt("На каква възраст сте?", 18);
 
 let welcome = (age < 18) ?
-  () => alert('Hello') :
-  () => alert("Greetings!");
+  () => alert('Здравейте') :
+  () => alert("Поздравления!");
 
 welcome(); // ok now
 ```
 
-Arrow functions may appear unfamiliar and not very readable at first, but that quickly changes as the eyes get used to the structure.
+Функциите със стрелки може да изглеждат непонятни и трудно четими на пръв поглед, но това бързо се променя щом се свикне със структурата им.
 
-They are very convenient for simple one-line actions, when we're just too lazy to write many words.
+Те са много удобни за прости едноредови действия, когато не искаме да пишем твърде много излишен код.
 
-## Multiline arrow functions
+## Многоредови функции със стрелки
 
-The examples above took arguments from the left of `=>` and evaluated the right-side expression with them.
+Горният пример взе аргументите от лявата страна на `=>` и ги използва за да изчисли израза от дясната страна. 
 
-Sometimes we need something a little bit more complex, like multiple expressions or statements. It is also possible, but we should enclose them in curly braces. Then use a normal `return` within them.
+Понякога имаме нужда от малко по-сложен код, като множество изрази или инструкции. Това може да се направи, но трябва да ги поставим между къдрави скоби. След това трябва да използваме `return` вътре в скобите.
 
-Like this:
+Ето така:
 
 ```js run
-let sum = (a, b) => {  // the curly brace opens a multiline function
+let sum = (a, b) => {  // къдравата скоба отваря многоредова функция
   let result = a + b;
 *!*
-  return result; // if we use curly braces, then we need an explicit "return" 
+  return result; // ако използваме къдрави скоби, тогава имаме нужда от експлицитен (ясен, изричен) "return" 
 */!*
 };
 
 alert( sum(1, 2) ); // 3
 ```
 
-```smart header="More to come"
-Here we praised arrow functions for brevity. But that's not all!
+```smart header="Следва още"
+Тук възхвалявахме функциите със стрелки заради тяхната краткост. Но това не е всичко!
 
-Arrow functions have other interesting features.
+Функциите със стрелки имат и други интересни свойства.
 
-To study them in-depth, we first need to get to know some other aspects of JavaScript, so we'll return to arrow functions later in the chapter <info:arrow-functions>.
+За да ги изучим в дълбочина, първо трябва да опознаем някои други аспекти на JavaScript, така че ще се върнем към тези функции по-късно в глава <info:arrow-functions>.
 
-For now, we can already use arrow functions for one-line actions and callbacks.
+За сега вече можем да използваме функциите със стрелки за едноредови действия и callbacks (обратно извикване).
 ```
 
-## Summary
+## Обобщение
 
-Arrow functions are handy for one-liners. They come in two flavors:
+Функциите със стрелки са полезни за едноредови действия. Те могат да бъдат два вида:
 
-1. Without curly braces: `(...args) => expression` -- the right side is an expression: the function evaluates it and returns the result.
-2. With curly braces: `(...args) => { body }` -- brackets allow us to write multiple statements inside the function, but we need an explicit `return` to return something.
+1. Без къдрави скоби: `(...args) => expression` -- дясната страна е израз: функцията го изчислява и връща резултата.
+2. С къдрави скоби: `(...args) => { body }` -- скобите ни позволяват да пишем множество инструкции в една функция, но трябва изрично да ползваме `return`, за да върнем резултат.
