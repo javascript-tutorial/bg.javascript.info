@@ -1,7 +1,7 @@
 
-# Rewrite with arrow functions
+# Презаписване с функции със стрелки
 
-Replace Function Expressions with arrow functions in the code below:
+Заместете функционалните изрази с функции със стрелки в долния код:
 
 ```js run
 function ask(question, yes, no) {
@@ -10,8 +10,8 @@ function ask(question, yes, no) {
 }
 
 ask(
-  "Do you agree?",
-  function() { alert("You agreed."); },
-  function() { alert("You canceled the execution."); }
+  "Съгласен ли сте?",
+  function() { alert("Вие се съгласихте."); },
+  function() { alert("Вие прекратихте изпълнението на програмата."); }
 );
 ```
