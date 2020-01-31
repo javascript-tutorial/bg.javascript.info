@@ -1,58 +1,58 @@
-# Debugging in Chrome
+# Дебъгване в Chrome
 
-Before writing more complex code, let's talk about debugging.
+Преди да започнем да пишем по-сложен код, нека поговорим за дебъгването.
 
-[Debugging](https://en.wikipedia.org/wiki/Debugging) is the process of finding and fixing errors within a script. All modern browsers and most other environments support debugging tools -- a special UI in developer tools that makes debugging much easier. It also allows to trace the code step by step to see what exactly is going on.
+[Debugging](https://en.wikipedia.org/wiki/Debugging) е процес при който се откриват и оправят грешки в кода. Всички съвременни браузъри и повечето други среди поддържат инструменти за дебъгване -- специален UI в developer tools (инструментите за разработчици), който прави дебъгването много по-лесно. Те позволяват да се проследи изпълнението на кода стъпка по стъпка за да видим какво точно се случва.
 
-We'll be using Chrome here, because it has enough features, most other browsers have a similar process.
+Ние ще използваме Chrome, защото има достатъчно функции, повечето от одругите браузъри имат подобен процес.
 
-## The "Sources" panel
+## Панелът "Sources"
 
-Your Chrome version may look a little bit different, but it still should be obvious what's there.
+Вашата версия на Chrome може да изглежда различно, но основните неща са си същите.
 
-- Open the [example page](debugging/index.html) in Chrome.
-- Turn on developer tools with `key:F12` (Mac: `key:Cmd+Opt+I`).
-- Select the `Sources` panel.
+- Отворете [example page](debugging/index.html) в Chrome.
+- Активирайте developer tools (инструментите за разработчици) с `key:F12` (Mac: `key:Cmd+Opt+I`).
+- Изберете `Sources` панелът.
 
-Here's what you should see if you are doing it for the first time:
+Ето какво ще видите, ако правите това за първи път:
 
 ![](chrome-open-sources.svg)
 
-The toggler button <span class="devtools" style="background-position:-172px -98px"></span> opens the tab with files.
+Бутонът <span class="devtools" style="background-position:-172px -98px"></span> табът с файлове.
 
-Let's click it and select `hello.js` in the tree view. Here's what should show up:
+Нека кликнем на него и изберем `hello.js` в дървовидния изглед. Ето какво ще се покаже:
 
 ![](chrome-tabs.svg)
 
-The Sources panel has 3 parts:
+Панелът Sources има 3 части:
 
-1. The **File Navigator** pane lists HTML, JavaScript, CSS and other files, including images that are attached to the page. Chrome extensions may appear here too.
-2. The **Code Editor** pane shows the source code.
-3. The **JavaScript Debugging** pane is for debugging, we'll explore it soon.
+1. Панелът **File Navigator (файлов навигатор)** показва HTML, JavaScript, CSS и други файлове, включително изображения, които са прикрепени към страницата. Тук може да се показват и разширения на Chrome.
+2. Панелът **Code Editor** показва сорс кода.
+3. Панелът **JavaScript Debugging** е за дебъгване. Ще го разгледаме скоро.
 
-Now you could click the same toggler <span class="devtools" style="background-position:-172px -122px"></span> again to hide the resources list and give the code some space.
+Сега кликнете отново на същия бутон <span class="devtools" style="background-position:-172px -122px"></span> за да скриете списъка с ресурсите и да освободите повече място за кода.
 
-## Console
+## Конзола
 
-If we press `key:Esc`, then a console opens below. We can type commands there and press `key:Enter` to execute.
+Ако натиснем `key:Esc`, долу ще се отвори конзолата. В нея може да пишем команди и като натиснем `key:Enter` да ги изпълним.
 
-After a statement is executed, its result is shown below.
+След като се изпълни инструкцията, резултатът се показва долу.
 
-For example, here `1+2` results in `3`, and `hello("debugger")` returns nothing, so the result is `undefined`:
+Например `1+2` връща `3`, а `hello("debugger")` не връща нищо и затова резултатът е `undefined`:
 
 ![](chrome-sources-console.svg)
 
-## Breakpoints
+## Breakpoints (Брейкпоинти)
 
-Let's examine what's going on within the code of the [example page](debugging/index.html). In `hello.js`, click at line number `4`. Yes, right on the `4` digit, not on the code.
+Нека видим какво се случва вътре в кода на [example page](debugging/index.html). В `hello.js`, кликнете на ред `4`. Да, точно на числото `4`  а не на кода.
 
-Congratulations! You've set a breakpoint. Please also click on the number for line `8`.
+Поздравления! Поставихте брейкпойнт. Моля, кликнете също и на числото `8`.
 
-It should look like this (blue is where you should click):
+Би трябвало да изглежда така (синьото е където трябва да кликнете):
 
 ![](chrome-sources-breakpoint.svg)
 
-A *breakpoint* is a point of code where the debugger will automatically pause the JavaScript execution.
+*Брейкпойнтът* е място в кода, където дебъгерът автоматично ще паузира изпълнението на JavaScript.
 
 While the code is paused, we can examine current variables, execute commands in the console etc. In other words, we can debug it.
 
