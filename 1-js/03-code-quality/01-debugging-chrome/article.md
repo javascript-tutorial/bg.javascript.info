@@ -18,7 +18,7 @@
 
 ![](chrome-open-sources.svg)
 
-Бутонът <span class="devtools" style="background-position:-172px -98px"></span> табът с файлове.
+Бутонът <span class="devtools" style="background-position:-172px -98px"></span> отваря табът с файлове.
 
 Нека кликнем на него и изберем `hello.js` в дървовидния изглед. Ето какво ще се покаже:
 
@@ -54,56 +54,56 @@
 
 *Брейкпойнтът* е място в кода, където дебъгерът автоматично ще паузира изпълнението на JavaScript.
 
-While the code is paused, we can examine current variables, execute commands in the console etc. In other words, we can debug it.
+Докато кодът е паузиран, може да проследим текущите променливи, да изпълняваме команди в конзолата и т.н. С други думи можем да го дебъгваме.
 
-We can always find a list of breakpoints in the right panel. That's useful when we have many breakpoints in various files. It allows us to:
-- Quickly jump to the breakpoint in the code (by clicking on it in the right panel).
-- Temporarily disable the breakpoint by unchecking it.
-- Remove the breakpoint by right-clicking and selecting Remove.
-- ...And so on.
+В дясния панел има списък с брейкпойнти. Това е полезно когато имаме много брейкпойнти в различни файлове. Този списък ни позволява:
+- Бързо да прескочим до брейкпойнт в кода (като кликнем на него в дясния панел).
+- Временно да деактивираме брейкпойнт като го размаркираме.
+- Да премахнем брейкпойнт като кликнем на него с десен бутон на мишката и изберем Remove.
+- ...И така нататък.
 
-```smart header="Conditional breakpoints"
-*Right click* on the line number allows to create a *conditional* breakpoint. It only triggers when the given expression is truthy.
+```smart header="Conditional breakpoints (Условни брейкпойнти)"
+*Кликване с десен бутон на мишката* върх номера на реда, ни позволява да създадем *conditional (условен)* брейкпойнт. Той се активира само когато зададеното условие е вярно.
 
-That's handy when we need to stop only for a certain variable value or for certain function parameters.
+Това е полезно когато искаме изпълнението на кода да спре при конкретна стойност или параметри на функция.
 ```
 
-## Debugger command
+## Командата Debugger
 
-We can also pause the code by using the `debugger` command in it, like this:
+Може да спрем изпълнението на кода и като използваме командата `debugger` в него ето така:
 
 ```js
 function hello(name) {
-  let phrase = `Hello, ${name}!`;
+  let phrase = `Здравей, ${name}!`;
 
 *!*
-  debugger;  // <-- the debugger stops here
+  debugger;  // <-- дебъгерът спира изпълнението на кода тук
 */!*
 
   say(phrase);
 }
 ```
 
-That's very convenient when we are in a code editor and don't want to switch to the browser and look up the script in developer tools to set the breakpoint.
+Това е много удобно, когато сме в code editor (редактор на код) и не искаме да превключваме към браузъра и да гледаме скрипта в инструментите за разработчици, за да поставим брейкпойнт. 
 
 
-## Pause and look around
+## Паузирай кода и виж какво се случва
 
-In our example, `hello()` is called during the page load, so the easiest way to activate the debugger (after we've set the breakpoints) is to reload the page. So let's press `key:F5` (Windows, Linux) or `key:Cmd+R` (Mac).
+В нашия пример, `hello()` се извиква по време на зареждането на страницата, така че най-лесният начин да активираме дебъгера (след като сме сложили брейкпойнти) е да презаредим страницата. За целта натиснете `key:F5` (Windows, Linux) or `key:Cmd+R` (Mac).
 
-As the breakpoint is set, the execution pauses at the 4th line:
+Тъй като има поставен брейкпойнт, изпълнението на програмата спира на ред 4:
 
 ![](chrome-sources-debugger-pause.svg)
 
-Please open the informational dropdowns to the right (labeled with arrows). They allow you to examine the current code state:
+Моля отворете информационните падащи менюта отдясно (маркирани със стрелки). Те ни позволяват да видим текущото състояние на кода:
 
-1. **`Watch` -- shows current values for any expressions.**
+1. **`Watch` -- показва текущата стойност за даден израз.**
 
-    You can click the plus `+` and input an expression. The debugger will show its value at any moment, automatically recalculating it in the process of execution.
+    Може да натиснете знакът плюс `+` и да въведете израз. Дебъгерът ще покаже неговата стойност във всеки един момент, като в преизчислява автоматично в процеса на изпълнение ма кода. 
 
-2. **`Call Stack` -- shows the nested calls chain.**
+2. **`Call Stack` -- показва веригата на вложените извиквания.**
 
-    At the current moment the debugger is inside `hello()` call, called by a script in `index.html` (no function there, so it's called "anonymous").
+    В текущия момент дебъгерът е вътре в `hello()` заявката, извикана от скрипта `index.html` (тук няма функция, затова я наричаме "анонимна").
 
     If you click on a stack item (e.g. "anonymous"), the debugger jumps to the corresponding code, and all its variables can be examined as well.
 3. **`Scope` -- current variables.**
