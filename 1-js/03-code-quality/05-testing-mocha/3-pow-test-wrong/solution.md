@@ -1,49 +1,49 @@
-The test demonstrates one of the temptations a developer meets when writing tests.
+Тестът показва едно от изкушенията, с които се сблъскват програмистите, когато пишат тестове. 
 
-What we have here is actually 3 tests, but layed out as a single function with 3 asserts.
+В действителност тук имаме 3 теста, но разписани като една функция с 3 asserts (допускания).
 
-Sometimes it's easier to write this way, but if an error occurs, it's much less obvious what went wrong.
+Понякога е по-лесно да се пише по този начин, но ако има грешка в кода, е по-трудно да се проследи къде е тя.
 
-If an error happens in the middle of a complex execution flow, then we'll have to figure out the data at that point. We'll actually have to *debug the test*.
+Ако има грешка по време на изпълнението на сложен код, трябва да се опитаме да разберем какви са данните в този момент. Ц други думи, трябва да *дебъгнем теста*.
 
-It would be much better to break the test into multiple `it` blocks with clearly written inputs and outputs.
+Ще бъде много по-лесно ако разделим теста на множество `it` блокове с ясно рязписани входни и изходни данни.
 
-Like this:
+Например ето така:
 ```js
-describe("Raises x to power n", function() {
-  it("5 in the power of 1 equals 5", function() {
+describe("Повдига x на степен n", function() {
+  it("5 на степен 1 е равно на 5", function() {
     assert.equal(pow(5, 1), 5);
   });
 
-  it("5 in the power of 2 equals 25", function() {
+  it("5 на степен 2 е равно на  25", function() {
     assert.equal(pow(5, 2), 25);
   });
 
-  it("5 in the power of 3 equals 125", function() {
+  it("5 на степен 3 е равно на 125", function() {
     assert.equal(pow(5, 3), 125);
   });
 });
 ```
 
-We replaced the single `it` with `describe` and a group of `it` blocks. Now if something fails we would see clearly what the data was.
+Заместихме единичния `it` с `describe` и група от `it` блокове. Сега ако нещо не работи, ще можем лесно да видим какви са били данните.
 
-Also we can isolate a single test and run it in standalone mode by writing `it.only` instead of `it`:
+Също можем да изолираме единичен тест и да го стартираме самостоятелно като напишем `it.only` вместо `it`:
 
 
 ```js
-describe("Raises x to power n", function() {
-  it("5 in the power of 1 equals 5", function() {
+describe("Повдига x на степен n", function() {
+  it("5 на степен 1 е равно на 5", function() {
     assert.equal(pow(5, 1), 5);
   });
 
 *!*
-  // Mocha will run only this block
-  it.only("5 in the power of 2 equals 25", function() {
+  // Mocha ще стартира само този блок
+  it.only("5 на степен 2 е равно на 25", function() {
     assert.equal(pow(5, 2), 25);
   });
 */!*
 
-  it("5 in the power of 3 equals 125", function() {
+  it("5 на степен 3 е равно на 125", function() {
     assert.equal(pow(5, 3), 125);
   });
 });
