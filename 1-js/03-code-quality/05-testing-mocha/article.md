@@ -51,35 +51,35 @@ describe("pow", function() {
 Спекът има 3 основни части, които можете да видите горе:
 
 `describe("title", function() { ... })`
-: Каква функционалност описваме. In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
+: Каква функционалност описваме. В нашия случай описваме функцията `pow`. Използва се да групираp "работници" -- блоковете `it`.
 
 `it("use case description", function() { ... })`
-: In the title of `it` we *in a human-readable way* describe the particular use case, and the second argument is a function that tests it.
+: В заглавието на `it` ние описваме *на разбираем за човека език* конкретният use кейс, и вторият аргумент е функцията, която го тества.
 
 `assert.equal(value1, value2)`
-: The code inside `it` block, if the implementation is correct, should execute without errors.
+: Кодът вътре в `it` блока, ако имплементацията е точна, трябва да се изпълни без грешки.
 
-    Functions `assert.*` are used to check whether `pow` works as expected. Right here we're using one of them -- `assert.equal`, it compares arguments and yields an error if they are not equal. Here it checks that the result of `pow(2, 3)` equals `8`. There are other types of comparisons and checks, that we'll add later.
+    Функциите `assert.*` се използват да се провери дали `pow` работи както трябва. Тук използваме една от тях -- `assert.equal`, тя сравнява аргументите и ако не са равни, дава грешка. Тук проверява дали резултатът от  `pow(2, 3)` е равен на `8`. Има други видове сравнения и проверки, които ще добавим после.
 
-The specification can be executed, and it will run the test specified in `it` block. We'll see that later.
+Спецификацията може да се изпълни и ще стартира тестовете в `it` блока. Ще видим това по-късно.
 
-## The development flow
+## Етапи на разработката на софтуер
 
-The flow of development usually looks like this:
+Етапите на разработка на софтуер обикновено изглеждат така:
 
-1. An initial spec is written, with tests for the most basic functionality.
-2. An initial implementation is created.
-3. To check whether it works, we run the testing framework [Mocha](http://mochajs.org/) (more details soon) that runs the spec. While the functionality is not complete, errors are displayed. We make corrections until everything works.
-4. Now we have a working initial implementation with tests.
-5. We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.
-6. Go to 3, update the implementation till tests give no errors.
-7. Repeat steps 3-6 till the functionality is ready.
+1. Пише се начален спек с тестове за най-основната функционалност.
+2. Прави се първоначална имплементация.
+3. За да проверим дали работи, ние стартираме [Mocha](http://mochajs.org/) (повече информация скоро) която стартира спека. Докато функционалността не е завършена, ще се появяват грешки. Ние правим промени, докато всичко започне да работи.
+4. Сега имаме работеща начална функционалност с тестове.
+5. Добавяме още use кейсове към спека, вероятно още не се поддържат от имплементацията. Тестовете започват да се чупят.
+6. Върнете се на стъпка 3, актуализиайте имплементацията докато тестовете не дават вече грешки. 
+7. Повторете стъпки 3-6 докато функционалността е готова.
 
-So, the development is *iterative*. We write the spec, implement it, make sure tests pass, then write more tests, make sure they work etc. At the end we have both a working implementation and tests for it.
+Този вид разработване на софтуер, се нарича *итеративен*. Ние пишем спека, имплементираме го, уверяваме се че тестовете минават и пишем още тестове, уверяваме се че те също работят и т.н. Накрая имаме работеща имплементация и тестове към нея. 
 
-Let's see this development flow in our practical case.
+Нека видим процеса на разработка в нашия практически пример.
 
-The first step is already complete: we have an initial spec for `pow`. Now, before making the implementation, let's use few JavaScript libraries to run the tests, just to see that they are working (they will all fail).
+Първата стъпка вече е готова: имаме начален спек за `pow`. Now, before making the implementation, let's use few JavaScript libraries to run the tests, just to see that they are working (they will all fail).
 
 ## The spec in action
 
