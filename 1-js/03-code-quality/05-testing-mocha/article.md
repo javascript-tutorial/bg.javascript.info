@@ -18,40 +18,40 @@
 
 Това е много типично. Когато разработваме нещо, ние обмисляме доста use кейсове. Но не можем да очакваме че програмиста ще проверява всички кейсове ръчно след всяка промяна. Така че лесно може да се оправи един бъг и да се счупи нещо друго в кода. 
 
-**Automated testing means that tests are written separately, in addition to the code. They run our functions in various ways and compare results with the expected.**
+**При автоматичното тестване тестовете се пишат отделно от кода. Те тестват нашите функции и сравняват резултатите с очакваните такива.**
 
 ## Behavior Driven Development (BDD)
 
-Let's start with a technique named [Behavior Driven Development](http://en.wikipedia.org/wiki/Behavior-driven_development) or, in short, BDD.
+Нека започнем с техника, наречена [Behavior Driven Development](http://en.wikipedia.org/wiki/Behavior-driven_development) или накратко, BDD.
 
-**BDD is three things in one: tests AND documentation AND examples.**
+**BDD съдържа 3 неща в едно: тестове И документация И примери.**
 
-To understand BDD, we'll examine a practical case of development.
+За да разберем BDD, ние ще разгледаме практически пример на разработка на софтуер.
 
-## Development of "pow": the spec
+## Разработката на Development of "pow" (функцията за повдигане на степен): спецификация
 
-Let's say we want to make a function `pow(x, n)` that raises `x` to an integer power `n`. We assume that `n≥0`.
+Да кажем, че искаме да направим функция `pow(x, n)` която повдига `x` до цяло число на степен `n`. Ние приемаме, че `n≥0`.
 
-That task is just an example: there's the `**` operator in JavaScript that can do that, but here we concentrate on the development flow that can be applied to more complex tasks as well.
+Тази задача е просто пример: В JavaScript има един оператор `**`, който може да направи това, но тук се концентрираме върху процеса на разработка, който може да се приложи и към по-сложни задачи.
 
-Before creating the code of `pow`, we can imagine what the function should do and describe it.
+Преди да напишем кода на `pow`, можем да си представим какво искаме да прави функцията и да го опишем.
 
-Such description is called a *specification* or, in short, a spec, and contains descriptions of use cases together with tests for them, like this:
+Такова описание се нарича *спецификация* или накратко спек и съдържа описание на use кейсове, заедно с тестовете за тях, като тези:
 
 ```js
 describe("pow", function() {
 
-  it("raises to n-th power", function() {
+  it("повдига до степен n", function() {
     assert.equal(pow(2, 3), 8);
   });
 
 });
 ```
 
-A spec has three main building blocks that you can see above:
+Спекът има 3 основни части, които можете да видите горе:
 
 `describe("title", function() { ... })`
-: What functionality we're describing. In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
+: Каква функционалност описваме. In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
 
 `it("use case description", function() { ... })`
 : In the title of `it` we *in a human-readable way* describe the particular use case, and the second argument is a function that tests it.
