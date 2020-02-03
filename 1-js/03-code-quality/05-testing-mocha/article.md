@@ -1,22 +1,22 @@
-# Automated testing with Mocha
+# Автоматизирано тестване с Mocha
 
-Automated testing will be used in further tasks, and it's also widely used in real projects.
+Автоматизираното тестване ще се използва в бъдещите задачи и също така се използва широко в реални проекти.
 
-## Why we need tests?
+## Защо имаме нужда от тестове?
 
-When we write a function, we can usually imagine what it should do: which parameters give which results.
+Когато пишем функция, обикновено можем да си представим какво ще прави: кои параметри какъв резултат ще върнат.
 
-During development, we can check the function by running it and comparing the outcome with the expected one. For instance, we can do it in the console.
+По време на писането на кода можем да проверим функцията като я стартитаме и сравним резултата с очаквания. Например можем да направим това в конзолата. 
 
-If something is wrong -- then we fix the code, run again, check the result -- and so on till it works.
+Ако някъде има грешка, оправяме кода, стартираме го отново, проверяваме резултата и така, докато оправим всички грешки.
 
-But such manual "re-runs" are imperfect.
+Но тези ръчни "рестартирания" не са перфектни.
 
-**When testing a code by manual re-runs, it's easy to miss something.**
+**Когато тестваме код с ръчни рестартирания е лесно да пропуснем нещо.**
 
-For instance, we're creating a function `f`. Wrote some code, testing: `f(1)` works, but `f(2)` doesn't work. We fix the code and now `f(2)` works. Looks complete? But we forgot to re-test `f(1)`. That may lead to an error.
+Например, създаваме функция `f`. Пишем част от кода, тестваме: `f(1)` работи, но `f(2)` не работи. Оправяме кода и сега `f(2)` работи. Изглежда че сме готови? Но забравихме да ретестваме `f(1)`. Това може да доведе до грешка.
 
-That's very typical. When we develop something, we keep a lot of possible use cases in mind. But it's hard to expect a programmer to check all of them manually after every change. So it becomes easy to fix one thing and break another one.
+Това е много типично. Когато разработваме нещо, ние обмисляме доста use кейсове. Но не можем да очакваме че програмиста ще проверява всички кейсове ръчно след всяка промяна. Така че лесно може да се оправи един бъг и да се счупи нещо друго в кода. 
 
 **Automated testing means that tests are written separately, in addition to the code. They run our functions in various ways and compare results with the expected.**
 
