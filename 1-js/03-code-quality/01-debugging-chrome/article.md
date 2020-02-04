@@ -1,196 +1,195 @@
-# Debugging in Chrome
+# Дебъгване в Chrome
 
-Before writing more complex code, let's talk about debugging.
+Преди да започнем да пишем по-сложен код, нека поговорим за дебъгването.
 
-[Debugging](https://en.wikipedia.org/wiki/Debugging) is the process of finding and fixing errors within a script. All modern browsers and most other environments support debugging tools -- a special UI in developer tools that makes debugging much easier. It also allows to trace the code step by step to see what exactly is going on.
+[Debugging](https://en.wikipedia.org/wiki/Debugging) е процес при който се откриват и оправят грешки в кода. Всички съвременни браузъри и повечето други среди поддържат инструменти за дебъгване -- специален UI в developer tools (инструментите за разработчици), който прави дебъгването много по-лесно. Те позволяват да се проследи изпълнението на кода стъпка по стъпка, за да видим какво точно се случва.
 
-We'll be using Chrome here, because it has enough features, most other browsers have a similar process.
+Ние ще използваме Chrome, защото има достатъчно функции, повечето от другите браузъри имат подобен процес.
 
-## The "Sources" panel
+## Панелът "Sources"
 
-Your Chrome version may look a little bit different, but it still should be obvious what's there.
+Вашата версия на Chrome може да изглежда различно, но основните неща са си същите.
 
-- Open the [example page](debugging/index.html) in Chrome.
-- Turn on developer tools with `key:F12` (Mac: `key:Cmd+Opt+I`).
-- Select the `Sources` panel.
+- Отворете [example page](debugging/index.html) в Chrome.
+- Активирайте developer tools (инструментите за разработчици) с `key:F12` (Mac: `key:Cmd+Opt+I`).
+- Изберете `Sources` панелът.
 
-Here's what you should see if you are doing it for the first time:
+Ето какво ще видите, ако правите това за първи път:
 
 ![](chrome-open-sources.svg)
 
-The toggler button <span class="devtools" style="background-position:-172px -98px"></span> opens the tab with files.
+Бутонът <span class="devtools" style="background-position:-172px -98px"></span> отваря табът с файлове.
 
-Let's click it and select `hello.js` in the tree view. Here's what should show up:
+Нека кликнем на него и изберем `hello.js` в дървовидния изглед. Ето какво ще се покаже:
 
 ![](chrome-tabs.svg)
 
-The Sources panel has 3 parts:
+Панелът Sources има 3 части:
 
-1. The **File Navigator** pane lists HTML, JavaScript, CSS and other files, including images that are attached to the page. Chrome extensions may appear here too.
-2. The **Code Editor** pane shows the source code.
-3. The **JavaScript Debugging** pane is for debugging, we'll explore it soon.
+1. Панелът **File Navigator (файлов навигатор)** показва HTML, JavaScript, CSS и други файлове, включително изображения, които са прикрепени към страницата. Тук може да се показват и разширения на Chrome.
+2. Панелът **Code Editor** показва сорс кода.
+3. Панелът **JavaScript Debugging** е за дебъгване. Ще го разгледаме скоро.
 
-Now you could click the same toggler <span class="devtools" style="background-position:-172px -122px"></span> again to hide the resources list and give the code some space.
+Сега кликнете отново на същия бутон <span class="devtools" style="background-position:-172px -122px"></span> за да скриете списъка с ресурсите и да освободите повече място за кода.
 
-## Console
+## Конзола
 
-If we press `key:Esc`, then a console opens below. We can type commands there and press `key:Enter` to execute.
+Ако натиснем `key:Esc`, долу ще се отвори конзолата. В нея може да пишем команди и като натиснем `key:Enter` да ги изпълним.
 
-After a statement is executed, its result is shown below.
+След като се изпълни инструкцията, резултатът се показва долу.
 
-For example, here `1+2` results in `3`, and `hello("debugger")` returns nothing, so the result is `undefined`:
+Например `1+2` връща `3`, а `hello("debugger")` не връща нищо и затова резултатът е `undefined`:
 
 ![](chrome-sources-console.svg)
 
-## Breakpoints
+## Breakpoints (Брейкпоинти)
 
-Let's examine what's going on within the code of the [example page](debugging/index.html). In `hello.js`, click at line number `4`. Yes, right on the `4` digit, not on the code.
+Нека видим какво се случва вътре в кода на [example page](debugging/index.html). В `hello.js`, кликнете на ред `4`. Да, точно на числото `4`  а не на кода.
 
-Congratulations! You've set a breakpoint. Please also click on the number for line `8`.
+Поздравления! Поставихте брейкпойнт. Моля, кликнете също и на числото `8`.
 
-It should look like this (blue is where you should click):
+Би трябвало да изглежда така (синьото е където трябва да кликнете):
 
 ![](chrome-sources-breakpoint.svg)
 
-A *breakpoint* is a point of code where the debugger will automatically pause the JavaScript execution.
+*Брейкпойнтът* е място в кода, където дебъгерът автоматично ще паузира изпълнението на JavaScript.
 
-While the code is paused, we can examine current variables, execute commands in the console etc. In other words, we can debug it.
+Докато кодът е паузиран, може да проследим текущите променливи, да изпълняваме команди в конзолата и т.н. С други думи можем да го дебъгваме.
 
-We can always find a list of breakpoints in the right panel. That's useful when we have many breakpoints in various files. It allows us to:
-- Quickly jump to the breakpoint in the code (by clicking on it in the right panel).
-- Temporarily disable the breakpoint by unchecking it.
-- Remove the breakpoint by right-clicking and selecting Remove.
-- ...And so on.
+В дeсния панел има списък с брейкпойнти. Това е полезно когато имаме много брейкпойнти в различни файлове. Този списък ни позволява:
+- Бързо да прескочим до брейкпойнт в кода (като кликнем на него в десния панел).
+- Временно да деактивираме брейкпойнт като го размаркираме.
+- Да премахнем брейкпойнт като кликнем на него с десен бутон на мишката и изберем Remove.
+- ...И така нататък.
 
-```smart header="Conditional breakpoints"
-*Right click* on the line number allows to create a *conditional* breakpoint. It only triggers when the given expression is truthy.
+```smart header="Conditional breakpoints (Условни брейкпойнти)"
+*Кликване с десен бутон на мишката* върх номера на реда, ни позволява да създадем *conditional (условен)* брейкпойнт. Той се активира само когато зададеното условие е вярно.
 
-That's handy when we need to stop only for a certain variable value or for certain function parameters.
+Това е полезно когато искаме изпълнението на кода да спре при конкретна стойност или параметри на функция.
 ```
 
-## Debugger command
+## Командата Debugger
 
-We can also pause the code by using the `debugger` command in it, like this:
+Може да спрем изпълнението на кода и като използваме командата `debugger` в него ето така:
 
 ```js
 function hello(name) {
-  let phrase = `Hello, ${name}!`;
+  let phrase = `Здравей, ${name}!`;
 
 *!*
-  debugger;  // <-- the debugger stops here
+  debugger;  // <-- дебъгерът спира изпълнението на кода тук
 */!*
 
   say(phrase);
 }
 ```
 
-That's very convenient when we are in a code editor and don't want to switch to the browser and look up the script in developer tools to set the breakpoint.
+Това е много удобно, когато сме в code editor (редактор на код) и не искаме да превключваме към браузъра и да гледаме скрипта в инструментите за разработчици, за да поставим брейкпойнт. 
 
 
-## Pause and look around
+## Паузирай кода и виж какво се случва
 
-In our example, `hello()` is called during the page load, so the easiest way to activate the debugger (after we've set the breakpoints) is to reload the page. So let's press `key:F5` (Windows, Linux) or `key:Cmd+R` (Mac).
+В нашия пример, `hello()` се извиква по време на зареждането на страницата, така че най-лесният начин да активираме дебъгера (след като сме сложили брейкпойнти) е да презаредим страницата. За целта натиснете `key:F5` (Windows, Linux) or `key:Cmd+R` (Mac).
 
-As the breakpoint is set, the execution pauses at the 4th line:
+Тъй като има поставен брейкпойнт, изпълнението на програмата спира на ред 4:
 
 ![](chrome-sources-debugger-pause.svg)
 
-Please open the informational dropdowns to the right (labeled with arrows). They allow you to examine the current code state:
+Моля отворете информационните падащи менюта отдясно (маркирани със стрелки). Те ни позволяват да видим текущото състояние на кода:
 
-1. **`Watch` -- shows current values for any expressions.**
+1. **`Watch` -- показва текущата стойност за даден израз.**
 
-    You can click the plus `+` and input an expression. The debugger will show its value at any moment, automatically recalculating it in the process of execution.
+    Може да натиснете знакът плюс `+` и да въведете израз. Дебъгерът ще покаже неговата стойност във всеки един момент, като я преизчислява автоматично в процеса на изпълнение на кода. 
 
-2. **`Call Stack` -- shows the nested calls chain.**
+2. **`Call Stack` -- показва веригата на вложените извиквания.**
 
-    At the current moment the debugger is inside `hello()` call, called by a script in `index.html` (no function there, so it's called "anonymous").
+    В текущия момент дебъгерът е вътре в `hello()` заявката, извикана от скрипта `index.html` (тук няма функция, затова я наричаме "анонимна").
 
-    If you click on a stack item (e.g. "anonymous"), the debugger jumps to the corresponding code, and all its variables can be examined as well.
-3. **`Scope` -- current variables.**
+    Ако кликнете на stack item /предмет от купчината/ (пр. "anonymous"), дебъгерът ще прескочи до съответния код и всички негови променливи може да бъдат разгледани.
+3. **`Scope` -- текущите променливи.**
 
-    `Local` shows local function variables. You can also see their values highlighted right over the source.
+    `Local` показва локалните функционални променливи. Може да видите техните стойности, изписани точно над кода.
 
-    `Global` has global variables (out of any functions).
+    `Global` показва глобалните променливи (извън всички функции).
 
-    There's also `this` keyword there that we didn't study yet, but we'll do that soon.
+    Тук е и ключовата дума `this`, която не сме разглеждали още, но ще го направим скоро.
 
-## Tracing the execution
+## Проследяване на изпълнението
 
-Now it's time to *trace* the script.
+Време е да *проследим* скрипта.
 
-There are buttons for it at the top of the right panel. Let's engage them.
+Има бутони за това в горната част на десния панел. Нека ги активираме.
 <!-- https://github.com/ChromeDevTools/devtools-frontend/blob/master/front_end/Images/src/largeIcons.svg -->
-<span class="devtools" style="background-position:-146px -168px"></span> -- "Resume": continue the execution, hotkey `key:F8`.
-: Resumes the execution. If there are no additional breakpoints, then the execution just continues and the debugger loses control.
+<span class="devtools" style="background-position:-146px -168px"></span> -- "Resume": продължи изпълнението, бутон `key:F8`.
+: продължава изпълнението. Ако няма допълнителни брейкпойнти, изпълнението на кода продължава до края и дебъгерът губи контрол. 
 
-    Here's what we can see after a click on it:
+    Ето какво ще видим след като кликнем на него:
 
     ![](chrome-sources-debugger-trace-1.svg)
 
-    The execution has resumed, reached another breakpoint inside `say()` and paused there. Take a look at the "Call Stack" at the right. It has increased by one more call. We're inside `say()` now.
+    Изпълнението на кода продължава, стига до другия брейкпойнт `say()` и спира там. Нека погледнем "Call Stack" в дясно. Той се е увеличил с още едно извикване. Сега сме в `say()`.
 
-<span class="devtools" style="background-position:-200px -190px"></span> -- "Step": run the next command, hotkey `key:F9`.
-: Run the next statement. If we click it now, `alert` will be shown.
+<span class="devtools" style="background-position:-200px -190px"></span> -- "Step": изпълни следващата команда, бутон `key:F9`.
+: Изпълни следващата инструкция. Ако го кликнем сега, ще се покаже `alert`.
 
-    Clicking this again and again will step through all script statements one by one.
+    Натискайки този бутон отново и отново ще преминем последователно през всички инструкции в скрипта една по една.
 
-<span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": run the next command, but *don't go into a function*, hotkey `key:F10`.
-: Similar to the previous the "Step" command, but behaves differently if the next statement is a function call. That is: not a built-in, like `alert`, but a function of our own.
+<span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": изпълни следващата команда, но *не влизай вътре във функция*, бутон `key:F10`.
+: Подобна е на предишната "Step" команда, но се държи различно ако следващата инструкция е функция. Това важи не за вградена функция като `alert`, а за такава, която ние сме написали.
 
-    The "Step" command goes into it and pauses the execution at its first line, while "Step over" executes the nested function call invisibly, skipping the function internals.
+    Командата "Step" влиза вътре и спира изпълнението оше на първия ред, докато "Step over" изпълнява вложената функция без да влиза вътре в нея.
 
-    The execution is then paused immediately after that function.
+    Изпълнението на кода спира веднага след функцията.
 
-    That's good if we're not interested to see what happens inside the function call.
+    Това е добре ако не ни интересува какво се случва вътре във функцията по време на нейното изпълнение.
 
-<span class="devtools" style="background-position:-4px -194px"></span> -- "Step into", hotkey `key:F11`.
-: That's similar to "Step", but behaves differently in case of asynchronous function calls. If you're only starting to learn JavaScript, then you can ignore the difference, as we don't have asynchronous calls yet.
+<span class="devtools" style="background-position:-4px -194px"></span> -- "Step into", бутон `key:F11`.
+: Той е подобен на "Step", но се държи различно в случай на асинхронно извикване на функции. Ако сега започвате да изучавате JavaScript, тогава може да пренебрегнете разликата, тъй като все още нямаме асинхронни извиквания.
 
-    For the future, just note that "Step" command ignores async actions, such as `setTimeout` (scheduled function call), that execute later. The "Step into" goes into their code, waiting for them if necessary. See [DevTools manual](https://developers.google.com/web/updates/2018/01/devtools#async) for more details.
+    За в бъдеще запомнете, че командата "Step" игнорира асинхронни действия като `setTimeout` (планирано във времето извикване на функция), която се изпълнява по-късно. "Step into" влиза в техния код и ги изчаква, ако е необходимо. Вижте [DevTools manual](https://developers.google.com/web/updates/2018/01/devtools#async) за повече информация.
 
-<span class="devtools" style="background-position:-32px -194px"></span> -- "Step out": continue the execution till the end of the current function, hotkey `key:Shift+F11`.
-: Continue the execution and stop it at the very last line of the current function. That's handy when we accidentally entered a nested call using <span class="devtools" style="background-position:-200px -190px"></span>, but it does not interest us, and we want to continue to its end as soon as possible.
+<span class="devtools" style="background-position:-32px -194px"></span> -- "Step out": продължи изпълнението докато стигнеш края на текущата функция, клавишна комбинация `key:Shift+F11`.
+: Продължете изпълнението и спрете на последния ред от текущата функция. Това е полезно когато инцидентно сме влезли във вложени извиквания използвайки бутона step<span class="devtools" style="background-position:-200px -190px"></span>, но това не ни интересува и искаме да стигнем края на този код по-бързо.
 
-<span class="devtools" style="background-position:-61px -74px"></span> -- enable/disable all breakpoints.
-: That button does not move the execution. Just a mass on/off for breakpoints.
+<span class="devtools" style="background-position:-61px -74px"></span> -- включи/изключи всички брейкпойнти.
+: Този бутон не влияе пряко върху изпълнението на кода. Той включва и изключва всички брейкпойнти.
 
-<span class="devtools" style="background-position:-90px -146px"></span> -- enable/disable automatic pause in case of an error.
-: When enabled, and the developer tools is open, a script error automatically pauses the execution. Then we can analyze variables to see what went wrong. So if our script dies with an error, we can open debugger, enable this option and reload the page to see where it dies and what's the context at that moment.
+<span class="devtools" style="background-position:-90px -146px"></span> -- включи/изключи автоматичната пауза в случай на грешка.
+: Когато е активиран и инструментите на разработчика са отворени, при грешка в кода изпълнението на програмата спира автоматично. Така можем да анализираме променливите и да видим какво се е объркало. Така ако нашият код се счупи, ние можем да отворим дебъгера, да включим тази опция, да презаредим страницата и да видим къде се появява грешката и какъв е контекстът в този момент. 
 
-```smart header="Continue to here"
-Right click on a line of code opens the context menu with a great option called "Continue to here".
+```smart header="Continue to here (продължи до тук)"
+Кликване с десния бутон на мишката върху ред от код отваря контекстно меню с чудесна опция наречена "Продължи до тук".
 
-That's handy when we want to move multiple steps forward to the line, but we're too lazy to set a breakpoint.
+Това е полезно когато искаме да придвижим множество стъпки напред до определен ред, но не искаме да поставяме брейкпойнт.
 ```
 
-## Logging
+## Logging (Принтиране)
 
-To output something to console from our code, there's `console.log` function.
+За да принтираме нещо от нашия код на конзолата, използваме функцията `console.log`.
 
-For instance, this outputs values from `0` to `4` to console:
+Например този код принтира числата от `0` до `4` на конзолата:
 
 ```js run
-// open console to see
+// отворете конзолата за да видите принтираните стойности
 for (let i = 0; i < 5; i++) {
   console.log("value,", i);
 }
 ```
 
-Regular users don't see that output, it is in the console. To see it, either open the Console panel of developer tools or press `key:Esc` while in another panel: that opens the console at the bottom.
+Обикновените потребители не виждат този текст, той е в конзолата. За да го видите отворете конзолата от инструментите за разработчици или натиснете `key:Esc` докато сте в друг панел: това отваря конзолата в долния край.
 
-If we have enough logging in our code, then we can see what's going on from the records, without the debugger.
+Ако имаме достатъчно логове в нашия код, можем да видим какво се случва от записите без да ползваме дебъгер.
 
-## Summary
+## Обобщение
+Както видяхме има три основни начина да паузираме скрипт:
+1. Брейкпойнт.
+2. Инструкцията `debugger`.
+3. Грешка (ако dev tools са отворени и бутонът <span class="devtools" style="background-position:-90px -146px"></span> е "включен").
 
-As we can see, there are three main ways to pause a script:
-1. A breakpoint.
-2. The `debugger` statements.
-3. An error (if dev tools are open and the button <span class="devtools" style="background-position:-90px -146px"></span> is "on").
+Когато изпълнението на кода спре, можем да дебъгваме - да прегледаме променливите и да проследим кода, за да видим къде има грешка в изпълнението му.
 
-When paused, we can debug - examine variables and trace the code to see where the execution goes wrong.
+Има още много опции на инструментите за разработчици, които не сме разгледали тук. Цялата инструкция е на <https://developers.google.com/web/tools/chrome-devtools>.
 
-There are many more options in developer tools than covered here. The full manual is at <https://developers.google.com/web/tools/chrome-devtools>.
+Информацията от тази глава е достатъчна да започнете с дебъгването, но по-късно, особено ако ползвате много често браузъра, прегледайте документацията за по-напредналите възможности на инструментите за разработчици.
 
-The information from this chapter is enough to begin debugging, but later, especially if you do a lot of browser stuff, please go there and look through more advanced capabilities of developer tools.
-
-Oh, and also you can click at various places of dev tools and just see what's showing up. That's probably the fastest route to learn dev tools. Don't forget about the right click and context menus!
+Също така може да кликате на различни места в инструментите за разработчици и да видите какво се показва. Това вероятно е най-бързият начин да ги научите. Не забравяйте за кликването с десния бутон на мишката и контекстните менюта!
