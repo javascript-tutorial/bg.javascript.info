@@ -333,22 +333,22 @@ describe("pow", function() {
 
 [iframe height=530 src="pow-nan" edit border="1"]
 
-The newly added tests fail, because our implementation does not support them. That's how BDD is done: first we write failing tests, and then make an implementation for them.
+Новодобавените тестове ще са неуспешним защото нашата имплементация не ги поддържа. Така се прави BDD: първо пишем тестове, които не минават и после правим тяхната имплементация.
 
-```smart header="Other assertions"
-Please note the assertion `assert.isNaN`: it checks for `NaN`.
+```smart header="Други допускания"
+Обърнете внимание на допускането `assert.isNaN`: то проверява за `NaN`.
 
-There are other assertions in [Chai](http://chaijs.com) as well, for instance:
+Има и други допускания в [Chai](http://chaijs.com) например:
 
-- `assert.equal(value1, value2)` -- checks the equality  `value1 == value2`.
-- `assert.strictEqual(value1, value2)` -- checks the strict equality `value1 === value2`.
-- `assert.notEqual`, `assert.notStrictEqual` -- inverse checks to the ones above.
-- `assert.isTrue(value)` -- checks that `value === true`
-- `assert.isFalse(value)` -- checks that `value === false`
-- ...the full list is in the [docs](http://chaijs.com/api/assert/)
+- `assert.equal(value1, value2)` -- проверява за равенство  `value1 == value2`.
+- `assert.strictEqual(value1, value2)` -- проверява за абсолютно равенство `value1 === value2`.
+- `assert.notEqual`, `assert.notStrictEqual` -- проверява за неравенство.
+- `assert.isTrue(value)` -- проверява дали стойността е истина `value === true`
+- `assert.isFalse(value)` -- проверява дали стойността е неистина `value === false`
+- ...пълният списък е на [docs](http://chaijs.com/api/assert/)
 ```
 
-So we should add a couple of lines to `pow`:
+Така че трябва да добавим няколко реда към `pow`:
 
 ```js
 function pow(x, n) {
@@ -367,29 +367,29 @@ function pow(x, n) {
 }
 ```
 
-Now it works, all tests pass:
+Сега работи и всички тестове са успешни:
 
 [iframe height=300 src="pow-full" edit border="1"]
 
-[edit src="pow-full" title="Open the full final example in the sandbox."]
+[edit src="pow-full" title="Oтвори финалният пример в тестовата среда."]
 
-## Summary
+## Обобщение
 
-In BDD, the spec goes first, followed by implementation. At the end we have both the spec and the code.
+В BDD, спецификацията винаги е пръва, следвана от  импелментацията. Накрая имаме спецификация и код към нея.
 
-The spec can be used in three ways:
+Спецификацията може да се използва по три начина:
 
-1. As **Tests** - they guarantee that the code works correctly.
-2. As **Docs** -- the titles of `describe` and `it` tell what the function does.
-3. As **Examples** -- the tests are actually working examples showing how a function can be used.
+1. Като **Тестове** - те гарантират, че кода работи правилно.
+2. Като **Документация** -- заглавията на `describe` и `it` казват какво прави функцията.
+3. Като **Примери** -- тестовете всъщност са работещи примери, които показват как да се използа функцията.
 
-With the spec, we can safely improve, change, even rewrite the function from scratch and make sure it still works right.
+Със спека ние безопасно можем да подобрим, променим или дори пренапишем функцията и тя пак да работи правилно. 
 
-That's especially important in large projects when a function is used in many places. When we change such a function, there's just no way to manually check if every place that uses it still works right.
+Това е особено важно за големи проекти, където функцията се използва на много места. Когато променим такава функция, просто няма начин да проверим ръчно всички места където се използва, за да сме сигурни, че още работи правилно.
 
-Without tests, people have two ways:
+Без тестове хората имат два начина:
 
-1. To perform the change, no matter what. And then our users meet bugs, as we probably fail to check something manually.
+1. Да направят промяната въпреки всичко. И тогава нашите потребители се натъкват на бъгове, тъй като ние най-вероятно не сме успели да а проверим всичко на ръка.
 2. Or, if the punishment for errors is harsh, as there are no tests, people become afraid to modify such functions, and then the code becomes outdated, no one wants to get into it. Not good for development.
 
 **Automatic testing helps to avoid these problems!**
