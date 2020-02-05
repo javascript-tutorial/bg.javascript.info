@@ -299,28 +299,28 @@ TКрай на тестването – след всички тестове (af
 Обикновено, `beforeEach/afterEach` и `before/after` се използват да се направи инициализация, да се занулят броячи или да се направи нещо друго между тестовете (или тестовите групи).
 ````
 
-## Extending the spec
+## Разширяване на спецификацията
 
-The basic functionality of `pow` is complete. The first iteration of the development is done. When we're done celebrating and drinking champagne -- let's go on and improve it.
+Основната функционалност на `pow` е завършена. Първата итерация от разработването в готова. Като приключим с празненствата и пиенето на шампанско -- нека да я подобрим.
 
-As it was said, the function `pow(x, n)` is meant to work with positive integer values `n`.
+Както казахме, функцията `pow(x, n)` е предназначена да работи с цели положителни числа `n`.
 
-To indicate a mathematical error, JavaScript functions usually return `NaN`. Let's do the same for invalid values of `n`.
+За да посочи математическа грешка, функциите в JavaScript обикновено връщат `NaN`. Нека направим същото за невалидни стойности на `n`.
 
-Let's first add the behavior to the spec(!):
+Нека първо добавим това поведение в спека(!):
 
 ```js
 describe("pow", function() {
 
   // ...
 
-  it("for negative n the result is NaN", function() {
+  it("при отрицателен n резултатът е NaN", function() {
 *!*
     assert.isNaN(pow(2, -1));
 */!*
   });
 
-  it("for non-integer n the result is NaN", function() {
+  it("при дробно число n резултатът е NaN", function() {
 *!*
     assert.isNaN(pow(2, 1.5));    
 */!*
@@ -329,7 +329,7 @@ describe("pow", function() {
 });
 ```
 
-The result with new tests:
+Резултатът с новите тестове:
 
 [iframe height=530 src="pow-nan" edit border="1"]
 
