@@ -223,22 +223,22 @@ describe("pow", function() {
 
 [iframe height=250 src="pow-3" edit border="1"]
 
-## Nested describe
+## Вложен describe
 
-We're going to add even more tests. But before that let's note that the helper function `makeTest` and `for` should be grouped together. We won't need `makeTest` in other tests, it's needed only in `for`: their common task is to check how `pow` raises into the given power.
+Ние ще добавим още тестове. Но преди това нека отбележим, че помощната функция `makeTest` и `for` трябва да се групират заедно. Нямаме нужда от `makeTest` в другите тестове, тя ни трябва само във `for`: тяхната обща задача е да проверят как `pow` повдига число на дадена степен.
 
-Grouping is done with a nested `describe`:
+Групирането се прави с вложен `describe`:
 
 ```js
 describe("pow", function() {
 
 *!*
-  describe("raises x to power 3", function() {
+  describe("повдига x на степен 3", function() {
 */!*
 
     function makeTest(x) {
       let expected = x * x * x;
-      it(`${x} in the power 3 is ${expected}`, function() {
+      it(`${x} на степен 3 е ${expected}`, function() {
         assert.equal(pow(x, 3), expected);
       });
     }
@@ -251,29 +251,29 @@ describe("pow", function() {
   });
 */!*
 
-  // ... more tests to follow here, both describe and it can be added
+  // ... тук ще бъдат добваени още тестове, може да се използват describe и it
 });
 ```
 
-The nested `describe` defines a new "subgroup" of tests. In the output we can see the titled indentation:
+Вложеният `describe` дефинира нова "подгрупа" от тестове. В резултатите може да видим че тя е отместена навътре:
 
 [iframe height=250 src="pow-4" edit border="1"]
 
-In the future we can add more `it` and `describe` on the top level with helper functions of their own, they won't see `makeTest`.
+В бъдеще можем да добавим още `it` и `describe` на горното ниво със собствени помощни функции. Те няма да виждат `makeTest`.
 
-````smart header="`before/after` and `beforeEach/afterEach`"
-We can setup `before/after` functions that execute before/after running tests, and also `beforeEach/afterEach` functions that execute before/after *every* `it`.
+````smart header="`before/after` и `beforeEach/afterEach`"
+Може да използваме `before/after` функции, които се изпълняват преди/след пускането на тестовете, и също `beforeEach/afterEach` фукции, които се изпълняват преди/след *всеки* `it`.
 
-For instance:
+Например:
 
 ```js no-beautify
 describe("test", function() {
 
-  before(() => alert("Testing started – before all tests"));
-  after(() => alert("Testing finished – after all tests"));
+  before(() => alert("Начало на тестването – преди всички тестове"));
+  after(() => alert("Край на тестването – след всички тестове"));
 
-  beforeEach(() => alert("Before a test – enter a test"));
-  afterEach(() => alert("After a test – exit a test"));
+  beforeEach(() => alert("Преди теста – влизаме в теста"));
+  afterEach(() => alert("След теста – излизаме от теста"));
 
   it('test 1', () => alert(1));
   it('test 2', () => alert(2));
@@ -281,7 +281,7 @@ describe("test", function() {
 });
 ```
 
-The running sequence will be:
+Последователността на изпълнение ще бъде:
 
 ```
 Testing started – before all tests (before)
