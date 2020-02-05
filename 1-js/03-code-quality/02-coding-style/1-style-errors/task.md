@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# Bad style
+# Лош стил
 
-What's wrong with the code style below?
+Какво не е наред с форматирането на долния код?
 
 ```js no-beautify
 function pow(x,n)
@@ -17,7 +17,7 @@ function pow(x,n)
 let x=prompt("x?",''), n=prompt("n?",'')
 if (n<=0)
 {
-  alert(`Power ${n} is not supported, please enter an integer number greater than zero`);
+  alert(`Степен ${n} не се поддържа, моля въведете цяло число, по-голямо от нула`);
 }
 else
 {
@@ -25,4 +25,4 @@ else
 }
 ```
 
-Fix it.
+Поправете го.
