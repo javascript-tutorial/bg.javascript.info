@@ -79,36 +79,36 @@ describe("pow", function() {
 
 Нека видим процеса на разработка в нашия практически пример.
 
-Първата стъпка вече е готова: имаме начален спек за `pow`. Now, before making the implementation, let's use few JavaScript libraries to run the tests, just to see that they are working (they will all fail).
+Първата стъпка вече е готова: имаме начален спек за `pow`. Сега, нека използване няколко JavaScript библиотеки за да пуснем тестовете, за да видим дали работят (те всички ще са неуспешни).
 
-## The spec in action
+## Спекът в действие
 
-Here in the tutorial we'll be using the following JavaScript libraries for tests:
+ТВ този туториал ние ще използваме следните  JavaScript библиотеки за тестовете:
 
-- [Mocha](http://mochajs.org/) -- the core framework: it provides common testing functions including `describe` and `it` and the main function that runs tests.
-- [Chai](http://chaijs.com) -- the library with many assertions. It allows to use a lot of different assertions, for now we need only `assert.equal`.
-- [Sinon](http://sinonjs.org/) -- a library to spy over functions, emulate built-in functions and more, we'll need it much later.
+- [Mocha](http://mochajs.org/) -- основният фреймуърк: тя осигурява основните тестови функции включително `describe` и `it` и основната функция, която стартира тестовете.
+- [Chai](http://chaijs.com) -- библиотеката с мното assertions (допускания). Тя позволява да използваме множество различни допускания, за сега ние имаме нужда само от `assert.equal`.
+- [Sinon](http://sinonjs.org/) -- библиотека, която проследява функции, емулира вградени функции и още. Ще имаме нужда от нея по-късно.
 
-These libraries are suitable for both in-browser and server-side testing. Here we'll consider the browser variant.
+Тези библиотеки са подходящи както за тестване в браузъра, така и за тестване на сървъра. Тук ще тестваме в браузъра. 
 
-The full HTML page with these frameworks and `pow` spec:
+Цялата HTML страница с тези frameworks (рамки) и спека за `pow`:
 
 ```html src="index.html"
 ```
 
-The page can be divided into five parts:
+Страницата може да се раздели на пет части:
 
-1. The `<head>` -- add third-party libraries and styles for tests.
-2. The `<script>` with the function to test, in our case -- with the code for `pow`.
-3. The tests -- in our case an external script `test.js` that has `describe("pow", ...)` from above.
-4. The HTML element `<div id="mocha">` will be used by Mocha to output results.
-5. The tests are started by the command `mocha.run()`.
+1. `<head>` -- добавя библиотеки от трети страни и стилове за тестовете.
+2. `<script>` съдържа кода на функцията, която ще тестваме, в нашия случай -- `pow`.
+3. Тестовете -- в нашия случай външен скрипт `test.js` който има `describe("pow", ...)`.
+4. HTML елемент `<div id="mocha">` ще бъде използван от Mocha за да покаже резултатите от тестовете.
+5. Тестовете стартират от командата`mocha.run()`.
 
-The result:
+Резултатът:
 
 [iframe height=250 src="pow-1" border=1 edit]
 
-As of now, the test fails, there's an error. That's logical: we have an empty function code in `pow`, so `pow(2,3)` returns `undefined` instead of `8`.
+За сега тестът е неуспешен зашото има грешка. That's logical: we have an empty function code in `pow`, so `pow(2,3)` returns `undefined` instead of `8`.
 
 For the future, let's note that there are more high-level test-runners, like [karma](https://karma-runner.github.io/) and others, that make it easy to autorun many different tests.
 
