@@ -108,40 +108,40 @@ describe("pow", function() {
 
 [iframe height=250 src="pow-1" border=1 edit]
 
-За сега тестът е неуспешен зашото има грешка. That's logical: we have an empty function code in `pow`, so `pow(2,3)` returns `undefined` instead of `8`.
+За сега тестът е неуспешен зашото има грешка. Това е логично: имаме функция без код в `pow`, така че `pow(2,3)` връща `undefined` вместо `8`.
 
-For the future, let's note that there are more high-level test-runners, like [karma](https://karma-runner.github.io/) and others, that make it easy to autorun many different tests.
+За в бъдеще нека отбележим, че има много по-добри фреймуърци за тестване, като [karma](https://karma-runner.github.io/) и други, с които е по-лесно да се пуснат автоматично множество различни тестове.
 
-## Initial implementation
+## Първоначална имплементация
 
-Let's make a simple implementation of `pow`, for tests to pass:
+Нека направим проста имплементация на `pow`, за да минат тестовете:
 
 ```js
 function pow(x, n) {
-  return 8; // :) we cheat!
+  return 8; // :) ние измамихме!
 }
 ```
 
-Wow, now it works!
+Уау, сега работи!
 
 [iframe height=250 src="pow-min" border=1 edit]
 
-## Improving the spec
+## Подобрение на спека
 
-What we've done is definitely a cheat. The function does not work: an attempt to calculate `pow(3,4)` would give an incorrect result, but tests pass.
+Това, което направихме наистина е измама. Функцията не работи: при опит да изчислим `pow(3,4)` ще получим грешен резултат, но теста ще мине.
 
-...But the situation is quite typical, it happens in practice. Tests pass, but the function works wrong. Our spec is imperfect. We need to add more use cases to it.
+...Но тази ситуация е доста типична, случва се в практиката. Тестовете са успешни, но функцията не работи правилно. Нашата спецификация не е завършена. Ще трябва да добавим още use кейсове към нея.
 
-Let's add one more test to check that `pow(3, 4) = 81`.
+Нека добавим още един тест който проверява, че `pow(3, 4) = 81`.
 
-We can select one of two ways to organize the test here:
+Може да изберем един от двата начина да организираме тестовете тук:
 
-1. The first variant -- add one more `assert` into the same `it`:
+1. Първи вариант -- добавяме още един `assert` в същия `it`:
 
     ```js
     describe("pow", function() {
 
-      it("raises to n-th power", function() {
+      it("повдига до n-та степен", function() {
         assert.equal(pow(2, 3), 8);
     *!*
         assert.equal(pow(3, 4), 81);
@@ -150,43 +150,43 @@ We can select one of two ways to organize the test here:
 
     });
     ```
-2. The second -- make two tests:
+2. Вторият -- да напишем два теста:
 
     ```js
     describe("pow", function() {
 
-      it("2 raised to power 3 is 8", function() {
+      it("2 повдигнато на степен 3 е 8", function() {
         assert.equal(pow(2, 3), 8);
       });
 
-      it("3 raised to power 4 is 81", function() {
+      it("3 повдигнато на степен 4 е 81", function() {
         assert.equal(pow(3, 4), 81);
       });
 
     });
     ```
 
-The principal difference is that when `assert` triggers an error, the `it` block immediately terminates. So, in the first variant if the first `assert` fails, then we'll never see the result of the second `assert`.
+Основната разлика е че когато `assert` предизвика грешка, изпълнението на `it`  блока спира веднага. Така че при първия вариант ако първият `assert` не мине, никога няма да видим резултата от втория `assert`.
 
-Making tests separate is useful to get more information about what's going on, so the second variant is better.
+Писането на отделни тестове е полезно за да получим повече информация за това какво се случва, така че вторият вариант е по-добър.
 
-And besides that, there's one more rule that's good to follow.
+Освен това има още едно правило, което е добре да следваме.
 
-**One test checks one thing.**
+**Един тест проверява едно нещо.**
 
-If we look at the test and see two independent checks in it, it's better to split it into two simpler ones.
+Ако погледнем един тест и видим две независими проверки в него, по-добре е да го разделим на два по-прости теста.
 
-So let's continue with the second variant.
+Нека продължим с втория вариант.
 
-The result:
+Резултатът:
 
 [iframe height=250 src="pow-2" edit border="1"]
 
-As we could expect, the second test failed. Sure, our function always returns `8`, while the `assert` expects `81`.
+Както можеше да се очаква, вторият тест е неуспешен. Естествено, нашата функция винаги връща `8`, докато `assert` очаква `81`.
 
-## Improving the implementation
+## Подобряване на имплементацията
 
-Let's write something more real for tests to pass:
+Нека напишем някаъв по-реалистичен код, за да минат тестовете:
 
 ```js
 function pow(x, n) {
@@ -200,14 +200,14 @@ function pow(x, n) {
 }
 ```
 
-To be sure that the function works well, let's test it for more values. Instead of writing `it` blocks manually, we can generate them in `for`:
+За да сме сигурни, че функцията работи добре, нека я тестваме с повече стойности. Вместо да пишем `it` блокове ръчно, можем да ги генерираме във `for`:
 
 ```js
 describe("pow", function() {
 
   function makeTest(x) {
     let expected = x * x * x;
-    it(`${x} in the power 3 is ${expected}`, function() {
+    it(`${x} на степен 3 is ${expected}`, function() {
       assert.equal(pow(x, 3), expected);
     });
   }
@@ -219,7 +219,7 @@ describe("pow", function() {
 });
 ```
 
-The result:
+Резултатът:
 
 [iframe height=250 src="pow-3" edit border="1"]
 
