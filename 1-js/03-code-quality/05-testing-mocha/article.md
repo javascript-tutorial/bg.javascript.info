@@ -272,8 +272,8 @@ describe("test", function() {
   before(() => alert("Начало на тестването – преди всички тестове"));
   after(() => alert("Край на тестването – след всички тестове"));
 
-  beforeEach(() => alert("Преди теста – влизаме в теста"));
-  afterEach(() => alert("След теста – излизаме от теста"));
+  beforeEach(() => alert("Преди теста – влизаме в тест"));
+  afterEach(() => alert("След теста – излизаме от тест"));
 
   it('test 1', () => alert(1));
   it('test 2', () => alert(2));
@@ -284,19 +284,19 @@ describe("test", function() {
 Последователността на изпълнение ще бъде:
 
 ```
-Testing started – before all tests (before)
-Before a test – enter a test (beforeEach)
+Начало на тестването – преди всички тестове (before)
+Преди теста – влизаме в теста (beforeEach)
 1
-After a test – exit a test   (afterEach)
-Before a test – enter a test (beforeEach)
+След теста – излизаме от тест   (afterEach)
+Преди теста – влизаме в тест (beforeEach)
 2
-After a test – exit a test   (afterEach)
-Testing finished – after all tests (after)
+След теста – излизаме от тест   (afterEach)
+TКрай на тестването – след всички тестове (after)
 ```
 
 [edit src="beforeafter" title="Open the example in the sandbox."]
 
-Usually, `beforeEach/afterEach` and `before/after` are used to perform initialization, zero out counters or do something else between the tests (or test groups).
+Обикновено, `beforeEach/afterEach` и `before/after` се използват да се направи инициализация, да се занулят броячи или да се направи нещо друго между тестовете (или тестовите групи).
 ````
 
 ## Extending the spec
