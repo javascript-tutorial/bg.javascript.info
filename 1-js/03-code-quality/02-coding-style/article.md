@@ -1,12 +1,12 @@
-# Coding Style
+# Стил на кодиране
 
-Our code must be as clean and easy to read as possible.
+Нашият код трябва да бъде колкото е възможно по-ясен и лесен за разбиране.
 
-That is actually the art of programming -- to take a complex task and code it in a way that is both correct and human-readable. A good code style greatly assists in that.  
+Това е изкуството на програмирането -- да земеш сложна задача и да напишеш код, който едновременно работи вярно и е лесен за четене от хора. Добрият стил на писане на код помага много за това. 
 
-## Syntax
+## Синтаксис
 
-Here is a cheat sheet with some suggested rules (see below for more details):
+Ето страница с някои препоръчителни правила (вижте изображението за повече информация):
 
 ![](code-style.svg)
 <!--
@@ -25,8 +25,8 @@ let x = prompt("x?", "");
 let n = prompt("n?", "");
 
 if (n < 0) {
-  alert(`Power ${n} is not supported,
-    please enter a non-negative integer number`);
+  alert(`Степен ${n} не се поддържа,
+    моля въведете цяло положително число`);
 } else {
   alert( pow(x, n) );
 }
@@ -34,15 +34,15 @@ if (n < 0) {
 
 -->
 
-Now let's discuss the rules and reasons for them in detail.
+Сега нека обсъдим по-подробно правилата и причините за тях.
 
-```warn header="There are no \"you must\" rules"
-Nothing is set in stone here. These are style preferences, not religious dogmas.
+```warn header="Няма \"задължителни\" правила"
+Нищо не е задължително. Това са стилови предпочитания, не религиозни догми.
 ```
 
-### Curly Braces
+### Къдрави скоби
 
-In most JavaScript projects curly braces are written in "Egyptian" style with the opening brace on the same line as the corresponding keyword -- not on a new line. There should also be a space before the opening bracket, like this:
+В повечето JavaScript проекти къдравите скоби се пишат по "египетски" стил с отварящата скоба на същия ред като съответната ключова дума -- не на нов ред. Трябва да има разстояние преди отварящата скоба, както тук:
 
 ```js
 if (condition) {
@@ -52,11 +52,11 @@ if (condition) {
 }
 ```
 
-A single-line construct, such as `if (condition) doSomething()`, is an important edge case. Should we use braces at all?
+Едноредовият конструкт `if (condition) doSomething()`, е важен граничен случай. Трябва ли да използваме скоби при него?
 
-Here are the annotated variants so you can judge their readability for yourself:
+Ето няколко варианта, за да прецените сами тяхната четимост:
 
-1. 😠 Beginners sometimes do that. Bad! Curly braces are not needed:
+1. 😠 Начинаещите програмисти понякога правят това. Лошо.! Къдравите скоби не са нужни:
     ```js
     if (n < 0) *!*{*/!*alert(`Power ${n} is not supported`);*!*}*/!*
     ```
