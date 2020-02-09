@@ -60,31 +60,31 @@ if (condition) {
     ```js
     if (n < 0) *!*{*/!*alert(`Power ${n} is not supported`);*!*}*/!*
     ```
-2. 😠 Split to a separate line without braces. Never do that, easy to make an error when adding new lines:
+2. 😠 Разделяне на отделен ред без скоби. Никога не правете това. Така може лесно да допуснете грешка, когато добавяте нови редове:
     ```js
     if (n < 0)
-      alert(`Power ${n} is not supported`);
+      alert(`Степен ${n} не се поддържа`);
     ```
-3. 😏 One line without braces - acceptable, if it's short:
+3. 😏 Един ред без скоби - допустимо е, ако кодът е кратък:
     ```js
-    if (n < 0) alert(`Power ${n} is not supported`);
+    if (n < 0) alert(`Степен ${n} не се поддържа`);
     ```
-4. 😃 The best variant:
+4. 😃 Най-добрият вариант:
     ```js
     if (n < 0) {
-      alert(`Power ${n} is not supported`);
+      alert(`Степен ${n} не се поддържа`);
     }
     ```
 
-For a very brief code, one line is allowed, e.g. `if (cond) return null`. But a code block (the last variant) is usually more readable.
+Когато кодът е много кратък, е допустимо той да бъде на един ред. `if (cond) return null`. Но блока от код (последният вариант) обикновено е по-четим.
 
-### Line Length
+### Дължина на реда
 
-No one likes to read a long horizontal line of code. It's best practice to split them.
+Никой не иска да чете дълги хоризонтални редове от код. Добра практика е да ги разделяме на по-кратки. 
 
-For example:
+Например:
 ```js
-// backtick quotes ` allow to split the string into multiple lines
+// backtick quotes ` позволяват да се раздели един стринг на много редове
 let str = `
   Ecma International's TC39 is a group of JavaScript developers,
   implementers, academics, and more, collaborating with the community
@@ -92,7 +92,7 @@ let str = `
 `;
 ```
 
-And, for `if` statements:
+И за `if` условия:
 
 ```js
 if (
@@ -104,23 +104,23 @@ if (
 }
 ```
 
-The maximum line length should be agreed upon at the team-level. It's usually 80 or 120 characters.
+Максималната дължина на реда се решава от екипа. Обикновено е между 80 и 120 символа. 
 
-### Indents
+### Отстъпи / индентации / отстояния
 
-There are two types of indents:
+Има два типа индентации:
 
-- **Horizontal indents: 2 or 4 spaces.**
+- **Хоризонтални индентации: 2 или 4 интервала.**
 
-    A horizontal indentation is made using either 2 or 4 spaces or the horizontal tab symbol (key `key:Tab`). Which one to choose is an old holy war. Spaces are more common nowadays.
+    Хоризонталнати индентация се прави с 2 или 4 интервала, или с хоризонталния символ за табулация (key `key:Tab`). Какво да използвате е стара свещена война. Днес по-1есто се използват интервалите.
 
-    One advantage of spaces over tabs is that spaces allow more flexible configurations of indents than the tab symbol.
+    Едно предимство на интервалите пред табулациите е, че те позволяват по-гъвкава конфигурация на идентациите от табулациите.
 
-    For instance, we can align the arguments with the opening bracket, like this:
+    Например може да подравним аргументите с отварящата скоба:
 
     ```js no-beautify
     show(parameters,
-         aligned, // 5 spaces padding at the left  
+         aligned, // 5 интервала padding в ляво  
          one,
          after,
          another
@@ -129,7 +129,7 @@ There are two types of indents:
     }
     ```
 
-- **Vertical indents: empty lines for splitting code into logical blocks.**
+- **Вертикални индентации: празни редове за разеляне на кода на логически блокове.**
 
     Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:
 
