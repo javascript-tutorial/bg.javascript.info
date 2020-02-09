@@ -131,7 +131,7 @@ if (
 
 - **Вертикални индентации: празни редове за разеляне на кода на логически блокове.**
 
-    Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:
+    Дори единична функция може да се раздели на логически блокове. В долния пример инициализирането на променливите, for цикълът и връщаният резултат, са разделени вертикално:
 
     ```js
     function pow(x, n) {
@@ -145,51 +145,51 @@ if (
     }
     ```
 
-    Insert an extra newline where it helps to make the code more readable. There should not be more than nine lines of code without a vertical indentation.
+    Вмъкнете допълнителен нов ред където е подходящо, за да направите кода по-четим. Не трябва да има повече от 9 реда код, без вертикална индентация (празен ред). 
 
-### Semicolons
+### Точка и запетая
 
-A semicolon should be present after each statement, even if it could possibly be skipped.
+Трябва да се поставя точка и запетая след всяка инструкция, дори когато те не са необходими и може да се изпуснат.
 
-There are languages where a semicolon is truly optional and it is rarely used. In JavaScript, though, there are cases where a line break is not interpreted as a semicolon, leaving the code vulnerable to errors. See more about that in the chapter <info:structure#semicolon>.
+Има езици, при които точката и запетаята не са задължителни и се използват рядко. В JavaScript има случаи в които новият редне се интерпретира като точка и запетая. Това прави кода уязвим за грешки. Вижте повече за това в глава <info:structure#semicolon>.
 
-If you're an experienced JavaScript programmer, you may choose a no-semicolon code style like [StandardJS](https://standardjs.com/). Otherwise, it's best to use semicolons to avoid possible pitfalls. The majority of developers put semicolons.
+Ако сте опитен JavaScript програмист, може да изберете да използвате стил на писане без точка и запетая като този [StandardJS](https://standardjs.com/). Иначе е добре да използвате точка и запетая за да избегнете възможни капани. Повечето програмисти използват точка и запетая. 
 
-### Nesting Levels
+### Нива на влагане
 
-Try to avoid nesting code too many levels deep.
+Опитайте се да избягвате влагането на код много на дълбоко.
 
-For example, in the loop, it's sometimes a good idea to use the [`continue`](info:while-for#continue) directive to avoid extra nesting.
+Например в цикълът понякога е добра идея да използвате [`continue`](info:while-for#continue) директивата за да избегнете допълнително нестване /влагане.
 
-For example, instead of adding a nested `if` conditional like this:
+Например, вместо да добавите нестнато `if` условие така:
 
 ```js
 for (let i = 0; i < 10; i++) {
   if (cond) {
-    ... // <- one more nesting level
+    ... // <- oще едно ниво на влагане
   }
 }
 ```
 
-We can write:
+Може да напишем:
 
 ```js
 for (let i = 0; i < 10; i++) {
   if (!cond) *!*continue*/!*;
-  ...  // <- no extra nesting level
+  ...  // <- няма допълнително ниво на влагане
 }
 ```
 
-A similar thing can be done with `if/else` and `return`.
+Подобен ефект може да се постигне с `if/else` и `return`.
 
-For example, two constructs below are identical.
+Напимер двата конструкта долу са идентични.
 
-Option 1:
+Първи вариант:
 
 ```js
 function pow(x, n) {
   if (n < 0) {
-    alert("Negative 'n' not supported");
+    alert("Отрицателен 'n' не се поддържа");
   } else {
     let result = 1;
 
@@ -202,12 +202,12 @@ function pow(x, n) {
 }
 ```
 
-Option 2:
+Втори вариант:
 
 ```js
 function pow(x, n) {
   if (n < 0) {
-    alert("Negative 'n' not supported");
+    alert("Отрицателен 'n' не се поддържа");
     return;
   }
 
@@ -221,16 +221,16 @@ function pow(x, n) {
 }
 ```
 
-The second one is more readable because the "special case" of `n < 0` is handled early on. Once the check is done we can move on to the "main" code flow without the need for additional nesting.
+Вторият пример е по-четим заради "специалният случай" по който кодът се справя с `n < 0` още в началото. Щом се направи проверката, може да продължи "основното" изпълнение на програмата без необходимост от допълнително нестване на кода. 
 
-## Function Placement
+## Място на функциите
 
-If you are writing several "helper" functions and the code that uses them, there are three ways to organize the functions.
+Ако пишете няколко "помощни" функции и кодът, който ги използва, има три начина да организирате функциите. 
 
-1. Declare the functions *above* the code that uses them:
+1. Декларирайте функциите *над* кода, който ги използва:
 
     ```js
-    // *!*function declarations*/!*
+    // *!*деклариране на функции*/!*
     function createElement() {
       ...
     }
@@ -243,20 +243,20 @@ If you are writing several "helper" functions and the code that uses them, there
       ...
     }
 
-    // *!*the code which uses them*/!*
+    // *!*кодът, който ги използва*/!*
     let elem = createElement();
     setHandler(elem);
     walkAround();
     ```
-2. Code first, then functions
+2. Първо напишете кода, след това функциите
 
     ```js
-    // *!*the code which uses the functions*/!*
+    // *!*кодът, който използва функциите*/!*
     let elem = createElement();
     setHandler(elem);
     walkAround();
 
-    // --- *!*helper functions*/!* ---
+    // --- *!*помощните функции*/!* ---
     function createElement() {
       ...
     }
@@ -269,15 +269,15 @@ If you are writing several "helper" functions and the code that uses them, there
       ...
     }
     ```
-3. Mixed: a function is declared where it's first used.
+3. Смесено: функцията се декларира където се използва за първи път.
 
-Most of time, the second variant is preferred.
+Вторият вариант е предпочитан в повечето случаи.
 
-That's because when reading code, we first want to know *what it does*. If the code goes first, then it becomes clear from the start. Then, maybe we won't need to read the functions at all, especially if their names are descriptive of what they actually do.
+Това е така, защото когато четем коф, ние първо искаме да знаем *какво прави*. Ако кодът е първо, тогава става ясно още от началото. Тогава може да не се наложи да четем функциите изобщо, особено ако техните имена описват достатъчно ясно какво правят.
 
-## Style Guides
+## Стилови ръководства
 
-A style guide contains general rules about "how to write" code, e.g. which quotes to use, how many spaces to indent, the maximal line length, etc. A lot of minor things.
+Стиловото ръководсто съдържа общи правила за това "как да пишем" код, пр. какви кавички да ползваме, колко интервала да ползваме за индентация, каква е максималната дължина на ред и тн. Мноожество дребни детайли.
 
 When all members of a team use the same style guide, the code looks uniform, regardless of which team member wrote it.
 
