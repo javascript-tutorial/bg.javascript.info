@@ -314,9 +314,9 @@ function pow(x, n) {
 1. Инсталирайте [Node.js](https://nodejs.org/).
 2. Инсталирайте ESLint с командата `npm install -g eslint` (npm се използва за инсталиране на пакети в JavaScript).
 3. Създайте конфигурационен файл на име `.eslintrc` в root директорията на вашия JavaScript проект (папката, която съдържа всички ваши файлове).
-4. Install/enable the plugin for your editor that integrates with ESLint. The majority of editors have one.
+4. Инсталирайте/активирайте плъгина за вашия редактор, който извършва интеграцията с ESLint. Повечето редактори имат такъв. 
 
-Here's an example of an `.eslintrc` file:
+Ето и пример за `.eslintrc` файл:
 
 ```js
 {
@@ -333,16 +333,16 @@ Here's an example of an `.eslintrc` file:
 }
 ```
 
-Here the directive `"extends"` denotes that the configuration is based on the "eslint:recommended" set of settings. After that, we specify our own.
+Тук директивата `"extends"` подчертава че конфигурацията е базирана на "eslint:recommended" набор от настройки. След това ние можем да създадем наши собствени. 
 
-It is also possible to download style rule sets from the web and extend them instead. See <http://eslint.org/docs/user-guide/getting-started> for more details about installation.
+Също така е възможно да свалите файлове със стилови настройки от мрежата и да разширите вече съществуващите такива. Вижте <http://eslint.org/docs/user-guide/getting-started> за повече детайли относно инсталацията. 
 
-Also certain IDEs have built-in linting, which is convenient but not as customizable as ESLint.
+Също някои IDEs имат вграден линтер, който е удобен но не може да се модифицира толкова, колкото ESLint.
 
-## Summary
+## Обобщение
 
-All syntax rules described in this chapter (and in the style guides referenced) aim to increase the readability of your code. All of them are debatable.
+Всички синтактични правила, описани в тази глава (и в споменатите стилови ръководства) целят да повишат четимостта на вашия код. Всички те подлежат на обсъждане. 
 
-When we think about writing "better" code, the questions we should ask ourselves are: "What makes the code more readable and easier to understand?" and "What can help us avoid errors?" These are the main things to keep in mind when choosing and debating code styles.
+Когато мислим за писането на "по-добър" код, въпросите, които трябва да си зададем са: "Какво прави кода по-четим и лесен за разбиране?" и "Какво може да ни помогне да избегнем грешки?" Това са основните неща, които трябва да вземем под внимание когато избираме и обсъждаме стиловете на писане на код.
 
-Reading popular style guides will allow you to keep up to date with the latest ideas about code style trends and best practices.
+Четенето на популярни стилови ръководства ще ни помогне да сме в крак с най-новите тенденции и добри практики. 
