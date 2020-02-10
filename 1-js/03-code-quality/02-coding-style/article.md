@@ -2,7 +2,7 @@
 
 Нашият код трябва да бъде колкото е възможно по-ясен и лесен за разбиране.
 
-Това е изкуството на програмирането -- да земеш сложна задача и да напишеш код, който едновременно работи вярно и е лесен за четене от хора. Добрият стил на писане на код помага много за това. 
+Това е изкуството на програмирането -- да вземеш сложна задача и да напишеш код, който едновременно работи вярно и е лесен за четене от други хора. Добрият стил на писане на код помага много за това. 
 
 ## Синтаксис
 
@@ -279,41 +279,41 @@ function pow(x, n) {
 
 Стиловото ръководсто съдържа общи правила за това "как да пишем" код, пр. какви кавички да ползваме, колко интервала да ползваме за индентация, каква е максималната дължина на ред и тн. Мноожество дребни детайли.
 
-When all members of a team use the same style guide, the code looks uniform, regardless of which team member wrote it.
+Когато всички членове на екипа използват едно и също ръководство, кодът изглежда унифициран без значение кой член на екипа го е писал.
 
-Of course, a team can always write their own style guide, but usually there's no need to. There are many existing guides to choose from.
+Разбира се, хората в един екип могат винаги да напишат собсвено ръководство, но обикновено няма нужда от това. Съществуват множество стилови ръковоства, от които да изберете. 
 
-Some popular choices:
+Някои популярни избори:
 
 - [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml)
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Idiomatic.JS](https://github.com/rwaldron/idiomatic.js)
 - [StandardJS](https://standardjs.com/)
-- (plus many more)
+- (плюс още много)
 
-If you're a novice developer, start with the cheat sheet at the beginning of this chapter. Then you can browse other style guides to pick up more ideas and decide which one you like best.
+Ако сте начинаещ програмист, започнете със страницата с подсказки в началото на тази глава. След това можете да разгледате други стилови ръководства, да взаимствате от там идеи и да прецените кое от тях харесвате най-много.
 
-## Automated Linters
+## Автоматизирани Линтери
 
-Linters are tools that can automatically check the style of your code and make improving suggestions.
+Линтерите са инструменти, които могат автоматично да проверят вашия код и да предложат подобрения.
 
-The great thing about them is that style-checking can also find some bugs, like typos in variable or function names. Because of this feature, using a linter is recommended even if you don't want to stick to one particular "code style".
+Най-хубавото при тях е, че при проверката на стила на писане може да се открият и някои бъгове, като правописни грешки в имената на променливи или функции. Поради това използването на линтер е препоръчително, дори ако не искате да се придържате към конкретен "стил на писане".
 
-Here are some well-known linting tools:
+Ето някои добре известни линтери:
 
-- [JSLint](http://www.jslint.com/) -- one of the first linters.
-- [JSHint](http://www.jshint.com/) -- more settings than JSLint.
-- [ESLint](http://eslint.org/) -- probably the newest one.
+- [JSLint](http://www.jslint.com/) -- един от първите линтери.
+- [JSHint](http://www.jshint.com/) -- има повече опции от JSLint.
+- [ESLint](http://eslint.org/) -- вероятно най-новият линтер.
 
-All of them can do the job. The author uses [ESLint](http://eslint.org/).
+Всеки от тях може да свърши работа. Авторът използва [ESLint](http://eslint.org/).
 
-Most linters are integrated with many popular editors: just enable the plugin in the editor and configure the style.
+Повечето линтери са интегрирани с много от популярните среди за разработка: просто активирайте плъгина в редактора и конфигурирайте стила.
 
-For instance, for ESLint you should do the following:
+Например, за ESLint трябва да направите следното:
 
-1. Install [Node.js](https://nodejs.org/).
-2. Install ESLint with the command `npm install -g eslint` (npm is a JavaScript package installer).
-3. Create a config file named `.eslintrc` in the root of your JavaScript project (in the folder that contains all your files).
+1. Инсталирайте [Node.js](https://nodejs.org/).
+2. Инсталирайте ESLint с командата `npm install -g eslint` (npm се използва за инсталиране на пакети в JavaScript).
+3. Създайте конфигурационен файл на име `.eslintrc` в root директорията на вашия JavaScript проект (папката, която съдържа всички ваши файлове).
 4. Install/enable the plugin for your editor that integrates with ESLint. The majority of editors have one.
 
 Here's an example of an `.eslintrc` file:
