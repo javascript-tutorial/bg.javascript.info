@@ -1,54 +1,54 @@
 
 # Polyfills
 
-The JavaScript language steadily evolves. New proposals to the language appear regularly, they are analyzed and, if considered worthy, are appended to the list at <https://tc39.github.io/ecma262/> and then progress to the [specification](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Езикът JavaScript постоянно се развива. Редовно се появяват нови предложения за нововъведения. Те се разгеждат и ако се прецени, че ще са полезни, ги добавят към този списък <https://tc39.github.io/ecma262/> и след това попадат в [specification](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
-Teams behind JavaScript engines have their own ideas about what to implement first. They may decide to implement proposals that are in draft and postpone things that are already in the spec, because they are less interesting or just harder to do.
+Екипите, които стоят зад JavaScript енджините, имат собствени идеи какво да имплементират първо. Може да решат да имплементират предложения, които все още са на чернова и да отложат неща, които вече са в спека, защото не са толкова интересни или са по-трудни за имплементиране. 
 
-So it's quite common for an engine to implement only the part of the standard.
+Така че е доста типично зза енджините да имплементират само част от стандарта. 
 
-A good page to see the current state of support for language features is <https://kangax.github.io/compat-table/es6/> (it's big, we have a lot to study yet).
+Добър ресурс, където може да видите кои свойства на езика се поддържат към настоящия момент е  <https://kangax.github.io/compat-table/es6/> (той е голям, ние имаме да учим още много).
 
 ## Babel
 
-When we use modern features of the language, some engines may fail to support such code. Just as said, not all features are implemented everywhere.
+Когато използваме модерните свойства на езика, някои енджини може да не поддържат нашия код. Точно както беше споменато, не всички свойства са имплементирани навсякъде. 
 
-Here Babel comes to the rescue.
+Тук на помощ идва Babel.
 
-[Babel](https://babeljs.io) is a [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler). It rewrites modern JavaScript code into the previous standard.
+[Babel](https://babeljs.io) е [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler). Той пренаписва съвременния JavaScript код според предишния стандарт.
 
-Actually, there are two parts in Babel:
+Всъщност има две части в Babel:
 
-1. First, the transpiler program, which rewrites the code. The developer runs it on their own computer. It rewrites the code into the older standard. And then the code is delivered to the website for users. Modern project build systems like [webpack](http://webpack.github.io/) provide means to run transpiler automatically on every code change, so that it's very easy to integrate into development process.
+1. Първо transpiler програма, която пренаписва кода. Програмистът го стартира на своя компютър. Той пренаписва кода по стария стандарт. И после кодът се качва на уебсайта за потребителите. Съвременните системи за създаване на проекти като [webpack](http://webpack.github.io/) осигуряват средства да стартирате transpiler автоматично при всяка промяна в кода, така че е много лесно да се интегрира в процеса на разработка.
 
-2. Second, the polyfill.
+2. Второто е polyfill.
 
-    New language features may include new built-in functions and syntax constructs.
-    The transpiler rewrites the code, transforming syntax constructs into older ones. But as for new built-in functions, we need to implement them. JavaScript is a highly dynamic language, scripts may add/modify any functions, so that they behave according to the modern standard.
+    Новите характеристики на езика може да включват нови вградени функции и синтактични конструктори. 
+    Транспилерът пренаписва кода, трансформирайки синтактичните конструктори съгласно по-старите стандарти. Но колкото до новите вградени функции, ние трябва да ги имплементираме. JavaScript е много динамичен език, скриптовете може да добавят/променят всяка функция, така че тя да се държи според новия стандарт. 
 
-    A script that updates/adds new functions is called "polyfill". It "fills in" the gap and adds missing implementations.
+    Скрипт, който модернизира/добавя нови функции, се нарича "polyfill". Той "запълва" празнината и добавя липсващите имплементации.
 
-    Two interesting polyfills are:
-    - [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
-    - [polyfill.io](http://polyfill.io) service that provides a script with polyfills, depending on the features and user's browser.
+    Два интересни polyfills са:
+    - [core js](https://github.com/zloirock/core-js) поддържа много характеристики, позволява да включите в кода само необходимите.
+    - [polyfill.io](http://polyfill.io) услуга, която осигурява polyfills на скрипта, в зависимост от характеристиките и браузъра на потребителя.
 
-So, if we're going to use modern language features, a transpiler and a polyfill are necessary.
+Така че ако използваме съвременните свойства на езика, ще имаме нужда от transpiler и polyfill.
 
-## Examples in the tutorial
+## Примери в ръководството
 
 
 ````online
-Most examples are runnable at-place, like this:
+Повечето примери може да се стартират на място ето така:
 
 ```js run
-alert('Press the "Play" button in the upper-right corner to run');
+alert('Натиснете бутона "Play" в горния десен ъгъл, за да стартирате');
 ```
 
-Examples that use modern JS will work only if your browser supports it.
+Примери, които използват съвременния JS ще работят само ако вашият браузър го поддържа.
 ````
 
 ```offline
-As you're reading the offline version, in PDF examples are not runnable. In EPUB some of them can run.
+Тъй като четете offline версията, примерите в PDF файловете не може да се стартират. В EPUB някои от тях може да се стартират.
 ```
 
-Google Chrome is usually the most up-to-date with language features, good to run bleeding-edge demos without any transpilers, but other modern browsers also work fine.
+Google Chrome обикновено поддържа най-актуалните характеристики на езика, добър е за демо тестове без transpilers, но другите съвременни браузъри също работят добре.
