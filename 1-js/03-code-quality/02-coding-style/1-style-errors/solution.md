@@ -1,29 +1,29 @@
 
-You could note the following:
+Може да забележите следното:
 
 ```js no-beautify
-function pow(x,n)  // <- no space between arguments
-{  // <- figure bracket on a separate line
-  let result=1;   // <- no spaces before or after =
-  for(let i=0;i<n;i++) {result*=x;}   // <- no spaces
-  // the contents of { ... } should be on a new line
+function pow(x,n)  // <- няма разстояние между аргументите
+{  // <- фигуративната скоба е на нов ред
+  let result=1;   // <- няма разстояние преди и след знака  =
+  for(let i=0;i<n;i++) {result*=x;}   // <- няма разстояние между result, *= и x
+  // съдържанието на { ... } трябва да е на нов ред
   return result;
 }
 
-let x=prompt("x?",''), n=prompt("n?",'') // <-- technically possible,
-// but better make it 2 lines, also there's no spaces and missing ;
-if (n<0)  // <- no spaces inside (n < 0), and should be extra line above it
-{   // <- figure bracket on a separate line
-  // below - long lines can be split into multiple lines for improved readability
-  alert(`Power ${n} is not supported, please enter an integer number greater than zero`);
+let x=prompt("x?",''), n=prompt("n?",'') // <-- технически е възможно,
+// но по-добре да е на 2 реда. Също така няма разстояние и липсва ;
+if (n<0)  // <- няма разстояние вътре в скобите (n < 0) и също така трябва да има допълнителен ред над него
+{   // <- фигуративната скоба е на отделен ред
+  // долу - дългите редове може да се разделят на множество редове с по-мака дължина, за по-добра четимост
+  alert(`Степента ${n} не се поддържа, моля въведете цяло число, по-голямо от нула`);
 }
-else // <- could write it on a single line like "} else {"
+else // <- може да се напише на един ред като "} else {"
 {
-  alert(pow(x,n))  // no spaces and missing ;
+ ====ow(x,n))  // няма разстояния и ;
 }
 ```
 
-The fixed variant:
+Оправеният вариант:
 
 ```js
 function pow(x, n) {
@@ -40,8 +40,8 @@ let x = prompt("x?", "");
 let n = prompt("n?", "");
 
 if (n < 0) {
-  alert(`Power ${n} is not supported,
-    please enter an integer number greater than zero`);
+  alert(`Степен ${n} не се поддържа,
+    моля въведете цяло число, по-голямо от нула`);
 } else {
   alert( pow(x, n) );
 }
