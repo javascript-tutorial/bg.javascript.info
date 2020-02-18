@@ -1,12 +1,12 @@
-# Coding Style
+# Стил на кодиране
 
-Our code must be as clean and easy to read as possible.
+Нашият код трябва да бъде колкото е възможно по-ясен и лесен за разбиране.
 
-That is actually the art of programming -- to take a complex task and code it in a way that is both correct and human-readable. A good code style greatly assists in that.  
+Това е изкуството на програмирането -- да вземеш сложна задача и да напишеш код, който едновременно работи вярно и е лесен за четене от други хора. Добрият стил на писане на код помага много за това. 
 
-## Syntax
+## Синтаксис
 
-Here is a cheat sheet with some suggested rules (see below for more details):
+Ето страница с някои препоръчителни правила (вижте изображението за повече информация):
 
 ![](code-style.svg)
 <!--
@@ -25,8 +25,8 @@ let x = prompt("x?", "");
 let n = prompt("n?", "");
 
 if (n < 0) {
-  alert(`Power ${n} is not supported,
-    please enter a non-negative integer number`);
+  alert(`Степен ${n} не се поддържа,
+    моля въведете цяло положително число`);
 } else {
   alert( pow(x, n) );
 }
@@ -34,15 +34,15 @@ if (n < 0) {
 
 -->
 
-Now let's discuss the rules and reasons for them in detail.
+Сега нека обсъдим по-подробно правилата и причините за тях.
 
-```warn header="There are no \"you must\" rules"
-Nothing is set in stone here. These are style preferences, not religious dogmas.
+```warn header="Няма \"задължителни\" правила"
+Нищо не е задължително. Това са стилови предпочитания, не религиозни догми.
 ```
 
-### Curly Braces
+### Къдрави скоби
 
-In most JavaScript projects curly braces are written in "Egyptian" style with the opening brace on the same line as the corresponding keyword -- not on a new line. There should also be a space before the opening bracket, like this:
+В повечето JavaScript проекти къдравите скоби се пишат по "египетски" стил с отварящата скоба на същия ред като съответната ключова дума -- не на нов ред. Трябва да има разстояние преди отварящата скоба, както тук:
 
 ```js
 if (condition) {
@@ -52,39 +52,39 @@ if (condition) {
 }
 ```
 
-A single-line construct, such as `if (condition) doSomething()`, is an important edge case. Should we use braces at all?
+Едноредовият конструкт `if (condition) doSomething()`, е важен граничен случай. Трябва ли да използваме скоби при него?
 
-Here are the annotated variants so you can judge their readability for yourself:
+Ето няколко варианта, за да прецените сами тяхната четимост:
 
-1. 😠 Beginners sometimes do that. Bad! Curly braces are not needed:
+1. 😠 Начинаещите програмисти понякога правят това. Лошо! Къдравите скоби не са нужни:
     ```js
     if (n < 0) *!*{*/!*alert(`Power ${n} is not supported`);*!*}*/!*
     ```
-2. 😠 Split to a separate line without braces. Never do that, easy to make an error when adding new lines:
+2. 😠 Разделяне на отделен ред без скоби. Никога не правете това. Така може лесно да допуснете грешка, когато добавяте нови редове:
     ```js
     if (n < 0)
-      alert(`Power ${n} is not supported`);
+      alert(`Степен ${n} не се поддържа`);
     ```
-3. 😏 One line without braces - acceptable, if it's short:
+3. 😏 Един ред без скоби - допустимо е, ако кодът е кратък:
     ```js
-    if (n < 0) alert(`Power ${n} is not supported`);
+    if (n < 0) alert(`Степен ${n} не се поддържа`);
     ```
-4. 😃 The best variant:
+4. 😃 Най-добрият вариант:
     ```js
     if (n < 0) {
-      alert(`Power ${n} is not supported`);
+      alert(`Степен ${n} не се поддържа`);
     }
     ```
 
-For a very brief code, one line is allowed, e.g. `if (cond) return null`. But a code block (the last variant) is usually more readable.
+Когато кодът е много кратък, е допустимо той да бъде на един ред. `if (cond) return null`. Но блокът от код (последният вариант) обикновено е по-четим.
 
-### Line Length
+### Дължина на реда
 
-No one likes to read a long horizontal line of code. It's best practice to split them.
+Никой не иска да чете дълги хоризонтални редове от код. Добра практика е да ги разделяме на по-кратки. 
 
-For example:
+Например:
 ```js
-// backtick quotes ` allow to split the string into multiple lines
+// backtick quotes ` позволяват да се раздели един стринг на много редове
 let str = `
   Ecma International's TC39 is a group of JavaScript developers,
   implementers, academics, and more, collaborating with the community
@@ -92,7 +92,7 @@ let str = `
 `;
 ```
 
-And, for `if` statements:
+Важи и за `if` условия:
 
 ```js
 if (
@@ -104,23 +104,23 @@ if (
 }
 ```
 
-The maximum line length should be agreed upon at the team-level. It's usually 80 or 120 characters.
+Максималната дължина на реда се решава от екипа. Обикновено е между 80 и 120 символа. 
 
-### Indents
+### Отстъпи / индентации / отстояния
 
-There are two types of indents:
+Има два типа индентации:
 
-- **Horizontal indents: 2 or 4 spaces.**
+- **Хоризонтални индентации: 2 или 4 интервала.**
 
-    A horizontal indentation is made using either 2 or 4 spaces or the horizontal tab symbol (key `key:Tab`). Which one to choose is an old holy war. Spaces are more common nowadays.
+    Хоризонталната индентация се прави с 2 или 4 интервала, или с хоризонталния символ за табулация (key `key:Tab`). Какво да използвате е стара свещена война. Днес по-често се използват интервалите.
 
-    One advantage of spaces over tabs is that spaces allow more flexible configurations of indents than the tab symbol.
+    Едно предимство на интервалите пред табулациите е, че те позволяват по-гъвкава конфигурация на индентациите от табулациите.
 
-    For instance, we can align the arguments with the opening bracket, like this:
+    Например може да подравним аргументите с отварящата скоба:
 
     ```js no-beautify
     show(parameters,
-         aligned, // 5 spaces padding at the left  
+         aligned, // 5 интервала padding в ляво  
          one,
          after,
          another
@@ -129,9 +129,9 @@ There are two types of indents:
     }
     ```
 
-- **Vertical indents: empty lines for splitting code into logical blocks.**
+- **Вертикални индентации: празни редове за разеляне на кода на логически блокове.**
 
-    Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:
+    Дори единична функция може да се раздели на логически блокове. В долния пример инициализирането на променливите, for цикълът и връщаният резултат, са разделени вертикално:
 
     ```js
     function pow(x, n) {
@@ -145,51 +145,51 @@ There are two types of indents:
     }
     ```
 
-    Insert an extra newline where it helps to make the code more readable. There should not be more than nine lines of code without a vertical indentation.
+    Вмъкнете допълнителен нов ред където е подходящо, за да направите кода по-четим. Не трябва да има повече от 9 реда код, без вертикална индентация (празен ред). 
 
-### Semicolons
+### Точка и запетая
 
-A semicolon should be present after each statement, even if it could possibly be skipped.
+Трябва да се поставя точка и запетая след всяка инструкция, дори когато те не са необходими и може да се изпуснат.
 
-There are languages where a semicolon is truly optional and it is rarely used. In JavaScript, though, there are cases where a line break is not interpreted as a semicolon, leaving the code vulnerable to errors. See more about that in the chapter <info:structure#semicolon>.
+Има езици, при които точката и запетаята не са задължителни и се използват рядко. В JavaScript има случаи в които новият ред не се интерпретира като точка и запетая. Това прави кода уязвим за грешки. Вижте повече за това в глава <info:structure#semicolon>.
 
-If you're an experienced JavaScript programmer, you may choose a no-semicolon code style like [StandardJS](https://standardjs.com/). Otherwise, it's best to use semicolons to avoid possible pitfalls. The majority of developers put semicolons.
+Ако сте опитен JavaScript програмист, може да изберете да използвате стил на писане без точка и запетая като този [StandardJS](https://standardjs.com/). Иначе е добре да използвате точка и запетая, за да избегнете възможни капани. Повечето програмисти използват точка и запетая. 
 
-### Nesting Levels
+### Нива на влагане
 
-Try to avoid nesting code too many levels deep.
+Опитайте се да избягвате влагането на код много на дълбоко.
 
-For example, in the loop, it's sometimes a good idea to use the [`continue`](info:while-for#continue) directive to avoid extra nesting.
+Например в цикъла понякога е добра идея да използвате [`continue`](info:while-for#continue) директивата, за да избегнете допълнително нестване /влагане.
 
-For example, instead of adding a nested `if` conditional like this:
+Например, вместо да добавите нестнато `if` условие така:
 
 ```js
 for (let i = 0; i < 10; i++) {
   if (cond) {
-    ... // <- one more nesting level
+    ... // <- oще едно ниво на влагане
   }
 }
 ```
 
-We can write:
+Може да напишете:
 
 ```js
 for (let i = 0; i < 10; i++) {
   if (!cond) *!*continue*/!*;
-  ...  // <- no extra nesting level
+  ...  // <- няма допълнително ниво на влагане
 }
 ```
 
-A similar thing can be done with `if/else` and `return`.
+Подобен ефект може да се постигне с `if/else` и `return`.
 
-For example, two constructs below are identical.
+Двата конструкта долу са идентични.
 
-Option 1:
+Първи вариант:
 
 ```js
 function pow(x, n) {
   if (n < 0) {
-    alert("Negative 'n' not supported");
+    alert("Отрицателен 'n' не се поддържа");
   } else {
     let result = 1;
 
@@ -202,12 +202,12 @@ function pow(x, n) {
 }
 ```
 
-Option 2:
+Втори вариант:
 
 ```js
 function pow(x, n) {
   if (n < 0) {
-    alert("Negative 'n' not supported");
+    alert("Отрицателен 'n' не се поддържа");
     return;
   }
 
@@ -221,16 +221,16 @@ function pow(x, n) {
 }
 ```
 
-The second one is more readable because the "special case" of `n < 0` is handled early on. Once the check is done we can move on to the "main" code flow without the need for additional nesting.
+Вторият пример е по-четим заради "специалният случай" по който кодът се справя с `n < 0` още в началото. Щом се направи проверката, може да продължи "основното" изпълнение на програмата без необходимост от допълнително нестване в кода. 
 
-## Function Placement
+## Място на функциите
 
-If you are writing several "helper" functions and the code that uses them, there are three ways to organize the functions.
+Ако пишете няколко "помощни" функции и кода, който ги използва, има три начина да организирате функциите. 
 
-1. Declare the functions *above* the code that uses them:
+1. Декларирайте функциите *над* кода, който ги използва:
 
     ```js
-    // *!*function declarations*/!*
+    // *!*деклариране на функции*/!*
     function createElement() {
       ...
     }
@@ -243,20 +243,20 @@ If you are writing several "helper" functions and the code that uses them, there
       ...
     }
 
-    // *!*the code which uses them*/!*
+    // *!*кодът, който ги използва*/!*
     let elem = createElement();
     setHandler(elem);
     walkAround();
     ```
-2. Code first, then functions
+2. Първо напишете кода, след това функциите
 
     ```js
-    // *!*the code which uses the functions*/!*
+    // *!*кодът, който използва функциите*/!*
     let elem = createElement();
     setHandler(elem);
     walkAround();
 
-    // --- *!*helper functions*/!* ---
+    // --- *!*помощните функции*/!* ---
     function createElement() {
       ...
     }
@@ -269,54 +269,54 @@ If you are writing several "helper" functions and the code that uses them, there
       ...
     }
     ```
-3. Mixed: a function is declared where it's first used.
+3. Смесено: функцията се декларира където се използва за първи път.
 
-Most of time, the second variant is preferred.
+Вторият вариант е предпочитан в повечето случаи.
 
-That's because when reading code, we first want to know *what it does*. If the code goes first, then it becomes clear from the start. Then, maybe we won't need to read the functions at all, especially if their names are descriptive of what they actually do.
+Това е така, защото когато четем код, ние първо искаме да знаем *какво прави*. Ако кодът е първо, тогава става ясно още от началото. Тогава може да не се наложи да четем функциите изобщо, особено ако техните имена описват достатъчно ясно какво правят.
 
-## Style Guides
+## Стилови ръководства
 
-A style guide contains general rules about "how to write" code, e.g. which quotes to use, how many spaces to indent, the maximal line length, etc. A lot of minor things.
+Стиловото ръководсто съдържа общи правила за това "как да пишем" код, пр. какви кавички да ползваме, колко интервала да ползваме за индентация, каква е максималната дължина на ред и тн. Мноожество дребни детайли.
 
-When all members of a team use the same style guide, the code looks uniform, regardless of which team member wrote it.
+Когато всички членове на екипа използват едно и също ръководство, кодът изглежда унифициран без значение кой член на екипа го е писал.
 
-Of course, a team can always write their own style guide, but usually there's no need to. There are many existing guides to choose from.
+Разбира се, хората в един екип могат винаги да напишат собсвено ръководство, но обикновено няма нужда от това. Съществуват множество стилови ръковоства, от които да изберете. 
 
-Some popular choices:
+Някои популярни избори:
 
 - [Google JavaScript Style Guide](https://google.github.io/styleguide/javascriptguide.xml)
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Idiomatic.JS](https://github.com/rwaldron/idiomatic.js)
 - [StandardJS](https://standardjs.com/)
-- (plus many more)
+- (плюс още много)
 
-If you're a novice developer, start with the cheat sheet at the beginning of this chapter. Then you can browse other style guides to pick up more ideas and decide which one you like best.
+Ако сте начинаещ програмист, започнете със страницата с подсказки в началото на тази глава. След това можете да разгледате други стилови ръководства, да взаимствате от там идеи и да прецените кое от тях харесвате най-много.
 
-## Automated Linters
+## Автоматизирани Линтери
 
-Linters are tools that can automatically check the style of your code and make improving suggestions.
+Линтерите са инструменти, които могат автоматично да проверят вашия код и да предложат подобрения.
 
-The great thing about them is that style-checking can also find some bugs, like typos in variable or function names. Because of this feature, using a linter is recommended even if you don't want to stick to one particular "code style".
+Най-хубавото при тях е, че при проверката на стила на писане може да се открият и някои бъгове, като правописни грешки в имената на променливи или функции. Поради това използването на линтер е препоръчително, дори ако не искате да се придържате към конкретен "стил на писане".
 
-Here are some well-known linting tools:
+Ето някои добре известни линтери:
 
-- [JSLint](http://www.jslint.com/) -- one of the first linters.
-- [JSHint](http://www.jshint.com/) -- more settings than JSLint.
-- [ESLint](http://eslint.org/) -- probably the newest one.
+- [JSLint](http://www.jslint.com/) -- един от първите линтери.
+- [JSHint](http://www.jshint.com/) -- има повече опции от JSLint.
+- [ESLint](http://eslint.org/) -- вероятно най-новият линтер.
 
-All of them can do the job. The author uses [ESLint](http://eslint.org/).
+Всеки от тях може да свърши работа. Авторът използва [ESLint](http://eslint.org/).
 
-Most linters are integrated with many popular editors: just enable the plugin in the editor and configure the style.
+Повечето линтери са интегрирани с много от популярните среди за разработка: просто активирайте плъгина в редактора и конфигурирайте стила.
 
-For instance, for ESLint you should do the following:
+Например, за ESLint трябва да направите следното:
 
-1. Install [Node.js](https://nodejs.org/).
-2. Install ESLint with the command `npm install -g eslint` (npm is a JavaScript package installer).
-3. Create a config file named `.eslintrc` in the root of your JavaScript project (in the folder that contains all your files).
-4. Install/enable the plugin for your editor that integrates with ESLint. The majority of editors have one.
+1. Инсталирайте [Node.js](https://nodejs.org/).
+2. Инсталирайте ESLint с командата `npm install -g eslint` (npm се използва за инсталиране на пакети в JavaScript).
+3. Създайте конфигурационен файл на име `.eslintrc` в root директорията на вашия JavaScript проект (папката, която съдържа всички ваши файлове).
+4. Инсталирайте/активирайте плъгина за вашия редактор, който извършва интеграцията с ESLint. Повечето редактори имат такъв. 
 
-Here's an example of an `.eslintrc` file:
+Ето и пример за `.eslintrc` файл:
 
 ```js
 {
@@ -333,16 +333,16 @@ Here's an example of an `.eslintrc` file:
 }
 ```
 
-Here the directive `"extends"` denotes that the configuration is based on the "eslint:recommended" set of settings. After that, we specify our own.
+Тук директивата `"extends"` подчертава че конфигурацията е базирана на "eslint:recommended" набор от настройки. След това ние можем да създадем наши собствени. 
 
-It is also possible to download style rule sets from the web and extend them instead. See <http://eslint.org/docs/user-guide/getting-started> for more details about installation.
+Също така е възможно да свалите файлове със стилови настройки от мрежата и да разширите вече съществуващите такива. Вижте <http://eslint.org/docs/user-guide/getting-started> за повече детайли относно инсталацията. 
 
-Also certain IDEs have built-in linting, which is convenient but not as customizable as ESLint.
+Също някои IDEs имат вграден линтер, който е удобен но не може да се модифицира толкова, колкото ESLint.
 
-## Summary
+## Обобщение
 
-All syntax rules described in this chapter (and in the style guides referenced) aim to increase the readability of your code. All of them are debatable.
+Всички синтактични правила, описани в тази глава (и в споменатите стилови ръководства) целят да повишат четимостта на вашия код. Всички те подлежат на обсъждане. 
 
-When we think about writing "better" code, the questions we should ask ourselves are: "What makes the code more readable and easier to understand?" and "What can help us avoid errors?" These are the main things to keep in mind when choosing and debating code styles.
+Когато мислим за писането на "по-добър" код, въпросите които трябва да си зададем са: "Какво прави кода по-четим и лесен за разбиране?" и "Какво може да ни помогне да избегнем грешки?" Това са основните неща, които трябва да вземем под внимание когато избираме и обсъждаме стиловете на писане на код.
 
-Reading popular style guides will allow you to keep up to date with the latest ideas about code style trends and best practices.
+Четенето на популярни стилови ръководства ще ни помогне да сме в крак с най-новите тенденции и добри практики. 
