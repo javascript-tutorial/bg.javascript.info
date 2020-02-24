@@ -93,7 +93,11 @@ alert("Ще има грешка")[1, 2].forEach(alert)
 
 Препоръчваме да поставяте точка и запетая между инструкциите дори когато те са отделени със нов ред. Това правило е широко разпорстранено в обществото на разработчиците. Нека отбежележим още веднъж -- *че е възможно* да не се поставя точка и запетая в повечето случай. Но е по-безопасно -- най вече при начинаещи -- да се поставя.
 
+<<<<<<< HEAD
 ## Коментари
+=======
+## Comments [#code-comments]
+>>>>>>> 405150f1f286db19a3c1ed913fa3e905fcefbe46
 
 Във времето, програмите стават все по сложни. Става необходимо да се добавят *коментари* които описват какво ни прави кода и защо.
 
@@ -137,8 +141,13 @@ alert('World');
 alert('Свят');
 ```
 
+<<<<<<< HEAD
 ```smart header="Използвайте клавишни комбинации!"
 В повечето редактори, ред от код може да бъде коментирант с натискането  на  `key:Ctrl+/` клавишна комбинация за един ред коментар и нещо като `key:Ctrl+Shift+/` -- за многоредов коментар (изберете парче от кода и натиснете клавишната комбинация). За Mac, пробвайте `key:Cmd` вместо `key:Ctrl`.
+=======
+```smart header="Use hotkeys!"
+In most editors, a line of code can be commented out by pressing the `key:Ctrl+/` hotkey for a single-line comment and something like `key:Ctrl+Shift+/` -- for multiline comments (select a piece of code and press the hotkey). For Mac, try `key:Cmd` instead of `key:Ctrl` and `key:Option` instead of `key:Shift`.
+>>>>>>> 405150f1f286db19a3c1ed913fa3e905fcefbe46
 ```
 
 ````warn header="Вложени коментари не се подържат!"

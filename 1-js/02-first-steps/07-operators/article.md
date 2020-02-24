@@ -137,17 +137,30 @@ alert( +apples + +oranges ); // 5
 | Предимство | Име | Знак |
 |------------|------|------|
 | ... | ... | ... |
+<<<<<<< HEAD
 | 16 | едноаргументен плюс | `+` |
 | 16 | едноаргументен минус | `-` |
 | 14 | умножение | `*` |
 | 14 | делене | `/` |
 | 13 | събиране | `+` |
 | 13 | изваждане | `-` |
+=======
+| 17 | unary plus | `+` |
+| 17 | unary negation | `-` |
+| 15 | multiplication | `*` |
+| 15 | division | `/` |
+| 13 | addition | `+` |
+| 13 | subtraction | `-` |
+>>>>>>> 405150f1f286db19a3c1ed913fa3e905fcefbe46
 | ... | ... | ... |
 | 3 | присвояване | `=` |
 | ... | ... | ... |
 
+<<<<<<< HEAD
 Както можем да видим, "едноаргументният плюс" има приоритет `16`, който е по-висок от `13`, този на "събиране" (двуаргументният плюс). Ето защо, в израза `"+apples + +oranges"`, едноаргументният плюс се изплълнява преди събирането.
+=======
+As we can see, the "unary plus" has a priority of `17` which is higher than the `13` of "addition" (binary plus). That's why, in the expression `"+apples + +oranges"`, unary pluses work before the addition.
+>>>>>>> 405150f1f286db19a3c1ed913fa3e905fcefbe46
 
 ## Присвояване
 
