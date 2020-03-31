@@ -2,78 +2,77 @@
 
 
 ```quote author="Confucius"
-Learning without thought is labor lost; thought without learning is perilous.
+Ученето без мисъл е загуба на труд, мисълта без учение е опасно.
 ```
 
-Programmer ninjas of the past used these tricks to sharpen the mind of code maintainers.
+Нинджите програмисти в миналото използвали тези трикове за да изострят ума на хората, които поддържат кода. 
 
-Code review gurus look for them in test tasks.
+Гурутата които се занимават с преглеждане на кода ги търсят в своите тестове. 
 
-Novice developers sometimes use them even better than programmer ninjas.
+Начинаещите програмисти понякога ги използват, дори по-добре от нинджите програмисти. 
 
-Read them carefully and find out who you are -- a ninja, a novice, or maybe a code reviewer?
+Прочетете ги внимателно и разберете какъв сте Вие -- нинджа, начинаещ програмист или рецензент на код? 
 
 
 ```warn header="Irony detected"
-Many try to follow ninja paths. Few succeed.
+Мнозина се опитват да следват пътя на нинджата. Малцина успяват. 
 ```
 
 
-## Brevity is the soul of wit
+## Краткостта е душата на остроумието
 
-Make the code as short as possible. Show how smart you are.
+Направи кода колкото е възможно по-кратък. Покажи колко си умен.
 
-Let subtle language features guide you.
+Нека тънкостите на езика те водят.
 
-For instance, take a look at this ternary operator `'?'`:
+Наприме погледни този тернарен оператор `'?'`:
 
 ```js
-// taken from a well-known javascript library
+// взет от добре позната javascript библиотека
 i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
 ```
 
-Cool, right? If you write like that, a developer who comes across this line and tries to understand what is the value of `i` is going to have a merry time. Then come to you, seeking for an answer.
+Супер, нали? Ако пишеш така, програмистът, който чете твоя код ще има трудности да разбере каква е стойността на `i` щом стигне този ред. След това ще дойде да пита теб.  
 
-Tell them that shorter is always better. Initiate them into the paths of ninja.
+Кажи им че по-краткия начин винаги е по-добър. Покажи им пътя на нинджата.
 
-## One-letter variables
+## Променливи от една буква
 
 ```quote author="Laozi (Tao Te Ching)"
-The Dao hides in wordlessness. Only the Dao is well begun and well
-completed.
+Дао се крие в безмълвието. Само Дао започва и свършва добре. 
 ```
 
-Another way to code faster is to use single-letter variable names everywhere. Like `a`, `b` or `c`.
+Друг начин да се пише код бързо е като се позвват променливи от една буква навсякъде. Като `a`, `b` или `c`.
 
-A short variable disappears in the code like a real ninja in the forest. No one will be able to find it using "search" of the editor. And even if someone does, they won't be able to "decipher" what the name `a` or `b` means.
+Кратката променлива изчезва в кофа като истински нинджа в гората. Никой няма да може да я открие като използва "search" не редактора. И дори ако някой успее, той няма да "разбере" какво означава името `a` или `b`.
 
-...But there's an exception. A real ninja will never use `i` as the counter in a `"for"` loop. Anywhere, but not here. Look around, there are many more exotic letters. For instance, `x` or `y`.
+...Но има и изключения. Истинският нинджа никога няма да използва `i` като брояч във `"for"` цикъл. Навсякъде другаде да, но не и тук. Огледай се наоколо, има много по-екзотични букви. Например `x` или `y`.
 
-An exotic variable as a loop counter is especially cool if the loop body takes 1-2 pages (make it longer if you can). Then if someone looks deep inside the loop, they won't be able to quickly figure out that the variable named `x` is the loop counter.
+Екзотична променлива като брояч в цикъл е чудесна, особено ако тялото на цикъла заема 1-2 страници (направи го по-дълго ако можеш). Тогава ако някой погледне цикъла, той няма да успее да разбере веднага, че променлива на име `x` е броячът на цикъла.  
 
-## Use abbreviations
+## Използвай съкращения
 
-If the team rules forbid the use of one-letter and vague names -- shorten them, make abbreviations.
+--- Ако правилата на екипа забраняват използването на променливи от една буква и неясни имена --- използвай съкращения.
 
-Like this:
+Ето така:
 
 - `list` -> `lst`.
 - `userAgent` -> `ua`.
 - `browser` -> `brsr`.
-- ...etc
+- ...и тн.
 
-Only the one with truly good intuition will be able to understand such names. Try to shorten everything. Only a worthy person should be able to uphold the development of your code.
+Сампо онзи с наистина добра интуиция ше успее да разбере такива имена. Опитай се да съкратиш всичко. Само достоен човек ще успее да разбере и поддържа твоя код. 
 
-## Soar high. Be abstract.
+## Извиси се високо. Бъди абстрактен.
 
 ```quote author="Laozi (Tao Te Ching)"
-The great square is cornerless<br>
-The great vessel is last complete,<br>
-The great note is rarified sound,<br>
-The great image has no form.
+Най-голямият квадрат е без ъгли<br>
+Най-големият кораб е завършен последен,<br>
+Най-великата нота е възвишен звук,<br>
+Най-великият образ няма форма.
 ```
 
-While choosing a name try to use the most abstract word. Like `obj`, `data`, `value`, `item`, `elem` and so on.
+При избора на име използвай възможно най-абстрактната дума като `obj`, `data`, `value`, `item`, `elem` и т.н.
 
 - **The ideal name for a variable is `data`.** Use it everywhere you can. Indeed, every variable holds *data*, right?
 
