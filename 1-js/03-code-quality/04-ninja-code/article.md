@@ -132,53 +132,51 @@ i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
 
 Добави нова променлива само когато е абсолютно необходимо.
 
-Instead, reuse existing names. Just write new values into them.
+Вместо това преизползвай съществуващи имена. Просто добави нови стойсности в тях.
 
-In a function try to use only variables passed as parameters.
+Във функция се опитай да използваш само променливите, които се подават като параметри.
 
-That would make it really hard to identify what's exactly in the variable *now*. And also where it comes from. The purpose is to develop the intuition and memory of a person reading the code. A person with weak intuition would have to analyze the code line-by-line and track the changes through every code branch.
+Така ще стане наистина трудно да се определи какво точно има в променливата *сега*. И също така от къде идва. Целта е да се развие интуицията и памета на човека, който чете кода. Човек със слаба интуиция ше трябва да анализира кода ред по ред и да проследява промените през всеки code branch (разклонение на кода).
 
-**An advanced variant of the approach is to covertly (!) replace the value with something alike in the middle of a loop or a function.**
+**По-напреднал вариант на този подход е тайно (!) да заместиш стойността с нещо подобно по средата на цикъла или функцията.**
 
-For instance:
+Например:
 
 ```js
 function ninjaFunction(elem) {
-  // 20 lines of code working with elem
+  // 20 реда код, работещи с elem
 
   elem = clone(elem);
 
-  // 20 more lines, now working with the clone of the elem!
+  // още 20 реда, които сега работят с клонинга на elem!
 }
 ```
 
-A fellow programmer who wants to work with `elem` in the second half of the function will be surprised... Only during the debugging, after examining the code they will find out that they're working with a clone!
+Колега програмист, който иска да работи с `elem` във втората част на функцията ще се изненада... Само по време на дебъгване, след като проучи кода, той ще открие че работи с копие!
 
-Seen in code regularly. Deadly effective even against an experienced ninja.
+Често се среща в кода. Смъртоносно ефективно дори срещу опитен нинджа.
 
-## Underscores for fun
+## Долни черти за забавление
 
-Put underscores `_` and `__` before variable names. Like `_name` or `__value`. It would be great if only you knew their meaning. Or, better, add them just for fun, without particular meaning at all. Or different meanings in different places.
+Сложи долни черти `_` и `__` преди имената на променливите. Като `_name` или `__value`. Ще бъде супер ако само ти знаеш тяхното значение. Или още по-добре, сложи го просто за забавление, без особено значение. Или нека на различните места означават различни неща. С един изтрел два заека. Първо кодът става дълъг и по-трудно четим и второ, колега програмист може да прекара дълго време, опивайки се да разбере какво означават долните черти.
 
-You kill two rabbits with one shot. First, the code becomes longer and less readable, and the second, a fellow developer may spend a long time trying to figure out what the underscores mean.
+Умелият нинджа слага долни черти на едно място в кода и ги избягва на други места. Това прави кода още по-труден за поддръжка и увеличава вероятността от бъдещи грешки.
 
-A smart ninja puts underscores at one spot of code and evades them at other places. That makes the code even more fragile and increases the probability of future errors.
+## Покажи любовта си
 
-## Show your love
+Нека всички разберат колко великолепни твоите създания са! Имена като `superElement`, `megaFrame` и `niceItem` определено ше просветлят читателя.
 
-Let everyone see how magnificent your entities are! Names like `superElement`, `megaFrame` and `niceItem` will definitely enlighten a reader.
-
-Indeed, from one hand, something is written: `super..`, `mega..`, `nice..` But from the other hand -- that brings no details. A reader may decide to look for a hidden meaning and meditate for an hour or two of their paid working time.
+От една страна нещо е написано като: `super..`, `mega..`, `nice..` От друга страна -- това не носи никаква информация. Читателят може да реши да потърси скрито значение и да медитира час или два от неговото платено работно време.
 
 
-## Overlap outer variables
+## Презастъпване с външните променливи
 
 ```quote author="Guan Yin Zi"
-When in the light, can't see anything in the darkness.<br>
-When in the darkness, can see everything in the light.
+Когато си на светло, не можеш да видиш нищо в тъмнината.<br>
+Когато си на тъмно, можеш да видиш всичко в светлината.
 ```
 
-Use same names for variables inside and outside a function. As simple. No efforts to invent new names.
+Използвай същите имена на променливи вътре и извън функция. Толкова е просто. Няма нужда от усилия да се измислят нови имена.
 
 ```js
 let *!*user*/!* = authenticateUser();
@@ -188,21 +186,21 @@ function render() {
   ...
   ...many lines...
   ...
-  ... // <-- a programmer wants to work with user here and...
+  ... // <-- програмист, който иска да работи с user тук и...
   ...
 }
 ```
 
-A programmer who jumps inside the `render` will probably fail to notice that there's a local `user` shadowing the outer one.
+Програмист, който скочи вътре в `render` верочтно няма да забележи, че има локална променлива `user`, който прикрива външната променлива със същото име.
 
-Then they'll try to work with `user` assuming that it's the external variable, the result of `authenticateUser()`... The trap is sprung! Hello, debugger...
+Той ще се опита да работи с `user` предполагайки, че това е външна променлива, която е резултат от `authenticateUser()`... Капанът щракна! Здравей, дебъгер...
 
 
-## Side-effects everywhere!
+## странични ефекти навсякъде!
 
-There are functions that look like they don't change anything. Like `isReady()`, `checkPermission()`, `findTags()`... They are assumed to carry out calculations, find and return the data, without changing anything outside of them. In other words, without "side-effects".
+Има функции, които изглежда, че не променят нищо. Като `isReady()`, `checkPermission()`, `findTags()`... За тях се предполага, че правят изчисления, намират и връщат данни, без да променят нищо извън тях. С други думи, без "странични ефекти".
 
-**A really beautiful trick is to add a "useful" action to them, besides the main task.**
+**Наистина красив трик е да добавите "полезно" действие към тези функции освен основната им задача.**
 
 An expression of dazed surprise on the face of your colleague when they see a function named `is..`, `check..` or `find...` changing something -- will definitely broaden your boundaries of reason.
 
@@ -230,10 +228,10 @@ Additional actions should not be obvious from the function name. A true ninja co
 
 Imagine, another developer wants only to check the email, and not output any message. Your function  `validateEmail(email)` that does both will not suit them. So they won't break your meditation by asking anything about it.
 
-## Summary
+## Обобщение
 
-All "pieces of advice" above are from the real code... Sometimes, written by experienced developers. Maybe even more experienced than you are ;)
+Всички "съвети" по-горе са от истински код... Понякога писан от опитни програмисти. Може би дори по-опитни от теб ;)
 
-- Follow some of them, and your code will become full of surprises.
-- Follow many of them, and your code will become truly yours, no one would want to change it.
-- Follow all, and your code will become a valuable lesson for young developers looking for enlightenment.
+- Следвай някои от тях и кодът ти ще стане пълен с изненади.
+- Следвай много от тях и твоят код ще стане наистина твой. Никой няма да иска да го променя.
+- Използвай всичките и твоят код ще се превърне в ценен урок за младите програмисти, търсещи просветление.
