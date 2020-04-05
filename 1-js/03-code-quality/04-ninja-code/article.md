@@ -11,7 +11,7 @@
 
 Начинаещите програмисти понякога ги използват, дори по-добре от нинджите програмисти. 
 
-Прочетете ги внимателно и разберете какъв сте Вие -- нинджа, начинаещ програмист или рецензент на код? 
+Прочетети ги внимателно и разбери какъв си ти -- нинджа, начинаещ програмист или рецензент на код? 
 
 
 ```warn header="Irony detected"
@@ -25,16 +25,16 @@
 
 Нека тънкостите на езика те водят.
 
-Наприме погледни този тернарен оператор `'?'`:
+Например погледни този тернарен оператор `'?'`:
 
 ```js
 // взет от добре позната javascript библиотека
 i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
 ```
 
-Супер, нали? Ако пишеш така, програмистът, който чете твоя код ще има трудности да разбере каква е стойността на `i` щом стигне този ред. След това ще дойде да пита теб.  
+Супер, нали? Ако пишеш така, програмистът, който чете твоя код ще има трудности да разбере каква е стойността на `i` щом стигне този ред. След това ще дойде да те пита.  
 
-Кажи им че по-краткия начин винаги е по-добър. Покажи им пътя на нинджата.
+Кажи им че по-краткия начин винаги е по-добър. Покажи му пътя на нинджата.
 
 ## Променливи от една буква
 
@@ -44,11 +44,11 @@ i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
 
 Друг начин да се пише код бързо е като се позвват променливи от една буква навсякъде. Като `a`, `b` или `c`.
 
-Кратката променлива изчезва в кофа като истински нинджа в гората. Никой няма да може да я открие като използва "search" не редактора. И дори ако някой успее, той няма да "разбере" какво означава името `a` или `b`.
+Кратката променлива изчезва в кода като истински нинджа в гората. Никой няма да може да я открие като използва "search" не редактора. И дори ако някой успее, той няма да "разбере" какво означава името `a` или `b`.
 
 ...Но има и изключения. Истинският нинджа никога няма да използва `i` като брояч във `"for"` цикъл. Навсякъде другаде да, но не и тук. Огледай се наоколо, има много по-екзотични букви. Например `x` или `y`.
 
-Екзотична променлива като брояч в цикъл е чудесна, особено ако тялото на цикъла заема 1-2 страници (направи го по-дълго ако можеш). Тогава ако някой погледне цикъла, той няма да успее да разбере веднага, че променлива на име `x` е броячът на цикъла.  
+Екзотичната променлива като брояч в цикъл е чудесна, особено ако тялото на цикъла заема 1-2 страници (направи го по-дълъг ако можеш). Тогава ако някой погледне цикъла, той няма да успее да разбере веднага, че променлива на име `x` е броячът на цикъла.  
 
 ## Използвай съкращения
 
@@ -74,63 +74,63 @@ i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
 
 При избора на име използвай възможно най-абстрактната дума като `obj`, `data`, `value`, `item`, `elem` и т.н.
 
-- **The ideal name for a variable is `data`.** Use it everywhere you can. Indeed, every variable holds *data*, right?
+- **Идеалното име за променлива е `data`.** Използвай го където можеш. В действителност всяка променлива съдържа *data / данни*, нали?
 
-    ...But what to do if `data` is already taken? Try `value`, it's also universal. After all, a variable eventually gets a *value*.
+    ...Но какво да правим ако `data` вече е използвано? Пробвай с `value`, това също е универсално име за променлива. Все пак променливата получава *стойност*.
 
-- **Name a variable by its type: `str`, `num`...**
+- **Именувай променливата спрямо нейния тип: `str`, `num`...**
 
-    Give them a try. A young initiate may wonder -- are such names really useful for a ninja? Indeed, they are!
+    Пробвай. Някой новак може да се чуди -- такива имена на променливи подходящи ли са за един нинджа? Разбира се че са!
 
-    Sure, the variable name still means something. It says what's inside the variable: a string, a number or something else. But when an outsider tries to understand the code, they'll be surprised to see that there's actually no information at all! And will ultimately fail to alter your well-thought code.
+    Естествено, името на променливата все още означава нещо. То показва какво има в тази применлива: стринг, число или нещо друго. Но ако външен човек се опита да разбере кода, ще остане изненадан, че в действителност няма никаква информация. И окончателно ще се провали в опитите си да рефакторира твоя добре обмислен код. 
 
-    The value type is easy to find out by debugging. But what's the meaning of the variable? Which string/number does it store?
+    Типа на променливата може да се установи лесно при дебъгването. Но какво е нейното значение? Кой стринг/число съдържа тя?
 
-    There's just no way to figure out without a good meditation!
+    Няма начин да установите това без добра медитация!
 
-- **...But what if there are no more such names?** Just add a number: `data1, item2, elem5`...
+- **...Но какво да правим ако повече няма такива имена?** Просто добави число: `data1, item2, elem5`...
 
-## Attention test
+## Тест на вниманието
 
-Only a truly attentive programmer should be able to understand your code. But how to check that?
+Само наистина внимателен програмист ще успее да разбере твоя код. Но как да провериш това?
 
-**One of the ways -- use similar variable names, like `date` and `data`.**
+**Един от начините е -- използвай близки по изписване имена на променливи, като `date` and `data`.**
 
-Mix them where you can.
+Смесвай ги където можеш.
 
-A quick read of such code becomes impossible. And when there's a typo... Ummm... We're stuck for long, time to drink tea.
+Бърз прочит на такъв код е невъзможен. След това има правописни грешки... Хммм... Това ще бъде дълго, време е за чай.
 
 
-## Smart synonyms
+## Подходящи синоними
 
 ```quote author="Confucius"
-The hardest thing of all is to find a black cat in a dark room, especially if there is no cat.
+Най-трудното нещо е да намериш черна котка в тъмна стая, особено ако няма котка.
 ```
 
-Using *similar* names for *same* things makes life more interesting and shows your creativity to the public.
+Използването на *подобни* имена за *едни и същи* неща прави живота по-интересен и покзва твоята креативност на другите.
 
-For instance, consider function prefixes. If a function shows a message on the screen -- start it with `display…`, like `displayMessage`. And then if another function shows on the screen something else, like a user name, start it with `show…` (like `showName`).
+Например, префиксите на функциите. Ако дадена функция показва съобщение на екрана -- започни я с `display…`, като `displayMessage`. И след това ако друга функция покаже на екрана нещо друго, като user name, започни я с `show…` (като `showName`).
 
-Insinuate that there's a subtle difference between such functions, while there is none.
+Създай илюзията, че има разлика между тези функции, докато в действителност няма.
 
-Make a pact with fellow ninjas of the team: if John starts "showing" functions with `display...` in his code, then Peter could use `render..`, and Ann -- `paint...`. Note how much more interesting and diverse the code became.
+Направи пакт с другите нинджи от отбора: ако Джон започва имената на функциите, които "извеждат съобщение" на екрана с `display...` в неговия код, тогава Питър може да използва `render..`, а Ан -- `paint...`. Виж колко по-интересен и разнообразен стана кодът.
 
-...And now the hat trick!
+...А сега следва номерът с шапката!
 
-For two functions with important differences -- use the same prefix!
+За две функции с важни различия -- използвай същия префикс!
 
-For instance, the function `printPage(page)` will use a printer. And the function `printText(text)` will put the text on-screen. Let an unfamiliar reader think well over similarly named function `printMessage`: "Where does it put the message? To a printer or on the screen?". To make it really shine, `printMessage(message)` should output it in the new window!
+Например функцията `printPage(page)` ще използва принтер. А функцията `printText(text)` ще изведе текста на екрана. Нека непознатият читател помисли добре над почти еднакво наименуваните функции `printMessage`: "Къде ли ще разпечата съобщението? На принтер или на екрана?". За да заблести наистина, `printMessage(message)` ще го покаже в нов прозирец!
 
-## Reuse names
+## Преизползване на имена
 
 ```quote author="Laozi (Tao Te Ching)"
-Once the whole is divided, the parts<br>
-need names.<br>
-There are already enough names.<br>
-One must know when to stop.
+Когато цялото се раздели, частите<br>
+имат нужда от имена.<br>
+Вече има достатъчно имена.<br>
+Човек трябва да знае кога да спре.
 ```
 
-Add a new variable only when absolutely necessary.
+Добави нова променлива само когато е абсолютно необходимо.
 
 Instead, reuse existing names. Just write new values into them.
 
