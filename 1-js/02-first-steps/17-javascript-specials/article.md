@@ -81,6 +81,7 @@ let x = 5;
 x = "Иван";
 ```
 
+<<<<<<< HEAD
 Съществуват 7 типа данни:
 
 - `number` както за числата с плаваща запетая, така и за целите числа,
@@ -89,6 +90,17 @@ x = "Иван";
 - `null` -- тип с единична стойност `null`, означаващ "празно" или "не съществуващ",
 - `undefined` -- тип с единична стойност `undefined`, означаващ "не е зададен",
 - `object` и `symbol` -- за сложни структури от данни и уникални идентификатори, които все още не сме ги научили.
+=======
+There are 8 data types:
+
+- `number` for both floating-point and integer numbers,
+- `bigint` for integer numbers of arbitrary length,
+- `string` for strings,
+- `boolean` for logical values: `true/false`,
+- `null` -- a type with a single value `null`, meaning "empty" or "does not exist",
+- `undefined` -- a type with a single value `undefined`, meaning "not assigned",
+- `object` and `symbol` -- for complex data structures and unique identifiers, we haven't learnt them yet.
+>>>>>>> c89ddc5d92195e08e2c32e30526fdb755fec4622
 
 Операторът `typeof` връща типа за стойност, с две изключения:
 ```js

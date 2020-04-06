@@ -117,7 +117,7 @@ switch (+a) {
 Като например, ако искаме същия код да се изпълни за `case 3` и `case 5`:
 
 ```js run no-beautify
-let a = 2 + 2;
+let a = 3;
 
 switch (a) {
   case 4:
