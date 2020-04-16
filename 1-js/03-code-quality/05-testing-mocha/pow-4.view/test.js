@@ -1,10 +1,10 @@
-describe("pow", function() {
+describe("Степен", function() {
 
-  describe("raises x to power 3", function() {
+  describe("Х повдигнато на 3-та степен", function() {
 
     function makeTest(x) {
       let expected = x * x * x;
-      it(`${x} in the power 3 is ${expected}`, function() {
+      it(`${x} на 3-та степен е ${expected}`, function() {
         assert.equal(pow(x, 3), expected);
       });
     }
@@ -15,5 +15,5 @@ describe("pow", function() {
 
   });
 
-  // ... more tests to follow here, both describe and it can be added
+  // ... повече тестове ще се изредят тук, и  describe, и it може да се добавят
 });

@@ -1,6 +1,6 @@
-describe("pow", function() {
+describe("Степен", function() {
 
-  it("raises to n-th power", function() {
+  it("повдигната на n-та степен", function() {
     assert.equal(pow(2, 3), 8);
   });
 

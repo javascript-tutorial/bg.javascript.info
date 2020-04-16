@@ -1,10 +1,10 @@
-describe("pow", function() {
+describe("Степен", function() {
 
-  describe("raises x to power 3", function() {
+  describe("Х повдигнато на 3-та степен", function() {
 
     function makeTest(x) {
       let expected = x * x * x;
-      it(`${x} in the power 3 is ${expected}`, function() {
+      it(`${x} на степен 3 е ${expected}`, function() {
         assert.equal(pow(x, 3), expected);
       });
     }
@@ -15,11 +15,11 @@ describe("pow", function() {
 
   });
 
-  it("if n is negative, the result is NaN", function() {
+  it("Ако n е отрицателно, резултатът е NaN", function() {
     assert.isNaN(pow(2, -1));
   });
 
-  it("if n is not integer, the result is NaN", function() {
+  it("Ако n не е integer(цяло число), резултатът е NaN", function() {
     assert.isNaN(pow(2, 1.5));
   });
 

@@ -1,8 +1,8 @@
-describe("pow", function() {
+describe("Степен", function() {
 
   function makeTest(x) {
     let expected = x * x * x;
-    it(`${x} in the power 3 is ${expected}`, function() {
+    it(`${x} на 3-та степен е ${expected}`, function() {
       assert.equal(pow(x, 3), expected);
     });
   }
