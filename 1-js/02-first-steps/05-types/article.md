@@ -1,6 +1,14 @@
 # Типове данни
 
+<<<<<<< HEAD
 В JavaScript, една променлива  може да съдържа всякакъв вид данни, в един момент може да съхранява стрингов тип, а в следващ числен.
+=======
+A value in JavaScript is always of a certain type. For example, a string or a number.
+
+There are eight basic data types in JavaScript. Here, we'll cover them in general and in the next chapters we'll talk about each of them in detail.
+
+We can put any type in a variable. For example, a variable can at one moment be a string and then store a number:
+>>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31
 
 ```js
 // no error
@@ -8,9 +16,13 @@ let message = "hello";
 message = 123456;
 ```
 
+<<<<<<< HEAD
 Програмните езици, които позволяват такова поведение се наричат "динамично типизирани", което означава, че има типове данни, но самите променливите не биват обвързвани с тях.
 
 В JavaScript има седем основни типове данни, като в тази глава ще се запознаем по-общо с тях, а в следващите глави, ще разгледаме всеки тип по отделно и в детайл.
+=======
+Programming languages that allow such things, such as JavaScript, are called "dynamically typed", meaning that there exist data types, but variables are not bound to any of them.
+>>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31
 
 ## Числен
 
@@ -67,21 +79,23 @@ n = 12.345;
 =======
 ## BigInt
 
-In JavaScript, the "number" type cannot represent integer values larger than <code>2<sup>53</sup></code> (or less than <code>-2<sup>53</sup></code> for negatives), that's a technical limitation caused by their internal representation. That's about 16 decimal digits, so for most purposes the limitation isn't a problem, but sometimes we need really big numbers, e.g. for cryptography or microsecond-precision timestamps.
+In JavaScript, the "number" type cannot represent integer values larger than <code>(2<sup>53</sup>-1)</code> (that's `9007199254740991`), or less than <code>-(-2<sup>53</sup>-1)</code> for negatives. It's a technical limitation caused by their internal representation.
+
+For most purposes that's quite enough, but sometimes we need really big numbers, e.g. for cryptography or microsecond-precision timestamps.
 
 `BigInt` type was recently added to the language to represent integers of arbitrary length.
 
-A `BigInt` is created by appending `n` to the end of an integer literal:
+A `BigInt` value is created by appending `n` to the end of an integer:
 
 ```js
 // the "n" at the end means it's a BigInt
 const bigInt = 1234567890123456789012345678901234567890n;
 ```
 
-As `BigInt` numbers are rarely needed, we devoted them a separate chapter <info:bigint>.
+As `BigInt` numbers are rarely needed, we don't cover them here, but devoted them a separate chapter <info:bigint>. Read it when you need such big numbers.
 
 ```smart header="Compatability issues"
-Right now `BigInt` is supported in Firefox and Chrome, but not in Safari/IE/Edge.
+Right now `BigInt` is supported in Firefox/Chrome/Edge, but not in Safari/IE.
 ```
 
 ## String
@@ -181,7 +195,11 @@ let age = null;
 
 `null` е просто специална стойност, означаваща "нищо", "празно" или "неизвестна стойност".
 
+<<<<<<< HEAD
 Горният пример декларира че `age` е неизвестна или празна променлива, поради някаква причина.
+=======
+The code above states that `age` is unknown.
+>>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31
 
 ## Стойността "undefined"
 
@@ -192,30 +210,50 @@ let age = null;
 Ако променлива бъде декларирана, но на нея не е присвоена стойност, то стойността й ще бъде `undefined`:
 
 ```js run
-let x;
+let age;
 
+<<<<<<< HEAD
 alert(x); // показва "undefined"
 ```
 
 Технически е възможно да се присвои стойност `undefined` на която и да е променлива:
-
-```js run
-let x = 123;
-
-x = undefined;
-
-alert(x); // "undefined"
+=======
+alert(age); // shows "undefined"
 ```
 
+Technically, it is possible to explicitly assign `undefined` to a variable:
+>>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31
+
+```js run
+let age = 100;
+
+// change the value to undefined
+age = undefined;
+
+alert(age); // "undefined"
+```
+
+<<<<<<< HEAD
 ... Но това не е препоръчителна практика. Обикновено използваме `null`, когато искаме да зададем "празна" или "неизвестна" стойност на променлива, а използваме `undefined` за да проверим дали стойност е била присвоена на дадена променлива.
+=======
+...But we don't recommend doing that. Normally, one uses `null` to assign an "empty" or "unknown" value to a variable, while `undefined` is reserved as a default initial value for unassigned things.
+>>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31
 
 ## Обекти и символи
 
 Типът `object` е специален.
 
+<<<<<<< HEAD
 Всички типове освен `object` са наричани "примитивни", защото могат да съдържат само една стойност (било то стринг, число или друго). За разлика от останалите типове обектите (елементите от тип `object`), биват използвани да съхраняват колекции от данни и сложни структури. Тях ще разгледаме подробно в главата <info:object>, след като научим повече за примитивните типове.
 
 `symbol` (Символ) типът се използва за създаването на уникални идентификатори за обекти. Този тип бива споменат тук чисто информативно, като част от всички типовете данни в JavaScript, но ще бъде разгледан след темата за обекти.
+=======
+All other types are called "primitive" because their values can contain only a single thing (be it a string or a number or whatever). In contrast, objects are used to store collections of data and more complex entities.
+
+Being that important, objects deserve a special treatment. We'll deal with them later in the chapter <info:object>, after we learn more about primitives.
+
+The `symbol` type is used to create unique identifiers for objects. We have to mention it here for the sake of completeness, but also postpone the details till we know objects.
+>>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31
 
 ## Оператора typeof [#type-typeof]
 
@@ -268,6 +306,7 @@ typeof alert // "function"  (3)
 
 В езика JavaScript има седем основни типа данни.
 
+<<<<<<< HEAD
 - `number` използван за всякакъв вид числа: цели или такива с "плаваща запетая".
 - `string` за стрингове. Като стринга е структура изградена от една или много букви (в JavaScript няма отделено обособен тип за съхранение на единична буква (символ)).
 - `boolean` за вярно и грешно : `true`/`false` .
@@ -275,6 +314,11 @@ typeof alert // "function"  (3)
 - `undefined` за незададени стойности  -- самостоятелен тип, който има една единствена стойност:  `undefined`.
 - `object` за по-сложни структури.
 - `symbol` за уникални идентификатори.
+=======
+1. `Math` is a built-in object that provides mathematical operations. We will learn it in the chapter <info:number>. Here, it serves just as an example of an object.
+2. The result of `typeof null` is `"object"`. That's an officially recognized error in `typeof` behavior, coming from the early days of JavaScript and kept for compatibility. Definitely, `null` is not an object. It is a special value with a separate type of its own.
+3. The result of `typeof alert` is `"function"`, because `alert` is a function. We'll study functions in the next chapters where we'll also see that there's no special "function" type in JavaScript. Functions belong to the object type. But `typeof` treats them differently, returning `"function"`. That also comes from the early days of JavaScript. Technically, such behavior isn't correct, but can be convenient in practice.
+>>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31
 
 =======
 ## Summary
@@ -283,7 +327,7 @@ There are 8 basic data types in JavaScript.
 
 - `number` for numbers of any kind: integer or floating-point, integers are limited by ±2<sup>53</sup>.
 - `bigint` is for integer numbers of arbitrary length.
-- `string` for strings. A string may have one or more characters, there's no separate single-character type.
+- `string` for strings. A string may have zero or more characters, there's no separate single-character type.
 - `boolean` for `true`/`false`.
 - `null` for unknown values -- a standalone type that has a single value `null`.
 - `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
