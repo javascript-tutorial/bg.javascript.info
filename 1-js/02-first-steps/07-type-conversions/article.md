@@ -6,15 +6,8 @@
 
 Има и случаи, когато трябва изрично да преобразуваме стойност в очаквания тип.
 
-<<<<<<< HEAD:1-js/02-first-steps/06-type-conversions/article.md
 ```smart header="Все още не говорим за обекти"
 В тази глава няма да покриваме обекти. Вместо това първо ще изучим примитивните типове. По-късно, след като научим за обектите, ще видим как работи преобразуването на обекти в главата <info:object-toprimitive>.
-=======
-```smart header="Not talking about objects yet"
-In this chapter, we won't cover objects. For now we'll just be talking about primitives.
-
-Later, after we learn about objects, in the chapter <info:object-toprimitive> we'll see how objects fit in.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/07-type-conversions/article.md
 ```
 
 ## Преобразуване в символен низ(string)
@@ -88,22 +81,7 @@ alert( Number(false) );       // 0
 
 Моля, имайте предвид, че `null` и `undefined` се държат различно тук: `null` се преобразува в 0, докато `undefined` се преобразува в `NaN`.
 
-<<<<<<< HEAD
-````smart header="Събирането '+' свързва (присъединява) символни низове"
-Почти всички математически операции преобразуват стойностите в числа. Изключение е събирането `+`. Ако една от добавените стойности е символен низ, другата също се преобразува в символен низ.
-
-След това тя ги свързва (присъединява):
-
-```js run
-alert( 1 + '2' ); // '12' (символен низ отдясно)
-alert( '1' + 2 ); // '12' (символен низ отляво)
-```
-
-Това се случва само когато поне един от аргументите е символен низ. В противен случай стойностите се преобразуват в числа.
-````
-=======
-Most mathematical operators also perform such conversion, we'll see that in the next chapter.
->>>>>>> 5b195795da511709faf79a4d35f9c5623b6dbdbd
+Повечето математически оператори също извършват такова преобразуване, ще видим това в следващата глава.
 
 ## Преобразуване в булев тип(boolean)
 
