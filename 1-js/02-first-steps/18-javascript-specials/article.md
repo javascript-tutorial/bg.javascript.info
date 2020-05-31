@@ -81,26 +81,15 @@ let x = 5;
 x = "Иван";
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/17-javascript-specials/article.md
-Съществуват 7 типа данни:
+Съществуват 8 типа данни:
 
 - `number` както за числата с плаваща запетая, така и за целите числа,
+- `bigint` за цели числа с произволна дължина,
 - `string` за стрингове,
 - `boolean` за логически стойности: `true/false`,
 - `null` -- тип с единична стойност `null`, означаващ "празно" или "не съществуващ",
 - `undefined` -- тип с единична стойност `undefined`, означаващ "не е зададен",
 - `object` и `symbol` -- за сложни структури от данни и уникални идентификатори, които все още не сме ги научили.
-=======
-There are 8 data types:
-
-- `number` for both floating-point and integer numbers,
-- `bigint` for integer numbers of arbitrary length,
-- `string` for strings,
-- `boolean` for logical values: `true/false`,
-- `null` -- a type with a single value `null`, meaning "empty" or "does not exist",
-- `undefined` -- a type with a single value `undefined`, meaning "not assigned",
-- `object` and `symbol` -- for complex data structures and unique identifiers, we haven't learnt them yet.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/18-javascript-specials/article.md
 
 Операторът `typeof` връща типа за стойност, с две изключения:
 ```js
@@ -154,11 +143,6 @@ JavaScript поддържа следните оператори:
 Присвояване
 : Има просто присвояване: `a = b` и комбинирано такъв като този `a *= 2`.
 
-  ```js run
-      let a = 5;
-      a *= 2; // 10
-  ```
-
 Побитови операции
 : Побитовите операции работят с 32 битови цели числа в най-ниското побитово ниво: погледнете [документацията](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) когато ви са нужни.
 
@@ -166,17 +150,11 @@ JavaScript поддържа следните оператори:
       alert(5 & 13); // 0101 & 1101 = 0101
       // Очакван изход: 5;
 
-<<<<<<< HEAD:1-js/02-first-steps/17-javascript-specials/article.md
       alert(5 | 13); // 0101 | 1101 = 1101
       // Очакван изход: 13
   ```
-=======
-Nullish coalescing operator
-: The `??` operator provides a way to choose a defined value from a list of variables. The result of `a ?? b` is `a` unless it's `null/undefined`, then `b`.
-
-Comparisons
-: Equality check `==` for values of different types converts them to a number (except `null` and `undefined` that equal each other and nothing else), so these are equal:
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/18-javascript-specials/article.md
+Оператор на нулево коализиране
+: Операторът `??` опредоставя начин за избор на определена стойност от списък на променливи. Резултатът на `a ?? b` е `a` освен ако `null/undefined`, тогава е `b`.
 
 Условни
 : Единственият оператор с три параметъра: `cond ? resultA : resultB`. Ако `cond` е вярно, връща `resultA`, иначе връща `resultB`.
@@ -206,11 +184,7 @@ Comparisons
 
    Операторът за строго равенство `===` не прави преобразуването: различни видове винаги означават различни стойности за него.
 
-<<<<<<< HEAD:1-js/02-first-steps/17-javascript-specials/article.md
    Стойностите `null` и `undefined` са специални: те са равни `==` помежду си и не се равняват на нищо друго.
-=======
-More in: <info:operators>, <info:comparison>, <info:logical-operators>, <info:nullish-coalescing-operator>.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/18-javascript-specials/article.md
 
    Сравнение за По-голямо/По-малко сравнява стринговете буква по буква, други видове се преобразуват в число.
 
@@ -258,12 +232,7 @@ let age = prompt('Възрастта ви?', 18);
 
 switch (age) {
   case 18:
-<<<<<<< HEAD:1-js/02-first-steps/17-javascript-specials/article.md
-    alert("Не работи"); // резултатът на "prompt" е стринг, а не число
-=======
-    alert("Won't work"); // the result of prompt is a string, not a number
-    break;
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/18-javascript-specials/article.md
+    alert("Няма да проработи"); // резултатът на "prompt" е стринг, а не число
 
   case "18":
     alert("Това работи!");
