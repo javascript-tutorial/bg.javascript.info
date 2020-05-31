@@ -1,16 +1,8 @@
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
-# Оператори
-=======
-# Basic operators, maths
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
+# Прости оператори, математика
 
 Познаваме много оператори още от училище. Те са знаците като събиране `+`, умножение `*`, изваждане `-` и т.н.
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
 В тази глава ще се съсредоточим върху аспекти на операторите, които не са обхванати от училищната аритметика.
-=======
-In this chapter, we’ll start with simple operators, then concentrate on JavaScript-specific aspects, not covered by school arithmetic.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
 
 ## Термини: "едноаргументен", "двуаргументен", "операнд"
 
@@ -36,61 +28,54 @@ In this chapter, we’ll start with simple operators, then concentrate on JavaSc
 
     Формално в примерите по-горе имаме два различни оператора, които споделят един и същ символ: оператора за отрицание, едноаргументен оператор, който обръща знака на число, и оператора за изваждане, двуаргументен оператор, който изважда едно число от друго.
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
+## Математика
+
+Поддържат се следните математически операции:
+
+- Събиране `+`,
+- Изваждане `-`,
+- Умножение `*`,
+- Делене `/`,
+- Целочисленото деление / Делене с остатък `%`,
+- степенуване `**`.
+
+Първите четири са прави, докато `%` и `**` се нуждаят от няколко думи за тях.
+
+### Делене с остатък %
+
+Остатъчният оператор `%`, въпреки външния си вид, не е свързан с проценти.
+
+Резултатът от `a % b` е [остатък](https://en.wikipedia.org/wiki/Remainder) от целочисленото деление на `a` и `b`.
+
+Например:
+
+```js run
+alert( 5 % 2 ); // 1, остатък от 5, разделен на 2
+alert( 8 % 3 ); // 2, остатък от 8, разделен на 3
+```
+
+### Степенуване **
+
+Операторът на степенуване `a ** b` умножава `a` на себе си `b` пъти.
+
+Например:
+
+```js run
+alert( 2 ** 2 ); // 4  (2 умножени по себе си 2 пъти)
+alert( 2 ** 3 ); // 8  (2 * 2 * 2, 3 пъти)
+alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2, 4 пъти)
+```
+
+Математически,експоненцията е дефинирана и за нецелочислени числа. Например, квадратен корен е експоненция от `1/2`:
+
+```js run
+alert( 4 ** (1/2) ); // 2 (степен на 1/2 е същата като квадратен корен)
+alert( 8 ** (1/3) ); // 2 (степен на 1/3 е същата като квадратен корен)
+```
+
 ## Свързване на символни низове(текст), двуаргументен +
 
 Сега, нека да разгледаме някои специални функции на JavaScript операторите, които са извън училищната аритметика.
-=======
-## Maths
-
-The following math operations are supported:
-
-- Addition `+`,
-- Subtraction `-`,
-- Multiplication `*`,
-- Division `/`,
-- Remainder `%`,
-- Exponentiation `**`.
-
-The first four are straightforward, while `%` and `**` need a few words about them.
-
-### Remainder %
-
-The remainder operator `%`, despite its appearance, is not related to percents.
-
-The result of `a % b` is the [remainder](https://en.wikipedia.org/wiki/Remainder) of the integer division of `a` by `b`.
-
-For instance:
-
-```js run
-alert( 5 % 2 ); // 1, a remainder of 5 divided by 2
-alert( 8 % 3 ); // 2, a remainder of 8 divided by 3
-```
-
-### Exponentiation **
-
-The exponentiation operator `a ** b` multiplies `a` by itself `b` times.
-
-For instance:
-
-```js run
-alert( 2 ** 2 ); // 4  (2 multiplied by itself 2 times)
-alert( 2 ** 3 ); // 8  (2 * 2 * 2, 3 times)
-alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2, 4 times)
-```
-
-Mathematically, the exponentiation is defined for non-integer numbers as well. For example, a square root is an exponentiation by `1/2`:
-
-```js run
-alert( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)
-alert( 8 ** (1/3) ); // 2 (power of 1/3 is the same as a cubic root)
-```
-
-
-## String concatenation with binary +
-
-Let's meet features of JavaScript operators that are beyond school arithmetics.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
 
 Обикновено, оператора плюс `+` събира числа.
 
@@ -101,11 +86,7 @@ let s = "моят" + "текст";
 alert(s); // моят текст
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
 Забележете, че ако един от аргументите е символен низ(текст), то и другият аргумент е преобразуван в такъв.
-=======
-Note that if any of the operands is a string, then the other one is converted to a string too.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
 
 Например:
 
@@ -114,31 +95,19 @@ alert( '1' + 2 ); // "12"
 alert( 2 + '1' ); // "21"
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
-Забележете, няма значение дали първият аргумент е символен низ(текст) или вторият. Правилото е просто: ако един от аргументите е символен низ(текст), то и другият също е преобразуван в символен низ(текст).
+Забележете, няма значение дали първият аргумент е символен низ(текст) или вторият.
 
-Имайте предвид обаче, че операциите се изпълняват от ляво на дясно. Ако има две числа, последвани от символен низ(текст), числата ще бъдат събрани, преди да бъдат преобразувани в символен низ(текст):
-=======
-See, it doesn't matter whether the first operand is a string or the second one.
-
-Here's a more complex example:
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
+Ето един по-сложен пример:
 
 ```js run
 alert(2 + 2 + '1' ); // "41",а не "221"
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
-Свързване на символни низове(текст) и преобразуването в такива е особеност на двуаргоментния плюс `+`. Другите аритметични оператори работят само с числа и винаги преобразуват своите аргументи в такива.
+Тук операторите работят един след друг. Първият `+` сумира двете числа, и получаваме `4`, после на следващия `+` добавяме низ `1` към сумата, нещо като `4 + '1' = 41`.
 
-Например, изваждане и делене:
-=======
-Here, operators work one after another. The first `+` sums two numbers, so it returns `4`, then the next `+` adds the string `1` to it, so it's like `4 + '1' = 41`.
+Бинарния оператор  `+` е единственият оператор, който поддържа низове по такъв начин. Други аритметични оператори работят само с числа и винаги преобразуват своите операнди в числа.
 
-The binary `+` is the only operator that supports strings in such a way. Other arithmetic operators work only with numbers and always convert their operands to numbers.
-
-Here's the demo for subtraction and division:
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
+Ето демонстрацията с изваждане и деление:
 
 ```js run
 alert( 6 - '2' ); // 4, converts '2' to a number
@@ -215,27 +184,18 @@ alert( +apples + +oranges ); // 5
 | Предимство | Име | Знак |
 |------------|------|------|
 | ... | ... | ... |
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
-| 16 | едноаргументен плюс | `+` |
-| 16 | едноаргументен минус | `-` |
-| 14 | умножение | `*` |
-| 14 | делене | `/` |
+| 17 | едноаргументен плюс | `+` |
+| 17 | едноаргументен минус | `-` |
+| 16 | степенуване | `**` |
+| 15 | умножение | `*` |
+| 15 | делене | `/` |
 | 13 | събиране | `+` |
 | 13 | изваждане | `-` |
-=======
-| 17 | unary plus | `+` |
-| 17 | unary negation | `-` |
-| 16 | exponentiation | `**` |
-| 15 | multiplication | `*` |
-| 15 | division | `/` |
-| 13 | addition | `+` |
-| 13 | subtraction | `-` |
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
 | ... | ... | ... |
 | 3 | присвояване | `=` |
 | ... | ... | ... |
 
-Както можем да видим, "едноаргументният плюс" има приоритет `16`, който е по-висок от `13`, този на "събиране" (двуаргументният плюс). Ето защо, в израза `"+apples + +oranges"`, едноаргументният плюс се изплълнява преди събирането.
+Както можем да видим, "едноаргументният плюс" има приоритет `17`, който е по-висок от `13`, този на "събиране" (двуаргументният плюс). Ето защо, в израза `"+apples + +oranges"`, едноаргументният плюс се изплълнява преди събирането.
 
 ## Присвояване
 
@@ -249,32 +209,11 @@ let x = 2 * 2 + 1;
 alert( x ); // 5
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
-Възможно е да се създаде верига от присвоявания:
+### Присвояване = връща стойността
 
-```js run
-let a, b, c;
+Фактът  `=` да е оператор, а не a "магическа" езикова конструкция има интересно значение.
 
-*!*
-a = b = c = 2 + 2;
-*/!*
-
-alert( a ); // 4
-alert( b ); // 4
-alert( c ); // 4
-```
-
-Веригата от присвоявания се изпълнява от дясно на ляво. Първо, най-десният израз `2 + 2` е изпълнен и е присвоен от променливите отляво: `c`, `b` и `a`. Накрая, всички променливи споделят една стойност.
-
-````smart header="Операторът за присвояване `\"=\"` връща стойност"
-Един оператор винаги връща стойност. Това е очевидни за повечето такива, като събиране `+` или умножение `*`, но оператора за присвояване следва същото правило.
-=======
-### Assignment = returns a value
-
-The fact of `=` being an operator, not a "magical" language construct has an interesting implication.
-
-Most operators in JavaScript return a value. That's obvious for `+` and `-`, but also true for `=`.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
+Повечето оператори в JavaScript връщат стойност. Това е очевидно за `+` и `-`, но също така е вярно за `=`.
 
 Изпълнението на `x = value` записва стойността `value` в променливата `x` *и я връща*.
 
@@ -294,39 +233,13 @@ alert( c ); // 0
 
 В примера по-горе, резултата от израза `(a = b + 1)` е стойността която е присвоена от `a` (която е `3`). След което е използвана за по-нататъшни изчисления.
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
-Забавен код, нали? Трябва да разберем как работи, защото понякога го виждаме в JavaScript библиотеки, но не трябва да го пишем сами. Такива тричкета не правят кода по-четим и разбираем.
-````
+Смешен код, нали? Трябва да разберем как работи, защото понякога го виждаме в библиотеките на JavaScript.
 
-## Делене с остатък %
+Въпреки това, моля, не пишете кода така. Подобни трикове определено не правят кода по-ясен или четим.
 
-Операторът за делене с остатък `%`, въпреки символа които използва, не е свързан с проценти.
+### Верига от присвоявания
 
-Резултатът `a % b` е остатъкът от целочисленото делене на `a` на `b`.
-
-Например:
-
-```js run
-alert( 5 % 2 ); // 1 е остатъкът на 5 на 2
-alert( 8 % 3 ); // 2 е остатъкът на 8 на 3
-alert( 6 % 3 ); // 0 е остатъкът на 6 на 3
-```
-
-## Степенуване **
-
-Операторът за степенуване `**` е скорошно допълнение към езика.
-
-За естественото число `b`, резултата от `a ** b` е променливата `a` да се умножи сама по себе си `b` пъти.
-
-Например:
-=======
-Funny code, isn't it? We should understand how it works, because sometimes we see it in JavaScript libraries.
-
-Although, please don't write the code like that. Such tricks definitely don't make code clearer or readable.
-
-### Chaining assignments
-
-Another interesting feature is the ability to chain assignments:
+Възможно е да се създаде верига от присвоявания:
 
 ```js run
 let a, b, c;
@@ -340,22 +253,21 @@ alert( b ); // 4
 alert( c ); // 4
 ```
 
-Chained assignments evaluate from right to left. First, the rightmost expression `2 + 2` is evaluated and then assigned to the variables on the left: `c`, `b` and `a`. At the end, all the variables share a single value.
+Веригата от присвоявания се изпълнява от дясно на ляво. Първо, най-десният израз `2 + 2` е изпълнен и е присвоен от променливите отляво: `c`, `b` и `a`. Накрая, всички променливи споделят една стойност.
 
-Once again, for the purposes of readability it's better to split such code into few lines:
-
+Още веднъж, за целите на четимостта е по-добре да разделите такъв код на няколко реда:
 ```js
 c = 2 + 2;
 b = c;
 a = c;
 ```
-That's easier to read, especially when eye-scanning the code fast.
+Това е по-лесно за четене, особено при бързо сканиране на кода.
 
-## Modify-in-place
+## Промяна на място
 
-We often need to apply an operator to a variable and store the new result in that same variable.
+Често се налага да прилагаме оператор към променлива и да съхраняваме новия резултат в същата променлива.
 
-For example:
+Например:
 
 ```js
 let n = 2;
@@ -363,42 +275,31 @@ n = n + 5;
 n = n * 2;
 ```
 
-This notation can be shortened using the operators `+=` and `*=`:
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
+Тази нотация може да бъде съкратена с помощта на операторите `=` и `* =`:
 
 ```js run
 let n = 2;
-n += 5; // now n = 7 (same as n = n + 5)
-n *= 2; // now n = 14 (same as n = n * 2)
+n += 5; // сега n = 7 (същото като n = n + 5)
+n *= 2; // сега n = 14 (същото като n = n * 2)
 
 alert( n ); // 14
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
-Операторът работи и за нецелочислени числа.
+За всички аритметични и битови оператори съществуват кратки оператори, които "модифицират и задават" стойността: `/ =`, `- =` и т.н.
 
-Например:
-
-```js run
-alert( 4 ** (1/2) ); // 2 (степенуването по 1/2 е същото като корен квадратен, това е математика)
-alert( 8 ** (1/3) ); // 2 (степенуването по 1/3 е същото като корен кубичен)
-=======
-Short "modify-and-assign" operators exist for all arithmetical and bitwise operators: `/=`, `-=`, etc.
-
-Such operators have the same precedence as a normal assignment, so they run after most other calculations:
+Такива оператори имат същото предимство като нормалното присвояване, така че те се изпълняват след повечето други изчисления:
 
 ```js run
 let n = 2;
 
 n *= 3 + 5;
 
-alert( n ); // 16  (right part evaluated first, same as n *= 8)
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
+alert( n ); // 16  (дясната част се изчислява първо, същото като n *= 8)
 ```
 
 ## Увеличаване/Намаляване
 
-<!-- Can't use -- in title, because the built-in parser turns it into a 'long dash' – -->
+<!-- Не може да се използва -- в заглавиет, защото tв вграден парсер го превръща в 'дълъг тире' – -->
 
 Увеличаването или намаляването на число с едно е сред най-често срещаните цифрови операции.
 
@@ -525,45 +426,7 @@ counter++;
 - Отместване вдясно ( `>>` )
 - Отместване вдясно и запълване с нули ( `>>>` )
 
-<<<<<<< HEAD:1-js/02-first-steps/07-operators/article.md
 Тези оператори се използват много рядко. За да ги разберем, трябва да се задълбочим в ниското ниво на представяне на числата и не би било оптимално да го направим в момента, още повече, че скоро няма да ни трябват. Ако сте любопитни, можете да прочетете статията [Побитови оператори](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) в MDN. По-практично би било да го направите, когато възникне реална нужда.
-
-## Промяна на място
-
-Често ни се налга да приложим оператор в/у променлива и да запазим резултата в същата такава.
-
-Например:
-
-```js
-let n = 2;
-n = n + 5;
-n = n * 2;
-```
-
-Този израз може да бъде съкратен, като използваме операторите `+=` и `*=`:
-
-```js run
-let n = 2;
-n += 5; // now n = 7 (същото като n = n + 5)
-n *= 2; // now n = 14 (същото като n = n * 2)
-
-alert( n ); // 14
-```
-
-За всички аритметични и битови оператори съществуват кратки оператори "модифицирай и присвой": `/=`, `-=`, и т.н.
-
-Тези оператори имат същото предимство като нормално зададените, така че те се изпълняват след повечето други изчисления:
-
-```js run
-let n = 2;
-
-n *= 3 + 5;
-
-alert( n ); // 16  (дясната страна е изпълнена първа, също като n *= 8)
-```
-=======
-These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won't need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the [Bitwise Operators](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) article on MDN when a need arises.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/08-operators/article.md
 
 ## Запетая
 
