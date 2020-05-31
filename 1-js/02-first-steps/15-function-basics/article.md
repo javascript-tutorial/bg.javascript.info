@@ -212,72 +212,50 @@ function showMessage(from, text = anotherFunction()) {
 В примера по-горе, `anotherFunction()` се извиква всеки път, когато `showMessage()` е извикана без `text` параметър.
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/14-function-basics/article.md
-````smart header="Старомодни параметри по подразбиране"
-Старите версии на JavaScript не поддържат параметри по подразбиране. Така че има алтернативен начин да се поддържат, които могат да бъдат намерени главно в стари кодове.
+### Алтернативни параметри по подразбиране
 
-Например, изрична проверка на `undefined`:
-=======
-### Alternative default parameters
+Понякога има смисъл да задавате стойности по подразбиране за параметри не във функционалната декларация, а на по-късен етап, по време на нейното изпълнение.
 
-Sometimes it makes sense to set default values for parameters not in the function declaration, but at a later stage, during its execution.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/15-function-basics/article.md
-
-To check for an omitted parameter, we can compare it with `undefined`:
+За да проверим за пропуснат параметър, можем да го сравним с `undefined`:
 
 ```js run
 function showMessage(text) {
 *!*
   if (text === undefined) {
-<<<<<<< HEAD:1-js/02-first-steps/14-function-basics/article.md
-    text = 'не е зададен';
-=======
-    text = 'empty message';
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/15-function-basics/article.md
+    text = 'празно съобщение';
   }
 */!*
 
   alert(text);
 }
 
-showMessage(); // empty message
+showMessage(); // празно съобщение
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/14-function-basics/article.md
-...Или `||` оператора:
+...Иначе бихме могли да използваме `||` оператора:
 
 ```js
+// ако 'text' параметъра е пропуснато или "" е подадено, задайте го на 'empty'
 function showMessage(from, text) {
-  // ако текста е неверен получава "default" стойност
-  text = text || 'не е зададен';
-=======
-...Or we could use the `||` operator:
-
-```js
-// if text parameter is omitted or "" is passed, set it to 'empty'
-function showMessage(text) {
-  text = text || 'empty';
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/15-function-basics/article.md
+  text = text || 'празен';
   ...
 }
 ```
 
-Modern JavaScript engines support the [nullish coalescing operator](info:nullish-coalescing-operator) `??`, it's better when falsy values, such as `0`, are considered regular:
+Съвременните JavaScript двигатели поддържат [nullish coalescing operator](info:nullish-coalescing-operator) `??`, по-добре е, когато фалшивите стойности, като '0', се считат за редовни:
 
 ```js run
-// if there's no "count" parameter, show "unknown"
+// ако няма "count" параметър, покажете "unknown"
 function showCount(count) {
   alert(count ?? "unknown");
 }
 
-<<<<<<< HEAD:1-js/02-first-steps/14-function-basics/article.md
-## Връщане на стойност
-=======
 showCount(0); // 0
 showCount(null); // unknown
 showCount(); // unknown
 ```
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/15-function-basics/article.md
+
+### Връщане на стойност
 
 Функция може да върне стойност в кода на извикване като резултат.
 
