@@ -1,32 +1,19 @@
 # Оператори за сравнения
 
-<<<<<<< HEAD:1-js/02-first-steps/08-comparison/article.md
 Ние познаваме много оператори за сравнение от математика:
+
+В JavaScript те се напишат така:
 
 - По-голямо/По-малко: <code>a &gt; b</code>, <code>a &lt; b</code>.
 - По-голямо/По-мaлко или равно: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
 - Равно: `a == b` (моля, обърнете внимание на знака с двойно равно `=`.Единичният знак `a = b` означава присвояване).
 - Неравенство. В математиката се изписва като <code>&ne;</code>, но в JavaScript се записва със знака за присвояване с удивителна пред него: <code>a != b</code>.
-=======
-We know many comparison operators from maths.
 
-In JavaScript they are written like this:
-
-- Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.
-- Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Equals: `a == b`, please note the double equality sign `=` means the equality test, while a single one `a = b` means an assignment.
-- Not equals. In maths the notation is <code>&ne;</code>, but in JavaScript it's written as <code>a != b</code>.
-
-In this article we'll learn more about different types of comparisons, how JavaScript makes them, including important peculiarities.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/09-comparison/article.md
+В тази статия ще научим повече за различните видове сравнения, как ги прави JavaScript, включително важни особености.
 
 ## Резултатът е от булев тип
 
-<<<<<<< HEAD:1-js/02-first-steps/08-comparison/article.md
-както всички оператори, сравняването също връща стойност. В този случай, стойността е от булев тип.
-=======
-All comparison operators return a boolean value:
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/09-comparison/article.md
+Всички оператори за сравнение връщат булева стойност:
 
 - `true` -- означава "да", "правилно" или "истина".
 - `false` -- означава "не", "грешно" или "лъжа".
