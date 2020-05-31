@@ -1,26 +1,10 @@
 # Взаимодействие: предупреждение, напомняне, потвърждаване
 
-<<<<<<< HEAD:1-js/02-first-steps/09-alert-prompt-confirm/article.md
-В тази част на ръководството ще обхващаме езика JavaScript "такъв, какъвто е", без специфични настройки специфични за среда.
-
-Но все пак ще използваме браузъра като нашата демо среда, така че трябва да знаем поне няколко от функциите му за потребителски интерфейс. В тази глава ще се запознаем с функциите на браузъра за `alert` (предупреждение), `prompt` (напомняне) и `confirm` (потвърждаване).
+Тъй като ще използваме браузъра като нашата демо среда, нека да видим няколко функции за взаимодействие с потребителя: `alert` (предупреждение), `prompt` (подкана) и `confirm` (потвърждаване).
 
 ## alert
 
-Синтаксис:
-
-```js
-alert(message);
-```
-
-Това показва съобщение и спира изпълнението на скрипта, като потребителят натисне "OK".
-=======
-As we'll be using the browser as our demo environment, let's see a couple of functions to interact with the user: `alert`, `prompt` and `confirm`.
-
-## alert
-
-This one we've seen already. It shows a message and waits for the user to presses "OK".
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/06-alert-prompt-confirm/article.md
+Този вече сме виждали. Показва съобщение и чака потребителят да натисне „ОК“.
 
 Например:
 
@@ -28,11 +12,7 @@ This one we've seen already. It shows a message and waits for the user to presse
 alert("Hello");
 ```
 
-<<<<<<< HEAD:1-js/02-first-steps/09-alert-prompt-confirm/article.md
 Мини прозорецът със съобщението се нарича a "модален прозорец". Думата "модален" означава, че посетителят не може да взаимодейства с останалата част от страницата, да натисне други бутони и т.н. докато не се справят с прозореца. В такъв случай -- докато натиснат "OK".
-=======
-The mini-window with the message is called a *modal window*. The word "modal" means that the visitor can't interact with the rest of the page, press other buttons, etc, until they have dealt with the window. In this case -- until they press "OK".
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/06-alert-prompt-confirm/article.md
 
 ## prompt
 
@@ -50,15 +30,11 @@ result = prompt(title, [default]);
 `default`
 : По желание втори параметър, началната стойност за полето за въвеждане.
 
-<<<<<<< HEAD:1-js/02-first-steps/09-alert-prompt-confirm/article.md
-Посетителят може да напише нещо в полето за бързо въвеждане и да натисне ОК. Или могат да отменят въвеждането чрез натискане на Отказ или натискане на клавиша `key:Esc`.
-=======
 ```smart header="The square brackets in syntax `[...]`"
-The square brackets around `default` in the syntax above denote that the parameter as optional, not required.
+Квадратните скоби около `default` в синтаксиса по-горе означават, че параметърът като по-необходимост, а не е задължителен.
 ```
 
-The visitor can type something in the prompt input field and press OK. Then we get that text in the `result`. Or they can cancel the input by pressing Cancel or hitting the `key:Esc` key, then we get `null` as the `result`.
->>>>>>> cd2c7ce3c8f033e6f7861ed1b126552e41ba3e31:1-js/02-first-steps/06-alert-prompt-confirm/article.md
+Посетителите могат да напишат нещо в полето за въвеждане и да натиснат ОК. Тогава ще получим въведения текст в `result`. Или могат да отменят въвеждането чрез натискане на Отказ или натискане на клавиша `key:Esc`, така ще получим `null` в `result`.
 
 Извикването на `prompt` връща текста от полето за въвеждане или `null`, ако въвеждането е било отменено.
 
@@ -85,7 +61,7 @@ let test = prompt("Тест");
 let test = prompt("Тест", ''); // <-- за IE
 ```
 
-## потвърдете
+## confirm
 
 Синтаксиса:
 
