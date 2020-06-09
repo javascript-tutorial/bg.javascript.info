@@ -1,6 +1,6 @@
-# Object methods, "this"
+# Методи на обекта, "this"
 
-Objects are usually created to represent entities of the real world, like users, orders and so on:
+Обектите обикновено се създават за да представят реално съществуващи неща, като потребители, поръчки и т.н.:
 
 ```js
 let user = {
@@ -9,13 +9,13 @@ let user = {
 };
 ```
 
-And, in the real world, a user can *act*: select something from the shopping cart, login, logout etc.
+И в реалния свят потребителят може да *извършва действия*: да селектира нещо от онлайн количката за пазаруване, да се логва, разлогва и др.
 
-Actions are represented in JavaScript by functions in properties.
+Действията в JavaScript са предсавени чрез функции в пропъртита/свойства.
 
-## Method examples
+## Примерни методи
 
-For a start, let's teach the `user` to say hello:
+За начало, нека научим `потребителя` да казва здравей:
 
 ```js run
 let user = {
@@ -32,15 +32,15 @@ user.sayHi = function() {
 user.sayHi(); // Hello!
 ```
 
-Here we've just used a Function Expression to create the function and assign it to the property `user.sayHi` of the object.
+Тук ние току-що използвахме функционален израз за да създадем функция и да я подадем на пропъртито (свойството) `user.sayHi` на обекта.
 
-Then we can call it. The user can now speak!
+След това може да я извикаме. Сега потребителят може да говори!
 
-A function that is the property of an object is called its *method*.
+Функция, която е свойство на обект, се нарича *метод* на обекта.
 
-So, here we've got a method `sayHi` of the object `user`.
+И така ние имаме метод `sayHi` на обекта `user`.
 
-Of course, we could use a pre-declared function as a method, like this:
+Разбира се, ние можем да използваме пре-декларирана функция като метод, ето така:
 
 ```js run
 let user = {
@@ -48,29 +48,29 @@ let user = {
 };
 
 *!*
-// first, declare
+// първо декларираме функцията
 function sayHi() {
   alert("Hello!");
 };
 
-// then add as a method
+// После я добавяме като метод
 user.sayHi = sayHi;
 */!*
 
 user.sayHi(); // Hello!
 ```
 
-```smart header="Object-oriented programming"
-When we write our code using objects to represent entities, that's called [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), in short: "OOP".
+```smart header="Обектно-ориентирано програмиране"
+Когато пишем нашия код използвайки обекти за да представим реално съществуващи неща, това се нарича [обектно-ориентирано програмиране](https://en.wikipedia.org/wiki/Object-oriented_programming), накратко: "OOP".
 
-OOP is a big thing, an interesting science of its own. How to choose the right entities? How to organize the interaction between them? That's architecture, and there are great books on that topic, like "Design Patterns: Elements of Reusable Object-Oriented Software" by E. Gamma, R. Helm, R. Johnson, J. Vissides or "Object-Oriented Analysis and Design with Applications" by G. Booch, and more.
+OOP е нещо голямо, една иключително интересна наука само по себе си. Как да изберем правилните обекти? Как да организираме взаимодействието между тях? Това е архитектура и има много книги, написани по този въпрос, като "Design Patterns: Elements of Reusable Object-Oriented Software" от E. Gamma, R. Helm, R. Johnson, J. Vissides или "Object-Oriented Analysis and Design with Applications" от G. Booch, и още.
 ```
 ### Method shorthand
 
-There exists a shorter syntax for methods in an object literal:
+Има и по-кратък начин да се пишат методи в обектен литерал:
 
 ```js
-// these objects do the same
+// Тези обекти правят едно и също
 
 user = {
   sayHi: function() {
@@ -78,17 +78,17 @@ user = {
   }
 };
 
-// method shorthand looks better, right?
+// краткия начин изглежда по-добре, нали?
 user = {
 *!*
-  sayHi() { // same as "sayHi: function()"
+  sayHi() { // също като "sayHi: function()"
 */!*
     alert("Hello");
   }
 };
 ```
 
-As demonstrated, we can omit `"function"` and just write `sayHi()`.
+Както видяхме, моце да пропуснем `"function"` и да напишем само `sayHi()`.
 
 To tell the truth, the notations are not fully identical. There are subtle differences related to object inheritance (to be covered later), but for now they do not matter. In almost all cases the shorter syntax is preferred.
 
