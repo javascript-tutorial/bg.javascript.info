@@ -1,6 +1,6 @@
-# Object methods, "this"
+# Методи на обекта, "this"
 
-Objects are usually created to represent entities of the real world, like users, orders and so on:
+Обектите обикновено се създават, за да представят реално съществуващи неща, като потребители, поръчки и т.н.:
 
 ```js
 let user = {
@@ -9,13 +9,13 @@ let user = {
 };
 ```
 
-And, in the real world, a user can *act*: select something from the shopping cart, login, logout etc.
+И в реалния свят потребителят може да *извършва действия*: да селектира нещо от онлайн количката за пазаруване, да се логва, разлогва и др.
 
-Actions are represented in JavaScript by functions in properties.
+Действията в JavaScript са предсавени чрез функции в пропъртита/свойства.
 
-## Method examples
+## Примерни методи
 
-For a start, let's teach the `user` to say hello:
+За начало, нека научим `потребителя` да казва здравей:
 
 ```js run
 let user = {
@@ -32,15 +32,15 @@ user.sayHi = function() {
 user.sayHi(); // Hello!
 ```
 
-Here we've just used a Function Expression to create the function and assign it to the property `user.sayHi` of the object.
+Тук ние току-що използвахме функционален израз, за да създадем функция и да я подадем на пропъртито (свойството) `user.sayHi` на обекта.
 
-Then we can call it. The user can now speak!
+След това може да я извикаме. Сега потребителят може да говори!
 
-A function that is the property of an object is called its *method*.
+Функция, която е свойство на обект, се нарича *метод* на обекта.
 
-So, here we've got a method `sayHi` of the object `user`.
+И така ние имаме метод `sayHi` на обекта `user`.
 
-Of course, we could use a pre-declared function as a method, like this:
+Разбира се, ние можем да използваме пре-декларирана функция като метод, ето така:
 
 ```js run
 let user = {
@@ -48,29 +48,29 @@ let user = {
 };
 
 *!*
-// first, declare
+// първо декларираме функцията
 function sayHi() {
   alert("Hello!");
 };
 
-// then add as a method
+// После я добавяме като метод
 user.sayHi = sayHi;
 */!*
 
 user.sayHi(); // Hello!
 ```
 
-```smart header="Object-oriented programming"
-When we write our code using objects to represent entities, that's called [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), in short: "OOP".
+```smart header="Обектно-ориентирано програмиране"
+Когато пишем нашия код използвайки обекти, за да представим реално съществуващи неща, това се нарича [обектно-ориентирано програмиране](https://en.wikipedia.org/wiki/Object-oriented_programming), накратко: "OOП".
 
-OOP is a big thing, an interesting science of its own. How to choose the right entities? How to organize the interaction between them? That's architecture, and there are great books on that topic, like "Design Patterns: Elements of Reusable Object-Oriented Software" by E. Gamma, R. Helm, R. Johnson, J. Vissides or "Object-Oriented Analysis and Design with Applications" by G. Booch, and more.
+OOП е нещо голямо, една изключително интересна наука сама по себе си. Как да изберем правилните обекти? Как да организираме взаимодействието между тях? Това е архитектура и има много книги, написани по този въпрос, като "Design Patterns: Elements of Reusable Object-Oriented Software" от E. Gamma, R. Helm, R. Johnson, J. Vissides или "Object-Oriented Analysis and Design with Applications" от G. Booch, и още.
 ```
 ### Method shorthand
 
-There exists a shorter syntax for methods in an object literal:
+Има и по-кратък начин да се пишат методи в обектен литерал:
 
 ```js
-// these objects do the same
+// Тези обекти правят едно и също нещо
 
 user = {
   sayHi: function() {
@@ -78,31 +78,31 @@ user = {
   }
 };
 
-// method shorthand looks better, right?
+// Краткият начин изглежда по-добре, нали?
 user = {
 *!*
-  sayHi() { // same as "sayHi: function()"
+  sayHi() { // също като "sayHi: function()"
 */!*
     alert("Hello");
   }
 };
 ```
 
-As demonstrated, we can omit `"function"` and just write `sayHi()`.
+Както видяхме, може да пропуснем `"function"` и да напишем само `sayHi()`.
 
-To tell the truth, the notations are not fully identical. There are subtle differences related to object inheritance (to be covered later), but for now they do not matter. In almost all cases the shorter syntax is preferred.
+В действителност тези нотации не са напълно идентични. Има леки различия, свързани с обектното унаследяване (ще бъде рязгледано по-късно), но за сега това няма значение. В почти всеки случай се предпочита краткият синтаксис.
 
-## "this" in methods
+## "this" в методите
 
-It's common that an object method needs to access the information stored in the object to do its job.
+Методът на обекта иска да достъпи информацията, която се съхранява в обекта, за да си свърши работата.
 
-For instance, the code inside `user.sayHi()` may need the name of the `user`.
+Например, кодът вътре в `user.sayHi()` може да има нужда от името на `user`.
 
-**To access the object, a method can use the `this` keyword.**
+**За да достъпи обекта, методът може да използва ключовата дума `this`.**
 
-The value of `this` is the object "before dot", the one used to call the method.
+Стойността на `this` е обектът "преди точката", този, който се използва, за да се извика метода.
 
-For instance:
+Например:
 
 ```js run
 let user = {
@@ -111,7 +111,7 @@ let user = {
 
   sayHi() {
 *!*
-    // "this" is the "current object"
+    // "this" е "текущият обект"
     alert(this.name);
 */!*
   }
@@ -121,9 +121,9 @@ let user = {
 user.sayHi(); // John
 ```
 
-Here during the execution of `user.sayHi()`, the value of `this` will be `user`.
+Тук по време на изпълнението на `user.sayHi()`, стойността на `this` ще бъде `user`.
 
-Technically, it's also possible to access the object without `this`, by referencing it via the outer variable:
+Технически е възможно да достъпим обекта и без `this`, като го реферираме през външната променлива:
 
 ```js
 let user = {
@@ -132,16 +132,16 @@ let user = {
 
   sayHi() {
 *!*
-    alert(user.name); // "user" instead of "this"
+    alert(user.name); // "user" вместо "this"
 */!*
   }
 
 };
 ```
 
-...But such code is unreliable. If we decide to copy `user` to another variable, e.g. `admin = user` and overwrite `user` with something else, then it will access the wrong object.
+...Но този код не е надежден. Ако решим да копираме `user` в друга променлива, пр. `admin = user` и презапишем `user` с нещо друго, тогава ще достъпим грешния обект.
 
-That's demonstrated below:
+Това е показано долу:
 
 ```js run
 let user = {
@@ -150,7 +150,7 @@ let user = {
 
   sayHi() {
 *!*
-    alert( user.name ); // leads to an error
+    alert( user.name ); // води към грешка
 */!*
   }
 
@@ -158,18 +158,18 @@ let user = {
 
 
 let admin = user;
-user = null; // overwrite to make things obvious
+user = null; // презаписваме за да направим нещата по-ясни
 
-admin.sayHi(); // Whoops! inside sayHi(), the old name is used! error!
+admin.sayHi(); // Опа! Вътре в sayHi(), се използва старото име! Грешка!
 ```
 
-If we used `this.name` instead of `user.name` inside the `alert`, then the code would work.
+Ако използвахме `this.name` вместо `user.name` вътре в `alert`, кодът щеше да работи.
 
-## "this" is not bound
+## "this" не е обвързан
 
-In JavaScript, keyword `this` behaves unlike most other programming languages. It can be used in any function.
+В JavaScript, ключовата дума `this` се държи различно в сравнение с повечето програмни езици. Тя може да се използва във всяка функция.
 
-There's no syntax error in the following example:
+Няма синтактична грешка в следващия пример:
 
 ```js
 function sayHi() {
@@ -177,9 +177,9 @@ function sayHi() {
 }
 ```
 
-The value of `this` is evaluated during the run-time, depending on the context.
+Стойността на `this` се изчислява по време на изпълнение на кода в зависимост от контекста. 
 
-For instance, here the same function is assigned to two different objects and has different "this" in the calls:
+Например тук една и съща функция е  присвоена на два различни обекта и има различни "this" по време на извикване:
 
 ```js run
 let user = { name: "John" };
@@ -190,23 +190,23 @@ function sayHi() {
 }
 
 *!*
-// use the same function in two objects
+// Използваме една и съща функция в два обекта
 user.f = sayHi;
 admin.f = sayHi;
 */!*
 
-// these calls have different this
-// "this" inside the function is the object "before the dot"
+// тези извиквания имат различни this
+// "this" вътре във функцията е обекта "преди точката"
 user.f(); // John  (this == user)
 admin.f(); // Admin  (this == admin)
 
-admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)
+admin['f'](); // Admin (точка или квадратни скоби достъпва метода – няма значение)
 ```
 
-The rule is simple: if `obj.f()` is called, then `this` is `obj` during the call of `f`. So it's either `user` or `admin` in the example above.
+Правилото е просто: ако извикаме `obj.f()`, тогава `this` е `obj` по време на извикването от `f`. Така че това е или `user` или `admin` в горния пример.
 
-````smart header="Calling without an object: `this == undefined`"
-We can even call the function without an object at all:
+````smart header="Извикване без обект: `this == undefined`"
+Ние може да извикаме функцията дори без обекта:
 
 ```js run
 function sayHi() {
@@ -216,28 +216,28 @@ function sayHi() {
 sayHi(); // undefined
 ```
 
-In this case `this` is `undefined` in strict mode. If we try to access `this.name`, there will be an error.
+В този случай `this` е `undefined` в стриктен режим. Ако опитаме да достъпим `this.name`, ще има грешка.
 
-In non-strict mode the value of `this` in such case will be the *global object* (`window` in a browser, we'll get to it later in the chapter [](info:global-object)). This is a historical behavior that `"use strict"` fixes.
+В нестриктен режим стойността на `this` в този случай ще бъде *глобалният обект* (`window` в браузъра, ще го разгледаме по-нататък в главата [](info:global-object)). Това е историческо поведение, което `"use strict"` оправя.
 
-Usually such call is a programming error. If there's `this` inside a function, it expects to be called in an object context.
+Обикновено такова извикване е грешка на програмиста. Ако има `this` вътре във функция, то очаква да бъде извикано в контекста на обект.
 ````
 
-```smart header="The consequences of unbound `this`"
-If you come from another programming language, then you are probably used to the idea of a "bound `this`", where methods defined in an object always have `this` referencing that object.
+```smart header="Последиците от свободен `this`"
+Ако идвате от друг програмен език вероятно сте запознати с идеята за "обвързан `this`", където методите, дефинирани в един обект, винаги имат `this`, което реферира този обект.
 
-In JavaScript `this` is "free", its value is evaluated at call-time and does not depend on where the method was declared, but rather on what object is "before the dot".
+В JavaScript `this` е "свободен", неговата стойност се изчислява по време на извикване и не зависи от това къде е дефиниран метода, а от това кой е обекта "преди точката".
 
-The concept of run-time evaluated `this` has both pluses and minuses. On the one hand, a function can be reused for different objects. On the other hand, the greater flexibility creates more possibilities for mistakes.
+Концепцията за `this`, който се изчислява по време на изпълнение на кода има както плюсове, така и минуси. От една страна функцията може да се преизползва за други обекти. От друга страна голямата гъвкавост създава повече възможности за грешка. 
 
-Here our position is not to judge whether this language design decision is good or bad. We'll understand how to work with it, how to get benefits and avoid problems.
+Нашата позиция тук не е да отсъдим дали този дизайн на езика е добър или лош. Ние ще обясним как да работите с него, как да извличате ползите и да избягвате проблеми. 
 ```
 
-## Arrow functions have no "this"
+## Arrow функциите нямат "this"
 
-Arrow functions are special: they don't have their "own" `this`. If we reference `this` from such a function, it's taken from the outer "normal" function.
+Arrow функциите са специални: те нямат "собствен" `this`. Ако реферираме `this` от такава функция, той се взима от външната "нормална" функция.
 
-For instance, here `arrow()` uses `this` from the outer `user.sayHi()` method:
+Например, тук `arrow()` използва `this` от външният `user.sayHi()` метод:
 
 ```js run
 let user = {
@@ -251,18 +251,18 @@ let user = {
 user.sayHi(); // Ilya
 ```
 
-That's a special feature of arrow functions, it's useful when we actually do not want to have a separate `this`, but rather to take it from the outer context. Later in the chapter <info:arrow-functions> we'll go more deeply into arrow functions.
+Това е специално свойство на arrow функциите, използва се когато не искаме да имаме отделен `this`, а вместо това да го вземем от външния коитекст. По-късно в главата <info:arrow-functions> ще разгледаме подробно arrow функциите.
 
 
-## Summary
+## Обобщение
 
-- Functions that are stored in object properties are called "methods".
-- Methods allow objects to "act" like `object.doSomething()`.
-- Methods can reference the object as `this`.
+- Функции, които се намират в пропъртита на обекти, се наричат "методи".
+- Методите позволяват на обектите да "извършват действия" като `object.doSomething()`.
+- Методите могат да реферират обекта с ключовата дума `this`.
 
-The value of `this` is defined at run-time.
-- When a function is declared, it may use `this`, but that `this` has no value until the function is called.
-- A function can be copied between objects.
-- When a function is called in the "method" syntax: `object.method()`, the value of `this` during the call is `object`.
+Стойността на `this` се определя по време на изпълнението на кода.
+- Когато декларираме функция, тя може да използва `this`, но това  `this` няма да има стойност докато не извикаме функцията.
+- Една функция може да се копира между обекти.
+- Когато функция е извикана чрез следния "метод" синтаксис: `object.method()`, стойността на `this` по време на извикването е `обект`.
 
-Please note that arrow functions are special: they have no `this`. When `this` is accessed inside an arrow function, it is taken from outside.
+Имайте предвид, че arrow функциите са специални: те нямат `this`. Когато използваме `this` в arrow функция, неговата стойност се взима отвън.
