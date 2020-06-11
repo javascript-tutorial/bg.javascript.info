@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# What is the result of AND'ed alerts?
+# Какъв е резултатът от "И"-та в `alert` функцията?
 
-What will this code show?
+Какво ще покаже този код?
 
 ```js
 alert( alert(1) && alert(2) );

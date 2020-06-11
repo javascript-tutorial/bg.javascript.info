@@ -2,24 +2,24 @@ importance: 3
 
 ---
 
-# Check the login
+# Проверете данните за вход
 
-Write the code which asks for a login with `prompt`.
+Напишете кода, който изисква вход с `prompt`.
 
-If the visitor enters `"Admin"`, then `prompt` for a password, if the input is an empty line or `key:Esc` -- show "Canceled", if it's another string -- then show "I don't know you".
+Ако посетителят влезе като `"Admin"`, тогава попитайте с `prompt` за парола,ако входът е празен ред или е натиснат клавиша `key:Esc` -- покажете "Отменен",ако е друг низ -- тогава покажете "Не те познавам".
 
-The password is checked as follows:
+Паролата се проверява, както следва:
 
-- If it equals "TheMaster", then show "Welcome!",
-- Another string -- show "Wrong password",
-- For an empty string or cancelled input, show "Canceled"
+- Ако се равнява на "TheMaster", тогава покажете "Добре дошли!".
+- Ако е друг низ - покажете "Грешна парола".
+- За празен низ или анулиран вход покажете "Отменено".
 
-The schema:
+Схема:
 
 ![](ifelse_task.svg)
 
-Please use nested `if` blocks. Mind the overall readability of the code.
+Моля, използвайте вложени `if` блокове. Имайте предвид общата четимост на кода.
 
-Hint:  passing an empty input to a prompt returns an empty string `''`. Pressing `key:ESC` during a prompt returns `null`.
+Подсказка: преминаване на празен вход към `prompt` връща празен низ `''`. Ако се натисне `key:ESC` по време на запитването с `prompt`, то ще връща `null`.
 
 [demo]

@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# What's the result of OR'ed alerts?
+# Какъв е резултатът от "ИЛИ"-та в alert функцията?
 
-What will the code below output?
+Какво ще изпринтира кодът по-долу?
 
 ```js
 alert( alert(1) || 2 || alert(3) );

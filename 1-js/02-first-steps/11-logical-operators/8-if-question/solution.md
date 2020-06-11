@@ -1,20 +1,20 @@
-The answer: the first and the third will execute.
+Отговорът: първата и третата ще се изпълняват.
 
-Details:
+Детайли:
 
 ```js run
-// Runs.
-// The result of -1 || 0 = -1, truthy
-if (-1 || 0) alert( 'first' );
+// Изпълнява се.
+// Резултатът от -1 || 0 = -1, вярна
+if (-1 || 0) alert( 'първи' );
 
-// Doesn't run
-// -1 && 0 = 0, falsy
-if (-1 && 0) alert( 'second' );
+// Не се изпълнява.
+// -1 && 0 = 0, не вярна
+if (-1 && 0) alert( 'втори' );
 
-// Executes
-// Operator && has a higher precedence than ||
-// so -1 && 1 executes first, giving us the chain:
+// Изпълнява се.
+// Операторът && има по-голям приоритет от ||
+// така че -1 && 1 се изпълнява първи, давайки ни веригата:
 // null || -1 && 1  ->  null || 1  ->  1
-if (null || -1 && 1) alert( 'third' );
+if (null || -1 && 1) alert( 'трети' );
 ```
 

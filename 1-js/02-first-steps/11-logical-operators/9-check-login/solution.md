@@ -1,25 +1,25 @@
 
 
 ```js run demo
-let userName = prompt("Who's there?", '');
+let userName = prompt("Кой е там?", '');
 
-if (userName == 'Admin') {
+if (userName == 'Админ') {
 
-  let pass = prompt('Password?', '');
+  let pass = prompt('Парола?', '');
 
-  if (pass == 'TheMaster') {
-    alert( 'Welcome!' );
+  if (pass == 'Майсторът') {
+    alert( 'Добре дошли!' );
   } else if (pass == '' || pass == null) {
-    alert( 'Canceled' );
+    alert( 'Отменено' );
   } else {
-    alert( 'Wrong password' );
+    alert( 'Грешна парола' );
   }
 
 } else if (userName == '' || userName == null) {
-  alert( 'Canceled' );
+  alert( 'Отменено' );
 } else {
-  alert( "I don't know you" );
+  alert( "Не те познавам" );
 }
 ```
 
-Note the vertical indents inside the `if` blocks. They are technically not required, but make the code more readable.
+Обърнете внимание на вертикалните отстъпи вътре в `if` блоковете. Те технически не се изискват, но правят кода по-четим.

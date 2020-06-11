@@ -1,4 +1,4 @@
-The answer is `2`, that's the first truthy value.
+Отговорът е `2`, това е първата вярна стойност.
 
 ```js run
 alert( null || 2 || undefined );

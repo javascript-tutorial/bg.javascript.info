@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# The result of OR AND OR
+# Резултаът от "ИЛИ", "И" и "ИЛИ"
 
-What will the result be?
+Какъв ще бъде резултатът от този код?
 
 ```js
 alert( null || 2 && 3 || 4 );

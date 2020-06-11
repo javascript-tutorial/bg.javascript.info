@@ -1,10 +1,10 @@
-The answer: `1`, and then `undefined`.
+Отговорът: `1`, после `undefined`.
 
 ```js run
 alert( alert(1) && alert(2) );
 ```
 
-The call to `alert` returns `undefined` (it just shows a message, so there's no meaningful return).
+Извикването на `alert` функцията връща `undefined` (то просто показва съобщение, така че няма смислено връщане).
 
-Because of that, `&&` evaluates the left operand (outputs `1`), and immediately stops, because `undefined` is a falsy value. And `&&` looks for a falsy value and returns it, so it's done.
+Заради това, `&&` оценява левия операнд (изпринтира `1`), и веднага спира, защото `undefined` е не вярна стойност. И `&&` търси не вярна стойност и я връща, и така завършва.
 
