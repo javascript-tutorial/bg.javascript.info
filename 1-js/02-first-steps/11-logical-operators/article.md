@@ -1,24 +1,24 @@
-# Logical operators
+# Логически оператори
 
-There are three logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT).
+Има три логически оператора в JavaScript: `||` (ИЛИ), `&&` (И), `!` (НЕ / ОТРИЦАНИЕ).
 
-Although they are called "logical", they can be applied to values of any type, not only boolean. Their result can also be of any type.
+Въпреки че им се вика "логически" оператори, те могат да бъдат приложени към стойности от всякакъв тип, а не само булеви. Резултатът им може да бъде от всякакъв тип.
 
-Let's see the details.
+Нека да видим подробностите.
 
-## || (OR)
+## || (ИЛИ)
 
-The "OR" operator is represented with two vertical line symbols:
+Операторът "ИЛИ" е представена с два вертикална линии:
 
 ```js
 result = a || b;
 ```
 
-In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are `true`, it returns `true`, otherwise it returns `false`.
+При класическото програмиране логическото "ИЛИ" е предназначено да манипулира само булевите стойности. Ако някой от аргументите му е `true`, се връща `true`, в противен случай се връща `false`.
 
-In JavaScript, the operator is a little bit trickier and more powerful. But first, let's see what happens with boolean values.
+В JavaScript операторът е малко по-сложен и по-мощен. Но първо, нека да видим какво се случва с булевите стойности.
 
-There are four possible logical combinations:
+Има четири възможни логически комбинации:
 
 ```js run
 alert( true || true );   // true
@@ -27,21 +27,21 @@ alert( true || false );  // true
 alert( false || false ); // false
 ```
 
-As we can see, the result is always `true` except for the case when both operands are `false`.
+Както виждаме, резултатът винаги е `true` с изключение на случая, когато и двата операнда са `false`.
 
-If an operand is not a boolean, it's converted to a boolean for the evaluation.
+Ако операндът не е булев, той се превръща в булев за оценка.
 
-For instance, the number `1` is treated as `true`, the number `0` as `false`:
+Например, цифрата `1` се третира като `true`, а цифрата `0` като `false`:
 
 ```js run
-if (1 || 0) { // works just like if( true || false )
+if (1 || 0) { // работи точно като if (true || false)
   alert( 'truthy!' );
 }
 ```
 
-Most of the time, OR `||` is used in an `if` statement to test if *any* of the given conditions is `true`.
+В повечето време, ИЛИ `||` се използва в `if`, за да тестваме дали някое от дадените условия са `true`.
 
-For example:
+Например:
 
 ```js run
 let hour = 9;
@@ -49,61 +49,61 @@ let hour = 9;
 *!*
 if (hour < 10 || hour > 18) {
 */!*
-  alert( 'The office is closed.' );
+  alert( 'Офисът е затворен.' );
 }
 ```
 
-We can pass more conditions:
+Можем да подадем повече условия:
 
 ```js run
 let hour = 12;
 let isWeekend = true;
 
 if (hour < 10 || hour > 18 || isWeekend) {
-  alert( 'The office is closed.' ); // it is the weekend
+  alert( 'Офисът е затворен.' ); // това е уикендът
 }
 ```
 
-## OR "||" finds the first truthy value
+## ИЛИ "||" намира първата истинска стойност
 
-The logic described above is somewhat classical. Now, let's bring in the "extra" features of JavaScript.
+Описаната по-горе логика е донякъде класическа. Сега, нека да внесем "допълнителни" функции на JavaScript.
 
-The extended algorithm works as follows.
+Разширеният алгоритъм работи както следва.
 
-Given multiple OR'ed values:
+Дадени са множество ИЛИ стойности:
 
 ```js
 result = value1 || value2 || value3;
 ```
 
-The OR `||` operator does the following:
+ИЛИ `||` операторът прави точно следното:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to boolean. If the result is `true`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were `false`), returns the last operand.
+- Оценява операндите отляво надясно.
+- Превръща всеки операнд в неговата булева стойност. Ако резултатът е `true`, спира и връща първоначалната стойност на този операнд.
+- Ако всички операнди са оценени (т.е. всички са `false`) връща последния операнд.
 
-A value is returned in its original form, without the conversion.
+Стойността се връща в първоначалния си вид, без да се преобразува.
 
-In other words, a chain of OR `"||"` returns the first truthy value or the last one if no truthy value is found.
+С други думи, верига от ИЛИ `"||"` пръща първата вярна стойност или последната ако не е намерена вярна такава.
 
-For instance:
+Например:
 
 ```js run
-alert( 1 || 0 ); // 1 (1 is truthy)
+alert( 1 || 0 ); // 1 (1 е вярна)
 
-alert( null || 1 ); // 1 (1 is the first truthy value)
-alert( null || 0 || 1 ); // 1 (the first truthy value)
+alert( null || 1 ); // 1 (1 е първата вярна стойност)
+alert( null || 0 || 1 ); // 1 (първата вярна стойност)
 
-alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+alert( undefined || null || 0 ); // 0 (всичките са неверни, връща последната стойност)
 ```
 
-This leads to some interesting usage compared to a "pure, classical, boolean-only OR".
+Това води до интересно използване в сравнение с a "чист, класически, само булева "ИЛИ"".
 
-1. **Getting the first truthy value from a list of variables or expressions.**
+1. **Получаване на първата вярна стойност от списък на променливи или изрази.**
 
-    For instance, we have `firstName`, `lastName` and `nickName` variables, all optional.
+    Например, да имаме следните променливи: `firstName`, `lastName` и `nickName`.
 
-    Let's use OR `||` to choose the one that has the data and show it (or `anonymous` if nothing set):
+    Нека да използваме ИЛИ `||` да изберем този, който има данните и да го покажем (или `anonymous` ако нищо не е зададено):
 
     ```js run
     let firstName = "";
@@ -115,36 +115,36 @@ This leads to some interesting usage compared to a "pure, classical, boolean-onl
     */!*
     ```
 
-    If all variables were falsy, `Anonymous` would show up.
+  Ако всички променливи бяха лъжливи, щеше да се появи `Anonymous`.
 
-2. **Short-circuit evaluation.**
+2. **Оценка на "късо съединение."**
 
-    Another feature of OR `||` operator is the so-called "short-circuit" evaluation.
+    Друга характеристика на ИЛИ `||` оператора е така нареченият оценка на "късо съединение.".
 
-    It means that `||` processes its arguments until the first truthy value is reached, and then the value is returned immediately, without even touching the other argument.
+    Означава, че `||` обработва своите аргументи, докато не се достигне първата вярна стойност, и след това стойността се връща веднага, без да докосва останалите аргументи.
 
-    That importance of this feature becomes obvious if an operand isn't just a value, but an expression with a side effect, such as a variable assignment or a function call.
+    Важността на тази функция става очевидно, ако операндът не е просто стойност, а израз със страничен ефект, като присвояване на променлива или извикване на функция.
 
-    In the example below, only the second message is printed:
+    В примера по-долу се отпечатва само второто съобщение:
 
     ```js run no-beautify
-    *!*true*/!* || alert("not printed");
-    *!*false*/!* || alert("printed");
+    *!*true*/!* || alert("не се показва");
+    *!*false*/!* || alert("се показва");
     ```
 
-    In the first line, the OR `||` operator stops the evaluation immediately upon seeing `true`, so the `alert` isn't run.
+    В първия ред, ИЛИ `||` операторът спира оценката веднага след като види `true`, така че `alert` не се изпълнява.
 
-    Sometimes, people use this feature to execute commands only if the condition on the left part is falsy.
+    Понякога хората използват тази функция, за да изпълняват команди, само ако състоянието в лявата част е не вярна.
 
-## && (AND)
+## && (И)
 
-The AND operator is represented with two ampersands `&&`:
+Операторът "И" се представлявана със двата съмвола `&&`:
 
 ```js
 result = a && b;
 ```
 
-In classical programming, AND returns `true` if both operands are truthy and `false` otherwise:
+В класическото програмиране, "И" връща `true` ако и двата операнда са верни, а `false` в противен случай:
 
 ```js run
 alert( true && true );   // true
@@ -153,80 +153,80 @@ alert( true && false );  // false
 alert( false && false ); // false
 ```
 
-An example with `if`:
+Пример с `if`:
 
 ```js run
 let hour = 12;
 let minute = 30;
 
 if (hour == 12 && minute == 30) {
-  alert( 'The time is 12:30' );
+  alert( 'Времето е 12:30' );
 }
 ```
 
-Just as with OR, any value is allowed as an operand of AND:
+Както и с "ИЛИ", всяка стойност е разрешена като операнд на "И":
 
 ```js run
-if (1 && 0) { // evaluated as true && false
-  alert( "won't work, because the result is falsy" );
+if (1 && 0) { // оценява се като true && false
+  alert( "няма да работи, защото резултатът е не вярна" );
 }
 ```
 
 
-## AND "&&" finds the first falsy value
+## И "&&" операторът намира първата не вярна стойност
 
-Given multiple AND'ed values:
+Дадени са множество стойности на "И" оператора:
 
 ```js
 result = value1 && value2 && value3;
 ```
 
-The AND `&&` operator does the following:
+"И" `&&` операторът прави следното:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to a boolean. If the result is `false`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+- Оценява операндите отляво надясно.
+- Всеки операнд го преобразува в булев. Ако резултатът е `false`, спира и връща първоначалната стойност на този операнд.
+- Ако всички операнди са оценени (т. е. всички бяха верни), връща последния операнд.
 
-In other words, AND returns the first falsy value or the last value if none were found.
+С други думи, "И" връща първата не вярна стойност или последната стойност, ако няма намерена такава.
 
-The rules above are similar to OR. The difference is that AND returns the first *falsy* value while OR returns the first *truthy* one.
+Правилата по-горе са подобни на "ИЛИ". Разликата е в, това че "И" връща първата *не вярна* стойност докато "ИЛИ" връща първата *вярна* стойност.
 
-Examples:
+Примери:
 
 ```js run
-// if the first operand is truthy,
-// AND returns the second operand:
+// ако първият операнд е верен,
+// "И" връща втория операнд:
 alert( 1 && 0 ); // 0
 alert( 1 && 5 ); // 5
 
-// if the first operand is falsy,
-// AND returns it. The second operand is ignored
+// Ако първият операнд е не вярна,
+// "И" го връща. Вторият операнд се игнорира
 alert( null && 5 ); // null
-alert( 0 && "no matter what" ); // 0
+alert( 0 && "без значение какво" ); // 0
 ```
 
-We can also pass several values in a row. See how the first falsy one is returned:
+Също така можем да предадем няколко стойности подред. Вижте как се връща първата не вярна:
 
 ```js run
 alert( 1 && 2 && null && 3 ); // null
 ```
 
-When all values are truthy, the last value is returned:
+Когато всички стойности са верни, се връща последната стойност:
 
 ```js run
-alert( 1 && 2 && 3 ); // 3, the last one
+alert( 1 && 2 && 3 ); // 3, последният
 ```
 
 ````smart header="Precedence of AND `&&` is higher than OR `||`"
-The precedence of AND `&&` operator is higher than OR `||`.
+Предимството на "И" `&&` е по-голямо от "ИЛИ" `||`.
 
-So the code `a && b || c && d` is essentially the same as if the `&&` expressions were in parentheses: `(a && b) || (c && d)`.
+Така че кодът `a && b || c && d` е по същество същото, както ако `&&` изразите бяха в скоби: `(a && b) || (c && d)`.
 ````
 
 ````warn header="Don't replace `if` with || or &&"
-Sometimes, people use the AND `&&` operator as a "shorter to write `if`".
+Понякога, хората използват "И" `&&` оператора като "съкратен начин за писане на `if`".
 
-For instance:
+Например:
 
 ```js run
 let x = 1;
@@ -234,56 +234,56 @@ let x = 1;
 (x > 0) && alert( 'Greater than zero!' );
 ```
 
-The action in the right part of `&&` would execute only if the evaluation reaches it. That is, only if `(x > 0)` is true.
+Действието в дясната част на `&&` би се изпълнила само ако оценката я достигне. Тоест, само ако `(x > 0)` е `true`.
 
-So we basically have an analogue for:
+Така че ние в общи линии имаме аналог:
 
 ```js run
 let x = 1;
 
-if (x > 0) alert( 'Greater than zero!' );
+if (x > 0) alert( 'По-голям от нула!' );
 ```
 
-Although, the variant with `&&` appears shorter, `if` is more obvious and tends to be a little bit more readable. So we recommend using every construct for its purpose: use `if` if we want if and use `&&` if we want AND.
+Въпреки че, вариантът с `&&` изглежда по-къса, `if` е по-очевидна и има тенденция да бъде малко по-четлива. Затова препоръчваме да използвате всяка конструкция за нейната цел.
 ````
 
 
-## ! (NOT)
+## ! (НЕ / ОТРИЦАНИЕ)
 
-The boolean NOT operator is represented with an exclamation sign `!`.
+Булевата "НЕ" оператор е представена с удивителен знак `!`.
 
-The syntax is pretty simple:
+Синтаксисът е доста прост:
 
 ```js
 result = !value;
 ```
 
-The operator accepts a single argument and does the following:
+Операторът приема един аргумент и прави следното:
 
-1. Converts the operand to boolean type: `true/false`.
-2. Returns the inverse value.
+1. Преобразува операнда в булев тип: `true/false`.
+2. Връща обратната стойност.
 
-For instance:
+Например:
 
 ```js run
 alert( !true ); // false
 alert( !0 ); // true
 ```
 
-A double NOT `!!` is sometimes used for converting a value to boolean type:
+Двойно "НЕ" `!!` понякога се използва за преобразуване на стойност в булев тип:
 
 ```js run
 alert( !!"non-empty string" ); // true
 alert( !!null ); // false
 ```
 
-That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+Това е, първия "НЕ" преобразува стойността в булева и връща обратната, а вторият "НЕ" го обръща отново. В крайна сметка имаме обикновена стойност-към-булева превръщане.
 
-There's a little more verbose way to do the same thing -- a built-in `Boolean` function:
+Има малко по-подробен начин да направите същото -- вградената `Boolean` функция:
 
 ```js run
 alert( Boolean("non-empty string") ); // true
 alert( Boolean(null) ); // false
 ```
 
-The precedence of NOT `!` is the highest of all logical operators, so it always executes first, before `&&` or `||`.
+Приоритетът на "НЕ" `!` е най-високият от всички логически оператори, така че винаги се изпълнява първи, преди `&&` или `||`.
