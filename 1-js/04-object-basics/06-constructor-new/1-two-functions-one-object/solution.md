@@ -1,8 +1,8 @@
-Yes, it's possible.
+Да, това е възможно.
 
-If a function returns an object then `new` returns it instead of `this`.
+Ако функция върне обект, тогава `new` го връща вместо `this`.
 
-So they can, for instance, return the same externally defined object `obj`:
+Така те могат, например, да върнат същия външно определен обект `obj`:
 
 ```js run no-beautify
 let obj = {};

@@ -1,5 +1,5 @@
 
-describe("calculator", function() {
+describe("Калкулатор", function() {
   let calculator;
   before(function() {
     sinon.stub(window, "prompt")
@@ -11,11 +11,11 @@ describe("calculator", function() {
     calculator.read();
   });
 
-  it("when 2 and 3 are entered, the sum is 5", function() {
+  it("когато са въведени 2 и 3, сбора е 5", function() {
     assert.equal(calculator.sum(), 5);
   });
 
-  it("when 2 and 3 are entered, the product is 6", function() {
+  it("когато са въведени 2 и 3, произведението е 6", function() {
     assert.equal(calculator.mul(), 6);
   });
 

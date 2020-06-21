@@ -2,9 +2,9 @@ importance: 2
 
 ---
 
-# Two functions – one object
+# Две функции – един обект
 
-Is it possible to create functions `A` and `B` such as `new A()==new B()`?
+Възможно ли е да се създадат функции `A` и `B` като `new A()==new B()`?
 
 ```js no-beautify
 function A() { ... }
@@ -16,4 +16,4 @@ let b = new B;
 alert( a == b ); // true
 ```
 
-If it is, then provide an example of their code.
+Ако е, тогава дайте пример за техния код.

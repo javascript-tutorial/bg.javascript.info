@@ -2,26 +2,26 @@ importance: 5
 
 ---
 
-# Create new Accumulator
+# Създайте нов събирач
 
-Create a constructor function `Accumulator(startingValue)`.
+Създайте конструкторна функция `Accumulator(startingValue)`.
 
-Object that it creates should:
+Обектът, който се създава би трябвало:
 
-- Store the "current value" in the property `value`. The starting value is set to the argument of the constructor `startingValue`.
-- The `read()` method should use `prompt` to read a new number and add it to `value`.
+- Да съхранява "текущата стойност" в свойството `value`. Началната стойност е зададена в аргумента на конструктора `startingValue`.
+- Функцията `read()` трябва да използва `prompt` за да прочетете ново число и да го добави към `value`.
 
-In other words, the `value` property is the sum of all user-entered values with the initial value  `startingValue`.
+С други думи, свойството `value` е сбора на всички стойности въведен от потребителя като началната стойност `startingValue`.
 
-Here's the demo of the code:
+Ето демонстрацията на кода:
 
 ```js
-let accumulator = new Accumulator(1); // initial value 1
+let accumulator = new Accumulator(1); // начална стойност 1
 
-accumulator.read(); // adds the user-entered value
-accumulator.read(); // adds the user-entered value
+accumulator.read(); // добавяме стойността въведена от потребителя
+accumulator.read(); // добавяме стойността въведена от потребителя
 
-alert(accumulator.value); // shows the sum of these values
+alert(accumulator.value); // показваме сбора от тези стойности
 ```
 
 [demo]
