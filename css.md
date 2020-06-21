@@ -1,4 +1,4 @@
 
-# CSS for JS developers
+# CSS за JS разработчици
 
-- Outline
+- Очертание

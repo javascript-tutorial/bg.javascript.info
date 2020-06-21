@@ -1,2 +1,1 @@
-
-# Storing data in the browser
+# Съхраняване на данни в браузъра

@@ -1,3 +1,3 @@
-# Regular expressions
+# Регулярни изрази
 
-Regular expressions is a powerful way of doing search and replace in strings.
+Регулярните изрази са мощен начин за търсене и заменяне на низове в низ.

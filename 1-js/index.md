@@ -1,6 +1,6 @@
 # Езикът JavaScript
 
-Here we learn JavaScript, starting from scratch and go on to advanced concepts like OOP.
+Тук научаваме JavaScript, като започнем от нулата и преминаваме към напреднали концепции като ООП(Обектно-ориентирано програмиране).
 
-We concentrate on the language itself here, with the minimum of environment-specific notes.
+Тук се концентрираме върху самия език, с минимални забележки от към спецификациите на средата.
 

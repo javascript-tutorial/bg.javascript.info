@@ -1,3 +1,3 @@
-# Binary data, files
+# Двоични данни, файлове
 
-Working with binary data and files in JavaScript.
+Работа с двоични данни и файлове в JavaScript.
