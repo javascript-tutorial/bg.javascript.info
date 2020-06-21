@@ -1,1 +1,1 @@
-Just loop over the object and `return false` immediately if there's at least one property.
+Просто изциклете обекта и връщайте `false` веднага, ако има поне едно свойство.

@@ -1,6 +1,6 @@
 function isEmpty(obj) {
   for (let key in obj) {
-    // if the loop has started, there is a property
+    // ако цикълът е стартирал, има свойство
     return false;
   }
   return true;

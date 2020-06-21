@@ -2,18 +2,18 @@ importance: 5
 
 ---
 
-# Check for emptiness
+# Проверете дали е празно
 
-Write the function `isEmpty(obj)` which returns `true` if the object has no properties, `false` otherwise.
+Напишете функцията `isEmpty(obj)` която връща `true` ако обектът няма свойства, `false` в противен случай.
 
-Should work like that:
+Трябва да работи така:
 
 ```js
 let schedule = {};
 
 alert( isEmpty(schedule) ); // true
 
-schedule["8:30"] = "get up";
+schedule["8:30"] = "ставай";
 
 alert( isEmpty(schedule) ); // false
 ```

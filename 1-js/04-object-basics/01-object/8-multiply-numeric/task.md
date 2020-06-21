@@ -1,15 +1,15 @@
-importance: 3
+Важност: 3
 
 ---
 
-# Multiply numeric properties by 2
+# Умножете числовите свойства с 2
 
-Create a function `multiplyNumeric(obj)` that multiplies all numeric properties of `obj` by `2`.
+Създайте функция `multiplyNumeric(obj)` който умножава всички числови свойства на `obj` по `2`.
 
-For instance:
+Например:
 
 ```js
-// before the call
+// преди извикването на функцията
 let menu = {
   width: 200,
   height: 300,
@@ -18,7 +18,7 @@ let menu = {
 
 multiplyNumeric(menu);
 
-// after the call
+// след извикването на функцията
 menu = {
   width: 400,
   height: 600,
@@ -26,8 +26,8 @@ menu = {
 };
 ```
 
-Please note that `multiplyNumeric` does not need to return anything. It should modify the object in-place.
+Моля, имайте предвид, че `multiplyNumeric` не е необходимо да връща нещо. Той трябва да модифицира обекта на място.
 
-P.S. Use `typeof` to check for a number here.
+Забележка: Използвайте `typeof` за да проверите дали свойството е число.
 
 

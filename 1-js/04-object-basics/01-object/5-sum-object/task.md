@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Sum object properties
+# Съберете свойствата на обекта
 
-We have an object storing salaries of our team:
+Имаме обект, съхраняващ заплатите на нашия екип:
 
 ```js
 let salaries = {
@@ -14,6 +14,6 @@ let salaries = {
 }
 ```
 
-Write the code to sum all salaries and store in the variable `sum`. Should be `390` in the example above.
+Напишете кода, за да сумирате всички заплати и ги съхранявайте в променливата `sum`. Би трябвало да е `390` в примера по-горе.
 
-If `salaries` is empty, then the result must be `0`.
+Ако `salaries` е празно,тогава резултатът трябва да бъде `0`.

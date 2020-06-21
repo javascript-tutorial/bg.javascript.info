@@ -1,5 +1,5 @@
 describe("multiplyNumeric", function() {
-  it("multiplies all numeric properties by 2", function() {
+  it("умножава всички числови свойства по 2", function() {
     let menu = {
       width: 200,
       height: 300,
@@ -11,7 +11,7 @@ describe("multiplyNumeric", function() {
     assert.equal(menu.title, "My menu");
   });
 
-  it("returns nothing", function() {
+  it("не връща нищо", function() {
     assert.isUndefined( multiplyNumeric({}) );
   });
 

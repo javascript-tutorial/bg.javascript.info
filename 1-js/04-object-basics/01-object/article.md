@@ -1,60 +1,59 @@
+# Обекти
 
-# Objects
+Както знаем от главата <info:types>, има осем типа данни в JavaScript. Седем от тях се наричат "примитивни", защото техните стойности съдържат само едно нещо (може да е низ или число, или каквото и да е).
 
-As we know from the chapter <info:types>, there are eight data types in JavaScript. Seven of them are called "primitive", because their values contain only a single thing (be it a string or a number or whatever).
+За разлика на това, обектите се използват за съхранение на ключови колекции от различни данни и по-сложни единици. В JavaScript, обектите проникват в почти всеки аспект на езика. Така че първо трябва да ги разберем преди да се потопим по-дълбоко никъде другаде.
 
-In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
+Обект може да бъде създаден с фигурни скоби `{…}` с незадължителен списък на *свойства*. Свойството е двойка от "ключ: стойност", където `ключът` е низ (също се нарича и "име на свойството"), и `стойност`, което може да бъде всичко.
 
-An object can be created with figure brackets `{…}` with an optional list of *properties*. A property is a "key: value" pair, where `key` is a string (also called a "property name"), and `value` can be anything.
-
-We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It's easy to find a file by its name or add/remove a file.
+Можем да си представим обект като шкаф с подписани файлове. Всяка част от данните се съхранява в своя файл с ключ. Лесно е да намерите файл по неговото име или да добавите / премахнете  даден файл.
 
 ![](object.svg)
 
-An empty object ("empty cabinet") can be created using one of two syntaxes:
+Празния обект ("празния шкаф") може да се създаде с помощта на един от два синтаксиса:
 
 ```js
-let user = new Object(); // "object constructor" syntax
-let user = {};  // "object literal" syntax
+let user = new Object(); // синтаксиса "конструктор на обект"
+let user = {};  // синстаксиса "литерал на обект" 
 ```
 
 ![](object-user-empty.svg)
 
-Usually, the figure brackets `{...}` are used. That declaration is called an *object literal*.
+Обикновено се използват фигурните скоби `{...}`. Тази деклерация се нарича *литерал на обект*.
 
-## Literals and properties
+## Литерали и свойства
 
-We can immediately put some properties into `{...}` as "key: value" pairs:
+Веднага можем да поставим някои свойства в фигурните скоби `{...}` като двойки от "ключ: стойност":
 
 ```js
-let user = {     // an object
-  name: "John",  // by key "name" store value "John"
-  age: 30        // by key "age" store value 30
+let user = {     // обект
+  name: "John",  // чрез ключа "name" съхраняваме стойността "John"
+  age: 30        // чрез ключа "age" съхраняваме стойността 30
 };
 ```
 
-A property has a key (also known as "name" or "identifier") before the colon `":"` and a value to the right of it.
+Свойството има ключ (също познат като "име" или "идентификатор") преди двоеточието `":"`, и стойноста след нея.
 
-In the `user` object, there are two properties:
+В `user` обекта, има две свойства:
 
-1. The first property has the name `"name"` and the value `"John"`.
-2. The second one has the name `"age"` and the value `30`.
+1. Първото свойство има име `"name"` и стойност `"John"`.
+2. Второто свойство има име `"age"` и стойност `30`.
 
-The resulting `user` object can be imagined as a cabinet with two signed files labeled "name" and "age".
+Резултата от `user` обекта можем да си го представим като шкаф с две подписани файлове с етикет "name" и "age".
 
 ![user object](object-user.svg)
 
-We can add, remove and read files from it any time.
+Можем да добавим, изтрием и да четем файловете от него по всяко време.
 
-Property values are accessible using the dot notation:
+Стойностите на свойствата са достъпни чрез нотацията на точките:
 
 ```js
-// get property values of the object:
+// достъпваме стойностите на свойствата от обекта:
 alert( user.name ); // John
 alert( user.age ); // 30
 ```
 
-The value can be of any type. Let's add a boolean one:
+Стойността може да бъде от всякакъв тип. Нека сега добавим и булева стойност:
 
 ```js
 user.isAdmin = true;
@@ -62,7 +61,7 @@ user.isAdmin = true;
 
 ![user object 2](object-user-isadmin.svg)
 
-To remove a property, we can use `delete` operator:
+За да изтрием свойство можем да използваме `delete` оператора:
 
 ```js
 delete user.age;
@@ -70,32 +69,32 @@ delete user.age;
 
 ![user object 3](object-user-delete.svg)
 
-We can also use multiword property names, but then they must be quoted:
+Можем да използваме и многословни имена за свойства, но тогава те задължително трябва да са с кавички:
 
 ```js
 let user = {
   name: "John",
   age: 30,
-  "likes birds": true  // multiword property name must be quoted
+  "likes birds": true  // многословните имена на свойствата трябва да са с кавички
 };
 ```
 
 ![](object-user-props.svg)
 
 
-The last property in the list may end with a comma:
+Последното свойство в списъка може да завърши със запетая:
 ```js
 let user = {
   name: "John",
   age: 30*!*,*/!*
 }
 ```
-That is called a "trailing" or "hanging" comma. Makes it easier to add/remove/move around properties, because all lines become alike.
+Това се нарича "влачеща" или "висяща" запетая. Улеснява добавянето / изтриването / местенето около свойствата, защото всички линии стават еднакви.
 
-````smart header="Object with const can be changed"
-Please note: an object declared as `const` *can* be modified.
+````smart header="Константа от обект може да бъде променен"
+Моля обърнете внимание: обект, деклариран като `const` *може* да бъде модифициран.
 
-For instance:
+Например:
 
 ```js run
 const user = {
@@ -109,55 +108,55 @@ user.name = "Pete"; // (*)
 alert(user.name); // Pete
 ```
 
-It might seem that the line `(*)` would cause an error, but no. The `const` fixes the value of `user`, but not its contents.
+Може да изглежда, че линията `(*)` би причинила грешка, но не. Деклараторът `const` фиксира стойността на `user`, но не и съдържанието му.
 
-The `const` would give an error only if we try to set `user=...` as a whole.
+Деклараторът `const` ще даде грешка само ако се опитаме да зададем `user=...` като цяло.
 
-There's another way to make constant object properties, we'll cover it later in the chapter <info:property-descriptors>.
+Има и друг начин да направите свойствата на обекта константи, но ще ги разгледаме по-нататък в главата <info:property-descriptors>.
 ````
 
-## Square brackets
+## Квадратни скоби
 
-For multiword properties, the dot access doesn't work:
+За многословните свойства достъпът с точки не работи:
 
 ```js run
-// this would give a syntax error
+//това би дало синтактична грешка
 user.likes birds = true
 ```
 
-JavaScript doesn't understand that. It thinks that we address `user.likes`, and then gives a syntax error when comes across unexpected `birds`.
+JavaScript не разбира това. Смята, че се обръщаме към `user.likes`, и след това дава синтактична грешка, когато се натъкне неочаквано на `birds`.
 
-The dot requires the key to be a valid variable identifier. That implies: contains no spaces, doesn't start with a digit and doesn't include special characters (`$` and `_` are allowed).
+Точката изисква ключът да е валиден идентификатор на променлива. Това предполага: не съдържа интервали, не започва с цифра и не включва специални знаци (`$` и `_` са позволени).
 
-There's an alternative "square bracket notation" that works with any string:
+Има алтернатива "нотация на квадратни скоби", който работи с всеки низ:
 
 ```js run
 let user = {};
 
-// set
+// задава
 user["likes birds"] = true;
 
-// get
+// достъпва
 alert(user["likes birds"]); // true
 
-// delete
+// изтрива
 delete user["likes birds"];
 ```
 
-Now everything is fine. Please note that the string inside the brackets is properly quoted (any type of quotes will do).
+Сега всичко е наред. Моля, обърнете внимание, че низът в скобите е поставен правилно (позволено са `'` и `` ` ``).
 
-Square brackets also provide a way to obtain the property name as the result of any expression -- as opposed to a literal string -- like from a variable as follows:
+Квадратните скоби също предоставят начин за получаване на името на свойството в резултат на всеки израз -- за разлика от буквалния низ -- като от променлива, както следва:
 
 ```js
 let key = "likes birds";
 
-// same as user["likes birds"] = true;
+// същото като user["likes birds"] = true;
 user[key] = true;
 ```
 
-Here, the variable `key` may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.
+Тука, променливата `key` може да се изчисли по време на изпълнение или да зависи от потребителския вход.И тогава го използваме за достъп до свойството. Това ни дава голяма гъвкавост.
 
-For instance:
+Например:
 
 ```js run
 let user = {
@@ -165,13 +164,13 @@ let user = {
   age: 30
 };
 
-let key = prompt("What do you want to know about the user?", "name");
+let key = prompt("Какво искате да знаете относно потребителя?", "name");
 
-// access by variable
-alert( user[key] ); // John (if enter "name")
+// достъп чрез променлива
+alert( user[key] ); // John (ако потвърдим "name")
 ```
 
-The dot notation cannot be used in a similar way:
+Нотацията чрез точки не може да се използва по подобен начин:
 
 ```js run
 let user = {
@@ -183,40 +182,40 @@ let key = "name";
 alert( user.key ) // undefined
 ```
 
-### Computed properties
+### Изчислени свойства
 
-We can use square brackets in an object literal, when creating an object. That's called *computed properties*.
+Можем да използваме квадратни скоби в литерали на обекти, при създаване на обекти. Това се нарича *изчислени свойства*.
 
-For instance:
+Например:
 
 ```js run
-let fruit = prompt("Which fruit to buy?", "apple");
+let fruit = prompt("Кой плод да купя?", "apple");
 
 let bag = {
 *!*
-  [fruit]: 5, // the name of the property is taken from the variable fruit
+  [fruit]: 5, // името на свойството е взето от променливата fruit
 */!*
 };
 
-alert( bag.apple ); // 5 if fruit="apple"
+alert( bag.apple ); // 5 ако fruit="apple"
 ```
 
-The meaning of a computed property is simple: `[fruit]` means that the property name should be taken from `fruit`.
+Значението на изчисленото свойство е просто: `[fruit]` означава, че името на свойството трябва да бъде взето от `fruit`.
 
-So, if a visitor enters `"apple"`, `bag` will become `{apple: 5}`.
+Така, ако посетителят добавя `"apple"`, `bag` ще стане `{apple: 5}`.
 
-Essentially, that works the same as:
+По същество това работи също като:
 ```js run
-let fruit = prompt("Which fruit to buy?", "apple");
+let fruit = prompt("Кой плод да купя?", "apple");
 let bag = {};
 
-// take property name from the fruit variable
+// взима името на свойството от променливата fruit
 bag[fruit] = 5;
 ```
 
-...But looks nicer.
+...Така изглежда по-хубаво.
 
-We can use more complex expressions inside square brackets:
+Можем да използваме по-сложни изрази вътре в квадратните скоби:
 
 ```js
 let fruit = 'apple';
@@ -225,15 +224,15 @@ let bag = {
 };
 ```
 
-Square brackets are much more powerful than the dot notation. They allow any property names and variables. But they are also more cumbersome to write.
+Квадратните скоби са много по-мощни от точковата нотация. Те позволяват всякакви имена на свойства и променливи. Но също така са по-тромави за писане.
 
-So most of the time, when property names are known and simple, the dot is used. And if we need something more complex, then we switch to square brackets.
+Така през повечето време, когато имената на свойствата са известни и прости, се използва точката. И ако имаме нужда от нещо по-сложно, тогава преминаваме към квадратни скоби.
 
-## Property value shorthand
+## Кратък начин за задаване на стойност на свойство
 
-In real code we often use existing variables as values for property names.
+В реалния код често използваме съществуващите променливи като стойности за имена на свойства.
 
-For instance:
+Например:
 
 ```js run
 function makeUser(name, age) {
@@ -248,40 +247,40 @@ let user = makeUser("John", 30);
 alert(user.name); // John
 ```
 
-In the example above, properties have the same names as variables. The use-case of making a property from a variable is so common, that there's a special *property value shorthand* to make it shorter.
+В горния пример, свойствата имат същите имена като на променливите. Това е обичаен случай на създаване на свойства от променливи, но има *специален кратък начин*, за да го направим по къс.
 
-Instead of `name:name` we can just write `name`, like this:
+Вместо `name:name` можем просто да пишем `name`, като тук:
 
 ```js
 function makeUser(name, age) {
 *!*
   return {
-    name, // same as name: name
-    age,  // same as age: age
+    name, // същото на name: name
+    age,  // същото на age: age
     // ...
   };
 */!*
 }
 ```
 
-We can use both normal properties and shorthands in the same object:
+Можем да използваме както нормални свойства, така и краткия вариант в един и същ обект:
 
 ```js
 let user = {
-  name,  // same as name:name
+  name,  // същото като name:name
   age: 30
 };
 ```
 
 
-## Property names limitations
+## Ограничения в имената на свойствата
 
-As we already know, a variable cannot have a name equal to one of language-reserved words like "for", "let", "return" etc.
+Както вече знаем, променлива не може да има име, равна на една от запазените за език думи като "for", "let", "return" и други.
 
-But for an object property, there's no such restriction:
+Но за свойство на обект няма такова ограничение:
 
 ```js run
-// these properties are all right
+// тези свойства са наред
 let obj = {
   for: 1,
   let: 2,
@@ -291,107 +290,107 @@ let obj = {
 alert( obj.for + obj.let + obj.return );  // 6
 ```
 
-In short, there are no limitations on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).
+Накратко, няма ограничения за имената на свойствата. Те могат да бъдат всякакви низове или символи (специален тип за идентификатори, които ще бъдат изучени по-късно).
 
-Other types are automatically converted to strings.
+Другите типове се преобразуват автоматично в низове.
 
-For instance, a number `0` becomes a string `"0"` when used as a property key:
+Например, цифрата `0` става низ `"0"` когато се използва като ключ на свойството:
 
 ```js run
 let obj = {
-  0: "test" // same as "0": "test"
+  0: "test" // същото на "0": "test"
 };
 
-// both alerts access the same property (the number 0 is converted to string "0")
+// и двата сигнала имат достъп до едно и също свойство (цифрата 0 се преобразува в низ "0")
 alert( obj["0"] ); // test
-alert( obj[0] ); // test (same property)
+alert( obj[0] ); // test (същото свойство)
 ```
 
-There's a minor gotcha with a special property named `__proto__`. We can't set it to a non-object value:
+Има малка подробност със специалното име на свойство `__proto__`. Не можем да го зададем на стойност, която не е обект:
 
 ```js run
 let obj = {};
-obj.__proto__ = 5; // assign a number
-alert(obj.__proto__); // [object Object] - the value is an object, didn't work as intended
+obj.__proto__ = 5; // присвояваме цифра
+alert(obj.__proto__); // [object Object] -стойността е обект, не проработи по предназначение
 ```
 
-As we see from the code, the assignment to a primitive `5` is ignored.
+Както виждаме от кода, задаването към примитивното `5` се игнорира.
 
-We'll cover the special nature of `__proto__` in [subsequent chapters](info:prototype-inheritance), and suggest the [ways to fix](info:prototype-methods) such behavior.
+Ще покрием специалния характер на `__proto__` в [следващите глави](info:prototype-inheritance), и да предложим [начини за поправяне](info:prototype-methods) на таково поведение.
 
-## Property existence test, "in" operator
+## Тест за съществуването на свойство, операторът "in"
 
-A notable feature of objects in JavaScript, compared to many other languages, is that it's possible to access any property. There will be no error if the property doesn't exist!
+Забележителна функция на обектите в JavaScript, в сравнение с много други езици, iе, че е възможен достъп до всяко свойство. Няма да има грешка, ако свойството не съществува!
 
-Reading a non-existing property just returns `undefined`. So we can easily test whether the property exists:
+Четенето на несъществуващо свойство просто връща `undefined`. Така можем лесно да тестваме дали свойството съществува:
 
 ```js run
 let user = {};
 
-alert( user.noSuchProperty === undefined ); // true means "no such property"
+alert( user.noSuchProperty === undefined ); // true означава "че няма подомно свойство"
 ```
 
-There's also a special operator `"in"` for that.
+Има и специален оператор `"in"` за тази цел.
 
-The syntax is:
+Синтаксисът е следния:
 ```js
 "key" in object
 ```
 
-For instance:
+Например:
 
 ```js run
 let user = { name: "John", age: 30 };
 
-alert( "age" in user ); // true, user.age exists
-alert( "blabla" in user ); // false, user.blabla doesn't exist
+alert( "age" in user ); // true, user.age съществува
+alert( "blabla" in user ); // false, user.blabla НЕ съществува
 ```
 
-Please note that on the left side of `in` there must be a *property name*. That's usually a quoted string.
+Моля, обърнете внимание, че от лявата страна на `in` трябва да има *име на свойство*. Това обикновено е низ с кавички.
 
-If we omit quotes, that means a variable, it should contain the actual name to be tested. For instance:
+Ако пропуснем кавички, това означава че е променлива, тя трябва да съдържа действителното име, което трябва да бъде тествано. Например:
 
 ```js run
 let user = { age: 30 };
 
 let key = "age";
-alert( *!*key*/!* in user ); // true, property "age" exists
+alert( *!*key*/!* in user ); // true, свойството "age" съществува
 ```
 
-Why does the `in` operator exist? Isn't it enough to compare against `undefined`?
+Защо `in` операторът съществува? Не е ли достатъчно да се сравнява с `undefined`?
 
-Well, most of the time the comparison with `undefined` works fine. But there's a special case when it fails, but `"in"` works correctly.
+Е, през повечето време сравнението с `undefined` работи достатъчно добре. Но има специален случай, когато не успява, а пък `"in"` се справя отлично.
 
-It's when an object property exists, but stores `undefined`:
+Това е, когато свойството на обекта съществува, но съхранява `undefined`:
 
 ```js run
 let obj = {
   test: undefined
 };
 
-alert( obj.test ); // it's undefined, so - no such property?
+alert( obj.test ); // то е undefined, така че - няма такова свойство?
 
-alert( "test" in obj ); // true, the property does exist!
+alert( "test" in obj ); // true, свойството съществува!
 ```
 
-In the code above, the property `obj.test` technically exists. So the `in` operator works right.
+В кода по-горе, свойството `obj.test` технически съществува. Така операторът `in` работи правилно.
 
-Situations like this happen very rarely, because `undefined` should not be explicitly assigned. We mostly use `null` for "unknown" or "empty" values. So the `in` operator is an exotic guest in the code.
+Ситуации като тази се случват много рядко, защото `undefined` не трябва да бъде изрично зададена.Използваме най-вече `null` за "непознати" или "празни" стойности. Така че `in` операторът е екзотичен гост в кода.
 
 
-## The "for..in" loop
+## Цикълът "for..in"
 
-To walk over all keys of an object, there exists a special form of the loop: `for..in`. This is a completely different thing from the `for(;;)` construct that we studied before.
+За да итерираме през всички ключове на обекта, съществува специална форма на цикъл: `for..in`. Това е съвсем различно нещо от обикновения `for(;;)` конструкция, която я научихме преди.
 
-The syntax:
+Синтаксисът:
 
 ```js
 for (key in object) {
-  // executes the body for each key among object properties
+  // изпълнява тялото за всеки ключ сред свойствата на обекта
 }
 ```
 
-For instance, let's output all properties of `user`:
+Например, нека изведем всички свойства на `user`:
 
 ```js run
 let user = {
@@ -401,24 +400,24 @@ let user = {
 };
 
 for (let key in user) {
-  // keys
+  // ключовете
   alert( key );  // name, age, isAdmin
-  // values for the keys
+  // стойностите за ключовете
   alert( user[key] ); // John, 30, true
 }
 ```
 
-Note that all "for" constructs allow us to declare the looping variable inside the loop, like `let key` here.
+Обърнете внимание, че всички "for" конструкции ни позволят да добавим цикличната променлива вътре в цикъла, като `let key` тук.
 
-Also, we could use another variable name here instead of `key`. For instance, `"for (let prop in obj)"` is also widely used.
+Освен това тук бихме могли да използваме друго име вместо `key`. например, `"for (let prop in obj)"` е широко използван.
 
-### Ordered like an object
+### Подредени като обект
 
-Are objects ordered? In other words, if we loop over an object, do we get all properties in the same order they were added? Can we rely on this?
+Подредени ли са обекти? С други думи, ако се изциклим върху обект, получаваме ли всички свойства в същия ред, в който бяха добавени? Можем ли да разчитаме на това?
 
-The short answer is: "ordered in a special fashion": integer properties are sorted, others appear in creation order. The details follow.
+Краткият отговор е: "подредени по специален начин": целочислените свойства са сортирани, други се появяват в реда си на създаване. Подробностите следват.
 
-As an example, let's consider an object with the phone codes:
+Като пример, нека разгледаме обект с телефонните кодове:
 
 ```js run
 let codes = {
@@ -436,56 +435,56 @@ for (let code in codes) {
 */!*
 ```
 
-The object may be used to suggest a list of options to the user. If we're making a site mainly for German audience then we probably want `49` to be the first.
+Обектът може да се използва, за да предложи на потребителя списък с опции. IАко правим сайт главно за немска публика, тогава вероятно искаме `49` да е първият.
 
-But if we run the code, we see a totally different picture:
+Но ако пуснем кода, виждаме съвсем различна картина:
 
-- USA (1) goes first
-- then Switzerland (41) and so on.
+- САЩ (1) отива на първо място
+- след това Швейцария (41) и т.н. .
 
-The phone codes go in the ascending sorted order, because they are integers. So we see `1, 41, 44, 49`.
+Телефонните кодове вървят във възходящ сортиран ред, защото те са цели числа. Така че виждаме `1, 41, 44, 49`.
 
-````smart header="Integer properties? What's that?"
-The "integer property" term here means a string that can be converted to-and-from an integer without a change.
+````smart header="Целочислени свойства? Какво са те?"
+Терминът "Целичислено свойство" означава низ, който може да бъде преобразуван от-и-към целочислена стойност без промяна.
 
-So, "49" is an integer property name, because when it's transformed to an integer number and back, it's still the same. But "+49" and "1.2" are not:
+Така, "49" е целочислено име на свойство, защото когато се трансформира в цяло число и обратно, и все още е същото. Но "+49" и "1.2" не са:
 
 ```js run
-// Math.trunc is a built-in function that removes the decimal part
-alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property
-alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
-alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
+// Math.trunc е вградена функция, която премахва десетичната част
+alert( String(Math.trunc(Number("49"))) ); // "49", същото, цяло число
+alert( String(Math.trunc(Number("+49"))) ); // "49", не е същото "+49" ⇒ не е цяло число
+alert( String(Math.trunc(Number("1.2"))) ); // "1", не е същото "1.2" ⇒ не е цяло число
 ```
 ````
 
-...On the other hand, if the keys are non-integer, then they are listed in the creation order, for instance:
+...От друга страна, ако ключовете не са цели числа, те са добавени в реда на създаване, например:
 
 ```js run
 let user = {
   name: "John",
   surname: "Smith"
 };
-user.age = 25; // add one more
+user.age = 25; // добавя още една
 
 *!*
-// non-integer properties are listed in the creation order
+// нецелочислените свойства са добавени в реда на създаване
 */!*
 for (let prop in user) {
   alert( prop ); // name, surname, age
 }
 ```
 
-So, to fix the issue with the phone codes, we can "cheat" by making the codes non-integer. Adding a plus `"+"` sign before each code is enough.
+И така, за да отстраним проблема с телефонните кодове, можем "да измамим" като прави кодовете нецелочислени.Добавяне на плюс `"+"` преди всеки код е достатъчен.
 
-Like this:
+Като тук:
 
 ```js run
 let codes = {
-  "+49": "Germany",
-  "+41": "Switzerland",
-  "+44": "Great Britain",
+  "+49": "Германия",
+  "+41": "Швейцария",
+  "+44": "Великобритания",
   // ..,
-  "+1": "USA"
+  "+1": "САЩ"
 };
 
 for (let code in codes) {
@@ -493,34 +492,34 @@ for (let code in codes) {
 }
 ```
 
-Now it works as intended.
+Сега работи по предназначение.
 
-## Summary
+## Обобщение
 
-Objects are associative arrays with several special features.
+Обектите са асоциативни масиви с няколко специални характеристики.
 
-They store properties (key-value pairs), where:
-- Property keys must be strings or symbols (usually strings).
-- Values can be of any type.
+Те съхраняват свойства (двойки от ключ-стойност), където:
+- Свойствените ключове трябва да са низове или символи (обикновено са низове).
+- Стойностите могат да бъдат от всякакъв тип.
 
-To access a property, we can use:
-- The dot notation: `obj.property`.
-- Square brackets notation `obj["property"]`. Square brackets allow to take the key from a variable, like `obj[varWithKey]`.
+За достъпим свойството можем да използваме:
+- Точката нотация: `obj.property`.
+- Нотация на квадратни скоби: `obj["property"]`. Квадратните скоби ни позволяват да вземаме ключ от променливата, например `obj[varWithKey]`.
 
-Additional operators:
-- To delete a property: `delete obj.prop`.
-- To check if a property with the given key exists: `"key" in obj`.
-- To iterate over an object: `for (let key in obj)` loop.
+Допълнителни оператори:
+- За да изтриете свойство: `delete obj.prop`.
+- За да проверите дали свойството с дадения ключ съществува: `"key" in obj`.
+- За да итерирате над обекта: цикъл от `for (let key in obj)`.
 
-What we've studied in this chapter is called a "plain object", or just `Object`.
+Това, което сме проучили в тази глава, се нарича "обикновен обект", или просто `Обект`.
 
-There are many other kinds of objects in JavaScript:
+Има много други видове обекти в JavaScript:
 
-- `Array` to store ordered data collections,
-- `Date` to store the information about the date and time,
-- `Error` to store the information about an error.
-- ...And so on.
+- `Array` за съхраняване на подредени колекции от данни,
+- `Date` за съхраняване на информация за датата и часа,
+- `Error` за съхраняване на информация относно грешка.
+- ...И много други.
 
-They have their special features that we'll study later. Sometimes people say something like "Array type" or "Date type", but formally they are not types of their own, but belong to a single "object" data type. And they extend it in various ways.
+Те имат своите особености, които ще ги изучим по-късно. Понякога хората казват нещо като "Тип масив" или "Тип данни", но формално те не са свои собствени типове, а принадлежат към "обект" от един и същ тип данни. И се разширяват по различни начини.
 
-Objects in JavaScript are very powerful. Here we've just scratched the surface of a topic that is really huge. We'll be closely working with objects and learning more about them in further parts of the tutorial.
+Обектите в JavaScript са много мощни. Тук току-що надраскахме повърхността на тема, която е наистина огромна. Ще работим в тясно сътрудничество с обектите и ще научим повече за тях в другите части на това ръководство.

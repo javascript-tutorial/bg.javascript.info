@@ -2,13 +2,13 @@ importance: 5
 
 ---
 
-# Hello, object
+# Здравей, обект
 
-Write the code, one line for each action:
+Напишете код, по един ред за всяко действие:
 
-1. Create an empty object `user`.
-2. Add the property `name` with the value `John`.
-3. Add the property `surname` with the value `Smith`.
-4. Change the value of the `name` to `Pete`.
-5. Remove the property `name` from the object.
+1. Създайте празен обект `user`.
+2. Добавете свойство `name` със стойност `John`.
+3. Добавете свойство `surname` със стойност `Smith`.
+4. Променете стойността на `name` на `Pete`.
+5. Изтрийте свойството `name` от обекта.
 
