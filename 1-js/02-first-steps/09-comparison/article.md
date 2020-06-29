@@ -9,7 +9,13 @@
 - Равно: `a == b` (моля, обърнете внимание на знака с двойно равно `=`.Единичният знак `a = b` означава присвояване).
 - Неравенство. В математиката се изписва като <code>&ne;</code>, но в JavaScript се записва със знака за присвояване с удивителна пред него: <code>a != b</code>.
 
+<<<<<<< HEAD
 В тази статия ще научим повече за различните видове сравнения, как ги прави JavaScript, включително важни особености.
+=======
+In this article we'll learn more about different types of comparisons, how JavaScript makes them, including important peculiarities. 
+
+At the end you'll find a good recipe to avoid "javascript quirks"-related issues.
+>>>>>>> 340ce4342100f36bb3c4e42dbe9ffa647d8716c8
 
 ## Резултатът е от булев тип
 
@@ -21,10 +27,17 @@
 Например:
 
 ```js run
+<<<<<<< HEAD
 alert( 2 > 1 );  // true (правилно)
 alert( 2 == 1 ); // false (грешно)
 alert( 2 != 1 ); // true (истина)
 ```
+=======
+alert( 2 > 1 );  // true (correct)
+alert( 2 == 1 ); // false (wrong)
+alert( 2 != 1 ); // true (correct)
+``` 
+>>>>>>> 340ce4342100f36bb3c4e42dbe9ffa647d8716c8
 
 Резултатът от сравнение може да бъде присвоен на променлива, както всяка друга стойност:
 
@@ -198,6 +211,7 @@ alert( undefined == 0 ); // грешно (3)
 - Сравнения `(1)` и `(2)` връщат `грешно`, защото `undefined` се преобразува в `NaN` и `NaN`е специален числов тип, който връща `false` за всички сравнения.
 - Проверката за равенство `(3)` връща `грешно`, защото `undefined` е равно само на `null`, `undefined`, и на никоя друга стойност.
 
+<<<<<<< HEAD
 ### Избягвайте проблемите
 
 Защо прегледахме тези примери? Трябва ли да помним тези особености през цялото време? Е, всъщност не. Всъщност тези сложни неща постепенно ще станат познати с течение на времето, но има солиден начин да избягвате проблемите с тях:
@@ -205,6 +219,14 @@ alert( undefined == 0 ); // грешно (3)
 Просто третирайте всяко сравнение с `undefined/null`, с изключение на строгото равенство `===`, с огромно внимание.
 
 Не използвайте сравненията `>= > < <=` със стойност, която може да е `null/undefined`, освен ако наистина не сте сигурни в това, което правите. Ако променлива може да има тези стойности, проверете ги отделно.
+=======
+### Avoid problems
+
+Why did we go over these examples? Should we remember these peculiarities all the time? Well, not really. Actually, these tricky things will gradually become familiar over time, but there's a solid way to avoid problems with them:
+
+- Treat any comparison with `undefined/null` except the strict equality `===` with exceptional care.
+- Don't use comparisons `>= > < <=` with a variable which may be `null/undefined`, unless you're really sure of what you're doing. If a variable can have these values, check for them separately.
+>>>>>>> 340ce4342100f36bb3c4e42dbe9ffa647d8716c8
 
 ## Обобщение
 
