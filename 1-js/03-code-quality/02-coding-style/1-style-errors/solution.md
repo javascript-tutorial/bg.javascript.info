@@ -10,12 +10,21 @@ function pow(x,n)  // <- няма разстояние между аргумен
   return result;
 }
 
+<<<<<<< HEAD
 let x=prompt("x?",''), n=prompt("n?",'') // <-- технически е възможно,
 // но по-добре да е на 2 реда. Също така няма разстояние и липсва ;
 if (n<0)  // <- няма разстояние вътре в скобите (n < 0) и също така трябва да има допълнителен ред над него
 {   // <- фигуративната скоба е на отделен ред
   // долу - дългите редове може да се разделят на множество редове с по-мака дължина, за по-добра четимост
   alert(`Степента ${n} не се поддържа, моля въведете цяло число, по-голямо от нула`);
+=======
+let x=prompt("x?",''), n=prompt("n?",'') // <-- technically possible,
+// but better make it 2 lines, also there's no spaces and missing ;
+if (n<=0)  // <- no spaces inside (n <= 0), and should be extra line above it
+{   // <- figure bracket on a separate line
+  // below - long lines can be split into multiple lines for improved readability
+  alert(`Power ${n} is not supported, please enter an integer number greater than zero`);
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 }
 else // <- може да се напише на един ред като "} else {"
 {
@@ -39,9 +48,15 @@ function pow(x, n) {
 let x = prompt("x?", "");
 let n = prompt("n?", "");
 
+<<<<<<< HEAD
 if (n < 0) {
   alert(`Степен ${n} не се поддържа,
     моля въведете цяло число, по-голямо от нула`);
+=======
+if (n <= 0) {
+  alert(`Power ${n} is not supported,
+    please enter an integer number greater than zero`);
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 } else {
   alert( pow(x, n) );
 }
