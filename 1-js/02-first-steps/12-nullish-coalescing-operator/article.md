@@ -60,15 +60,27 @@ alert(height || 100); // 100
 alert(height ?? 100); // 0
 ```
 
+<<<<<<< HEAD
 Тук, `height || 100` третира нулевата височина като неустановена, също като `null`, `undefined` или всяка друга невярна стойност. Така нулата става `100`.
 
 Кодът `height ?? 100` връща `100` само ако `height` е точно `null` или `undefined`. Така че нулата остава "както си е".
 
 Кое поведение е по-добре зависи от конкретния случай на употреба. Когато нулевата височина е валидна стойност, което не трябва да пипаме, тогава `??` е за предпочитане.
+=======
+Here, `height || 100` treats zero height as unset, same as `null`, `undefined` or any other falsy value. So the result is `100`.
+
+The `height ?? 100` returns `100` only if `height` is exactly `null` or `undefined`. So the `alert` shows the height value `0` "as is".
+
+Which behavior is better depends on a particular use case. When zero height is a valid value, then `??` is preferrable.
+>>>>>>> b0464bb32c8efc2a98952e05f363f61eca1a99a2
 
 ## Предимства
 
+<<<<<<< HEAD
 Предимствата на оператора `??` са доста ниски: `7` в [MDN таблицата](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
+=======
+The precedence of the `??` operator is rather low: `5` in the [MDN table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
+>>>>>>> b0464bb32c8efc2a98952e05f363f61eca1a99a2
 
 Така `??` се оценява след повечето други операции, но преди `=` и `?`.
 
