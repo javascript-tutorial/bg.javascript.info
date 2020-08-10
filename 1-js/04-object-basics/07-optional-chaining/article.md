@@ -40,8 +40,12 @@ alert( user && user.address && user.address.street ); // undefined (Няма г�
 
 Поизборната верига `?.` спира веригата и връща `undefined` ако парчето преди `?.` е `undefined` или `null`.
 
+<<<<<<< HEAD
 По-нататък в тази статия, за краткост, ще кажем, че нещо "съществува" ако не е `null` или `undefined`.
 
+=======
+**Further in this article, for brevity, we'll be saying that something "exists" if it's not `null` and not `undefined`.**
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 Ето сигурния начин за достъп `user.address.street`:
 
@@ -57,14 +61,20 @@ alert( user?.address?.street ); // undefined (Няма грешка)
 let user = null;
 
 alert( user?.address ); // undefined
-
 alert( user?.address.street ); // undefined
-alert( user?.address.street.anything ); // undefined
 ```
 
+<<<<<<< HEAD
 Моля обърнете внимание: синтаксисът `?.` работи точно там, където е поставен, но не повече.
 
 В последните два реда изпълнението спира веднага след `user?.` и никога няма да достъпи други свойства. Но ако `user` беше съществувал, тогава следващите междинни свойства, като `user.address`, трябва да съществуват.
+=======
+Please note: the `?.` syntax makes optional the value before it, but not any further.
+
+In the example above, `user?.` allows only `user` to be `null/undefined`.
+
+On the other hand, if `user` does exist, then it must have `user.address` property, otherwise `user?.address.street` gives an error at the second dot.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 ```warn header="Не прекалявайте с поизборната верига"
 Трябва да използваме `?.` само когато е добре, че нещо не съществува.
@@ -74,15 +84,24 @@ alert( user?.address.street.anything ); // undefined
 Така че, ако `user` по някаква грешка е `undefined`, ще знаем за това и ще го оправим. Иначе, грешки в кода могат да бъдат заглушени, когато не е подходящо, и ще стават по-трудни за отстраняване.
 ```
 
+<<<<<<< HEAD
 ````warn header="Променливата преди `?.` трябва да съществува!"
 Ако не съществуваше променлива `user`, тогава `user?.anything` задейства грешка:
+=======
+````warn header="The variable before `?.` must be declared"
+If there's no variable `user` at all, then `user?.anything` triggers an error:
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 ```js run
 // ReferenceError: user is not defined
 // Грешка при рефериране: user не съществува
 user?.address;
 ```
+<<<<<<< HEAD
 Поизборната верига тестове само за `null/undefined`, не пречи на друга езикова механика.
+=======
+There must be `let/const/var user`. The optional chaining works only for declared variables. 
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 ````
 
 ## Short-circuiting или т.нар Късо съединение

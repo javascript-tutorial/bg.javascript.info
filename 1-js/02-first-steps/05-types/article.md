@@ -66,7 +66,11 @@ n = 12.345;
 
 ## BigInt
 
+<<<<<<< HEAD
 В JavaScript, типът "number" не може да представлява цели числа, по-големи от <code>(2<sup>53</sup>-1)</code> (това е `9007199254740991`), или по-малко от <code>-(-2<sup>53</sup>-1)</code> за отрицателни цисла. Това е техническо ограничение, причинено от вътрешното им представителство.
+=======
+In JavaScript, the "number" type cannot represent integer values larger than <code>(2<sup>53</sup>-1)</code> (that's `9007199254740991`), or less than <code>-(2<sup>53</sup>-1)</code> for negatives. It's a technical limitation caused by their internal representation.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 За повечето цели това е напълно достатъчно, но понякога се нуждаем от наистина големи числа, напр. за криптография или микросекунда с точност.
 

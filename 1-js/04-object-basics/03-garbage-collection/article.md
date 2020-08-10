@@ -23,7 +23,11 @@
 
 2. Всяка друга стойност се счита за достижима, ако е достижима от корен чрез референция или от верига от референции.
 
+<<<<<<< HEAD
     Например, ако имаме обект в локална променлива, и този обект има свойство рефериращо друг обект, то този обект се смята достижим. И тези, които то реферира също за достъпни. Ето подробни примери.
+=======
+    For instance, if there's an object in a global variable, and that object has a property referencing another object, that object is considered reachable. And those that it references are also reachable. Detailed examples to follow.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 Има основен фонов процес в JavaScript двигателя, който се нарича [garbage collector](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) (т.н. Събирач на отпадъци). Той следи всички обекти и премахва тези, които са станали недостъпни.
 
