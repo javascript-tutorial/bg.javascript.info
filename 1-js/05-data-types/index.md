@@ -1,3 +1,3 @@
-# Data types
+# Типове данни
 
-More data structures and more in-depth study of the types.
+Повече структури от данни и по-задълбочено проучване на типовете данни.
