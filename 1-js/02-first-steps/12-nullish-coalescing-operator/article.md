@@ -68,11 +68,7 @@ alert(height ?? 100); // 0
 
 ## Предимства
 
-<<<<<<< HEAD
 Предимствата на оператора `??` са доста ниски: `5` в [MDN таблицата](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
-=======
-The precedence of the `??` operator is rather low: `5` in the [MDN table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
->>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 Така `??` се оценява след повечето други операции, но преди `=` и `?`.
 
