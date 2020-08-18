@@ -80,7 +80,11 @@ let user = 'John'
   , message = 'Hello';
 ```
 
+<<<<<<< HEAD
 Технически, всички тези варианти правят едно и също нещо. Така че, това е въпрос на личен вкус и естетика.
+=======
+Technically, all these variants do the same thing. So, it's a matter of personal taste and aesthetics.
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 ````smart header="`var` instead of `let`"
 В по-стари скриптовете, можете да намерите и друга ключова дума: `var` вместо `let`:
@@ -136,6 +140,20 @@ alert(hello); // Hello world!
 alert(message); // Hello world!
 ```
 
+````warn header="Declaring twice triggers an error"
+A variable should be declared only once.
+
+A repeated declaration of the same variable is an error:
+
+```js run
+let message = "This";
+
+// repeated 'let' leads to an error
+let message = "That"; // SyntaxError: 'message' has already been declared
+```
+So, we should declare a variable once and then refer to it without `let`.
+````
+
 ```smart header="Functional languages"
 Интересно е да бележим, че съществува [функционални](https://bg.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5) програмни езици, като [Scala](http://www.scala-lang.org/) или [Erlang](http://www.erlang.org/), които забраняват промяната на стойностите на променливите.
 
@@ -190,7 +208,11 @@ let имя = '...';
 let 我 = '...';
 ```
 
+<<<<<<< HEAD
 Технически няма грешка тука, такива имена са позволени, но има международна традиция да се използва английския език при писане на имена на променливи. Дори ако пишем малък скрипт, това може да има дълъг живот за напред. На хората от други страни може да им се наложи да ги прочетат някое време.
+=======
+Technically, there is no error here. Such names are allowed, but there is an international convention to use English in variable names. Even if we're writing a small script, it may have a long life ahead. People from other countries may need to read it some time.
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 ````
 
 ````warn header="Reserved names"
