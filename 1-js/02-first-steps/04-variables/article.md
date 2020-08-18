@@ -80,11 +80,7 @@ let user = 'John'
   , message = 'Hello';
 ```
 
-<<<<<<< HEAD
 Технически, всички тези варианти правят едно и също нещо. Така че, това е въпрос на личен вкус и естетика.
-=======
-Technically, all these variants do the same thing. So, it's a matter of personal taste and aesthetics.
->>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 ````smart header="`var` instead of `let`"
 В по-стари скриптовете, можете да намерите и друга ключова дума: `var` вместо `let`:
@@ -208,11 +204,7 @@ let имя = '...';
 let 我 = '...';
 ```
 
-<<<<<<< HEAD
 Технически няма грешка тука, такива имена са позволени, но има международна традиция да се използва английския език при писане на имена на променливи. Дори ако пишем малък скрипт, това може да има дълъг живот за напред. На хората от други страни може да им се наложи да ги прочетат някое време.
-=======
-Technically, there is no error here. Such names are allowed, but there is an international convention to use English in variable names. Even if we're writing a small script, it may have a long life ahead. People from other countries may need to read it some time.
->>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 ````
 
 ````warn header="Reserved names"
