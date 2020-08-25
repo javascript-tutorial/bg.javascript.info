@@ -4,7 +4,7 @@ function readNumber() {
   let num;
 
   do {
-    num = prompt("Enter a number please?", 0);
+    num = prompt("Моля въведете число:", 0);
   } while ( !isFinite(num) );
 
   if (num === null || num === '') return null;
@@ -12,12 +12,12 @@ function readNumber() {
   return +num;
 }
 
-alert(`Read: ${readNumber()}`);
+alert(`Числото е: ${readNumber()}`);
 ```
 
-The solution is a little bit more intricate that it could be because we need to handle `null`/empty lines.
+Решението е малко по-сложно, отколко би трябвало, защото трябва да се справим с `null`/празни линии.
 
-So we actually accept the input until it is a "regular number". Both `null` (cancel) and empty line also fit that condition, because in numeric form they are `0`.
+Така че ние всъщност приемаме входа, докато не е "обикновенно число". И двете `null` (отказ) и празни линии също отговарят на това условие, защото в числова форма те са `0`.
 
-After we stopped, we need to treat `null` and empty line specially (return `null`), because converting them to a number would return `0`.
+След като спряхме, трябва да третираме `null` и празните линии по специален начин (връщаме `null`), защото преобразуването им в число ще се превърне в `0`.
 

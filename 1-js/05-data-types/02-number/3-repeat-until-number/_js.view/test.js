@@ -6,31 +6,31 @@ afterEach(function() {
   prompt.restore();
 });
 
-describe("readNumber", function() {
+describe("Тестване на функцията 'readNumber'", function() {
 
-  it("if a number, returns it", function() {
+  it("Ако е число го връща", function() {
     prompt.returns("123");
     assert.strictEqual(readNumber(), 123);
   });
 
-  it("if 0, returns it", function() {
+  it("Ако е 0 го връща", function() {
     prompt.returns("0");
     assert.strictEqual(readNumber(), 0);
   });
 
-  it("continues the loop until meets a number", function() {
-    prompt.onCall(0).returns("not a number");
-    prompt.onCall(1).returns("not a number again");
+  it("продължава цикъла, докато срещне число", function() {
+    prompt.onCall(0).returns("не е число");
+    prompt.onCall(1).returns("не е число, отново");
     prompt.onCall(2).returns("1");
     assert.strictEqual(readNumber(), 1);
   });
 
-  it("if an empty line, returns null", function() {
+  it("Ако са празни линии връща null", function() {
     prompt.returns("");
     assert.isNull(readNumber());
   });
 
-  it("if cancel, returns null", function() {
+  it("Ако потребителят е отказал, връща null", function() {
     prompt.returns(null);
     assert.isNull(readNumber());
   });

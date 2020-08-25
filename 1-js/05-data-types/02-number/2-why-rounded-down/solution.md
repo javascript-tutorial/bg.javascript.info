@@ -1,33 +1,33 @@
-Internally the decimal fraction `6.35` is an endless binary. As always in such cases, it is stored with a precision loss.
+Вътрешната десетична дроб на `6.35` е безкраен. Както винаги и в такива случай, тя се съхранява с загуба на точност.
 
-Let's see:
+Нека да видим:
 
 ```js run
 alert( 6.35.toFixed(20) ); // 6.34999999999999964473
 ```
 
-The precision loss can cause both increase and decrease of a number. In this particular case the number becomes a tiny bit less, that's why it rounded down.
+Загубата на точност може да доведе както до увеличаване, така и до намаляване на числото. В този конкретен случай числото става малко по-малко, затова се закръгли надолу.
 
-And what's for `1.35`?
+И какво за `1.35`?
 
 ```js run
 alert( 1.35.toFixed(20) ); // 1.35000000000000008882
 ```
 
-Here the precision loss made the number a little bit greater, so it rounded up.
+Тук загубата на точност направи номера малко по-голям, така че се закръгля нагоре.
 
-**How can we fix the problem with `6.35` if we want it to be rounded the right way?**
+**Как можем да отстраним проблема с `6.35` ако искаме то да бъде закръглено по правилния начин?**
 
-We should bring it closer to an integer prior to rounding:
+Трябва да го приближим до цяло число преди закръглянето:
 
 ```js run
 alert( (6.35 * 10).toFixed(20) ); // 63.50000000000000000000
 ```
 
-Note that `63.5` has no precision loss at all. That's because the decimal part `0.5` is actually `1/2`. Fractions divided by powers of `2` are exactly represented in the binary system, now we can round it:
+Забележете че `63.5` почти няма загуба на точност.Това е така, защото десетичната част `0.5` реално е `1/2`. Дроби, разделени на `2` са точно представени в двоичната система, затова сега можем да го закръглим:
 
 
 ```js run
-alert( Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(rounded) -> 6.4
+alert( Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(закръглен) -> 6.4
 ```
 

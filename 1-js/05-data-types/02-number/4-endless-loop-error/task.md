@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# An occasional infinite loop
+# Пореден безкраен цикъл
 
-This loop is infinite. It never ends. Why?
+Този цикъл е безкраен. Никога не свършва. Защо?
 
 ```js
 let i = 0;

@@ -1,9 +1,9 @@
-We need to "map" all values from the interval 0..1 into values from `min` to `max`.
+Трябва да "съчетем" всички стойности от интервала 0..1 в стойностите от `min` до `max`.
 
-That can be done in two stages:
+Това може да се направи на два етапа:
 
-1. If we multiply a random number from 0..1 by `max-min`, then the interval of possible values increases `0..1` to `0..max-min`.
-2. Now if we add `min`, the possible interval becomes from `min` to `max`.
+1. Ако умножим произволно число от 0..1 до `max-min`, тогава интервалът на възможните стойности се увеличава от `0..1` до `0..max-min`.
+2. Сега ако добавим `min`, възможният интервал става от `min` до `max`.
 
 The function:
 
