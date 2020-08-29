@@ -1,22 +1,21 @@
+# Основен синтаксис на класовете
 
-# Class basic syntax
-
-```quote author="Wikipedia"
-In object-oriented programming, a *class* is an extensible program-code-template for creating objects, providing initial values for state (member variables) and implementations of behavior (member functions or methods).
+```quote author="Уикипедия"
+В обектно-ориентираното програмиране, *клас* е разширяем програмен код-шаблон за създаване на обекти, осигурявайки първоначални стойности за състоянието(свойствата) и имплементациите на поведението(функциите и методите).
 ```
 
-In practice, we often need to create many objects of the same kind, like users, or goods or whatever.
+На практика често ни се налага да създаваме много обекти от един и същи вид, като потребители, стоки или каквото и да било.
 
-As we already know from the chapter <info:constructor-new>, `new function` can help with that.
+Както вече знаем от главата <info:constructor-new>, `new function` може да помогне с това.
 
-But in the modern JavaScript, there's a more advanced "class" construct, that introduces great new features which are useful for object-oriented programming.
+Но в модерния JavaScript, има по-напреднал конструктор за "класовете" , което въвежда страхотни нови функции, които са полезни за обектно-ориентирано програмиране
 
-## The "class" syntax
+## Синтаксис на "клас"
 
-The basic syntax is:
+Основният синтаксис е:
 ```js
 class MyClass {
-  // class methods
+  // методи на класа
   constructor() { ... }
   method1() { ... }
   method2() { ... }
@@ -25,11 +24,11 @@ class MyClass {
 }
 ```
 
-Then use `new MyClass()` to create a new object with all the listed methods.
+После използваме `new MyClass()` за да създадем нов обект с всички изброени методи.
 
-The `constructor()` method is called automatically by `new`, so we can initialize the object there.
+Методът `constructor()` се извиква автоматично от `new`, за да можем да инициализираме обекта.
 
-For example:
+Например:
 
 ```js run
 class User {
@@ -44,33 +43,34 @@ class User {
 
 }
 
-// Usage:
+// Употреба:
 let user = new User("John");
 user.sayHi();
 ```
 
-When `new User("John")` is called:
-1. A new object is created.
-2. The `constructor` runs with the given argument and assigns `this.name` to it.
+Когато `new User("John")` е извикано:
 
-...Then we can call object methods, such as `user.sayHi()`.
+1. Създава се нов обект.
+2. Извиква се `constructor`, което работи с дадения аргумент и присвоява `this.name` към обекта.
+
+...Тогава можем да извикнем обектни методи, като например `user.sayHi()`.
 
 
-```warn header="No comma between class methods"
-A common pitfall for novice developers is to put a comma between class methods, which would result in a syntax error.
+```warn header="Няма запетая между методите на класа"
+Често срещан проблем при начинаещите разработчици е да поставят запетая между методите на класа, което би довело до грешка в синтаксиса.
 
-The notation here is not to be confused with object literals. Within the class, no commas are required.
+Обозначението тук не трябва да се бърка с литералите обектите. В рамките на класа не се изискват запетаи.
 ```
 
-## What is a class?
+## Какво е клас?
 
-So, what exactly is a `class`? That's not an entirely new language-level entity, as one might think.
+Така, какво точно е `клас`? Това не е съвсем изцяло нова единица на езиково ниво, както някои могат да си помислят.
 
-Let's unveil any magic and see what a class really is. That'll help in understanding many complex aspects.
+Нека разкрием всяка магия и да видим какво всъщност представлява клас. Това ще помогне за разбирането на много сложни аспекти.
 
-In JavaScript, a class is a kind of function.
+В JavaScript, клас е вид функция.
 
-Here, take a look:
+Ето, погледнете:
 
 ```js run
 class User {
@@ -78,24 +78,24 @@ class User {
   sayHi() { alert(this.name); }
 }
 
-// proof: User is a function
+// доказателство: Потребителят е функция
 *!*
-alert(typeof User); // function
+alert(typeof User); // функция
 */!*
 ```
 
-What `class User {...}` construct really does is:
+Ето какво точно прави `class User {...}` конструкторът:
 
-1. Creates a function named `User`, that becomes the result of the class declaration. The function code is taken from the `constructor` method (assumed empty if we don't write such method).
-2. Stores class methods, such as `sayHi`, in `User.prototype`.
+1. Създава функция с име `User`, това става резултат от декларацията за клас. Функционалният код се взема от `constructor` метода (приема се празен, ако не напишем такъв метод).
+2. Съхранява методи на класа, като например `sayHi`, в `User.prototype`.
 
-After `new User` object is created, when we call its method, it's taken from the prototype, just as described in the chapter <info:function-prototype>. So the object has access to class methods.
+След като `new User` обекта е създаден, когато извикаме неговия метод, то се взима от прототипа, точно както е описано в главата <info:function-prototype>. Така обектът има достъп до методите на класа.
 
-We can illustrate the result of `class User` declaration as:
+Можем да илюстрираме резултата от `class User` декларацията:
 
 ![](class-user.svg)
 
-Here's the code to introspect it:
+Ето код за интроспекция:
 
 ```js run
 class User {
@@ -103,50 +103,50 @@ class User {
   sayHi() { alert(this.name); }
 }
 
-// class is a function
-alert(typeof User); // function
+// класът е функция
+alert(typeof User); // функция
 
-// ...or, more precisely, the constructor method
+// ...или, по-точно, методът на конструктора
 alert(User === User.prototype.constructor); // true
 
-// The methods are in User.prototype, e.g:
+// Методите са в User.prototype:
 alert(User.prototype.sayHi); // alert(this.name);
 
-// there are exactly two methods in the prototype
+// има точно два метода в User.prototype
 alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
 ```
 
-## Not just a syntactic sugar
+## Не е просто синтактична захар
 
-Sometimes people say that `class` is a "syntactic sugar" (syntax that is designed to make things easier to read, but doesn't introduce anything new), because we could actually declare the same without `class` keyword at all:
+Понякога хората казват, че `class` е "синтактична захар" (синтаксис, който е предназначен да улесни нещата за четене, но не въвежда нищо ново), защото всъщност бихме могли да декларираме същото без ключовата дума `class`:
 
 ```js run
-// rewriting class User in pure functions
+// пренаписване на клас Потребител с "pure" функции
 
-// 1. Create constructor function
+// 1. Създайте функция конструктор
 function User(name) {
   this.name = name;
 }
-// a function prototype has "constructor" property by default,
-// so we don't need to create it
+// прототипът на функция има свойство "constructor" по подразбиране,
+// така че няма нужда да го създаваме
 
-// 2. Add the method to prototype
+// 2. Добавете метода към прототипa
 User.prototype.sayHi = function() {
   alert(this.name);
 };
 
-// Usage:
+// Употреба:
 let user = new User("John");
 user.sayHi();
 ```
 
-The result of this definition is about the same. So, there are indeed reasons why `class` can be considered a syntactic sugar to define a constructor together with its prototype methods.
+Резултатът от това определение е приблизително същия. Така че, наистина има причини `class` може да се счита за синтактична захар за дефиниране на конструктор заедно с неговите методи на прототип.
 
-Still, there are important differences.
+Все пак има важни разлики.
 
-1. First, a function created by `class` is labelled by a special internal property `[[FunctionKind]]:"classConstructor"`. So it's not entirely the same as creating it manually.
+1.Първо функция, създадена от `class` е обозначен със специален вътрешно свойство `[[FunctionKind]]:"classConstructor"`. Така че не е напълно същото като създаването му ръчно.
 
-    The language checks for that property in a variety of places. For example, unlike a regular function, it must be called with `new`:
+    Езикът проверява за това свойство на различни места. Например, за разлика от обикновената функция, тя трябва да бъде извикана с `new`:
 
     ```js run
     class User {
@@ -155,9 +155,10 @@ Still, there are important differences.
 
     alert(typeof User); // function
     User(); // Error: Class constructor User cannot be invoked without 'new'
+            // Грешка: Конструкторът на класa User не може да бъде извикан без "new"
     ```
 
-    Also, a string representation of a class constructor in most JavaScript engines starts with the "class..."
+   Също така, низовото представяне на конструктор а на класа в повечето JavaScript двигатели започва с "class..."
 
     ```js run
     class User {
@@ -166,23 +167,23 @@ Still, there are important differences.
 
     alert(User); // class User { ... }
     ```
-    There are other differences, we'll see them soon.
+    Има и други разлики, ще ги видим скоро.
 
-2. Class methods are non-enumerable.
-    A class definition sets `enumerable` flag to `false` for all methods in the `"prototype"`.
+1. Методите на класа не са изброими.
+    Дефиницията на класа поставя `enumerable` флаг на `false` за всички методи в `"prototype"`.
 
-    That's good, because if we `for..in` over an object, we usually don't want its class methods.
+    Това е добре, защото ако ние изциклим с `for..in` над обект, обикновено не искаме методите му.
 
-3. Classes always `use strict`.
-    All code inside the class construct is automatically in strict mode.
+2. Класовете винаги използват `use strict`.
+    Целият код в рамките на конструкта на класа автоматично е в строг режим.
 
-Besides, `class` syntax brings many other features that we'll explore later.
+Освен това, `class` синтаксисът носи много други функции, които ще проучим по-късно.
 
-## Class Expression
+## Израз на класа
 
-Just like functions, classes can be defined inside another expression, passed around, returned, assigned, etc.
+Също като функциите, класовете могат да бъдат определени в друг израз, да бъдат подавани наоколо, да бъдят връщани, да бъдят присвоявани, и т.н. .
 
-Here's an example of a class expression:
+Ето пример за израз на клас:
 
 ```js
 let User = class {
@@ -192,29 +193,29 @@ let User = class {
 };
 ```
 
-Similar to Named Function Expressions, class expressions may have a name.
+Подобно на "Named Function Expression" (наименуваните изрази на функциите), изразите на класовете могат да имат име.
 
-If a class expression has a name, it's visible inside the class only:
+Ако изразът на класа има име, то е видимо само отвътре в класа:
 
 ```js run
-// "Named Class Expression"
-// (no such term in the spec, but that's similar to Named Function Expression)
+// "Named Class Expression" - Наименуван израз на клас
+// (няма такъв термин в спецификацията, но това е подобно на Named Function Expression)
 let User = class *!*MyClass*/!* {
   sayHi() {
-    alert(MyClass); // MyClass name is visible only inside the class
+    alert(MyClass); // Името MyClass се вижда само в класа
   }
 };
 
-new User().sayHi(); // works, shows MyClass definition
+new User().sayHi(); // работи и показва дефиницията за MyClass
 
-alert(MyClass); // error, MyClass name isn't visible outside of the class
+alert(MyClass); // грешка, името MyClass не е видимо извън класа
 ```
 
-We can even make classes dynamically "on-demand", like this:
+Можем дори да правим класове динамично "при поискване", като този:
 
 ```js run
 function makeClass(phrase) {
-  // declare a class and return it
+  // декларираме клас и го връщаме
   return class {
     sayHi() {
       alert(phrase);
@@ -222,24 +223,23 @@ function makeClass(phrase) {
   };
 }
 
-// Create a new class
+// СЪздаваме нов клас
 let User = makeClass("Hello");
 
 new User().sayHi(); // Hello
 ```
 
-
 ## Getters/setters
 
-Just like literal objects, classes may include getters/setters, computed properties etc.
+Точно като литералните обекти, класовете могат да включват getters / setters (методи, които връщат свойствата на обекта или присвояват им данни по специален контролиран начин), изчислени свойства и др. .
 
-Here's an example for `user.name` implemented using `get/set`:
+Ето пример за имплементацията на `user.name` използвайки методите `get/set`:
 
 ```js run
 class User {
 
   constructor(name) {
-    // invokes the setter
+    // извиква setter метода
     this.name = name;
   }
 
@@ -253,7 +253,7 @@ class User {
   set name(value) {
 */!*
     if (value.length < 4) {
-      alert("Name is too short.");
+      alert("Името е твърде кратко!");
       return;
     }
     this._name = value;
@@ -264,14 +264,14 @@ class User {
 let user = new User("John");
 alert(user.name); // John
 
-user = new User(""); // Name is too short.
+user = new User(""); // Името е твърде кратко!
 ```
 
-Technically, such class declaration works by creating getters and setters in `User.prototype`.
+Технически, такава декларация на клас работи чрез създаване на getters и setters в `User.prototype`.
 
-## Computed names [...]
+## Изчислени имена [...]
 
-Here's an example with a computed method name using brackets `[...]`:
+Ето пример с изчислено име на метод, използвайки квадратните скоби `[...]`:
 
 ```js run
 class User {
@@ -287,19 +287,19 @@ class User {
 new User().sayHi();
 ```
 
-Such features are easy to remember, as they resemble that of literal objects.
+Такива функции са лесни за запомняне, тъй като наподобяват тези на литералните обекти.
 
-## Class fields
+## Полетата на класа
 
-```warn header="Old browsers may need a polyfill"
-Class fields are a recent addition to the language.
+```warn header="Старите браузъри може да се нуждаят от polyfill"
+Полетата на класа са скорошно допълнение към езика.
 ```
 
-Previously, our classes only had methods.
+Преди това нашите класове имаха само методи.
 
-"Class fields" is a syntax that allows to add any properties.
+"Поле на клас" е синтаксис, който позволява да се добавят всякакви свойства.
 
-For instance, let's add `name` property to `class User`:
+Например, нека да добавим свойството `name` на `class User`:
 
 ```js run
 class User {
@@ -308,16 +308,16 @@ class User {
 */!*
 
   sayHi() {
-    alert(`Hello, ${this.name}!`);
+    alert(`Здравей, ${this.name}!`);
   }
 }
 
-new User().sayHi(); // Hello, John!
+new User().sayHi(); // Здравей, John!
 ```
 
-So, we just write "<property name> = <value>" in the declaration, and that's it.
+И така, ние просто пишем "свойство" = "стойност" в декларацията, и това е всичко.
 
-The important difference of class fields is that they are set on individual objects, not `User.prototype`:
+Важната разлика на класовите полета е, че те са зададени на отделни обекти, а не на `User.prototype`:
 
 ```js run
 class User {
@@ -331,12 +331,12 @@ alert(user.name); // John
 alert(User.prototype.name); // undefined
 ```
 
-We can also assign values using more complex expressions and function calls:
+Можем също да присвояваме стойности, като използваме по-сложни изрази и извиквания на функции:
 
 ```js run
 class User {
 *!*
-  name = prompt("Name, please?", "John");
+  name = prompt("Името Ви моля?", "John");
 */!*
 }
 
@@ -344,14 +344,13 @@ let user = new User();
 alert(user.name); // John
 ```
 
+### Осъществяване на обвързани методи с полетата класа
 
-### Making bound methods with class fields
+Както е показано в главата <info:bind> функциите в JavaScript имат динамичен `this`. Зависи от контекста на извикването.
 
-As demonstrated in the chapter <info:bind> functions in JavaScript have a dynamic `this`. It depends on the context of the call.
+Така че, ако методът на обекта се предава и се извиква в друг контекст, `this` вече няма да реферира към обекта си.
 
-So if an object method is passed around and called in another context, `this` won't be a reference to its object any more.
-
-For instance, this code will show `undefined`:
+Например, този код ще покаже `undefined`:
 
 ```js run
 class Button {
@@ -371,14 +370,14 @@ setTimeout(button.click, 1000); // undefined
 */!*
 ```
 
-The problem is called "losing `this`".
+Проблемът се нарича "губене на `this`".
 
-There are two approaches to fixing it, as discussed in the chapter <info:bind>:
+Има два подхода за отстраняването му, както е обсъдено в главата <info:bind>:
 
-1. Pass a wrapper-function, such as `setTimeout(() => button.click(), 1000)`.
-2. Bind the method to object, e.g. in the constructor.
+1. Предайте функция-обвивка, като тук: `setTimeout(() => button.click(), 1000)`.
+2. Обвържете метода с обекта, напр. в конструктора.
 
-Class fields provide another, quite elegant syntax:
+Полетата на класовете предоставят друг, доста елегантен синтаксис:
 
 ```js run
 class Button {
@@ -397,32 +396,32 @@ let button = new Button("hello");
 setTimeout(button.click, 1000); // hello
 ```
 
-The class field `click = () => {...}` is created on a per-object basis, there's a separate function for each `Button` object, with `this` inside it referencing that object. We can pass `button.click` around anywhere, and the value of `this` will always be correct.
+Полето на класа `click = () => {...}` се създава на базата на обекта, има отделна функция за всеки `Button` обект, с `this` вътре в него, отнасящ се до този обект. Можем да подадем `button.click` навсякъде, и стойността на `this` винаги ще бъде правилна.
 
-That's especially useful in browser environment, for event listeners.
+Това е особено полезно в средата на браузъра за хващане на събитията.
 
-## Summary
+## Обобщение
 
-The basic class syntax looks like this:
+Синтаксисът на обикновения клас изглежда така:
 
 ```js
 class MyClass {
-  prop = value; // property
+  prop = value; // свойство
 
-  constructor(...) { // constructor
+  constructor(...) { // конструктор
     // ...
   }
 
-  method(...) {} // method
+  method(...) {} // методи/функции
 
-  get something(...) {} // getter method
-  set something(...) {} // setter method
+  get something(...) {} // getter метод
+  set something(...) {} // setter метод
 
-  [Symbol.iterator]() {} // method with computed name (symbol here)
+  [Symbol.iterator]() {} // метод/функця с изчислено име (тук е символ)
   // ...
 }
 ```
 
-`MyClass` is technically a function (the one that we provide as `constructor`), while methods, getters and setters are written to `MyClass.prototype`.
+`MyClass` технически е функция (тази, която предоставяме като `constructor`), докато методите, функциите, getter и setter методите са записани в `MyClass.prototype`.
 
-In the next chapters we'll learn more about classes, including inheritance and other features.
+В следващите глави ще научим повече за класовете, включително наследяване и други характеристики.

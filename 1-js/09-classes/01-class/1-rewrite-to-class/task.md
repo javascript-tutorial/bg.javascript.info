@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Rewrite to class
+# Пренапишете класа
 
-The `Clock` class is written in functional style. Rewrite it the "class" syntax.
+Класът `Clock` е написан с функционален стил. Пренапишете го с "class" синтаксиса.
 
-P.S. The clock ticks in the console, open it to see.
+Забележка: Часовникът тиктака в конзолата, отворете го, за да видите.
