@@ -215,9 +215,13 @@ alert(clone.sizes.width); // 51, виждате резултата от друг
 
 За да поправим това, трябва да използваме клониращия цикъл, който изследва всяка стойност на `user[key]` и, ако е обект, след това репликирайте и неговата структура. Това се нарича "deep cloning" (т.н. "дълбоко клониране").
 
+<<<<<<< HEAD
 Има стандартен алгоритъм за дълбоко клониране, който обработва случая по-горе и по-сложни случаи, наречени the[Структуриран алгоритъм на клониране](https://html.spec.whatwg.org/multipage/structured-data.html#safe-passing-of-structured-data).
 
 Можем да използваме рекурсия за нейното имплементиране. Или, за да не изобретим колелото отново, вземете съществуваща имплементация, например [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) от JavaScript библеотеката [lodash](https://lodash.com).
+=======
+We can use recursion to implement it. Or, not to reinvent the wheel, take an existing implementation, for instance [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) from the JavaScript library [lodash](https://lodash.com).
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ## Обобщение
 

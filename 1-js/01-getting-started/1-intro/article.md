@@ -114,10 +114,18 @@ JavaScript е единствената браузърна технология, 
 
 Примери на такива езици са:
 
+<<<<<<< HEAD
 - [CoffeeScript](http://coffeescript.org/) е "синтактичната захар" за JavaScript. То въвежда по-къс синтаксис като ни позволява да пишем по-четим и прецизен код. Обикновенно Ruby разработчиците го харесват.
 - - [TypeScript](http://www.typescriptlang.org/) e език съсредоточен да добави "писане на стрикни типове данни" за да опрости разработване и поддръжката на сложни системи. Разработва се от Microsoft.
 - [Flow](http://flow.org/) също добавя типизирани данни, но по по-различен начин. Разработва се от Facebook.
 - [Dart](https://www.dartlang.org/) е самостоятелен език, което си има свобствен двигател, което работи в не-браузърни среди (като мобилни приложения), но също може да се транспилира до JavaScript. Разработва се от Google.
+=======
+- [CoffeeScript](http://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](http://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](http://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that allow to write application in pure Python without JavaScript.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Има и други. Разбира се, дори да използваме един от транспилираните езици, ние също трябва да знаем JavaScript, за да разберем наистина какво правим.
 

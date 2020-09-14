@@ -81,8 +81,13 @@ const bigInt = 1234567890123456789012345678901234567890n;
 
 Тъй като номерата на BigInt рядко са необходими, ние не ги обхващаме тук, а им посвещаваме отделна глава <info:bigint>. Прочетете го, когато имате нужда от толкова големи числа.
 
+<<<<<<< HEAD
 ```smart header="Compatability issues"
 В момента `BigInt` се поддържа в Firefox / Chrome / Edge, но не и в Safari / IE.
+=======
+```smart header="Compatibility issues"
+Right now `BigInt` is supported in Firefox/Chrome/Edge, but not in Safari/IE.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 ```
 
 ## Низ
@@ -128,7 +133,11 @@ alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (двойните �
 ```smart header="Типът *буква* (character) не съществува"
 В някои езици има специален тип "character", който може да съхранява един символ. Пример за това е типа `char` използван в езиците C и Java. 
 
+<<<<<<< HEAD
 В JavaScript, този тип не съществува, а има само тип стринг, като един стринг може да е изграден от един или много символи.
+=======
+In JavaScript, there is no such type. There's only one type: `string`. A string may consist of zero characters (be empty), one character or many of them.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 ```
 
 ## Булева стойност (логически тип)
@@ -255,6 +264,7 @@ typeof alert // "function"  (3)
 
 В езика JavaScript има седем основни типа данни.
 
+<<<<<<< HEAD
 - `number` използван за всякакъв вид числа: цели или такива с "плаваща запетая".
 - `string` за стрингове. Като стринга е структура изградена от една или много букви (в JavaScript няма отделено обособен тип за съхранение на единична буква (символ)).
 - `boolean` за вярно и грешно : `true`/`false` .
@@ -262,6 +272,16 @@ typeof alert // "function"  (3)
 - `undefined` за незададени стойности  -- самостоятелен тип, който има една единствена стойност:  `undefined`.
 - `object` за по-сложни структури.
 - `symbol` за уникални идентификатори.
+=======
+- `number` for numbers of any kind: integer or floating-point, integers are limited by <code>±(2<sup>53</sup>-1)</code>.
+- `bigint` is for integer numbers of arbitrary length.
+- `string` for strings. A string may have zero or more characters, there's no separate single-character type.
+- `boolean` for `true`/`false`.
+- `null` for unknown values -- a standalone type that has a single value `null`.
+- `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
+- `object` for more complex data structures.
+- `symbol` for unique identifiers.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Оператора `typeof` ни позволява да разберем какъв тип се съхранява в дадена променлива.
 
