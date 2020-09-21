@@ -81,8 +81,12 @@ alert( user?.address.street ); // undefined
 // Грешка при рефериране: user не съществува
 user?.address;
 ```
+<<<<<<< HEAD
 
 Поизборната верига работи само с **декларираните** променливи!
+=======
+There must be `let/const/var user`. The optional chaining works only for declared variables.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 ````
 
 ## Short-circuiting или т.нар Късо съединение

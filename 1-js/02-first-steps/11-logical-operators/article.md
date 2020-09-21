@@ -224,7 +224,11 @@ alert( 1 && 2 && 3 ); // 3, последният
 ````
 
 ````warn header="Don't replace `if` with || or &&"
+<<<<<<< HEAD
 Понякога, хората използват "И" `&&` оператора като "съкратен начин за писане на `if`".
+=======
+Sometimes, people use the AND `&&` operator as a "shorter way to write `if`".
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Например:
 
