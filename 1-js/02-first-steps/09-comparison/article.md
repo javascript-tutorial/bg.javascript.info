@@ -9,9 +9,15 @@
 - Равно: `a == b` (моля, обърнете внимание на знака с двойно равно `=`.Единичният знак `a = b` означава присвояване).
 - Неравенство. В математиката се изписва като <code>&ne;</code>, но в JavaScript се записва със знака за присвояване с удивителна пред него: <code>a != b</code>.
 
+<<<<<<< HEAD
 В тази статия ще научим повече за различните видове сравнения, как ги прави JavaScript, включително важни особености.
 
 В края ще намерите добра рецепта, за да избегнете проблеми, свързани с JavaScript.
+=======
+In this article we'll learn more about different types of comparisons, how JavaScript makes them, including important peculiarities.
+
+At the end you'll find a good recipe to avoid "JavaScript quirks"-related issues.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 ## Резултатът е от булев тип
 
@@ -57,8 +63,12 @@ alert( 'Bee' > 'Be' ); // вярно
 4. Повтаря докато не стигне края на един от двата низа.
 5. Ако и двата низа имат еднаква дължина, то те са равни. Иначе, по-дългият низ е по-голям.
 
+<<<<<<< HEAD
 В горните примери сравнението `'Z' > 'A'` стига до резултат на първата стъпка, докато низовете `"Glow"` и `"Glee"`
 се сравняват по символ по символ:
+=======
+In the examples above, the comparison `'Z' > 'A'` gets to a result at the first step while the strings `'Glow'` and `'Glee'` are compared character-by-character:
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 1. `G` е същото като `G`.
 2. `l` е същото като `l`.
