@@ -31,7 +31,11 @@ result = prompt(title, [default]);
 : По желание втори параметър, началната стойност за полето за въвеждане.
 
 ```smart header="The square brackets in syntax `[...]`"
+<<<<<<< HEAD
 Квадратните скоби около `default` в синтаксиса по-горе означават, че параметърът като по-необходимост, а не е задължителен.
+=======
+The square brackets around `default` in the syntax above denote that the parameter is optional, not required.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 ```
 
 Посетителите могат да напишат нещо в полето за въвеждане и да натиснат ОК. Тогава ще получим въведения текст в `result`. Или могат да отменят въвеждането чрез натискане на Отказ или натискане на клавиша `key:Esc`, така ще получим `null` в `result`.
