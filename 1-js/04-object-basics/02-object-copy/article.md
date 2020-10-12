@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Копиране на обекти, референции
 
 Една от основните разлики между обектите и примитивите типове е, че те се съхраняват и копират "чрез референция".
@@ -5,6 +6,17 @@
 Примитивите типове: низове, числа, булеви -- се присвояват/копират "като цялостна стойност".
 
 Например:
+=======
+# Object references and copying
+
+One of the fundamental differences of objects versus primitives is that objects are stored and copied "by reference", as opposed to primitive values: strings, numbers, booleans, etc -- that are always copied "as a whole value".
+
+That's easy to understand if we look a bit "under a cover" of what happens when we copy a value.
+
+Let's start with a primitive, such as a string.
+
+Here we put a copy of `message` into `phrase`:
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ```js
 let message = "Hello!";
@@ -15,11 +27,21 @@ let phrase = message;
 
 ![](variable-copy-value.svg)
 
+<<<<<<< HEAD
 Обектите не са такива.
 
 **Променливата съхранява не самия обект, а "адреса в паметта", с други думи "референцията" към него.**
 
 Ето снимката на обекта:
+=======
+Quite an obvious result, right?
+
+Objects are not like that.
+
+**A variable assigned to an object stores not the object itself, but its "address in memory", in other words "a reference" to it.**
+
+Let's look at an example of such variable:
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ```js
 let user = {
@@ -27,9 +49,21 @@ let user = {
 };
 ```
 
+And here's how it's actually stored in memory:
+
 ![](variable-contains-reference.svg)
 
+<<<<<<< HEAD
 Тук обектът се съхранява някъде в паметта. И променливата `user` има "референция" към него.
+=======
+The object is stored somewhere in memory (at the right of the picture), while the `user` variable (at the left) has a "reference" to it.
+
+We may think of an object variable, such as `user`, as of a sheet of paper with the address.
+
+When we perform actions with the object, e.g. take a property `user.name`, JavaScript engine looks into that address and performs the operation on the actual object.
+
+Now here's why it's important.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 **Когато обектната променлива е копирана -- референцията е копирана, обектът не се дублира.**
 
@@ -45,7 +79,13 @@ let admin = user; // копира референцията
 
 ![](variable-copy-reference.svg)
 
+<<<<<<< HEAD
 Можем да използваме всяка променлива за достъп до обекта и да променяме съдържанието му:
+=======
+As you can see, there's still one object, now with two variables that reference it.
+
+We can use any variable to access the object and modify its contents:
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ```js run
 let user = { name: 'John' };
@@ -59,6 +99,7 @@ admin.name = 'Pete'; // променен от "admin" референцията
 alert(*!*user.name*/!*); // 'Pete', промените се виждат от "user" референцията
 ```
 
+<<<<<<< HEAD
 Примерът по-горе демонстрира, че има само един обект. Сякаш имахме шкаф с два ключа и използвахме един от тях (`admin`), за да влезем в него. След това, ако по-късно използваме друг ключ (`user`) можем да видим промените.
 
 ## Сравнение по референция
@@ -68,6 +109,16 @@ alert(*!*user.name*/!*); // 'Pete', промените се виждат от "u
 **Два обекта са равни само ако са един и същ обект.**
 
 Тук две променливи се отнасят към един и същ обект, като по този начин те са равни:
+=======
+
+It's just as if we had a cabinet with two keys and used one of them (`admin`) to get into it. Then, if we later use another key (`user`) we can see changes.
+
+## Comparison by reference
+
+Two objects are equal only if they are the same object.
+
+For instance, here `a` and `b` reference the same object, thus they are equal:
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ```js run
 let a = {};
@@ -77,7 +128,11 @@ alert( a == b ); // true, и двете променливи се отнасят
 alert( a === b ); // true
 ```
 
+<<<<<<< HEAD
 И тук два независими обекта не са равни, въпреки че и двата са празни:
+=======
+And here two independent objects are not equal, even though they look alike (both are empty):
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ```js run
 let a = {};
@@ -86,7 +141,11 @@ let b = {}; // два независими обекта
 alert( a == b ); // falsе
 ```
 
+<<<<<<< HEAD
 За сравнения като `obj1 > obj2` или за сравнение с примитив `obj == 5`, обектите се преобразуват в примитиви. Ще изучим как преобразуванията на обекти работят много скоро, но за да кажем истината, подобни сравнения се случват много рядко, обикновено в резултат на грешка в кода.
+=======
+For comparisons like `obj1 > obj2` or for a comparison against a primitive `obj == 5`, objects are converted to primitives. We'll study how object conversions work very soon, but to tell the truth, such comparisons are needed very rarely, usually they appear as a result of a programming mistake.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ## Клониране и сливане, Object.assign
 
@@ -215,9 +274,13 @@ alert(clone.sizes.width); // 51, виждате резултата от друг
 
 За да поправим това, трябва да използваме клониращия цикъл, който изследва всяка стойност на `user[key]` и, ако е обект, след това репликирайте и неговата структура. Това се нарича "deep cloning" (т.н. "дълбоко клониране").
 
+<<<<<<< HEAD
 Има стандартен алгоритъм за дълбоко клониране, който обработва случая по-горе и по-сложни случаи, наречени the[Структуриран алгоритъм на клониране](https://html.spec.whatwg.org/multipage/structured-data.html#safe-passing-of-structured-data).
 
 Можем да използваме рекурсия за нейното имплементиране. Или, за да не изобретим колелото отново, вземете съществуваща имплементация, например [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) от JavaScript библеотеката [lodash](https://lodash.com).
+=======
+We can use recursion to implement it. Or, not to reinvent the wheel, take an existing implementation, for instance [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) from the JavaScript library [lodash](https://lodash.com).
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ## Обобщение
 
