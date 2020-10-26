@@ -179,7 +179,11 @@ alert( +apples + +oranges ); // 5
 
 Има много оператори в JavaScript. Всеки оператор има съответен приоритет. Този с по-голям приоритет се изпълнява първи. Ако приоритетът е равен, изпълнението е от ляво на дясно.
 
+<<<<<<< HEAD
 Ето извадка от [таблицата за предимство](https://developer.mozilla.org/en/JavaScript/Reference/operators/operator_precedence) (няма нужда да помните това, но имайте предвид, че едноаргументните оператори са с по-висок приоритет от съответните двуаргументни):
+=======
+Here's an extract from the [precedence table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) (you don't need to remember this, but note that unary operators are higher than corresponding binary ones):
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 | Предимство | Име | Знак |
 |------------|------|------|
@@ -426,7 +430,11 @@ counter++;
 - Отместване вдясно ( `>>` )
 - Отместване вдясно и запълване с нули ( `>>>` )
 
+<<<<<<< HEAD
 Тези оператори се използват много рядко. За да ги разберем, трябва да се задълбочим в ниското ниво на представяне на числата и не би било оптимално да го направим в момента, още повече, че скоро няма да ни трябват. Ако сте любопитни, можете да прочетете статията [Побитови оператори](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) в MDN. По-практично би било да го направите, когато възникне реална нужда.
+=======
+These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won't need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Bitwise) chapter on MDN when a need arises.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 ## Запетая
 

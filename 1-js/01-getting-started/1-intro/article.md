@@ -1,6 +1,10 @@
 # Въведение в JavaScript
 
+<<<<<<< HEAD
 Нека да видим какво е специалното относно JavaScript-а, какво можем да постигнем с него и кои други технологии си играят с него.
+=======
+Let's see what's so special about JavaScript, what we can achieve with it, and what other technologies play well with it.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 ## Какво е JavaScript ?
 
@@ -24,9 +28,15 @@
 
 Различните двигатели имат различни "кодови имена". Например:
 
+<<<<<<< HEAD
 - [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- в браузърите Chrome и Opera.
 - [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- в браузъра Firefox.
 - ...Има и други кодови имена като "Trident" и "Chakra" за различните версии на браузъра IE, "ChakraCore" за браузъра Microsoft Edge, "Nitro" и "SquirrelFish" за браузъра Safari, и т.н.
+=======
+- [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- in Chrome and Opera.
+- [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- in Firefox.
+- ...There are other codenames like "Chakra" for IE, "ChakraCore" for Microsoft Edge, "Nitro" and "SquirrelFish" for Safari, etc.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 Хубаво е да запомните термините по-горе, защото са използвани в статиите на разрабочиците в интернет. Ние също ще ги използваме. Например, ако "свойство Х е поддържан от V8", то вероятно ще работи в браузърите Chrome и Opera.
 
@@ -114,16 +124,30 @@ JavaScript е единствената браузърна технология, 
 
 Примери на такива езици са:
 
+<<<<<<< HEAD
 - [CoffeeScript](http://coffeescript.org/) е "синтактичната захар" за JavaScript. То въвежда по-къс синтаксис като ни позволява да пишем по-четим и прецизен код. Обикновенно Ruby разработчиците го харесват.
 - - [TypeScript](http://www.typescriptlang.org/) e език съсредоточен да добави "писане на стрикни типове данни" за да опрости разработване и поддръжката на сложни системи. Разработва се от Microsoft.
 - [Flow](http://flow.org/) също добавя типизирани данни, но по по-различен начин. Разработва се от Facebook.
 - [Dart](https://www.dartlang.org/) е самостоятелен език, което си има свобствен двигател, което работи в не-браузърни среди (като мобилни приложения), но също може да се транспилира до JavaScript. Разработва се от Google.
+=======
+- [CoffeeScript](http://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](http://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](http://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that allow to write application in pure Python without JavaScript.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 Има и други. Разбира се, дори да използваме един от транспилираните езици, ние също трябва да знаем JavaScript, за да разберем наистина какво правим.
 
 ## Обобщение
 
+<<<<<<< HEAD
 - JavaScript първоначално е създаден като "език за браузъра", но в момента се използва и много други среди.
 - Настоящем, JavaScript има уникалната позиция като най-широко разпространения език с пълна интеграция с HTML и CSS.
 - Има много езици, които се "транспилират" в JavaScript код и предоставят определени подобрения. Препоръчително е да се погледнат, поне за кратко, след като овладеете JavaScript-a.
   
+=======
+- JavaScript was initially created as a browser-only language, but it is now used in many other environments as well.
+- Today, JavaScript has a unique position as the most widely-adopted browser language with full integration in HTML/CSS.
+- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5

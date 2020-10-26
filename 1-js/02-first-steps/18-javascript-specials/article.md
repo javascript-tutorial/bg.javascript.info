@@ -143,8 +143,13 @@ JavaScript поддържа следните оператори:
 Присвояване
 : Има просто присвояване: `a = b` и комбинирано такъв като този `a *= 2`.
 
+<<<<<<< HEAD
 Побитови операции
 : Побитовите операции работят с 32 битови цели числа в най-ниското побитово ниво: погледнете [документацията](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) когато ви са нужни.
+=======
+Bitwise
+: Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](mdn:/JavaScript/Guide/Expressions_and_Operators#Bitwise) when they are needed.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
   ```js run
       alert(5 & 13); // 0101 & 1101 = 0101

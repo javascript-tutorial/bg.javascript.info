@@ -1,8 +1,13 @@
 # Ninja code
 
 
+<<<<<<< HEAD
 ```quote author="Confucius"
 Ученето без мисъл е загуба на труд, мисълта без учение е опасно.
+=======
+```quote author="Confucius (Analects)"
+Learning without thought is labor lost; thought without learning is perilous.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 ```
 
 Нинджите програмисти в миналото използвали тези трикове за да изострят ума на хората, които поддържат кода. 
@@ -103,8 +108,13 @@ i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
 
 ## Подходящи синоними
 
+<<<<<<< HEAD
 ```quote author="Confucius"
 Най-трудното нещо е да намериш черна котка в тъмна стая, особено ако няма котка.
+=======
+```quote author="Laozi (Tao Te Ching)"
+The Tao that can be told is not the eternal Tao. The name that can be named is not the eternal name.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 ```
 
 Използването на *подобни* имена за *едни и същи* неща прави живота по-интересен и показва твоята креативност на другите.
