@@ -409,7 +409,11 @@ JavaScript има вграден [Math](https://developer.mozilla.org/en/docs/We
     alert( Math.pow(2, 10) ); // 2 на степен 10 = 1024
     ```
 
+<<<<<<< HEAD
 Има и други фунцкии и константи в `Math` обекта, включително тригонометрията, която можете да намерите в [документите за математиката](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math) object.
+=======
+There are more functions and constants in `Math` object, including trigonometry, which you can find in the [docs for the Math object](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math).
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 ## Обобщение
 

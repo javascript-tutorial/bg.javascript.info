@@ -23,8 +23,13 @@
 
 2. Второто е polyfill.
 
+<<<<<<< HEAD
     Новите характеристики на езика може да включват нови вградени функции и синтактични конструктори. 
     Транспилерът пренаписва кода, трансформирайки синтактичните конструктори съгласно по-старите стандарти. Но колкото до новите вградени функции, ние трябва да ги имплементираме. JavaScript е много динамичен език, скриптовете може да добавят/променят всяка функция, така че тя да се държи според новия стандарт. 
+=======
+    New language features may include not only syntax constructs, but also built-in functions.
+    The transpiler rewrites the code, transforming syntax constructs into older ones. But as for new built-in functions, we need to implement them. JavaScript is a highly dynamic language, scripts may add/modify any functions, so that they behave according to the modern standard.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
     Скрипт, който модернизира/добавя нови функции, се нарича "polyfill". Той "запълва" празнината и добавя липсващите имплементации.
 

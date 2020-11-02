@@ -12,6 +12,7 @@ null === +"\n0\n" → false
 
 Някои от причините:
 
+<<<<<<< HEAD
 1. Очевидно, вярно.
 2. Лексикографскo сравнение, следователно грешно.
 3. Отново, лексикографскo сравнение, първият символ `"2"` е по-голям от първият символ `"1"`.
@@ -19,3 +20,12 @@ null === +"\n0\n" → false
 5. Строгото равенсвто е строго. Сравняване на стойности от различни типове води до грешно.
 6. Подобно на `(4)`, `null` е равно само на `undefined`.
 7. Строго сравнение на различни типове.
+=======
+1. Obviously, true.
+2. Dictionary comparison, hence false. `"a"` is smaller than `"p"`.
+3. Again, dictionary comparison, first char `"2"` is greater than the first char `"1"`.
+4. Values `null` and `undefined` equal each other only.
+5. Strict equality is strict. Different types from both sides lead to false.
+6. Similar to `(4)`, `null` only equals `undefined`.
+7. Strict equality of different types.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
