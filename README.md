@@ -1,6 +1,10 @@
 # Модерния ръководител на езика за програмиране JavaScript
 
+<<<<<<< HEAD
 Това хранилище съдържа българския превод на "*Модерния ръководител на езика за програмиране JavaScript*", публикувано в [https://javascript.info](https://javascript.info).
+=======
+This repository hosts the English content of the Modern JavaScript Tutorial, published in [https://javascript.info](https://javascript.info).
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 **Ето как можете да спомогнете за проекта:**
 
@@ -32,9 +36,15 @@
 
 Типът на материала се определя чрез файла вътре в папката:
 
+<<<<<<< HEAD
 - `index.md` означава глава
 - `article.md` означава статия
 - `task.md` означава задача (решението трябва да бъде описано в `solution.md` файла)
+=======
+  - `index.md` stands for a chapter
+  - `article.md` stands for an article
+  - `task.md` stands for a task (solution must be provided in `solution.md` file as well)
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 Всяка от тези файлове започва от `# Title header`, след това текст с Markdown формат, лесно редактиран със обикновен текстов редактор.
 
