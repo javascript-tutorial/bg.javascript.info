@@ -1,5 +1,4 @@
 
-
 ```js no-beautify
 5 > 4 → true
 "apple" > "pineapple" → false
@@ -12,20 +11,10 @@ null === +"\n0\n" → false
 
 Някои от причините:
 
-<<<<<<< HEAD
 1. Очевидно, вярно.
-2. Лексикографскo сравнение, следователно грешно.
+2. Лексикографскo сравнение, следователно грешно. `"a"`е по-малко от `"p"`.
 3. Отново, лексикографскo сравнение, първият символ `"2"` е по-голям от първият символ `"1"`.
 4. Стойностите `null` и `undefined` са равни само една на друга.
-5. Строгото равенсвто е строго. Сравняване на стойности от различни типове води до грешно.
+5. Строгото равенсвто е строго. Сравняване на стойности от различни типове води до `false` следователно: грешно.
 6. Подобно на `(4)`, `null` е равно само на `undefined`.
 7. Строго сравнение на различни типове.
-=======
-1. Obviously, true.
-2. Dictionary comparison, hence false. `"a"` is smaller than `"p"`.
-3. Again, dictionary comparison, first char `"2"` is greater than the first char `"1"`.
-4. Values `null` and `undefined` equal each other only.
-5. Strict equality is strict. Different types from both sides lead to false.
-6. Similar to `(4)`, `null` only equals `undefined`.
-7. Strict equality of different types.
->>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
