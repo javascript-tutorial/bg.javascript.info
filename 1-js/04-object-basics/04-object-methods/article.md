@@ -32,19 +32,11 @@ user.sayHi = function() {
 user.sayHi(); // Hello!
 ```
 
-<<<<<<< HEAD
 Тук ние току-що използвахме функционален израз, за да създадем функция и да я подадем на пропъртито (свойството) `user.sayHi` на обекта.
 
 След това може да я извикаме. Сега потребителят може да говори!
 
 Функция, която е свойство на обект, се нарича *метод* на обекта.
-=======
-Here we've just used a Function Expression to create a function and assign it to the property `user.sayHi` of the object.
-
-Then we can call it as `user.sayHi()`. The user can now speak!
-
-A function that is a property of an object is called its *method*.
->>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 И така ние имаме метод `sayHi` на обекта `user`.
 
@@ -168,24 +160,17 @@ let user = {
 let admin = user;
 user = null; // презаписваме за да направим нещата по-ясни
 
-<<<<<<< HEAD
-admin.sayHi(); // Опа! Вътре в sayHi(), се използва старото име! Грешка!
-=======
 *!*
 admin.sayHi(); // TypeError: Cannot read property 'name' of null
-*/!*
->>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
+               // TypeError: Не може да се прочете свойството 'name' на null
+*!*
 ```
 
 Ако използвахме `this.name` вместо `user.name` вътре в `alert`, кодът щеше да работи.
 
 ## "this" не е обвързан
 
-<<<<<<< HEAD
-В JavaScript, ключовата дума `this` се държи различно в сравнение с повечето програмни езици. Тя може да се използва във всяка функция.
-=======
-In JavaScript, keyword `this` behaves unlike most other programming languages. It can be used in any function, even if it's not a method of an object.
->>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
+В JavaScript, ключовата дума `this` се държи различно в сравнение с повечето програмни езици. Тя може да се използва във всяка функция, дори ако не е метод на обекта.
 
 Няма синтактична грешка в следващия пример:
 
