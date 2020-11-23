@@ -73,9 +73,13 @@ admin.name = 'Pete'; // променен от "admin" референцията
 alert(*!*user.name*/!*); // 'Pete', промените се виждат от "user" референцията
 ```
 
+<<<<<<< HEAD
 Примерът по-горе демонстрира, че има само един обект. Сякаш имахме шкаф с два ключа и използвахме един от тях (`admin`), за да влезем в него. След това, ако по-късно използваме друг ключ (`user`) можем да видим промените.
 
 ## Сравнение по референция
+=======
+It's just as if we had a cabinet with two keys and used one of them (`admin`) to get into it. Then, if we later use another key (`user`) we can see changes.
+>>>>>>> 23da191b58643387783f38e999f5b05be87d3d93
 
 Две обекта са равни само ако са един и същ обект.
 
@@ -229,7 +233,35 @@ alert(clone.sizes.width); // 51, виждате резултата от друг
 
 Можем да използваме рекурсия за нейното имплементиране. Или, за да не изобретим колелото отново, вземете съществуваща имплементация, например [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) от JavaScript библеотеката [lodash](https://lodash.com).
 
+<<<<<<< HEAD
 ## Обобщение
+=======
+```smart header="Const objects can be modified"
+An important "side effect" of storing objects as references is that an object declared as `const` *can* be modified.
+
+For instance:
+
+```js run
+const user = {
+  name: "John"
+};
+
+*!*
+user.name = "Pete"; // (*)
+*/!*
+
+alert(user.name); // Pete
+```
+
+It might seem that the line `(*)` would cause an error, but no. The value of `user` is constant, it must always reference the same object. But properties of that object are free to change.
+
+In other words, the `const user` gives an error only if we try to set `user=...` as a whole, and that's all.
+
+That said, if we really need to make constant object properties, it's also possible, but using totally different methods, we'll mention that in the chapter <info:property-descriptors>.
+```
+
+## Summary
+>>>>>>> 23da191b58643387783f38e999f5b05be87d3d93
 
 Обектите се присвояват и копират чрез референция. С други думи, променливата съхранява "референцията" към стойността на обекта (адреса в паметта), а не самата "стойност на обекта". Така че, копирането на такава променлива или предаването й като аргумент на функция копира тази референция, а не самия обекта.
 
