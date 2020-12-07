@@ -20,7 +20,11 @@
 
 🎉 Благодарим Ви!
 
+<<<<<<< HEAD
 Името ти и размера на приноса ти ще се появи в страницата "About project" (За проекта) когато преводът се публикува.
+=======
+**You can edit the text in any editor.** The tutorial uses enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/javascript-tutorial/server>.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Пълния списък със езиците може да се намери в <https://javascript.info/translate>.
 
@@ -130,6 +134,7 @@ document.querySelector('.здравей').innerHTML = text;
 ```md
 importance: 5
 
+<<<<<<< HEAD
 ---
 ...
 ```
@@ -166,3 +171,8 @@ image.svg:        # Файл на изображението
 Може да стартирате сървъра на ръководството локално, за да видите как изглежда.
 
 Сървърът и инструкциите за инсталиране са в следната връзка > <https://github.com/javascript-tutorial/server>.
+=======
+---  
+♥  
+Ilya Kantor @iliakan
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
