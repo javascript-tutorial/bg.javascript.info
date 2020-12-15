@@ -9,7 +9,11 @@
 
 ## "script" таг
 
+<<<<<<< HEAD
 JavaScript програми могат да бъдат поставяни в всяка част от HTML документ, с помощта на `<script>` таг.
+=======
+JavaScript programs can be inserted almost anywhere into an HTML document using the `<script>` tag.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Пример:
 

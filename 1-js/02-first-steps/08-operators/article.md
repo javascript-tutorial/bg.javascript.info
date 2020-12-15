@@ -105,7 +105,16 @@ alert(2 + 2 + '1' ); // "41",а не "221"
 
 Тук операторите работят един след друг. Първият `+` сумира двете числа, и получаваме `4`, после на следващия `+` добавяме низ `1` към сумата, нещо като `4 + '1' = 41`.
 
+<<<<<<< HEAD
 Бинарния оператор  `+` е единственият оператор, който поддържа низове по такъв начин. Други аритметични оператори работят само с числа и винаги преобразуват своите операнди в числа.
+=======
+```js run
+alert('1' + 2 + 2); // "122" and not "14"
+```
+Here, the first operand is a string, the compiler treats the other two operands as strings too. The `2` gets concatenated to `'1'`, so it's like `'1' + 2 = "12"` and `"12" + 2 = "122"`.
+
+The binary `+` is the only operator that supports strings in such a way. Other arithmetic operators work only with numbers and always convert their operands to numbers.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Ето демонстрацията с изваждане и деление:
 
