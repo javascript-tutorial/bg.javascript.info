@@ -1,135 +1,92 @@
 
-# Polyfills and transpilers
+# Полифили и транспилери
 
 Езикът JavaScript постоянно се развива. Редовно се появяват нови предложения за нововъведения. Те се разгеждат и ако се прецени, че ще са полезни, ги добавят към този списък <https://tc39.github.io/ecma262/> и след това попадат в [specification](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
-Екипите, които стоят зад JavaScript енджините, имат собствени идеи какво да имплементират първо. Може да решат да имплементират предложения, които все още са на чернова и да отложат неща, които вече са в спека, защото не са толкова интересни или са по-трудни за имплементиране. 
+Екипите, които стоят зад JavaScript енджините, имат собствени идеи какво да имплементират първо. Може да решат да имплементират предложения, които все още са на чернова и да отложат неща, които вече са в спецификациите, защото не са толкова интересни или са по-трудни за имплементиране.
 
-Така че е доста типично зза енджините да имплементират само част от стандарта. 
+Така че е доста типично е за двигателите да имплементират само част от стандарта.
 
-Добър ресурс, където може да видите кои свойства на езика се поддържат към настоящия момент е  <https://kangax.github.io/compat-table/es6/> (той е голям, ние имаме да учим още много).
+Добър ресурс, където може да видите кои свойства на езика се поддържат към настоящия момент е  <https://kangax.github.io/compat-table/es6/> (доста е голям, а ние имаме да учим още много).
 
-As programmers, we'd like to use most recent features. The more good stuff - the better!
+Като програмисти, бихме искали да използваме най-новите налични функции. Колкото повече добри неща - толкова по-добре!
 
-<<<<<<< HEAD
-Когато използваме модерните свойства на езика, някои енджини може да не поддържат нашия код. Точно както беше споменато, не всички свойства са имплементирани навсякъде. 
+От друга страна, как да направим, така че съвременният код да работи на по-стари двигатели, които все още не разбират тези последните функции?
 
-Тук на помощ идва Babel.
+Има два инструмента за това:
 
-[Babel](https://babeljs.io) е [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler). Той пренаписва съвременния JavaScript код според предишния стандарт.
+1. Транспилери.
+2. Полифили.
 
-Всъщност има две части в Babel:
+Тук, в тази глава, нашата цел е да разберем същността на това как работят и тяхното място в уеб разработката.
 
-1. Първо transpiler програма, която пренаписва кода. Програмистът го стартира на своя компютър. Той пренаписва кода по стария стандарт. И после кодът се качва на уебсайта за потребителите. Съвременните системи за създаване на проекти като [webpack](http://webpack.github.io/) осигуряват средства да стартирате transpiler автоматично при всяка промяна в кода, така че е много лесно да се интегрира в процеса на разработка.
+## Транспилери
 
-2. Второто е polyfill.
+[Транспилер](https://en.wikipedia.org/wiki/Source-to-source_compiler) е специален софтуер, който може да анализира ("да прочете и разбира") модерен код, и да го презапише използвайки старите синтактични конструкции, така че резултатът да е същият.
 
-    Новите характеристики на езика може да включват нови вградени функции и синтактични конструктори.
-    Транспилерът пренаписва кода, трансформирайки синтактичните конструктори в по-стари такива. Но когато се отнася до новите вградени функции, ние трябва да ги имплементираме. JavaScript е много динамичен език, скриптовете може да добавят/променят всяка функция, така че тя да се държи според новия стандарт.
+Напр. JavaScript преди 2020 г. не е имал „нулевия условен оператор“ `??`. Така че, ако посетителят използва остарял браузър, то може да не успее да разбере кода `height = height ?? 100`.
 
-    Скрипт, който модернизира/добавя нови функции, се нарича "polyfill". Той "запълва" празнината и добавя липсващите имплементации.
-
-    Два интересни polyfills са:
-    - [core js](https://github.com/zloirock/core-js) поддържа много характеристики, позволява да включите в кода само необходимите.
-    - [polyfill.io](http://polyfill.io) услуга, която осигурява polyfills на скрипта, в зависимост от характеристиките и браузъра на потребителя.
-
-Така че ако използваме съвременните свойства на езика, ще имаме нужда от transpiler и polyfill.
-
-## Примери в ръководството
-
-````online
-Повечето примери може да се стартират на място ето така:
-
-```js run
-alert('Натиснете бутона "Play" в горния десен ъгъл, за да стартирате');
-```
-
-Примери, които използват съвременния JS ще работят само ако вашият браузър го поддържа.
-````
-
-```offline
-Тъй като четете offline версията, примерите в PDF файловете не могат да се стартират. В EPUB някои от е възможно да стартират.
-```
-
-Google Chrome обикновено поддържа най-актуалните характеристики на езика, добър е за демо тестове без transpilers, но другите съвременни браузъри също работят добре.
-=======
-From the other hand, how to make out modern code work on older engines that don't understand recent features yet?
-
-There are two tools for that:
-
-1. Transpilers.
-2. Polyfills.
-
-Here, in this chapter, our purpose is to get the gist of how they work, and their place in web development.
-
-## Transpilers
-
-A [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler) is a special piece of software that can parse ("read and understand") modern code, and rewrite it using older syntax constructs, so that the result would be the same.
-
-E.g. JavaScript before year 2020 didn't have the "nullish coalescing operator" `??`. So, if a visitor uses an outdated browser, it may fail to understand the code like `height = height ?? 100`.
-
-A transpiler would analyze our code and rewrite `height ?? 100` into `(height !== undefined && height !== null) ? height : 100`.
+Транспилаторът ще анализира нашия код и ще пренапише `height ?? 100` в `(height !== undefined && height !== null) ? height : 100`.
 
 ```js
-// before running the transpiler
+// преди да изпълните транспилера
 height = height ?? 100;
 
-// after running the transpiler
+// след като изпълните транспилера
 height = (height !== undefined && height !== null) ? height : 100;
 ```
 
-Now the rewritten code is suitable for older JavaScript engines.
+Сега пренаписаният код е подходящ за по-стари JavaScript двигатели.
 
-Usually, a developer runs the transpiler on their own computer, and then deploys the transpiled code to the server.
+Обикновено разработчикът стартира транспилера на собствения си компютър и след това изпраща транслирания код на сървъра.
 
-Speaking of names, [Babel](https://babeljs.io) is one of the most prominent transpilers out there. 
+Говорейки за имена, [Babel](https://babeljs.io) е един от най-известните транспилери.
 
-Modern project build systems, such as [webpack](http://webpack.github.io/), provide means to run transpiler automatically on every code change, so it's very easy to integrate into development process.
+Съвременни системи за изграждане на проекти, като [webpack](http://webpack.github.io/), осигуряват средства за автоматично стартиране на транспилер при всяка промяна на кода, така че е много лесно да се интегрира в процеса на разработка.
 
-## Polyfills
+## Полифили
 
-New language features may include not only syntax constructs and operators, but also built-in functions.
+Новите функции в езикови могат да включват не само синтаксисни конструкции и оператори, но и вградени функции.
 
-For example, `Math.trunc(n)` is a function that "cuts off" the decimal part of a number, e.g `Math.trunc(1.23) = 1`.
+Например, `Math.trunc(n)` е функция която "изрязва" десетичната част от числото, напр. `Math.trunc(1.23) = 1`.
 
-In some (very outdated) JavaScript engines, there's no `Math.trunc`, so such code will fail.
+В някои (много остарели) двигатели на JavaScript няма `Math.trunc`, така че такъв код ще се провали.
 
-As we're talking about new functions, not syntax changes, there's no need to transpile anything here. We just need to declare the missing function.
+Тъй като говорим за нови функции, а не за промени в синтаксиса, няма нужда да се транслира нищо тук. Просто трябва да декларираме липсващата функция.
 
-A script that updates/adds new functions is called "polyfill". It "fills in" the gap and adds missing implementations.
+Скрипт, който актуализира / добавя нови функции, се нарича "polyfill" (полифил). То "допълва" празнината и добавя липсващите имплементации.
 
-For this particular case, the polyfill for `Math.trunc` is a script that implements it, like this:
+За този конкретен случай полифилът за `Math.trunc` е скрипт, който се прилага, като този:
 
 ```js
-if (!Math.trunc) { // if no such function
-  // implement it
+if (!Math.trunc) { // ако функцията не съществува
+  // имплементираме го
   Math.trunc = function(number) {
-    // Math.ceil and Math.floor exist even in ancient JavaScript engines
-    // they are covered later in the tutorial
+    // Math.ceil и Math.floor съществуват дори в древни JavaScript двигатели
+    // те са разгледани по-късно в ръководството
     return number < 0 ? Math.ceil(number) : Math.floor(number);
   };
 }
 ```
 
-JavaScript is a highly dynamic language, scripts may add/modify any functions, even including built-in ones. 
+JavaScript е силно динамичен език, скриптовете могат да добавят / модифицират всякакви функции, включително и вградените такива.
 
-Two interesting libraries of polyfills are:
-- [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
-- [polyfill.io](http://polyfill.io) service that provides a script with polyfills, depending on the features and user's browser.
+Две интересни библиотеки полифили са:
 
+- [core js](https://github.com/zloirock/core-js), който поддържа много, позволява да се включват само необходимите функции.
+- [polyfill.io](http://polyfill.io) услуга, която предоставя скрипт с полифили, в зависимост от функциите и браузъра на потребителя.
 
-## Summary
+## Обобщение
 
-In this chapter we'd like to motivate you to study modern and even "bleeding-edge" language features, even if they aren't yet well-supported by JavaScript engines.
+В тази глава бихме искали да ви мотивираме да изучавате съвременни и дори "ненадеждни" функции на езика, дори ако те все още не са добре поддържани от JavaScript двигателите.
 
-Just don't forget to use transpiler (if using modern syntax or operators) and polyfills (to add functions that may be missing). And they'll ensure that the code works.
+Само не забравяйте да използвате транспилер (ако се използва съвременен синтаксис или оператори) и полифили (за да добавите функции, които биха липсвали). И те ще гарантират, че кодът работи.
 
-For example, later when you're familiar with JavaScript, you can setup a code build system based on [webpack](http://webpack.github.io/) with [babel-loader](https://github.com/babel/babel-loader) plugin.
+Например, по-късно, когато сте запознати с JavaScript, можете да настроите система за изграждане на код, базирана на [webpack](http://webpack.github.io/) с [babel-loader](https://github.com/babel/babel-loader) плъгина.
 
-Good resources that show the current state of support for various features:
-- <https://kangax.github.io/compat-table/es6/> - for pure JavaScript.
-- <https://caniuse.com/> - for browser-related functions.
+Добри ресурси, които показват текущото състояние на поддръжка за различните нови функции:
 
-P.S. Google Chrome is usually the most up-to-date with language features, try it if a tutorial demo fails. Most tutorial demos work with any modern browser though.
+- <https://kangax.github.io/compat-table/es6/> - за чист JavaScript.
+- <https://caniuse.com/> - за функции, свързани с браузъра.
 
->>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
+Забележка: Браузърът Google Chrome обикновенно е най-актуализирана с функциите на езика, опитайте го ако демо кодът се проваля. Повечето демонстрации на уроци работят с всеки съвременен браузър.
