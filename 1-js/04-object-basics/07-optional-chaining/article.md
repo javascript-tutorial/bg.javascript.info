@@ -9,11 +9,7 @@
 
 Ако току-що сте започнали да четете ръководството и да научите JavaScript, може би още не сте се срещнали с проблема, но то е доста често срещан.
 
-<<<<<<< HEAD
 Като пример, нека да кажем, че имаме обекти `user`, които държат информация относно нашите потребители.
-=======
-As an example, let's say we have `user` objects that hold the information about our users.
->>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Повечето от нашите потребители са адресирани в свойството `user.address`, с улица`user.address.street`, но някои от тях не са ги предоставили.
 
@@ -25,11 +21,7 @@ let user = {}; // обекта `user` без свойството "address"
 alert(user.address.street); // Грешка!
 ```
 
-<<<<<<< HEAD
 Това е очакваният резултат. JavaScript работи така. Като `user.address` е `undefined`, при опит за взимане стойността на `user.address.street` се проваля с грешка.
-=======
-That's the expected result. JavaScript works like this. As `user.address` is `undefined`, an attempt to get `user.address.street` fails with an error.
->>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 В много практически случаи бихме предпочели да получим `undefined` вместо грешка тук (означаващ "няма улица").
 
@@ -64,11 +56,7 @@ let user = {}; // `user` няма адрес
 alert(user.address ? user.address.street ? user.address.street.name : null : null);
 ```
 
-<<<<<<< HEAD
-Това е просто ужасно, дори някои могат да има проблеми с разбирането на такъв код.
-=======
-That's just awful, one may even have problems understanding such code.
->>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
+Това е просто ужасно, дори някои могат да имат проблеми с разбирането на такъв код.
 
 Всъщност не ни пука, тъй като има по-добър начин да го напишем използвайки оператора `&&`:
 
