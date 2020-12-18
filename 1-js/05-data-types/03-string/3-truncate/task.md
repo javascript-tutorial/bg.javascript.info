@@ -2,13 +2,13 @@ importance: 5
 
 ---
 
-# Truncate the text
+# Съкратете текста
 
-Create a function `truncate(str, maxlength)` that checks the length of the `str` and, if it exceeds `maxlength` -- replaces the end of `str` with the ellipsis character `"…"`, to make its length equal to `maxlength`.
+Напишете функцията `truncate(str, maxlength)` който проверява дължината на низа `str` и ако надвишава `maxlength` -- замества края на низа `str` с елипсис `"…"`, за да направи дължината му равна на `maxlength`.
 
-The result of the function should be the truncated (if needed) string.
+Резултатът от функцията трябва да бъде съкратен низ (ако се налага).
 
-For instance:
+Например:
 
 ```js
 truncate("What I'd like to tell on this topic is:", 20) = "What I'd like to te…"

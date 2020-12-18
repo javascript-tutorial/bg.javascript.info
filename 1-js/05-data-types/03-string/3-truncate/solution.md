@@ -1,6 +1,6 @@
-The maximal length must be `maxlength`, so we need to cut it a little shorter, to give space for the ellipsis.
+Максималната дължина трябва да бъде `maxlength`, така че трябва да го отрежем малко по-кратко, за да се даде място за елипсисата.
 
-Note that there is actually a single Unicode character for an ellipsis. That's not three dots.
+Имайте предвид, че всъщност има един Unicode символ за елипса. Това не са три точки.
 
 ```js run demo
 function truncate(str, maxlength) {
