@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Uppercase the first character
+# Направете главна буква първата буква на низа
 
-Write a function `ucFirst(str)` that returns the string `str` with the uppercased first character, for instance:
+Напишете функцията `ucFirst(str)`, която връща низ `str`, което първата буква е голяма буква, например:
 
 ```js
 ucFirst("john") == "John";

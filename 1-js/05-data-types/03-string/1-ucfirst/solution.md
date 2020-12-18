@@ -1,19 +1,19 @@
-We can't "replace" the first character, because strings in JavaScript are immutable.
+Не можем "да заменим" първият знак, защото низовете в JavaScript са неизменни.
 
-But we can make a new string based on the existing one, with the uppercased first character:
+Но можем да направим нов низ, базиран на съществуващия, като първата буква направен на голяма:
 
 ```js
 let newStr = str[0].toUpperCase() + str.slice(1);
 ```
 
-There's a small problem though. If `str` is empty, then `str[0]` is `undefined`, and as `undefined` doesn't have the `toUpperCase()` method, we'll get an error.
+Има обаче малък проблем. Ако `str` е празно, тогава `str[0]` е `undefined`, и като `undefined` няма `toUpperCase()` метод, ще получим грешка.
 
-There are two variants here:
+Тук има два варианта:
 
-1. Use `str.charAt(0)`, as it always returns a string (maybe empty).
-2. Add a test for an empty string.
+1. Да използваме `str.charAt(0)`, тъй като винаги връща низ (или празен такъв).
+2. Да добавим тест за празен низ.
 
-Here's the 2nd variant:
+Ето 2-рия вариант:
 
 ```js run demo
 function ucFirst(str) {
@@ -24,4 +24,3 @@ function ucFirst(str) {
 
 alert( ucFirst("john") ); // John
 ```
-
