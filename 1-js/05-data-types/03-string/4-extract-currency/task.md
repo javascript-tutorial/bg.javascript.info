@@ -2,13 +2,13 @@ importance: 4
 
 ---
 
-# Extract the money
+# Извадете парите от цената
 
-We have a cost in the form `"$120"`. That is: the dollar sign goes first, and then the number.
+Имаме цена във формата `"$120"`. Това е: знакът за долар е първи, а след това числото.
 
-Create a function `extractCurrencyValue(str)` that would extract the numeric value from such string and return it. 
+Напишете функцията `extractCurrencyValue(str)` което ще извлече числовата стойност от такъв низ и ще я върне.
 
-The example:
+Например:
 
 ```js
 alert( extractCurrencyValue('$120') === 120 ); // true
