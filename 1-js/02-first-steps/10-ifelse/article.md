@@ -68,9 +68,13 @@ if (cond) {
 
 ## Клаузата "else"
 
+<<<<<<< HEAD
 Изразът `if` може да съдържа незадължителен блок `else`. Той се изпълнява, когато условието е невярно.
 
 Например:
+=======
+The `if` statement may contain an optional "else" block. It executes when the condition is falsy.
+>>>>>>> 13da056653754765b50aa5a9f706f84a4a0d6293
 
 ```js run
 let year = prompt('Коя година са публикувани спецификациите на ECMAScript-2015?', '');
