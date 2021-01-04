@@ -220,4 +220,8 @@ user?.name = "John"; // Грешка, не работи
 
 Верига от `?.` позволява безопасен достъп до вложени свойства.
 
+<<<<<<< HEAD
 Все още, трябва да използваме `?.` внимателно, само когато е допустимо, че лявата част на извикването не съществува, за да не скрие програмните грешки от нас, ако се появят.
+=======
+Still, we should apply `?.` carefully, only where it's acceptable that the left part doesn't exist. So that it won't hide programming errors from us, if they occur.
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
