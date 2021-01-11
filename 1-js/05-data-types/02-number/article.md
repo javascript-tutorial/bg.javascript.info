@@ -386,7 +386,11 @@ JavaScript има вграден [Math](https://developer.mozilla.org/en/docs/We
 Ето няколко примера:
 
 `Math.random()`
+<<<<<<< HEAD
 : Връща произволно число от 0 до 1 (без да включва 1)
+=======
+: Returns a random number from 0 to 1 (not including 1).
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
     ```js run
     alert( Math.random() ); // 0.1234567894322
@@ -403,7 +407,11 @@ JavaScript има вграден [Math](https://developer.mozilla.org/en/docs/We
     ```
 
 `Math.pow(n, power)`
+<<<<<<< HEAD
 : Връща `n` повдигната на дадената степен
+=======
+: Returns `n` raised to the given power.
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
     ```js run
     alert( Math.pow(2, 10) ); // 2 на степен 10 = 1024

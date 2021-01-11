@@ -134,8 +134,13 @@ function hello(name) {
 
     Натискайки този бутон отново и отново ще преминем последователно през всички инструкции в скрипта една по една.
 
+<<<<<<< HEAD
 <span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": изпълни следващата команда, но *не влизай вътре във функция*, бутон `key:F10`.
 : Подобна е на предишната "Step" команда, но се държи различно ако следващата инструкция е функция. Това важи не за вградена функция като `alert`, а за такава, която ние сме написали.
+=======
+<span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": run the next command, but *don't go into a function*, hotkey `key:F10`.
+: Similar to the previous "Step" command, but behaves differently if the next statement is a function call. That is: not a built-in, like `alert`, but a function of our own.
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
     Командата "Step" влиза вътре и спира изпълнението оше на първия ред, докато "Step over" изпълнява вложената функция без да влиза вътре в нея.
 
