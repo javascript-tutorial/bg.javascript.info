@@ -116,7 +116,11 @@ if (
 
     Едно предимство на интервалите пред табулациите е, че те позволяват по-гъвкава конфигурация на индентациите от табулациите.
 
+<<<<<<< HEAD
     Например може да подравним аргументите с отварящата скоба:
+=======
+    For instance, we can align the parameters with the opening bracket, like this:
+>>>>>>> 97ef86242f9f236b13152e1baf52a55c4db8728a
 
     ```js no-beautify
     show(parameters,
