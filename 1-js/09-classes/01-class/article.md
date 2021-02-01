@@ -48,10 +48,16 @@ let user = new User("John");
 user.sayHi();
 ```
 
+<<<<<<< HEAD
 Когато `new User("John")` е извикано:
 
 1. Създава се нов обект.
 2. Извиква се `constructor`, което работи с дадения аргумент и присвоява `this.name` към обекта.
+=======
+When `new User("John")` is called:
+1. A new object is created.
+2. The `constructor` runs with the given argument and assigns it to `this.name`.
+>>>>>>> 97ef86242f9f236b13152e1baf52a55c4db8728a
 
 ...Тогава можем да извикнем обектни методи, като например `user.sayHi()`.
 

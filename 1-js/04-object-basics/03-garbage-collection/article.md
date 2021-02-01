@@ -14,10 +14,17 @@
 
     Например:
 
+<<<<<<< HEAD
     - Локалните променливи и параметри на текущата функция.
     - Променливи и параметри за други функции в текущата верига на вложените повиквания.
     - Глобалните променливи.
     - (има и други, вътрешни)
+=======
+    - The currently executing function, its local variables and parameters.
+    - Other functions on the current chain of nested calls, their local variables and parameters.
+    - Global variables.
+    - (there are some other, internal ones as well)
+>>>>>>> 97ef86242f9f236b13152e1baf52a55c4db8728a
 
     Тези стойности се наричат *roots* (корени).
 
