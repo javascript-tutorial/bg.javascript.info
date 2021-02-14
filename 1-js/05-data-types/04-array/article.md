@@ -1,31 +1,31 @@
-# Arrays
+# Arrays / Масиви
 
-Objects allow you to store keyed collections of values. That's fine.
+Обектите ви позволяват да пазите колекции от ключове и техните стойности. Това е добре. 
 
-But quite often we find that we need an *ordered collection*, where we have a 1st, a 2nd, a 3rd element and so on. For example, we need that to store a list of something: users, goods, HTML elements etc.
+Но много често на нас ни е нужна *подредена колекция*, където имаме 1-ви 2-ри, 3-ти елвмвнт и така нататък. Например трябва да пазим списък с неща: потребители, стоки, HTML елементи и т.н.
 
-It is not convenient to use an object here, because it provides no methods to manage the order of elements. We can’t insert a new property “between” the existing ones. Objects are just not meant for such use.
+В този случай не е удобно да използваме обект, защото той няма методи, които ни позволяват да манипулираме поредността на елементите. Не можем да вмъкнем ново property “между” съшествуващите. Обектите не са предвидени за такава употреба.
 
-There exists a special data structure named `Array`, to store ordered collections.
+Съществува специална структура от данни, наречена `Array`/ Масив, в която се съхраняват подредени колекции.
 
-## Declaration
+## Деклариране
 
-There are two syntaxes for creating an empty array:
+Има два синтаксиса за създаване на празен масив:
 
 ```js
 let arr = new Array();
 let arr = [];
 ```
 
-Almost all the time, the second syntax is used. We can supply initial elements in the brackets:
+Почти винаги се използва вторият синтаксис. Можем да подадем начални стойности в скобите:
 
 ```js
 let fruits = ["Apple", "Orange", "Plum"];
 ```
 
-Array elements are numbered, starting with zero.
+Елементите на масива са подредени, започвайки от 0.
 
-We can get an element by its number in square brackets:
+Можем да достъпим елемент чрез неговия номер в квадратни скоби:
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
@@ -35,19 +35,19 @@ alert( fruits[1] ); // Orange
 alert( fruits[2] ); // Plum
 ```
 
-We can replace an element:
+Можем да заменим елемент:
 
 ```js
 fruits[2] = 'Pear'; // now ["Apple", "Orange", "Pear"]
 ```
 
-...Or add a new one to the array:
+...Или да добавим нов елемент в масива:
 
 ```js
 fruits[3] = 'Lemon'; // now ["Apple", "Orange", "Pear", "Lemon"]
 ```
 
-The total count of the elements in the array is its `length`:
+Броят на елементите в масива е неговата `дължина`:
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
@@ -55,7 +55,7 @@ let fruits = ["Apple", "Orange", "Plum"];
 alert( fruits.length ); // 3
 ```
 
-We can also use `alert` to show the whole array.
+Може да използваме `alert` да покаже целия масив.
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
@@ -63,24 +63,24 @@ let fruits = ["Apple", "Orange", "Plum"];
 alert( fruits ); // Apple,Orange,Plum
 ```
 
-An array can store elements of any type.
+Маисвът може да съхранява елементи от всякакъв тип.
 
-For instance:
+Например:
 
 ```js run no-beautify
 // mix of values
 let arr = [ 'Apple', { name: 'John' }, true, function() { alert('hello'); } ];
 
-// get the object at index 1 and then show its name
+// вземи обектът на индекс 1 и покажи неговото име
 alert( arr[1].name ); // John
 
-// get the function at index 3 and run it
+// вземи функцията на индекс index 3 и я изпълни
 arr[3](); // hello
 ```
 
 
-````smart header="Trailing comma"
-An array, just like an object, may end with a comma:
+````smart header="Trailing comma / Последваща запетая"
+Масивът, също както и обекта, може да завършва със запетая:
 ```js
 let fruits = [
   "Apple",
@@ -89,29 +89,29 @@ let fruits = [
 ];
 ```
 
-The "trailing comma" style makes it easier to insert/remove items, because all lines become alike.
+Този стил "trailing comma" позволява лесно да се вмъват/премахват елементи, защото всички линии стават еднакви.
 ````
 
 
-## Methods pop/push, shift/unshift
+## Методи pop/push, shift/unshift
 
-A [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) is one of the most common uses of an array. In computer science, this means an ordered collection of elements which supports two operations:
+Това [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) е един от най-честите случаи, в които се използват масиви. В компютърните науки това означава подредена колекция от елементи, която поддържа две операции:
 
-- `push` appends an element to the end.
-- `shift` get an element from the beginning, advancing the queue, so that the 2nd element becomes the 1st.
+- `push` добавя елемент в края на масива.
+- `shift` взема първият елемент в началото на масива и премества всички останали напред, така че вторият елемент става първи, третият става втори  и т.н.
 
 ![](queue.svg)
 
-Arrays support both operations.
+Маисвите поддържат и двете операции.
 
-In practice we need it very often. For example, a queue of messages that need to be shown on-screen.
+В практиката ние ги използваме много често. Например опашка със съобщения, които трябва да бъдат показани на екрана.
 
-There's another use case for arrays -- the data structure named [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)).
+Има още един случай в който се използват масиви -- структура от данни, наречена [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)).
 
-It supports two operations:
+Той поддържа две опврации:
 
-- `push` adds an element to the end.
-- `pop` takes an element from the end.
+- `push` добавя елемент в края на масива.
+- `pop` премахва елемент от края на масива.
 
 So new elements are added or taken always from the "end".
 
