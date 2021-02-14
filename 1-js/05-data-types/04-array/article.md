@@ -113,22 +113,22 @@ let fruits = [
 - `push` добавя елемент в края на масива.
 - `pop` премахва елемент от края на масива.
 
-So new elements are added or taken always from the "end".
+Така че новите елементи са добавени или извадени от "края" на масива.
 
-A stack is usually illustrated as a pack of cards: new cards are added to the top or taken from the top:
+Stack обикновено се илюстрира с тесте от карти: новите карти се добавят или вадят от горе:
 
 ![](stack.svg)
 
-For stacks, the latest pushed item is received first, that's also called LIFO (Last-In-First-Out) principle. For queues, we have FIFO (First-In-First-Out).
+При stacks/ стековете, последният добавен елемент се обработва първи, това е така нареченият LIFO (Last-In-First-Out) принцип. При queues/опашките, имаме FIFO (First-In-First-Out).
 
-Arrays in JavaScript can work both as a queue and as a stack. They allow you to add/remove elements both to/from the beginning or the end.
+Масивите в JavaScript могат да работят и като опашки и като стекове. Те позволяват да се добавят/премахват елементи едновременно от началото и края.
 
-In computer science the data structure that allows this, is called [deque](https://en.wikipedia.org/wiki/Double-ended_queue).
+В компютърните науки структурата In computer science the data structure that allows this, is called [deque](https://en.wikipedia.org/wiki/Double-ended_queue).
 
-**Methods that work with the end of the array:**
+**Методи, които работят с края на масива:**
 
 `pop`
-: Extracts the last element of the array and returns it:
+: Премахва последния елемент от масива и го връща като стойност:
 
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
@@ -139,7 +139,7 @@ In computer science the data structure that allows this, is called [deque](https
     ```
 
 `push`
-: Append the element to the end of the array:
+: Добавя елемент в края на масива:
 
     ```js run
     let fruits = ["Apple", "Orange"];
@@ -149,12 +149,12 @@ In computer science the data structure that allows this, is called [deque](https
     alert( fruits ); // Apple, Orange, Pear
     ```
 
-    The call `fruits.push(...)` is equal to `fruits[fruits.length] = ...`.
+    Извикването `fruits.push(...)` е равносилно на `fruits[fruits.length] = ...`.
 
-**Methods that work with the beginning of the array:**
+**Методи, които работят с началото на масива:**
 
 `shift`
-: Extracts the first element of the array and returns it:
+: Премахва първия елемент на масива и го връща като стойност:
 
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
@@ -165,7 +165,7 @@ In computer science the data structure that allows this, is called [deque](https
     ```
 
 `unshift`
-: Add the element to the beginning of the array:
+: Добавя елемент в началото на масива:
 
     ```js run
     let fruits = ["Orange", "Pear"];
@@ -175,7 +175,7 @@ In computer science the data structure that allows this, is called [deque](https
     alert( fruits ); // Apple, Orange, Pear
     ```
 
-Methods `push` and `unshift` can add multiple elements at once:
+Методите `push` и `unshift` могат да добавят множество елементи наведнъж:
 
 ```js run
 let fruits = ["Apple"];
@@ -189,95 +189,95 @@ alert( fruits );
 
 ## Internals
 
-An array is a special kind of object. The square brackets used to access a property `arr[0]` actually come from the object syntax. That's essentially the same as `obj[key]`, where `arr` is the object, while numbers are used as keys.
+Масивът е специален вид обект. Квадратните скоби, които се използват, за да се достъпи свойство `arr[0]` всъщност идват от синтаксиса на обекта. По същество това е същото като `obj[key]`, където `arr` е обекта, докато числата се използват като ключове.
 
-They extend objects providing special methods to work with ordered collections of data and also the `length` property. But at the core it's still an object.
+Масивите надграждат обектите, като предоставят специални методи за работа с подредени колекции от данни и също с пропертито `length`. Но в основата си те са обекти.
 
-Remember, there are only eight basic data types in JavaScript (see the [Data types](info:types) chapter for more info). Array is an object and thus behaves like an object.
+Запомнете, има само 8 прости типове данни в JavaScript (see the [Data types](info:types) за повече информация). Масивът е обект и се държи като такъв.
 
-For instance, it is copied by reference:
+Например, той се копира по референция:
 
 ```js run
 let fruits = ["Banana"]
 
-let arr = fruits; // copy by reference (two variables reference the same array)
+let arr = fruits; // копиране по референция (две променливи сочат към един и същи масив)
 
-alert( arr === fruits ); // true
+alert( arr === fruits ); // вярно
 
-arr.push("Pear"); // modify the array by reference
+arr.push("Pear"); // променяме масива по референция
 
-alert( fruits ); // Banana, Pear - 2 items now
+alert( fruits ); // Banana, Pear - сега има 2 записа
 ```
 
-...But what makes arrays really special is their internal representation. The engine tries to store its elements in the contiguous memory area, one after another, just as depicted on the illustrations in this chapter, and there are other optimizations as well, to make arrays work really fast.
+...Това, което прави масивите наистина специални е тяхното вътрешно представяне. Енджинът се опитва да съхранява елементите на масива в съседна област на паметта, един след друг, точно както е показано на илюстрацията в тази глава. Има и други оптимизации, които позволяват масивите да работят много бързо.
 
-But they all break if we quit working with an array as with an "ordered collection" and start working with it as if it were a regular object.
+Но всичко това ще се счупи ако спрем да работим с масивите като "подредени колекции" и започнем да ги използваме като обикновени обекти.
 
-For instance, technically we can do this:
+Например технически погледнато можем да направим това:
 
 ```js
-let fruits = []; // make an array
+let fruits = []; // създаваме масив
 
-fruits[99999] = 5; // assign a property with the index far greater than its length
+fruits[99999] = 5; // записваме пропърти с индекс, който е много по-голям от дължината на масива
 
-fruits.age = 25; // create a property with an arbitrary name
+fruits.age = 25; // създаваме пропърти със случайно име, нямащо нищо общо с елементите, които се съхраняват в масива
 ```
 
-That's possible, because arrays are objects at their base. We can add any properties to them.
+Това е възможно защото масивите са обекти в основата си. Можем да им добавяме всякакви пропъртита.
 
-But the engine will see that we're working with the array as with a regular object. Array-specific optimizations are not suited for such cases and will be turned off, their benefits disappear.
+Но енджинът ще види че ние работим с масива като с обиновен обект. Оптимизации, специфични за масивите, не са подходящи в такива случаи и ще бъдат изключени, техните предимства ще изчезнат. 
 
-The ways to misuse an array:
+Начини да злоупотребим с използването на масивите:
 
-- Add a non-numeric property like `arr.test = 5`.
-- Make holes, like: add `arr[0]` and then `arr[1000]` (and nothing between them).
-- Fill the array in the reverse order, like `arr[1000]`, `arr[999]` and so on.
+- добавяне на пропърти, което не е число `arr.test = 5`.
+- правене на дупки в масива: добавяме `arr[0]` и после `arr[1000]` (и нищо между тях).
+- запълване на масива в обратен ред: `arr[1000]`, `arr[999]` и т.н.
 
-Please think of arrays as special structures to work with the *ordered data*. They provide special methods for that. Arrays are carefully tuned inside JavaScript engines to work with contiguous ordered data, please use them this way. And if you need arbitrary keys, chances are high that you actually require a regular object `{}`.
+Мислете за масивите като за специални структури, които работят с *подредени данни*. Те разполагат със специални методи за това. Маисвите са специално конфигурирани в JavaScript енджина да работят със съседни подредени данни, моля използвайте ги по този начин. И ако се нуждаете от произволни ключове, има голям шанс всъщност да се нуждаете от обикновен обект `{}`.
 
 ## Performance
 
-Methods `push/pop` run fast, while `shift/unshift` are slow.
+Методите `push/pop` се изпълняват бързо, докато `shift/unshift` са бавни.
 
 ![](array-speed.svg)
 
-Why is it faster to work with the end of an array than with its beginning? Let's see what happens during the execution:
+Защо е по-бързо да се работи с края на масива, отколкото с началото му? Нека видим какво се случва по време на изпълнение на кода:
 
 ```js
-fruits.shift(); // take 1 element from the start
+fruits.shift(); // взима един елемент от началотоment from the start
 ```
 
-It's not enough to take and remove the element with the number `0`. Other elements need to be renumbered as well.
+Не е достатъчно да вземе и да премахне елемента с номер/ позиция `0`. Другите елементи също трябва да променят позицията си с едно напред.
 
-The `shift` operation must do 3 things:
+Операцията `shift` трябва да направи 3 неща:
 
-1. Remove the element with the index `0`.
-2. Move all elements to the left, renumber them from the index `1` to `0`, from `2` to `1` and so on.
-3. Update the `length` property.
+1. Премахва елемента с индекс `0`.
+2. Премества всички елементи наляво и сменя индексите им от `1` на `0`, от `2` на `1` и т.н.
+3. Променя `length` пропъртито.
 
 ![](array-shift.svg)
 
-**The more elements in the array, the more time to move them, more in-memory operations.**
+**Колкото повече елеменити има в масива, толкова повече време и памет ще отнеме.**
 
-The similar thing happens with `unshift`: to add an element to the beginning of the array, we need first to move existing elements to the right, increasing their indexes.
+Същото нещо се случва с `unshift`: за да добавим елемент в началото на масива, ние първо трябва да преместим съществуващите елементи надясно и да увеличим техните индекси.
 
-And what's with `push/pop`? They do not need to move anything. To extract an element from the end, the `pop` method cleans the index and shortens `length`.
+А какво се случва с `push/pop`? При тях не трябва да се мести нищо. За да извади елемент от края на масива методът `pop` трие този индекс и намалява стойността на `length`.
 
-The actions for the `pop` operation:
+Действията за метода `pop`:
 
 ```js
-fruits.pop(); // take 1 element from the end
+fruits.pop(); // взима 1 елемент от края
 ```
 
 ![](array-pop.svg)
 
-**The `pop` method does not need to move anything, because other elements keep their indexes. That's why it's blazingly fast.**
+**Методът `pop` не трябва да мести нищо, защото другите елементи пазят своите индекси. Затова е толкова бърз.**
 
-The similar thing with the `push` method.
+Същото важи и за метода `push`.
 
-## Loops
+## Loops/ Цикли
 
-One of the oldest ways to cycle array items is the `for` loop over indexes:
+Един от най-старите начини да обходим елементите на масива е с `for` цикъл през техните индекси:
 
 ```js run
 let arr = ["Apple", "Orange", "Pear"];
@@ -289,20 +289,20 @@ for (let i = 0; i < arr.length; i++) {
 }
 ```
 
-But for arrays there is another form of loop, `for..of`:
+Но за масивите има и друг цикъл, `for..of`:
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
 
-// iterates over array elements
+// итерира през елементите на масива, а не през индексите им
 for (let fruit of fruits) {
   alert( fruit );
 }
 ```
 
-The `for..of` doesn't give access to the number of the current element, just its value, but in most cases that's enough. And it's shorter.
+Цикълът `for..of` не ни дава достъп до индекса на текущия елемент, само неговата стойност, но в повечето случаи това е достатъчно. И е по-кратък.
 
-Technically, because arrays are objects, it is also possible to use `for..in`:
+Технически, тъй като масивите са обекти, можем да използваме и `for..in`:
 
 ```js run
 let arr = ["Apple", "Orange", "Pear"];
