@@ -2,15 +2,15 @@ importance: 2
 
 ---
 
-# A maximal subarray
+# Максимален субмасив
 
-The input is an array of numbers, e.g. `arr = [1, -2, 3, 4, -9, 6]`.
+Вхидните данни са масив от числа, пр. `arr = [1, -2, 3, 4, -9, 6]`.
 
-The task is: find the contiguous subarray of `arr` with the maximal sum of items.
+Задачата е да се намери съседен субмасив на `arr` с максимална сума на елементите му.
 
-Write the function `getMaxSubSum(arr)` that will return that sum.
+Напишете функция `getMaxSubSum(arr)` която ще върне тази сума.
 
-For instance:
+Например:
 
 ```js
 getMaxSubSum([-1, *!*2, 3*/!*, -9]) == 5 (the sum of highlighted items)
@@ -21,10 +21,10 @@ getMaxSubSum([*!*100*/!*, -9, 2, -3, 5]) == 100
 getMaxSubSum([*!*1, 2, 3*/!*]) == 6 (take all)
 ```
 
-If all items are negative, it means that we take none (the subarray is empty), so the sum is zero:
+Ако всички числа са отрицателни не визмаме нито едно от тях. Това означава, че подмасивът е празен и сумата е нула:
 
 ```js
 getMaxSubSum([-1, -2, -3]) = 0
 ```
 
-Please try to think of a fast solution: [O(n<sup>2</sup>)](https://en.wikipedia.org/wiki/Big_O_notation) or even O(n) if you can.
+Опитайте се да измислите бързо решение: [O(n<sup>2</sup>)](https://en.wikipedia.org/wiki/Big_O_notation) или дори O(n) ако можете.

@@ -2,18 +2,18 @@ importance: 3
 
 ---
 
-# Is array copied?
+# Масивът копира ли се?
 
-What is this code going to show?
+Какъв ще е резултатът от този код?
 
 ```js
 let fruits = ["Apples", "Pear", "Orange"];
 
-// push a new value into the "copy"
+// сложи нова стойност в "копието"
 let shoppingCart = fruits;
 shoppingCart.push("Banana");
 
-// what's in fruits?
+// какво има във fruits?
 alert( fruits.length ); // ?
 ```
 

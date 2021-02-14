@@ -1,4 +1,4 @@
-Please note the subtle, but important detail of the solution. We don't convert `value` to number instantly after `prompt`, because after `value = +value` we would not be able to tell an empty string (stop sign) from the zero (valid number). We do it later instead.
+Моля забележете малкия, но важен детаил на решението. Ние не конвертираме `value` към число веднага след `prompt`, защото след `value = +value` wняма да можем да различим празен стринг(знак стоп) от нула(валидно число). Вместо това, го правим по-късно.
 
 
 ```js run demo

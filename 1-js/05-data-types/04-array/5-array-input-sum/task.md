@@ -2,14 +2,14 @@ importance: 4
 
 ---
 
-# Sum input numbers
+# Намерете сумата на въведените числа
 
-Write the function `sumInput()` that:
+Напишете функция `sumInput()` която:
 
-- Asks the user for values using `prompt` and stores the values in the array.
-- Finishes asking when the user enters a non-numeric value, an empty string, or presses "Cancel".
-- Calculates and returns the sum of array items.
+- Иска от потребителя да въведе числа използвайки `prompt` и запазва стойностите в масив.
+- Спира да иска числа след като потребителят въведе нещо, различно от число, празен стринг или натисне "Cancel".
+- Пресмята и връща сумата на елементите в масива.
 
-P.S. A zero `0` is a valid number, please don't stop the input on zero.
+P.S. Нулата `0` е валидно число, моля не спирайте въвеждането на данни след нула.
 
 [demo]
