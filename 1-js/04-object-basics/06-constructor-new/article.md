@@ -91,7 +91,11 @@ let user = new function() {
 
 Вътре във функцията, можем да проверим дали функцията е била извикана с `new` или без, използвайки специалното свойство `new.target`.
 
+<<<<<<< HEAD
 Тя е празна за обикновенни извиквания и се равнява на функцията, ако се извиква с `new`:
+=======
+It is undefined for regular calls and equals the function if called with `new`:
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 ```js run
 function User() {

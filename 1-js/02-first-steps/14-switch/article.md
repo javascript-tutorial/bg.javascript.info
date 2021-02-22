@@ -47,7 +47,11 @@ switch (a) {
     break;
 */!*
   case 5:
+<<<<<<< HEAD
     alert( 'Твърде много' );
+=======
+    alert( 'Too big' );
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
     break;
   default:
     alert( "Не знам подобна стойност" );
