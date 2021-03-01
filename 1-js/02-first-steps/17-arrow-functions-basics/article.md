@@ -5,7 +5,7 @@
 Нарича се "arrow functions" (функции със стрелки / стрелкови функции), защото изглежда така:
 
 ```js
-let func = (arg1, arg2, ...argN) => expression
+let func = (arg1, arg2, ..., argN) => expression
 ```
 
 ...Този код създава функция `func` която приема аргументи `arg1..argN`, след това  изчислява `израза` от дясната страна, който използва аргументите и връща резултат.
@@ -13,7 +13,7 @@ let func = (arg1, arg2, ...argN) => expression
 С други думи това е по-кратката версия на:
 
 ```js
-let func = function(arg1, arg2, ...argN) {
+let func = function(arg1, arg2, ..., argN) {
   return expression;
 };
 ```

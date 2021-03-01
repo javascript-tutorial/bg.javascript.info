@@ -16,21 +16,42 @@
 let billion = 1000000000;
 ```
 
+<<<<<<< HEAD
 Но в реалния живот, обикновено избягваме да пишем дълъг низ от нули, тъй като е лесно да въведем неправилно. Също така, ние сме мързеливи. Обикновено ще напишем нещо от рода `"1 млрд."` за милиард или `"7.3 млрд."` за 7 милиарда и 300 милиона. Същото важи и за повечето големи числа.
 
 В JavaScript, съкращаваме число, като добавяме буквата `"e"` към числото и определяме броя на нулите:
+=======
+We also can use underscore `_` as the separator:
+
+```js
+let billion = 1_000_000_000;
+```
+
+Here the underscore `_` plays the role of the "syntactic sugar", it makes the number more readable. The JavaScript engine simply ignores `_` between digits, so it's exactly the same one billion as above.
+
+In real life though, we try to avoid writing long sequences of zeroes. We're too lazy for that. We'll try to write something like `"1bn"` for a billion or `"7.3bn"` for 7 billion 300 million. The same is true for most large numbers.
+
+In JavaScript, we can shorten a number by appending the letter `"e"` to it and specifying the zeroes count:
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 ```js run
 let billion = 1e9;  // 1 милиард, буквално: 1 и 9 нули
 
+<<<<<<< HEAD
 alert( 7.3e9 );  // 7.3 милиарда (7,300,000,000)
 ```
 
 С други думи, `"e"` умножава числото по `1` с даденя брой нули.
+=======
+alert( 7.3e9 );  // 7.3 billions (same as 7300000000 or 7_300_000_000)
+```
+
+In other words, `e` multiplies the number by `1` with the given zeroes count.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 ```js
-1e3 = 1 * 1000
-1.23e6 = 1.23 * 1000000
+1e3 = 1 * 1000 // e3 means *1000
+1.23e6 = 1.23 * 1000000 // e6 means *1000000
 ```
 
 Сега нека напишем нещо много малко. Да речем, 1 микросекунда (един милион част от секундата):
@@ -125,7 +146,11 @@ alert( num.toString(2) );   // 11111111
 : закръгля нагоре: `3.1` става `4`, и `-1.1` става `-1`.
 
 `Math.round`
+<<<<<<< HEAD
 : закръгля до най-близко цяло число: `3.1` става `3`, `3.6` става `4` и `-1.1` става `-1`.
+=======
+: Rounds to the nearest integer: `3.1` becomes `3`, `3.6` becomes `4`, the middle case: `3.5` rounds up to `4` too.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 `Math.trunc` (не се поддържа от Internet Explorer)
 : Премахва всичко след десетичната запетая без закръгляне: `3.1` става `3`, `-1.1` става `-1`.
@@ -386,7 +411,11 @@ JavaScript има вграден [Math](https://developer.mozilla.org/en/docs/We
 Ето няколко примера:
 
 `Math.random()`
+<<<<<<< HEAD
 : Връща произволно число от 0 до 1 (без да включва 1)
+=======
+: Returns a random number from 0 to 1 (not including 1).
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
     ```js run
     alert( Math.random() ); // 0.1234567894322
@@ -403,7 +432,11 @@ JavaScript има вграден [Math](https://developer.mozilla.org/en/docs/We
     ```
 
 `Math.pow(n, power)`
+<<<<<<< HEAD
 : Връща `n` повдигната на дадената степен
+=======
+: Returns `n` raised to the given power.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
     ```js run
     alert( Math.pow(2, 10) ); // 2 на степен 10 = 1024
