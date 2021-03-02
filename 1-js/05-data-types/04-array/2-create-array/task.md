@@ -2,15 +2,15 @@ importance: 5
 
 ---
 
-# Array operations.
+# Операции с масиви.
 
-Let's try 5 array operations.
+Нека пробваме 5 операции с масиви.
 
-1. Create an array `styles` with items "Jazz" and "Blues".
-2. Append "Rock-n-Roll" to the end.
-3. Replace the value in the middle by "Classics". Your code for finding the middle value should work for any arrays with odd length.
-4. Strip off the first value of the array and show it.
-5. Prepend `Rap` and `Reggae` to the array.
+1. Създайте масив `styles` с елементи "Jazz" и "Blues".
+2. Добавете "Rock-n-Roll" в края.
+3. Заместете стойността в средата със "Classics". Вашият код за намиране на средната стойност трябва да работи за всеки масив с нечетна дължина.
+4. Премахнете първата стойност от масива и я покажете/разпечатайте.
+5. Добавете `Rap` и `Reggae` в началото на масива.
 
 The array in the process:
 
