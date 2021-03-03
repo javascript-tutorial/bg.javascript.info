@@ -13,33 +13,17 @@
 
 За да прочетете за новите функции, включително тези, които са "почти стандартни" (т. Нар. "Етап 3"), посетете <https://github.com/tc39/proposals>.
 
-<<<<<<< HEAD
 Също така, ако разработвате за браузъра, има и други спецификации покрити в [втората част](info:browser-environment) на ръководството.
-=======
-Also, if you're developing for the browser, then there are other specifications covered in the [second part](info:browser-environment) of the tutorial.
->>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 ## Ръководства
 
-<<<<<<< HEAD
 - **MDN (Mozilla) JavaScript Reference** е ръководство с примери и информация. Чудесен е за да навлизате по-задълбочено в собствените функции на езика.
-=======
-- **MDN (Mozilla) JavaScript Reference** is the main manual with examples and other information. It's great to get in-depth information about individual language functions, methods etc.
->>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
     Можете да ги намерите в следния линк <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
 
-<<<<<<< HEAD
-    Макар че, много често, най-добрия начин е да се използва търсачката в интернет. Просто напишете "MDN [термина]" когато попълвате търсачката, например ето така "MDN parseInt" за да търсите функцията `parseInt` в MDN.
-
-- **MSDN** – Ръководството на Microsoft с много информация, включително и за JavaScript (много често рефериран катo JScript). Ако се нуждаеш от нещо специфично, по-добре е да посетите линка: <http://msdn.microsoft.com/>.
-
-    Също така, можете да използвате фразите, например "RegExp MSDN" или "RegExp MSDN jscript", когато търсите из интернет.
+Макар че, много често, най-добрия начин е да се използва търсачката в интернет. Просто напишете "MDN [термина]" когато попълвате търсачката, например ето така "MDN parseInt" за да търсите функцията `parseInt` в MDN.
 
 ## Таблици за съвместимост
-=======
-Although, it's often best to use an internet search instead. Just use "MDN [term]" in the query, e.g. <https://google.com/search?q=MDN+parseInt> to search for `parseInt` function.
->>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 JavaScript e развиващ език, редовно се добавят нови функции и подобрения.
 
