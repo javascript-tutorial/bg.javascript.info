@@ -1,31 +1,31 @@
-# Arrays
+# Arrays / Масиви
 
-Objects allow you to store keyed collections of values. That's fine.
+Обектите ви позволяват да пазите колекции от ключове и техните стойности. Това е добре. 
 
-But quite often we find that we need an *ordered collection*, where we have a 1st, a 2nd, a 3rd element and so on. For example, we need that to store a list of something: users, goods, HTML elements etc.
+Но много често на нас ни е нужна *подредена колекция*, където имаме 1-ви 2-ри, 3-ти елемент и така нататък. Например трябва да пазим списък с неща: потребители, стоки, HTML елементи и т.н.
 
-It is not convenient to use an object here, because it provides no methods to manage the order of elements. We can’t insert a new property “between” the existing ones. Objects are just not meant for such use.
+В този случай не е удобно да използваме обект, защото той няма методи, които ни позволяват да манипулираме поредността на елементите. Не можем да вмъкнем ново property “между” съшествуващите. Обектите не са предвидени за такава употреба.
 
-There exists a special data structure named `Array`, to store ordered collections.
+Съществува специална структура от данни, наречена `Array`/ Масив, в която се съхраняват подредени колекции.
 
-## Declaration
+## Деклариране
 
-There are two syntaxes for creating an empty array:
+Има два синтаксиса за създаване на празен масив:
 
 ```js
 let arr = new Array();
 let arr = [];
 ```
 
-Almost all the time, the second syntax is used. We can supply initial elements in the brackets:
+Почти винаги се използва вторият синтаксис. Можем да подадем начални стойности в скобите:
 
 ```js
 let fruits = ["Apple", "Orange", "Plum"];
 ```
 
-Array elements are numbered, starting with zero.
+Елементите на масива са подредени, започвайки от 0.
 
-We can get an element by its number in square brackets:
+Можем да достъпим елемент чрез неговия номер в квадратни скоби:
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
@@ -35,19 +35,19 @@ alert( fruits[1] ); // Orange
 alert( fruits[2] ); // Plum
 ```
 
-We can replace an element:
+Можем да заменим елемент:
 
 ```js
 fruits[2] = 'Pear'; // now ["Apple", "Orange", "Pear"]
 ```
 
-...Or add a new one to the array:
+...Или да добавим нов елемент в масива:
 
 ```js
 fruits[3] = 'Lemon'; // now ["Apple", "Orange", "Pear", "Lemon"]
 ```
 
-The total count of the elements in the array is its `length`:
+Броят на елементите в масива е неговата `length`/`дължина`:
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
@@ -55,7 +55,7 @@ let fruits = ["Apple", "Orange", "Plum"];
 alert( fruits.length ); // 3
 ```
 
-We can also use `alert` to show the whole array.
+Може да използваме `alert` да покаже целия масив.
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
@@ -63,24 +63,24 @@ let fruits = ["Apple", "Orange", "Plum"];
 alert( fruits ); // Apple,Orange,Plum
 ```
 
-An array can store elements of any type.
+Маисвът може да съхранява елементи от всякакъв тип.
 
-For instance:
+Например:
 
 ```js run no-beautify
 // mix of values
 let arr = [ 'Apple', { name: 'John' }, true, function() { alert('hello'); } ];
 
-// get the object at index 1 and then show its name
+// вземи обекта на индекс 1 и покажи неговото име
 alert( arr[1].name ); // John
 
-// get the function at index 3 and run it
+// вземи функцията на индекс 3 и я изпълни
 arr[3](); // hello
 ```
 
 
-````smart header="Trailing comma"
-An array, just like an object, may end with a comma:
+````smart header="Trailing comma / Последваща запетая"
+Масивът, също както и обекта, може да завършва със запетая:
 ```js
 let fruits = [
   "Apple",
@@ -89,57 +89,57 @@ let fruits = [
 ];
 ```
 
-The "trailing comma" style makes it easier to insert/remove items, because all lines become alike.
+Този стил "trailing comma" позволява лесно да се вмъват/премахват елементи, защото всички линии стават еднакви.
 ````
 
 
-## Methods pop/push, shift/unshift
+## Методи pop/push, shift/unshift
 
-A [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) is one of the most common uses of an array. In computer science, this means an ordered collection of elements which supports two operations:
+Това [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) е един от най-честите случаи, в които се използват масиви. В компютърните науки това означава подредена колекция от елементи, която поддържа две операции:
 
-- `push` appends an element to the end.
-- `shift` get an element from the beginning, advancing the queue, so that the 2nd element becomes the 1st.
+- `push` добавя елемент в края на масива.
+- `shift` взема първия елемент в началото на масива и премества всички останали напред, така че вторият елемент става първи, третият става втори  и т.н.
 
 ![](queue.svg)
 
-Arrays support both operations.
+Маисвите поддържат и двете операции.
 
-In practice we need it very often. For example, a queue of messages that need to be shown on-screen.
+В практиката ние ги използваме много често. Например опашка със съобщения, които трябва да бъдат показани на екрана.
 
-There's another use case for arrays -- the data structure named [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)).
+Има още един случай в който се използват масиви -- структура от данни, наречена [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)).
 
-It supports two operations:
+Той поддържа две опврации:
 
-- `push` adds an element to the end.
-- `pop` takes an element from the end.
+- `push` добавя елемент в края на масива.
+- `pop` премахва елемент от края на масива.
 
-So new elements are added or taken always from the "end".
+Така че новите елементи са добавени или извадени от "края" на масива.
 
-A stack is usually illustrated as a pack of cards: new cards are added to the top or taken from the top:
+Stack обикновено се илюстрира с тесте от карти: новите карти се добавят или вадят от горе:
 
 ![](stack.svg)
 
-For stacks, the latest pushed item is received first, that's also called LIFO (Last-In-First-Out) principle. For queues, we have FIFO (First-In-First-Out).
+При stacks/ стековете, последният добавен елемент се обработва първи, това е така нареченият LIFO (Last-In-First-Out) принцип. При queues/опашките, имаме FIFO (First-In-First-Out).
 
-Arrays in JavaScript can work both as a queue and as a stack. They allow you to add/remove elements both to/from the beginning or the end.
+Масивите в JavaScript могат да работят и като опашки и като стекове. Те позволяват да се добавят/премахват елементи едновременно от началото и края.
 
-In computer science the data structure that allows this, is called [deque](https://en.wikipedia.org/wiki/Double-ended_queue).
+В компютърните науки структурата, която позволява това, се нарича [deque](https://en.wikipedia.org/wiki/Double-ended_queue).
 
-**Methods that work with the end of the array:**
+**Методи, които работят с края на масива:**
 
 `pop`
-: Extracts the last element of the array and returns it:
+: Премахва последния елемент от масива и го връща като стойност:
 
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
 
-    alert( fruits.pop() ); // remove "Pear" and alert it
+    alert( fruits.pop() ); // махни "Pear" и го изпиши в alert
 
     alert( fruits ); // Apple, Orange
     ```
 
 `push`
-: Append the element to the end of the array:
+: Добавя елемент в края на масива:
 
     ```js run
     let fruits = ["Apple", "Orange"];
@@ -149,23 +149,23 @@ In computer science the data structure that allows this, is called [deque](https
     alert( fruits ); // Apple, Orange, Pear
     ```
 
-    The call `fruits.push(...)` is equal to `fruits[fruits.length] = ...`.
+    Извикването `fruits.push(...)` е равносилно на `fruits[fruits.length] = ...`.
 
-**Methods that work with the beginning of the array:**
+**Методи, които работят с началото на масива:**
 
 `shift`
-: Extracts the first element of the array and returns it:
+: Премахва първия елемент на масива и го връща като стойност:
 
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
 
-    alert( fruits.shift() ); // remove Apple and alert it
+    alert( fruits.shift() ); // премахни Apple и го изпиши в alert
 
     alert( fruits ); // Orange, Pear
     ```
 
 `unshift`
-: Add the element to the beginning of the array:
+: Добавя елемент в началото на масива:
 
     ```js run
     let fruits = ["Orange", "Pear"];
@@ -175,7 +175,7 @@ In computer science the data structure that allows this, is called [deque](https
     alert( fruits ); // Apple, Orange, Pear
     ```
 
-Methods `push` and `unshift` can add multiple elements at once:
+Методите `push` и `unshift` могат да добавят множество елементи наведнъж:
 
 ```js run
 let fruits = ["Apple"];
@@ -189,95 +189,95 @@ alert( fruits );
 
 ## Internals
 
-An array is a special kind of object. The square brackets used to access a property `arr[0]` actually come from the object syntax. That's essentially the same as `obj[key]`, where `arr` is the object, while numbers are used as keys.
+Масивът е специален вид обект. Квадратните скоби, които се използват, за да се достъпи свойство `arr[0]` всъщност идват от синтаксиса на обекта. По същество това е същото като `obj[key]`, където `arr` е обекта, докато числата се използват като ключове.
 
-They extend objects providing special methods to work with ordered collections of data and also the `length` property. But at the core it's still an object.
+Масивите надграждат обектите, като предоставят специални методи за работа с подредени колекции от данни и също с пропъртито `length`. Но в основата си те са обекти.
 
-Remember, there are only eight basic data types in JavaScript (see the [Data types](info:types) chapter for more info). Array is an object and thus behaves like an object.
+Запомнете, има само 8 прости типове данни в JavaScript (вижте [Data types](info:types) за повече информация). Масивът е обект и се държи като такъв.
 
-For instance, it is copied by reference:
+Например, той се копира по референция:
 
 ```js run
 let fruits = ["Banana"]
 
-let arr = fruits; // copy by reference (two variables reference the same array)
+let arr = fruits; // копиране по референция (две променливи сочат към един и същи масив)
 
-alert( arr === fruits ); // true
+alert( arr === fruits ); // вярно
 
-arr.push("Pear"); // modify the array by reference
+arr.push("Pear"); // променяме масива по референция
 
-alert( fruits ); // Banana, Pear - 2 items now
+alert( fruits ); // Banana, Pear - сега има 2 записа
 ```
 
-...But what makes arrays really special is their internal representation. The engine tries to store its elements in the contiguous memory area, one after another, just as depicted on the illustrations in this chapter, and there are other optimizations as well, to make arrays work really fast.
+...Това, което прави масивите наистина специални, е тяхното вътрешно представяне. Енджинът се опитва да съхранява елементите на масива в съседна област на паметта, един след друг, точно както е показано на илюстрацията в тази глава. Има и други оптимизации, които позволяват масивите да работят много бързо.
 
-But they all break if we quit working with an array as with an "ordered collection" and start working with it as if it were a regular object.
+Но всичко това ще се счупи ако спрем да работим с масивите като "подредени колекции" и започнем да ги използваме като обикновени обекти.
 
-For instance, technically we can do this:
+Например технически погледнато можем да направим това:
 
 ```js
-let fruits = []; // make an array
+let fruits = []; // създаваме масив
 
-fruits[99999] = 5; // assign a property with the index far greater than its length
+fruits[99999] = 5; // записваме пропърти с индекс, който е много по-голям от дължината на масива
 
-fruits.age = 25; // create a property with an arbitrary name
+fruits.age = 25; // създаваме пропърти със случайно име, нямащо нищо общо с елементите, които се съхраняват в масива
 ```
 
-That's possible, because arrays are objects at their base. We can add any properties to them.
+Това е възможно защото масивите са обекти в основата си. Можем да им добавяме всякакви пропъртита.
 
-But the engine will see that we're working with the array as with a regular object. Array-specific optimizations are not suited for such cases and will be turned off, their benefits disappear.
+Но енджинът ще види, че ние работим с масива като с обиновен обект. Оптимизации, специфични за масивите, не са подходящи в такива случаи и ще бъдат изключени, техните предимства ще изчезнат. 
 
-The ways to misuse an array:
+Начини да злоупотребим с използването на масивите:
 
-- Add a non-numeric property like `arr.test = 5`.
-- Make holes, like: add `arr[0]` and then `arr[1000]` (and nothing between them).
-- Fill the array in the reverse order, like `arr[1000]`, `arr[999]` and so on.
+- добавяне на пропърти, което не е число `arr.test = 5`.
+- правене на дупки в масива: добавяме `arr[0]` и после `arr[1000]` (и нищо между тях).
+- запълване на масива в обратен ред: `arr[1000]`, `arr[999]` и т.н.
 
-Please think of arrays as special structures to work with the *ordered data*. They provide special methods for that. Arrays are carefully tuned inside JavaScript engines to work with contiguous ordered data, please use them this way. And if you need arbitrary keys, chances are high that you actually require a regular object `{}`.
+Мислете за масивите като за специални структури, които работят с *подредени данни*. Те разполагат със специални методи за това. Маисвите са специално конфигурирани в JavaScript енджина да работят със съседни подредени данни. Моля използвайте ги по този начин. И ако се нуждаете от произволни ключове, има голям шанс всъщност да се нуждаете от обикновен обект `{}`.
 
 ## Performance
 
-Methods `push/pop` run fast, while `shift/unshift` are slow.
+Методите `push/pop` се изпълняват бързо, докато `shift/unshift` са бавни.
 
 ![](array-speed.svg)
 
-Why is it faster to work with the end of an array than with its beginning? Let's see what happens during the execution:
+Защо е по-бързо да се работи с края на масива, отколкото с началото му? Нека видим какво се случва по време на изпълнение на кода:
 
 ```js
-fruits.shift(); // take 1 element from the start
+fruits.shift(); // взима един елемент от началото
 ```
 
-It's not enough to take and remove the element with the number `0`. Other elements need to be renumbered as well.
+Не е достатъчно да вземе и да премахне елемента с номер/ позиция `0`. Другите елементи също трябва да променят позицията си с едно напред.
 
-The `shift` operation must do 3 things:
+Операцията `shift` трябва да направи 3 неща:
 
-1. Remove the element with the index `0`.
-2. Move all elements to the left, renumber them from the index `1` to `0`, from `2` to `1` and so on.
-3. Update the `length` property.
+1. Премахва елемента с индекс `0`.
+2. Премества всички елементи наляво и сменя индексите им от `1` на `0`, от `2` на `1` и т.н.
+3. Променя `length` пропъртито.
 
 ![](array-shift.svg)
 
-**The more elements in the array, the more time to move them, more in-memory operations.**
+**Колкото повече елеменити има в масива, толкова повече време и памет ще отнеме.**
 
-The similar thing happens with `unshift`: to add an element to the beginning of the array, we need first to move existing elements to the right, increasing their indexes.
+Същото нещо се случва с `unshift`: за да добавим елемент в началото на масива, ние първо трябва да преместим съществуващите елементи надясно и да увеличим техните индекси.
 
-And what's with `push/pop`? They do not need to move anything. To extract an element from the end, the `pop` method cleans the index and shortens `length`.
+А какво се случва с `push/pop`? При тях не трябва да се мести нищо. За да извади елемент от края на масива методът `pop` трие този индекс и намалява стойността на `length`.
 
-The actions for the `pop` operation:
+Действията за метода `pop`:
 
 ```js
-fruits.pop(); // take 1 element from the end
+fruits.pop(); // взима 1 елемент от края
 ```
 
 ![](array-pop.svg)
 
-**The `pop` method does not need to move anything, because other elements keep their indexes. That's why it's blazingly fast.**
+**Методът `pop` не трябва да мести нищо, защото другите елементи пазят своите индекси. Затова е толкова бърз.**
 
-The similar thing with the `push` method.
+Същото важи и за метода `push`.
 
-## Loops
+## Loops/ Цикли
 
-One of the oldest ways to cycle array items is the `for` loop over indexes:
+Един от най-старите начини да обходим елементите на масива е с `for` цикъл през техните индекси:
 
 ```js run
 let arr = ["Apple", "Orange", "Pear"];
@@ -289,20 +289,20 @@ for (let i = 0; i < arr.length; i++) {
 }
 ```
 
-But for arrays there is another form of loop, `for..of`:
+Но за масивите има и друг цикъл, `for..of`:
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
 
-// iterates over array elements
+// итерира през елементите на масива, а не през индексите им
 for (let fruit of fruits) {
   alert( fruit );
 }
 ```
 
-The `for..of` doesn't give access to the number of the current element, just its value, but in most cases that's enough. And it's shorter.
+Цикълът `for..of` не ни дава достъп до индекса на текущия елемент, само неговата стойност, но в повечето случаи това е достатъчно. И е по-кратък.
 
-Technically, because arrays are objects, it is also possible to use `for..in`:
+Технически, тъй като масивите са обекти, можем да използваме и `for..in`:
 
 ```js run
 let arr = ["Apple", "Orange", "Pear"];
@@ -314,22 +314,22 @@ for (let key in arr) {
 }
 ```
 
-But that's actually a bad idea. There are potential problems with it:
+Но това в действителност в лоша идея. Има потенциални проблеми:
 
-1. The loop `for..in` iterates over *all properties*, not only the numeric ones.
+1. Цикълът `for..in` итерира през *всички пропъртита*, не само през числовите.
 
-    There are so-called "array-like" objects in the browser and in other environments, that *look like arrays*. That is, they have `length` and indexes properties, but they may also have other non-numeric properties and methods, which we usually don't need. The `for..in` loop will list them though. So if we need to work with array-like objects, then these "extra" properties can become a problem.
+    Съществуват така наречените "array-like" обекти в браузъра и други среди, които *приличат на масиви*. Те имат `length` и индекси, но също така те може да имат други не-числови пропъртита и методи, които обикновено не са ни нужни. Цикълът `for..in` ще мине и през тях. Така че ако трябва да работим с array-like обекти, тогава тези "допълнителни" пропъртита може да бъдат проблем.
 
-2. The `for..in` loop is optimized for generic objects, not arrays, and thus is 10-100 times slower. Of course, it's still very fast. The speedup may only matter in bottlenecks. But still we should be aware of the difference.
+2. Цикълът `for..in` е оптимизиран за generic oобекти, не за масиви и затова е 10-100 пъти по-бавен. Естествено той все още е доста бърз. Скоростта може да има значение в специфични ситуации. Но все пак трябва да познаваме разликата.
 
-Generally, we shouldn't use `for..in` for arrays.
+Накратко, не трябва да използваме `for..in` за масиви.
 
 
-## A word about "length"
+## Няколко думи за "length"
 
-The `length` property automatically updates when we modify the array. To be precise, it is actually not the count of values in the array, but the greatest numeric index plus one.
+Пропъртито `length` автоматично се променя когато модифицираме масива. За да бъдем по-точни то не брои елементите в масива, а взема най-големия числов индекс и добавя едно към него.
 
-For instance, a single element with a large index gives a big length:
+Например единичен елемент с голям индекс, дава голяма дължина:
 
 ```js run
 let fruits = [];
@@ -338,54 +338,54 @@ fruits[123] = "Apple";
 alert( fruits.length ); // 124
 ```
 
-Note that we usually don't use arrays like that.
+Обикновено не използваме масивите по този начин.
 
-Another interesting thing about the `length` property is that it's writable.
+Друг интересен факт е, че пропъртито `length` може да бъде презаписано.
 
-If we increase it manually, nothing interesting happens. But if we decrease it, the array is truncated. The process is irreversible, here's the example:
+Ако го увеличим ръчно, не се случва нищо интересно. Но ако го намалим, масивът се скъсява и има загуба на елементи. Процесът е необратим. Ето пример:
 
 ```js run
 let arr = [1, 2, 3, 4, 5];
 
-arr.length = 2; // truncate to 2 elements
+arr.length = 2; // скъсяваме масива до 2 елемента
 alert( arr ); // [1, 2]
 
-arr.length = 5; // return length back
-alert( arr[3] ); // undefined: the values do not return
+arr.length = 5; // връщаме първоначалната дължина
+alert( arr[3] ); // undefined: стойностите не се връщат
 ```
 
-So, the simplest way to clear the array is: `arr.length = 0;`.
+Най-лесният начин да изтрием стойностите от един масив е: `arr.length = 0;`.
 
 
 ## new Array() [#new-array]
 
-There is one more syntax to create an array:
+Има още един синтаксис за създаване на масив:
 
 ```js
 let arr = *!*new Array*/!*("Apple", "Pear", "etc");
 ```
 
-It's rarely used, because square brackets `[]` are shorter. Also there's a tricky feature with it.
+Той се използва рядко понеже с квадратните скоби `[]` става по-бързо. Освен това има и неща, за които трябва да се внимава.
 
-If `new Array` is called with a single argument which is a number, then it creates an array *without items, but with the given length*.
+Ако `new Array` се извика с един аргумент, който е число, тогава се създава масив *без елементи в него, но със зададена дължина*.
 
-Let's see how one can shoot themself in the foot:
+Да видим как някой може сам да се застреля в крака с този синтаксис:
 
 ```js run
-let arr = new Array(2); // will it create an array of [2] ?
+let arr = new Array(2); // ще създаде празен масив с дължина 2 елемента [2] ?
 
-alert( arr[0] ); // undefined! no elements.
+alert( arr[0] ); // undefined! няма елементи.
 
-alert( arr.length ); // length 2
+alert( arr.length ); // дължина 2
 ```
 
-In the code above, `new Array(number)` has all elements `undefined`.
+В горния код, `new Array(number)` всички елементи на масива са `undefined`.
 
-To evade such surprises, we usually use square brackets, unless we really know what we're doing.
+За да избегнем такива изненади, обикновено използваме квадратните скоби, освен ако наистина знаем какво правим.
 
-## Multidimensional arrays
+## Multidimensional arrays/Многомерни масиви
 
-Arrays can have items that are also arrays. We can use it for multidimensional arrays, for example to store matrices:
+Масивите могат да имат елементи, които също са масиви. Може да ги използваме за multidimensional arrays, например да съхраняваме матрици:
 
 ```js run
 let matrix = [
@@ -394,14 +394,14 @@ let matrix = [
   [7, 8, 9]
 ];
 
-alert( matrix[1][1] ); // 5, the central element
+alert( matrix[1][1] ); // 5, централния елемент
 ```
 
 ## toString
 
-Arrays have their own implementation of `toString` method that returns a comma-separated list of elements.
+Масивите имат своя имплементация на метода `toString`, който връща списък с елементите на масива, разделени със запетая.
 
-For instance:
+Например:
 
 
 ```js run
@@ -411,7 +411,7 @@ alert( arr ); // 1,2,3
 alert( String(arr) === '1,2,3' ); // true
 ```
 
-Also, let's try this:
+Нека пробваме това:
 
 ```js run
 alert( [] + 1 ); // "1"
@@ -419,9 +419,9 @@ alert( [1] + 1 ); // "11"
 alert( [1,2] + 1 ); // "1,21"
 ```
 
-Arrays do not have `Symbol.toPrimitive`, neither a viable `valueOf`, they implement only `toString` conversion, so here `[]` becomes an empty string, `[1]` becomes `"1"` and `[1,2]` becomes `"1,2"`.
+Масивите нямат `Symbol.toPrimitive`, нито променлива `valueOf`, те имплементират само `toString` конверсията, така че тук `[]` става празен стринг, `[1]` става `"1"` и `[1,2]` става `"1,2"`.
 
-When the binary plus `"+"` operator adds something to a string, it converts it to a string as well, so the next step looks like this:
+Когато бинарният плюс оператор `"+"` добавя нещо към стринг, той същевременно го превръща в стринг, така че следващата стъпка изглежда така:
 
 ```js run
 alert( "" + 1 ); // "1"
@@ -429,86 +429,86 @@ alert( "1" + 1 ); // "11"
 alert( "1,2" + 1 ); // "1,21"
 ```
 
-## Don't compare arrays with ==
+## Не сравнявайте масиви с  ==
 
-Arrays in JavaScript, unlike some other programming languages, shouldn't be compared with operator `==`.
+Масивите в JavaScript, за разлика от други програмни езици, не трябва да се сравняват с оператора `==`.
 
-This operator has no special treatment for arrays, it works with them as with any objects.
+Този оператор работи с масивите както с всеки друг обект.
 
-Let's recall the rules:
+Да си припомним правилата:
 
-- Two objects are equal `==` only if they're references to the same object.
-- If one of the arguments of `==` is an object, and the other one is a primitive, then the object gets converted to primitive, as explained in the chapter <info:object-toprimitive>.
-- ...With an exception of `null` and `undefined` that equal `==` each other and nothing else.
+- Два обекта са равни `==` само ако са референции към един и същи обект.
+- Ако един от аргументите на `==` е обект а другият е примитивен тип, тогава обектът се конвертира до примитивния, както е обяснено в глава <info:object-toprimitive>.
+- ...С изключение на `null` и `undefined` които са равни `==` един на друг и на нищо друго.
 
-The strict comparison `===` is even simpler, as it doesn't convert types. 
+Стриктното сравнение `===` е още по-просто тъй като не конвертира типовете. 
 
-So, if we compare arrays with `==`, they are never the same, unless we compare two variables that reference exactly the same array.
+Така че ако сравнямваме масиви с `==`, те никога не са равни, освен ако не сравняваме две променливи, които сочат към един и същ масив.
 
-For example:
+Например:
 ```js run
-alert( [] == [] ); // false
-alert( [0] == [0] ); // false
+alert( [] == [] ); // грешно
+alert( [0] == [0] ); // грешно
 ```
 
-These arrays are technically different objects. So they aren't equal. The `==` operator doesn't do item-by-item comparison.
+Тези масиви технически погледнато са различни обекти. Така че те не са равни. Операторът `==` не прави сравнение елемент по елемент.
 
-Comparison with primitives may give seemingly strange results as well:
-
-```js run
-alert( 0 == [] ); // true
-
-alert('0' == [] ); // false
-```
-
-Here, in both cases, we compare a primitive with an array object. So the array `[]` gets converted to primitive for the purpose of comparison and becomes an empty string `''`. 
-
-Then the comparison process goes on with the primitives, as described in the chapter <info:type-conversions>:
+Сравнение с примитивни типове също може да даде странни резултати:
 
 ```js run
-// after [] was converted to ''
-alert( 0 == '' ); // true, as '' becomes converted to number 0
+alert( 0 == [] ); // вярно
 
-alert('0' == '' ); // false, no type conversion, different strings
+alert('0' == [] ); // грешно
 ```
 
-So, how to compare arrays?
+Тук и в двата случая сравняваме примитивен тип с масив. Така че празният масив `[]` се конвертира за целите на сравнението и става празен стринг `''`. 
 
-That's simple: don't use the `==` operator. Instead, compare them item-by-item in a loop or using iteration methods explained in the next chapter.
+След това процесът на сравняване продължава да работи с примитивните типове, както е обяснено в глава <info:type-conversions>:
 
-## Summary
+```js run
+// след като [] е конвертиран до ''
+alert( 0 == '' ); // вярно, тъй като '' се конвертира до 0
 
-Array is a special kind of object, suited to storing and managing ordered data items.
+alert('0' == '' ); // грешно, няма конвертиране към друг тип, различни стрингове
+```
 
-- The declaration:
+И така, как да сравняваме масиви?
+
+Това е лесно: не използвайте оператора `==`. Вместо това ги сравнявайте елемент по елемент в цикъл или използвайте методите за итерация, описани в следващата глава.
+
+## Заключение
+
+Масивът е специален вид обект, подходящ за сортиране и манипулиране на подредени структури от данни.
+
+- Деклариране:
 
     ```js
-    // square brackets (usual)
+    // квадратни скоби (обикновено)
     let arr = [item1, item2...];
 
-    // new Array (exceptionally rare)
+    // new Array (изключително рядко)
     let arr = new Array(item1, item2...);
     ```
 
-    The call to `new Array(number)` creates an array with the given length, but without elements.
+    Извикването на  `new Array(number)` създава празен масив със съответната дължина.
 
-- The `length` property is the array length or, to be precise, its last numeric index plus one. It is auto-adjusted by array methods.
-- If we shorten `length` manually, the array is truncated.
+- Свойството `length` е дължината на масива или за да бъдем по-точни, последният числов индекс на масива плюс едно. Регулира се автоматично чрез методите на масива.
+- Ако намалим ръчно `length` масивът се скъсява и има загуба на елементи. 
 
-We can use an array as a deque with the following operations:
+Може да използваме масива като опашка или стек чрез следните операции:
 
-- `push(...items)` adds `items` to the end.
-- `pop()` removes the element from the end and returns it.
-- `shift()` removes the element from the beginning and returns it.
-- `unshift(...items)` adds `items` to the beginning.
+- `push(...items)` добавя `items` в края.
+- `pop()` премахва последния елемент от масива и го връща като стойност.
+- `shift()` премахва първият елемент от началото на масива и го връща като стойност.
+- `unshift(...items)` добавя `items` в началото на масива.
 
-To loop over the elements of the array:
-  - `for (let i=0; i<arr.length; i++)` -- works fastest, old-browser-compatible.
-  - `for (let item of arr)` -- the modern syntax for items only,
-  - `for (let i in arr)` -- never use.
+За да итерираме през елементите на масива:
+  - `for (let i=0; i<arr.length; i++)` -- работи бързо, старите браузъри го поддържат.
+  - `for (let item of arr)` -- съвременния синтаксис. Итерира през елементите, но не дава достъп до индексите,
+  - `for (let i in arr)` -- никога да не се използва за масиви.
 
-To compare arrays, don't use the `==` operator (as well as `>`, `<` and others), as they have no special treatment for arrays. They handle them as any objects, and it's not what we usually want.
+За сравняване на масиви не изолзвайте оператора `==` (както и `>`, `<` и други), тъй като те не разпознават масивите. Третират ги като обикновени обекти, а ние обикновено искаме да избегнем това.
 
-Instead you can use `for..of` loop to compare arrays item-by-item.
+Вместо това може да използвате цикъл `for..of` и да сравнявате масивите елемент по елемент.
 
-We will continue with arrays and study more methods to add, remove, extract elements and sort arrays in the next chapter <info:array-methods>.
+Ще продължим да разглеждаме масивите и ще изучим нови методи за добавяне, премахване, извличане на елементи и сортиране на масиви в следващата глава <info:array-methods>.
