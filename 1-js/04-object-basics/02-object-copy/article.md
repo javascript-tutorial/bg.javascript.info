@@ -186,7 +186,13 @@ let clone = Object.assign({}, user);
 
 Той копира всички свойства на `user`в празния обект и го връща.
 
+<<<<<<< HEAD
 ## Вложено клониране
+=======
+There are also other methods of cloning an object, e.g. using the [spread operator](info:rest-parameters-spread) `clone = {...user}`, covered later in the tutorial.
+
+## Nested cloning
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 Досега приемахме, че всички свойства на `user` са примитивни. Но свойствата могат да бъдат референции към други обекти. Какво да правим с тях?
 

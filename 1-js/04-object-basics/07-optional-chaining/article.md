@@ -74,11 +74,21 @@ alert( user.address && user.address.street && user.address.street.name ); // und
 
 ## Поизборна верига
 
+<<<<<<< HEAD
 Поизборната верига `?.` спира веригата, ако парчето преди `?.` е `undefined` или `null` и връща тази част.
+=======
+The optional chaining `?.` stops the evaluation if the value before `?.` is `undefined` or `null` and returns `undefined`.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 **По-нататък в тази статия, за краткост, ще кажем, че нещо "съществува" ако не е `null` или `undefined`.**
 
+<<<<<<< HEAD
 С други думи, `value?.prop`:
+=======
+In other words, `value?.prop`:
+- works as `value.prop`, if `value` exists,
+- otherwise (when `value` is `undefined/null`) it returns `undefined`.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 - е същото като `value.prop` ако `value` съществува,
 - иначе (когато `value` е `undefined/null`) връща `undefined`.
@@ -105,7 +115,11 @@ alert( user?.address.street ); // undefined
 
 Моля обърнете внимание: синтаксисът `?.` работи точно там, където е поставен, но не повече.
 
+<<<<<<< HEAD
 Например в `user?.address.street.name` операторът `?.` позволява обекта `user` да бъде `null/undefined`, и това е всичко, което прави.Достъпът до други свойства се извършва по обикновения начин.Ако искаме някои от тях да са по избор, тогава ще трябва да замените още `.` с оператора `?.`.
+=======
+E.g. in `user?.address.street.name` the `?.` allows `user` to safely be `null/undefined` (and returns `undefined` in that case), but that's only for `user`. Further properties are accessed in a regular way. If we want some of them to be optional, then we'll need to replace more `.` with `?.`.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 ```warn header="Не прекалявайте с поизборната верига"
 Трябва да използваме `?.` само когато е добре, че нещо не съществува.
@@ -168,25 +182,35 @@ userGuest.admin?.(); // нищо (няма подобен метод)
 */!*
 ```
 
+<<<<<<< HEAD
 Тук и в двата реда първо използваме точката (`userAdmin.admin`) за да вземем свойството `admin`, защото обекта на потребителя трябва да съществува, така че то да е безопасно за четене от него.
 
 Тогава `?.()` проверява лявата част: ако съществува функция `admin`, я изпълнява (това е така и за `userGuest`). Иначе (за `userGuest`) изпълнението спира без грешки.
+=======
+Here, in both lines we first use the dot (`userAdmin.admin`) to get `admin` property, because we assume that the user object exists, so it's safe read from it.
+
+Then `?.()` checks the left part: if the admin function exists, then it runs (that's so for `userAdmin`). Otherwise (for `userGuest`) the evaluation stops without errors.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 Синтаксиса `?.[]`също работи, ако искаме да използваме скоби `[]` за достъп до свойства вместо точка `.`. Подобно на предишните случаи, то позволява безопасно да четем свойство от обект, който може да не съществува.
 
 ```js run
+let key = "firstName";
+
 let user1 = {
   firstName: "John"
 };
 
+<<<<<<< HEAD
 let user2 = null; // Представете си, не можахме да упълномощим потребителя
 
 let key = "firstName";
+=======
+let user2 = null; 
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 alert( user1?.[key] ); // John
 alert( user2?.[key] ); // undefined
-
-alert( user1?.[key]?.something?.not?.existing); // undefined
 ```
 
 Също така можем да използваме `?.` с `delete`:
@@ -220,4 +244,8 @@ user?.name = "John"; // Грешка, не работи
 
 Верига от `?.` позволява безопасен достъп до вложени свойства.
 
+<<<<<<< HEAD
 Все още, трябва да използваме `?.` внимателно, само когато е допустимо, че лявата част на извикването не съществува, за да не скрие програмните грешки от нас, ако се появят.
+=======
+Still, we should apply `?.` carefully, only where it's acceptable that the left part doesn't exist. So that it won't hide programming errors from us, if they occur.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328

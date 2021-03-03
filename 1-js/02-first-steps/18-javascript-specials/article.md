@@ -293,7 +293,15 @@ switch (age) {
 - Параметрите могат да имат стойности по подразбиране: `function sum(a = 1, b = 2) {...}`.
 - Функциите винаги връщат нещо.Ако няма `return` израз, тогава резултатът е `undefined`.
 
+<<<<<<< HEAD
 Подробности: вижте <info:function-basics>, <info:arrow-functions-basics>.
+=======
+- Functions may have local variables: those declared inside its body or its parameter list. Such variables are only visible inside the function.
+- Parameters can have default values: `function sum(a = 1, b = 2) {...}`.
+- Functions always return something. If there's no `return` statement, then the result is `undefined`.
+
+Details: see <info:function-basics>, <info:arrow-functions-basics>.
+>>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
 ## Има още
 
