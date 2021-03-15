@@ -100,7 +100,11 @@ alert( a == b ); // falsе
 
 За сравнения като `obj1 > obj2` или за сравнение с примитивен `obj == 5`, обектите се преобразуват в примитиви. Ще изучим как преобразуванията на обекти работят много скоро, но за да кажем истината, подобни сравнения се случват много рядко, обикновено в резултат на грешка в кода.
 
+<<<<<<< HEAD
 ## Клониране и сливане, Object.assign
+=======
+## Cloning and merging, Object.assign [#cloning-and-merging-object-assign]
+>>>>>>> e01998baf8f85d9d6cef9f1add6c81b901f16d69
 
 Така, копирането на променливата на обекта създава още една референция към същия обект.
 
@@ -187,9 +191,13 @@ let clone = Object.assign({}, user);
 Той копира всички свойства на `user`в празния обект и го връща.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Вложено клониране
 =======
 There are also other methods of cloning an object, e.g. using the [spread operator](info:rest-parameters-spread) `clone = {...user}`, covered later in the tutorial.
+=======
+There are also other methods of cloning an object, e.g. using the [spread syntax](info:rest-parameters-spread) `clone = {...user}`, covered later in the tutorial.
+>>>>>>> e01998baf8f85d9d6cef9f1add6c81b901f16d69
 
 ## Nested cloning
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
