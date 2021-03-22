@@ -64,7 +64,11 @@ if (hour < 10 || hour > 18 || isWeekend) {
 }
 ```
 
+<<<<<<< HEAD
 ## ИЛИ "||" намира първата истинска стойност
+=======
+## OR "||" finds the first truthy value [#or-finds-the-first-truthy-value]
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 Описаната по-горе логика е донякъде класическа. Сега, нека да внесем "допълнителни" функции на JavaScript.
 
