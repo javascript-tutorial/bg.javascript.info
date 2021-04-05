@@ -319,7 +319,11 @@ alert('Готово!');
 
 Имаме нужда от начин да спрем процеса, ако потребителят анулира въвеждането.
 
+<<<<<<< HEAD
 Обикновеният `break` след `input` би спрал само вътрешния цикъл.Но това не е достатъчно - тука идват етикетите за помощ!
+=======
+The ordinary `break` after `input` would only break the inner loop. That's not sufficient -- labels, come to the rescue!
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 
 *Етикетът* е идентификатор с двоеточие преди цикъла:
 ```js
@@ -364,12 +368,31 @@ for (let i = 0; i < 3; i++) { ... }
 
 Например, невъзможно е да направите това:
 ```js
+<<<<<<< HEAD
 break label; // не скача на етикета по-долу
+=======
+break label; // jump to the label below (doesn't work)
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 
 label: for (...)
 ```
 
+<<<<<<< HEAD
 Извикването на `break/continue` е възможно само от вътрешен цикъл и етикетът трябва да е някъде над директивата.
+=======
+A `break` directive must be inside a code block. Technically, any labelled code block will do, e.g.:
+```js
+label: {
+  // ...
+  break label; // works
+  // ...
+}
+```
+
+...Although, 99.9% of the time `break` used is inside loops, as we've seen in the examples above.
+
+A `continue` is only possible from inside a loop.
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 ````
 
 ## Обобщение

@@ -115,8 +115,13 @@ alert(typeof User); // функция
 // ...или, по-точно, методът на конструктора
 alert(User === User.prototype.constructor); // true
 
+<<<<<<< HEAD
 // Методите са в User.prototype:
 alert(User.prototype.sayHi); // alert(this.name);
+=======
+// The methods are in User.prototype, e.g:
+alert(User.prototype.sayHi); // the code of the sayHi method
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 
 // има точно два метода в User.prototype
 alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi

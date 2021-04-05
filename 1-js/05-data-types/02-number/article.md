@@ -177,10 +177,14 @@ alert( num.toString(2) );   // 11111111
     ```js run
     let num = 1.23456;
 
+<<<<<<< HEAD
     alert( Math.floor(num * 100) / 100 );
     // Първо се изчислява 1.23456 * 100 и получаваме 123.456 вътре в Math.floor
     // След това Math.floor(123.456) -> 123
     // След това делим: 123 / 100 -> 1.23
+=======
+    alert( Math.round(num * 100) / 100 ); // 1.23456 -> 123.456 -> 123 -> 1.23
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
     ```
 
 2. Функцията [toFixed(n)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed) закръгля числото до `n` числа след точката и връща низ представящ резултата.
