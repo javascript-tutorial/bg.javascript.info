@@ -411,7 +411,11 @@ checkPermission(..) // проверява достъп, връща true/false
 
 Например, [jQuery](http://jquery.com) структурата дефинира функция с `$`. [Lodash](http://lodash.com/) библиотеката име своя собствена вътрешна функция с име `_`.
 
+<<<<<<< HEAD
 Има изключения. Като цяло името на функцията трябва да е сбито и описателно.
+=======
+These are exceptions. Generally function names should be concise and descriptive.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 ```
 
 ## Функции == Коментари

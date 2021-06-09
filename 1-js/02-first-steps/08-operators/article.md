@@ -56,17 +56,34 @@ alert( 8 % 3 ); // 2, остатък от 8, разделен на 3
 
 ### Степенуване **
 
+<<<<<<< HEAD
 Операторът на степенуване `a ** b` умножава `a` на себе си `b` пъти.
+=======
+The exponentiation operator `a ** b` raises `a` to the power of `b`.
+
+In school maths, we write that as a<sup>b</sup>.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 Например:
 
 ```js run
+<<<<<<< HEAD
 alert( 2 ** 2 ); // 4  (2 умножени по себе си 2 пъти)
 alert( 2 ** 3 ); // 8  (2 * 2 * 2, 3 пъти)
 alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2, 4 пъти)
 ```
 
 Математически,експоненцията е дефинирана и за нецелочислени числа. Например, квадратен корен е експоненция от `1/2`:
+=======
+alert( 2 ** 2 ); // 2² = 4  
+alert( 2 ** 3 ); // 2³ = 8 
+alert( 2 ** 4 ); // 2⁴ = 16
+```
+
+Just like in maths, the exponentiation operator is defined for non-integer numbers as well. 
+
+For example, a square root is an exponentiation by ½:
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 ```js run
 alert( 4 ** (1/2) ); // 2 (степен на 1/2 е същата като квадратен корен)

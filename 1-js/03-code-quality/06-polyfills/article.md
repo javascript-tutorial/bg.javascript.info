@@ -52,7 +52,11 @@ height = (height !== undefined && height !== null) ? height : 100;
 
 Новите функции в езикови могат да включват не само синтаксисни конструкции и оператори, но и вградени функции.
 
+<<<<<<< HEAD
 Например, `Math.trunc(n)` е функция която "изрязва" десетичната част от числото, напр. `Math.trunc(1.23) = 1`.
+=======
+For example, `Math.trunc(n)` is a function that "cuts off" the decimal part of a number, e.g `Math.trunc(1.23)` returns `1`.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 В някои (много остарели) двигатели на JavaScript няма `Math.trunc`, така че такъв код ще се провали.
 
