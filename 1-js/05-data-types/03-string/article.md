@@ -527,8 +527,13 @@ alert( str );
 
 Символите се сравняват по техния цифров код. По-големият код означава, че знакът е по-голям. Кодът за `a` (97) е по-голям от кода за `Z` (90).
 
+<<<<<<< HEAD
 - Всички малки букви идват след главните букви, защото техните цифрови кодове са по-големи.
 - Някои букви като `Ö` се отделят от основната азбука. Тук това е код, по-голям от всичко от `a` до `z`.
+=======
+- All lowercase letters go after uppercase letters because their codes are greater.
+- Some letters like `Ö` stand apart from the main alphabet. Here, its code is greater than anything from `a` to `z`.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 <<<<<<< HEAD
 ### Правилни сравнения

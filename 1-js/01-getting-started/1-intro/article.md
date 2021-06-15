@@ -24,9 +24,15 @@
 
 Различните двигатели имат различни "кодови имена". Например:
 
+<<<<<<< HEAD
 - [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- в браузърите Chrome и Opera.
 - [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- в браузъра Firefox.
 - ...Има и други кодови имена като "Trident" или "Chakra" за различните версии на браузъра Internet Explorer, "ChakraCore" за браузъра Microsoft Edge, "Nitro" и "SquirrelFish" за браузъра Safari, и т.н.
+=======
+- [V8](https://en.wikipedia.org/wiki/V8_(JavaScript_engine)) -- in Chrome and Opera.
+- [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) -- in Firefox.
+- ...There are other codenames like "Chakra" for IE, "JavaScriptCore", "Nitro" and "SquirrelFish" for Safari, etc.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 Хубаво е да запомните термините по-горе, защото са използвани в статиите на разрабочиците в интернет. Ние също ще ги използваме. Например, ако "свойство Х е поддържан от V8", то вероятно ще работи в браузърите Chrome и Opera.
 

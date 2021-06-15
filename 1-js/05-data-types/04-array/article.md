@@ -379,9 +379,13 @@ alert( arr[0] ); // undefined! няма елементи.
 alert( arr.length ); // дължина 2
 ```
 
+<<<<<<< HEAD
 В горния код, `new Array(number)` всички елементи на масива са `undefined`.
 
 За да избегнем такива изненади, обикновено използваме квадратните скоби, освен ако наистина знаем какво правим.
+=======
+To avoid such surprises, we usually use square brackets, unless we really know what we're doing.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ## Multidimensional arrays/Многомерни масиви
 
