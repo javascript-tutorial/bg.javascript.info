@@ -155,7 +155,11 @@ user.sayHi();
 
 Все пак има важни разлики.
 
+<<<<<<< HEAD
 1.Първо функция, създадена от `class` е обозначен със специален вътрешно свойство `[[FunctionKind]]:"classConstructor"`. Така че не е напълно същото като създаването му ръчно.
+=======
+1. First, a function created by `class` is labelled by a special internal property `[[IsClassConstructor]]: true`. So it's not entirely the same as creating it manually.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
     Езикът проверява за това свойство на различни места. Например, за разлика от обикновената функция, тя трябва да бъде извикана с `new`:
 

@@ -26,7 +26,11 @@ On the other hand, how to make our modern code work on older engines that don't 
 
 ## Транспилери
 
+<<<<<<< HEAD
 [Транспилер](https://en.wikipedia.org/wiki/Source-to-source_compiler) е специален софтуер, който може да анализира ("да прочете и разбира") модерен код, и да го презапише използвайки старите синтактични конструкции, така че резултатът да е същият.
+=======
+A [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler) is a special piece of software that translates source code to another source code. It can parse ("read and understand") modern code and rewrite it using older syntax constructs, so that it'll also work in outdated engines.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 Напр. JavaScript преди 2020 г. не е имал „нулевия условен оператор“ `??`. Така че, ако посетителят използва остарял браузър, то може да не успее да разбере кода `height = height ?? 100`.
 

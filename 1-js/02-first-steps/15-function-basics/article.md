@@ -19,10 +19,14 @@ function showMessage() {
 }
 ```
 
+<<<<<<< HEAD
 Ключовата дума `function` е първа, следвана от името _на функцията_, след това лист от _параметри_ между скобите (разделени от запетаи, празно в примера по-горе) и най-накрая кода на функцията, познат още като "тяло на функцията", между "{}" скобите.
+=======
+The `function` keyword goes first, then goes the *name of the function*, then a list of *parameters* between the parentheses (comma-separated, empty in the example above, we'll see examples later) and finally the code of the function, also named "the function body", between curly braces.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 ```js
-function name(parameters) {
+function name(parameter1, parameter2, ... parameterN) {
   ...body...
 }
 ```
@@ -136,11 +140,16 @@ alert( userName ); // *!*Джон*/!*, непроменена, функцият�
 
 ## Параметри
 
+<<<<<<< HEAD
 Мовжем да задаваме своеобразна дата на функции изполвайки параметри (наричани също _функционални аргументи_) .
+=======
+We can pass arbitrary data to functions using parameters.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 В примера по-долу, фукнцията има два параметъра: `from` и `text`.
 
 ```js run
+<<<<<<< HEAD
 function showMessage(*!*from, text*/!*) { // аргументи: from, text
   alert(from + ': ' + text);
 }
@@ -149,12 +158,23 @@ function showMessage(*!*from, text*/!*) { // аргументи: from, text
 showMessage('Ани', 'Здравей!'); // Ани: Здравей! (*)
 showMessage('Ани', "Как е?"); // Ани: Как е? (**)
 */!*
+=======
+function showMessage(*!*from, text*/!*) { // parameters: from, text
+  alert(from + ': ' + text);
+}
+
+*!*showMessage('Ann', 'Hello!');*/!* // Ann: Hello! (*)
+*!*showMessage('Ann', "What's up?");*/!* // Ann: What's up? (**)
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 ```
 
 Когато функцията е изпълнена в редовете `(*)` и `(**)`, дадените стойности са копирани в локалните вариации `from` и `text`. Функцията ги използва.
 
+<<<<<<< HEAD
 Ето още един пример: имаме вариация `from` и я предаваме на функцията. Забележи: функцията променя `from`, но промяната не е видима извън нея, защото функцията винаги получава копие от стойността:
 
+=======
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 ```js run
 function showMessage(from, text) {
 
@@ -173,9 +193,27 @@ showMessage(from, "Здравей"); // *Ани*: Здравей
 alert( from ); // Ани
 ```
 
+<<<<<<< HEAD
 ## Стойности по подразбиране
 
 Ако не е предоставен параметър, то тогава неговата стойност става `undefined`.
+=======
+When a value is passed as a function parameter, it's also called an *argument*.
+
+In other words, to put these terms straight:
+
+- A parameter is the variable listed inside the parentheses in the function declaration (it's a declaration time term)
+- An argument is the value that is passed to the function when it is called (it's a call time term).
+
+We declare functions listing their parameters, then call them passing arguments.
+
+In the example above, one might say: "the function `sayMessage` is declared with two parameters, then called with two arguments: `from` and `"Hello"`".
+
+
+## Default values
+
+If a function is called, but an argument is not provided, then the corresponding value becomes `undefined`.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 Като например, познатата ни вече функция `showMessage(from, text)` може да бъде извикана с един единствен аргумент:
 
@@ -183,9 +221,15 @@ alert( from ); // Ани
 showMessage("Анн");
 ```
 
+<<<<<<< HEAD
 Това не е грешка. Подобно изпълнение ще покаже `"Анн: undefined"`. Няма `text`, затова се предполага че `text === undefined`.
 
 Ако искаме да използваме `text` по подразбиране в този случай, то тогава можем да го посочим след `=`:
+=======
+That's not an error. Such a call would output `"*Ann*: undefined"`. As the value for `text` isn't passed, it becomes `undefined`.
+
+We can specify the so-called "default" (to use if omitted) value for a parameter in the function declaration, using `=`:
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 ```js run
 function showMessage(from, *!*text = "не е зададен текст"*/!*) {
@@ -209,20 +253,39 @@ function showMessage(from, text = anotherFunction()) {
 ```smart header="Оценяване на параметрите по подразбиране"
 При JavaScript, параметър по подразбиране се оценява всеки път, когато функцията е извикана без ресяективния параметър.
 
+<<<<<<< HEAD
 В примера по-горе, `anotherFunction()` се извиква всеки път, когато `showMessage()` е извикана без `text` параметър.
+=======
+In the example above, `anotherFunction()` isn't called at all, if the `text` parameter is provided.
+
+On the other hand, it's independently called every time when `text` is missing.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 ```
 
 ### Алтернативни параметри по подразбиране
 
+<<<<<<< HEAD
 Понякога има смисъл да задавате стойности по подразбиране за параметри не във функционалната декларация, а на по-късен етап, по време на нейното изпълнение.
 
 За да проверим за пропуснат параметър, можем да го сравним с `undefined`:
+=======
+Sometimes it makes sense to assign default values for parameters not in the function declaration, but at a later stage.
+
+We can check if the parameter is passed during the function execution, by comparing it with `undefined`:
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 ```js run
 function showMessage(text) {
+  // ...
+
 *!*
+<<<<<<< HEAD
   if (text === undefined) {
     text = 'празно съобщение';
+=======
+  if (text === undefined) { // if the parameter is missing
+    text = 'empty message';
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
   }
 */!*
 
@@ -235,18 +298,31 @@ showMessage(); // празно съобщение
 ...Иначе бихме могли да използваме `||` оператора:
 
 ```js
+<<<<<<< HEAD
 // ако 'text' параметъра е пропуснато или "" е подадено, задайте го на 'empty'
 function showMessage(from, text) {
   text = text || 'празен';
+=======
+function showMessage(text) {
+  // if text is undefined or otherwise falsy, set it to 'empty'
+  text = text || 'empty';
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
   ...
 }
 ```
 
+<<<<<<< HEAD
 Съвременните JavaScript двигатели поддържат [nullish coalescing operator](info:nullish-coalescing-operator) `??`, по-добре е, когато фалшивите стойности, като '0', се считат за редовни:
 
 ```js run
 // ако няма "count" параметър, покажете "unknown"
+=======
+Modern JavaScript engines support the [nullish coalescing operator](info:nullish-coalescing-operator) `??`, it's better when most falsy values, such as `0`, should be considered "normal":
+
+```js run
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 function showCount(count) {
+  // if count is undefined or null, show "unknown"
   alert(count ?? "unknown");
 }
 
