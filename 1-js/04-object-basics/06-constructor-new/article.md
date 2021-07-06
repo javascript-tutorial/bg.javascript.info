@@ -64,13 +64,21 @@ let user = {
 
 Това е основната цел на конструктора -- да имплементира преизползваем код за създаване на обекти
 
+<<<<<<< HEAD
 Нека да отбележим още веднъж -- технически всяка функция може да се използва като конструктор. Това е: всяка функция може да се изпълни с `new`, и то ще изпълни алгоритъма по-горе. Конвенцията името на функцията да започва с "главна буква" е за да стане ясно, че функция трябва да се изпълнява с оператора `new`.
 
 ````smart header="new function() { ... }"
 Ако имаме много редове от код за създаване на един сложен обект, можем да ги обгърнем в конструкторска функция, като тази:
+=======
+Let's note once again -- technically, any function (except arrow functions, as they don't have `this`) can be used as a constructor. It can be run with `new`, and it will execute the algorithm above. The "capital letter first" is a common agreement, to make it clear that a function is to be run with `new`.
+
+````smart header="new function() { ... }"
+If we have many lines of code all about creation of a single complex object, we can wrap them in an immediately called constructor function, like this:
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 ```js
-let user = new function() {
+// create a function and immediately call it with new
+let user = new function() { 
   this.name = "John";
   this.isAdmin = false;
 
@@ -80,7 +88,11 @@ let user = new function() {
 };
 ```
 
+<<<<<<< HEAD
 Конструкторът не може да бъде извикан отново, тъй като не е записан никъде, в дадения момент е създаден и извикан. Така че този трик има за цел да капсулира кода, който изгражда единичния обект, без бъдещо повторно използване.
+=======
+This constructor can't be called again, because it is not saved anywhere, just created and called. So this trick aims to encapsulate the code that constructs the single object, without future reuse.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 ````
 
 ## Тест за вида на конструктора: new.target

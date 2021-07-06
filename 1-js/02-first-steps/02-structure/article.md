@@ -46,7 +46,11 @@ alert(3 +
 + 2);
 ```
 
+<<<<<<< HEAD
 Даденият код изкарва `6`  защото JavaScript не вмъква точка и запетая тук. По интуиция е очевидно, че ако линията свърши със плюс `"+"`, тогава това е "непълен израз", и точка, и запетая не е нужна. И в този случай това работи по предназначение.
+=======
+The code outputs `6` because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so a semicolon there would be incorrect. And in this case, that works as intended.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 **Но има дадени ситуации където JavaScript се "проваля" да предположи къде точка и запетая е нужна.**
 
@@ -56,28 +60,43 @@ alert(3 +
 Ако сте любопитни да видите даден пример за такава грешка , вижте следният код:
 
 ```js run
-[1, 2].forEach(alert)
+alert("Hello");
+
+[1, 2].forEach(alert);
 ```
 
+<<<<<<< HEAD
 Не нужно да знаем значението на скобите `[]` и на `forEach` все още. Ще ги изучаваме по-късно. Засега запомнете резултата от кода: показва `1` и после `2`.
 
 Сега , нека добавим `alert` преди кода и да *не* поставим точка и запетая.
 
 ```js run no-beautify
 alert("Ще има грешка")
+=======
+No need to think about the meaning of the brackets `[]` and `forEach` yet. We'll study them later. For now, just remember the result of running the code: it shows `Hello`, then `1`, then `2`.
 
-[1, 2].forEach(alert)
+Now let's remove the semicolon after the `alert`:
+
+```js run no-beautify
+alert("Hello")
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
+
+[1, 2].forEach(alert);
 ```
 
+<<<<<<< HEAD
 Сега ако изпълним кода , само първият `alert` ще се покаже и след това ще имаме грешка!
 
 Но всичко е наред ако добавим точка и запетая след първият `alert`:
 ```js run
 alert("Всичко е наред сега");
+=======
+The difference compared to the code above is only one character: the semicolon at the end of the first line is gone.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
-[1, 2].forEach(alert)  
-```
+If we run this code, only the first `Hello` shows (and there's an error, you may need to open the console to see it). There are no numbers any more.
 
+<<<<<<< HEAD
 Сега имаме съобщението "Всичко е наред" следвано от `1` и `2`.
 
 Грешката във примера, без точка и запетая, се получава, защото JavaScript не може да прецени, че има точка и запетая преди скобите `[...]`.
@@ -89,6 +108,19 @@ alert("Ще има грешка")[1, 2].forEach(alert)
 ```
 
 Но това трябва да са две отделни инструкции, а не една. Такова слепване в този случай е грешно, следователно води до грешка. Това може да се случи и в някои други ситуации.
+=======
+That's because JavaScript does not assume a semicolon before square brackets `[...]`. So, the code in the last example is treated as a single statement.
+
+Here's how the engine sees it:
+
+```js run no-beautify
+alert("Hello")[1, 2].forEach(alert);
+```
+
+Looks weird, right? Such merging in this case is just wrong. We need to put a semicolon after `alert` for the code to work correctly.
+
+This can happen in other situations also.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 ````
 
 Препоръчваме да поставяте точка и запетая между инструкциите дори когато те са отделени със нов ред. Това правило е широко разпорстранено в обществото на разработчиците. Нека отбежележим още веднъж -- *че е възможно* да не се поставя точка и запетая в повечето случай. Но е по-безопасно -- най вече при начинаещи -- да се поставя.
