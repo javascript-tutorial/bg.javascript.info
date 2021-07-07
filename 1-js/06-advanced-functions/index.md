@@ -1,1 +1,1 @@
-# Advanced working with functions
+# Разширена работа с функции
