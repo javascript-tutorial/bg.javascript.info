@@ -1,32 +1,32 @@
-The reason is that prompt returns user input as a string.
+Причината е, че *prompt* връща потребителски вход като низ.
 
-So variables have values `"1"` and `"2"` respectively.
+Така че променливите имат стойности `"1"` и `"2"`.
 
 ```js run
-let a = "1"; // prompt("First number?", 1);
-let b = "2"; // prompt("Second number?", 2);
+let a = "1"; // prompt("Първо число?", 1);
+let b = "2"; // prompt("Второ число?", 2);
 
 alert(a + b); // 12
 ```
 
-What we should do is to convert strings to numbers before `+`. For example, using `Number()` or prepending them with `+`.
+Това, което трябва да направим, е да преобразуваме низовете в числа преди знака `+`. Например като използваме функцията `Number()` или като добавим допълнителен знак `+`.
 
-For example, right before `prompt`:
+Например, точно преди `prompt`:
 
 ```js run
-let a = +prompt("First number?", 1);
-let b = +prompt("Second number?", 2);
+let a = +prompt("Първо число?", 1);
+let b = +prompt("Второ число?", 2);
 
 alert(a + b); // 3
 ```
 
-Or in the `alert`:
+Или в `alert`:
 
 ```js run
-let a = prompt("First number?", 1);
-let b = prompt("Second number?", 2);
+let a = prompt("Първо число?", 1);
+let b = prompt("Второ число?", 2);
 
 alert(+a + +b); // 3
 ```
 
-Using both unary and binary `+` in the latest code. Looks funny, doesn't it?
+Използвахме както един, така и два знака `+` в най-новия код. Изглежда смешно, нали?

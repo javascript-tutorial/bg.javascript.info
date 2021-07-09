@@ -2,17 +2,17 @@ importance: 5
 
 ---
 
-# Fix the addition
+# Коригирайте сумирането
 
-Here's a code that asks the user for two numbers and shows their sum.
+Ето код, който иска от потребителя две числа и показва тяхната сума.
 
-It works incorrectly. The output in the example below is `12` (for default prompt values).
+То работи неправилно. Резултатът в примера по-долу е `12` (за стойностите по подразбиране).
 
-Why? Fix it. The result should be `3`.
+Защо? Оправете го. Резултатът трябва да бъде `3`.
 
 ```js run
-let a = prompt("First number?", 1);
-let b = prompt("Second number?", 2);
+let a = prompt("Първо число?", 1);
+let b = prompt("Второ число?", 2);
 
 alert(a + b); // 12
 ```
