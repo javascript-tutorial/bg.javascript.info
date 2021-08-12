@@ -1,9 +1,9 @@
 
-# Static properties and methods
+# Статични свойства и методи
 
-We can also assign a method to the class function itself, not to its `"prototype"`. Such methods are called *static*.
+Можем също така да присвоим метод на самата функция на класа, не на неговия `"prototype"`. Такива методи се наричат *статични*.
 
-In a class, they are prepended by `static` keyword, like this:
+В класа те са започват с ключова дума `static`:
 
 ```js run
 class User {
@@ -17,7 +17,7 @@ class User {
 User.staticMethod(); // true
 ```
 
-That actually does the same as assigning it as a property directly:
+Това всъщност прави същото като директното присвояване на като свойството:
 
 ```js run
 class User { }
@@ -29,11 +29,11 @@ User.staticMethod = function() {
 User.staticMethod(); // true
 ```
 
-The value of `this` in `User.staticMethod()` call is the class constructor `User` itself (the "object before dot" rule).
+Стойността на `this` в `User.staticMethod()` е конструктора на самия клас `User` (правилото за "обекта преди точката").
 
-Usually, static methods are used to implement functions that belong to the class, but not to any particular object of it.
+Обикновено статичните методи се използват за имплементиране на функции, които принадлежат към класа, но не и към някакъв конкретен обект от него.
 
-For instance, we have `Article` objects and need a function to compare them. A natural solution would be to add `Article.compare` method, like this:
+Например, имаме обекти `Article` и се нуждаем от функция, за да ги сравним. Естествено решение би било да се добави метода `Article.compare`, ето така:
 
 ```js run
 class Article {
@@ -49,7 +49,7 @@ class Article {
 */!*
 }
 
-// usage
+// употреба
 let articles = [
   new Article("HTML", new Date(2019, 1, 1)),
   new Article("CSS", new Date(2019, 0, 1)),
@@ -63,17 +63,17 @@ articles.sort(Article.compare);
 alert( articles[0].title ); // CSS
 ```
 
-Here `Article.compare` stands "above" articles, as a means to compare them. It's not a method of an article, but rather of the whole class.
+Тук `Article.compare` стои "над" `Article`, като средство за сравняването им. То не е метод на самия обект `Article`, а по-скоро на целия клас.
 
-Another example would be a so-called "factory" method. Imagine, we need few ways to create an article:
+Друг пример би било т.нар "фабричен" метод. Представете си че ни трябва няколко начина, за да създадем обект `Article`:
 
-1. Create by given parameters (`title`, `date` etc).
-2. Create an empty article with today's date.
-3. ...or else somehow.
+1. Чрез дадени параметри (`title`, `date` etc).
+2. Празен обект `Article`, което е с днешната дата.
+3. ...или по друг начин.
 
-The first way can be implemented by the constructor. And for the second one we can make a static method of the class.
+Първият начин може да бъде имплементирана от конструктора. А за втория можем да направим статичен метод на класа.
 
-Like `Article.createTodays()` here:
+Например `Article.createTodays()`, ето така:
 
 ```js run
 class Article {
@@ -84,7 +84,7 @@ class Article {
 
 *!*
   static createTodays() {
-    // remember, this = Article
+    // запомнете, this = Article
     return new this("Today's digest", new Date());
   }
 */!*
@@ -92,24 +92,24 @@ class Article {
 
 let article = Article.createTodays();
 
-alert( article.title ); // Today's digest
+alert( article.title ); // "Today's digest"
 ```
 
-Now every time we need to create a today's digest, we can call `Article.createTodays()`. Once again, that's not a method of an article, but a method of the whole class.
+Сега всеки път, когато трябва да създадем днешния дайджест, просто извикваме `Article.createTodays()`. Още веднъж, това не е метод на самата статията, а метод на целия клас.
 
-Static methods are also used in database-related classes to search/save/remove entries from the database, like this:
+Статичните методи се използват и в класове, свързани с базата данни, за търсене/запазване/премахване на записи от базата данни, по следния начин:
 
 ```js
-// assuming Article is a special class for managing articles
-// static method to remove the article:
+// ако приемем, че `Article` е специален клас за управление на статии 
+// то статичен метод за премахване на статията би изглеждала така:
 Article.remove({id: 12345});
 ```
 
-## Static properties
+## Статични свойства
 
 [recent browser=Chrome]
 
-Static properties are also possible, they look like regular class properties, but prepended by `static`:
+Статичните свойства също са възможни, те приличат на свойства на обикновен клас, но предварително добавени със ключовата дума `static`:
 
 ```js run
 class Article {
@@ -119,17 +119,17 @@ class Article {
 alert( Article.publisher ); // Ilya Kantor
 ```
 
-That is the same as a direct assignment to `Article`:
+Това е същото като директно присвояване на `Article`:
 
 ```js
 Article.publisher = "Ilya Kantor";
 ```
 
-## Inheritance of static properties and methods [#statics-and-inheritance]
+## Наследяване на статични свойства и методи [#statics-and-inheritance]
 
-Static properties and methods are inherited.
+Статичните свойства и методи са наследствени.
 
-For instance, `Animal.compare` and `Animal.planet` in the code below are inherited and accessible as `Rabbit.compare` and `Rabbit.planet`:
+Например, `Animal.compare` и `Animal.planet` в кода по-долу са наследени и достъпни като `Rabbit.compare` и `Rabbit.planet`:
 
 ```js run
 class Animal {
@@ -153,7 +153,7 @@ class Animal {
 
 }
 
-// Inherit from Animal
+// Наследяване на класа Animal
 class Rabbit extends Animal {
   hide() {
     alert(`${this.name} hides!`);
@@ -174,43 +174,43 @@ rabbits[0].run(); // Black Rabbit runs with speed 5.
 alert(Rabbit.planet); // Earth
 ```
 
-Now when we call `Rabbit.compare`, the inherited `Animal.compare` will be called.
+Сега когато извикаме метода `Rabbit.compare`, ще се извиква наследения метод на `Animal.compare`.
 
-How does it work? Again, using prototypes. As you might have already guessed, `extends` gives `Rabbit` the `[[Prototype]]` reference to `Animal`.
+Но как работи това? Отново, чрез използване на прототипи. Както може би вече се досещате, `extends` дава на `Rabbit` прототип `[[Prototype]]` насочващ към `Animal`.
 
 ![](animal-rabbit-static.svg)
 
-So, `Rabbit extends Animal` creates two `[[Prototype]]` references:
+Така, `Rabbit extends Animal` създава две `[[Prototype]]` референции:
 
-1. `Rabbit` function prototypally inherits from `Animal` function.
-2. `Rabbit.prototype` prototypally inherits from `Animal.prototype`.
+1. `Rabbit` прототипно наследява функциите на `Animal`.
+2. `Rabbit.prototype` прототипно наследява `Animal.prototype`.
 
-As a result, inheritance works both for regular and static methods.
+И резултатът е, че наследяването работи както за обикновени, така и за статични методи.
 
-Here, let's check that by code:
+Ето, нека проверим това чрез код:
 
 ```js run
 class Animal {}
 class Rabbit extends Animal {}
 
-// for statics
+// за статични
 alert(Rabbit.__proto__ === Animal); // true
 
-// for regular methods
+// за обикновенни
 alert(Rabbit.prototype.__proto__ === Animal.prototype); // true
 ```
 
-## Summary
+## Обобщение
 
-Static methods are used for the functionality that belongs to the class "as a whole". It doesn't relate to a concrete class instance.
+Статичните методи се използват за функционалността, която принадлежи към класа "като цяло". Той не е свързан с конкретен обект на клас.
 
-For example, a method for comparison `Article.compare(article1, article2)` or a factory method `Article.createTodays()`.
+Например, метод за сравнение `Article.compare(article1, article2)` или фабричния метод `Article.createTodays()`.
 
-They are labeled by the word `static` in class declaration.
+Те са обозначени с ключовата думата `static` в декларацията на класа.
 
-Static properties are used when we'd like to store class-level data, also not bound to an instance.
+Статичните свойства се използват, когато искаме да съхраняваме данни на ниво клас, които също не са обвързани с инстанция.
 
-The syntax is:
+Синтаксиса е:
 
 ```js
 class MyClass {
@@ -222,13 +222,13 @@ class MyClass {
 }
 ```
 
-Technically, static declaration is the same as assigning to the class itself:
+Технически, статичната декларация е същата като присвояването на самия клас:
 
 ```js
 MyClass.property = ...
 MyClass.method = ...
 ```
 
-Static properties and methods are inherited.
+Статичните свойства и методи се наследяват.
 
-For `class B extends A` the prototype of the class `B` itself points to `A`: `B.[[Prototype]] = A`. So if a field is not found in `B`, the search continues in `A`.
+При `class B extends A` прототипа на класа `B` сама посочва класа `A`: `B.[[Prototype]] = A`. Така че, ако не се намери поле в класа `B`, търсенето продължава в класа `A`.
