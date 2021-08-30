@@ -4,7 +4,11 @@
 
 1. Обикновенните числа в JavaScript се запазват в 64-битов фирмат [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), също познати като "двойно прецизни числа с плаваща запетая". TТова са числа, които ще използваме през повечето време и ще говорим за тях в тази глава.
 
+<<<<<<< HEAD
 2. Числото BigInt представлява цели числа с произволна дължина. Те понякога са необходими, защото редовното число не могат да надвишават <code>2<sup>53</sup></code> или да бъдат по-малко от <code>-2<sup>53</sup></code>. Числата от bigint тип се използват в няколко специални области, ние им посвещаваме специална глава <info:bigint>.
+=======
+2. BigInt numbers, to represent integers of arbitrary length. They are sometimes needed, because a regular number can't safely exceed <code>2<sup>53</sup></code> or be less than <code>-2<sup>53</sup></code>. As bigints are used in few special areas, we devote them a special chapter <info:bigint>.
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
 Така че тук ще говорим за обикновените числа. Нека разширим познанията си за тях.
 
@@ -66,7 +70,11 @@ let ms = 0.000001;
 let ms = 1e-6; // шест нули вляво от 1
 ```
 
+<<<<<<< HEAD
 Ако броим нулите в `0.000001`, те са 6. Така че естествено е`1e-6`.  
+=======
+If we count the zeroes in `0.000001`, there are 6 of them. So naturally it's `1e-6`.
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
 С други думи, отрицателно число след `"e"` означава разделение на 1 с дадения брой нули:
 
@@ -365,7 +373,11 @@ let num = +prompt("Enter a number", '');
 alert( isFinite(num) );
 ```
 
+<<<<<<< HEAD
 Моля, обърнете внимание, че празният или само празен низ се третира като `0` във всички цифрови функции, включително `isFinite`.  
+=======
+Please note that an empty or a space-only string is treated as `0` in all numeric functions including `isFinite`.
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
 ```smart header="Сравнение с `Object.is`"
 
