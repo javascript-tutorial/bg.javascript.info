@@ -106,10 +106,17 @@ for (let i = 0; i < 3; i++) { // ще изпринтира 0, после 1, по
 
 | Част  |          |                                                                            |
 |-------|----------|----------------------------------------------------------------------------|
+<<<<<<< HEAD
 | начало | `i = 0`    | Изпълнява се веднъж при влизане в цикъла.                                      |
 | условие | `i < 3`| Проверява се преди всяка итерация. Ако е невярно, цикълът спира.              |
 | тяло | `alert(i)`| Изпълнява се отново и отново, докато състоянието е вярно.                         |
 | стъпка | `i++`      | Изпълнява се след тялото при всяка итерация. |
+=======
+| begin | `let i = 0`    | Executes once upon entering the loop.                                      |
+| condition | `i < 3`| Checked before every loop iteration. If false, the loop stops.              |
+| body | `alert(i)`| Runs again and again while the condition is truthy.                         |
+| step| `i++`      | Executes after the body on each iteration. |
+>>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
 Общия алгоритъм на цикъла работи така:
 
