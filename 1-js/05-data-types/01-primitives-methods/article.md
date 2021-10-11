@@ -53,7 +53,11 @@ john.sayHi(); // Здравей приятел!
 2. Езикът позволява достъп до методи и свойства на низовете, числата, булевите променливи и символите.
 3. За да може това да работи, по специален начин "обектът се опакова", което осигурява допълнителната функционалност, и след това е унищожен.
 
+<<<<<<< HEAD
 Начините на "опаковането на обектите" са различни за всеки примитивен тип и са наречени: `String`, `Number`, `Boolean` и `Symbol`. По този начин те предоставят различни набори от методи.
+=======
+The "object wrappers" are different for each primitive type and are called: `String`, `Number`, `Boolean`, `Symbol` and `BigInt`. Thus, they provide different sets of methods.
+>>>>>>> 193319c963b9ba86ac7d9590f7261a36ecdcc4d2
 
 Например, съществува метод за низовете [str.toUpperCase()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) който връща с главни букви `str`.
 

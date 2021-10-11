@@ -305,11 +305,19 @@ function pow(x, n) {
 
 Ето някои добре известни линтери:
 
+<<<<<<< HEAD
 - [JSLint](http://www.jslint.com/) -- един от първите линтери.
 - [JSHint](http://www.jshint.com/) -- има повече опции от JSLint.
 - [ESLint](http://eslint.org/) -- вероятно най-новият линтер.
 
 Всеки от тях може да свърши работа. Авторът използва [ESLint](http://eslint.org/).
+=======
+- [JSLint](https://www.jslint.com/) -- one of the first linters.
+- [JSHint](https://jshint.com/) -- more settings than JSLint.
+- [ESLint](https://eslint.org/) -- probably the newest one.
+
+All of them can do the job. The author uses [ESLint](https://eslint.org/).
+>>>>>>> 193319c963b9ba86ac7d9590f7261a36ecdcc4d2
 
 Повечето линтери са интегрирани с много от популярните среди за разработка: просто активирайте плъгина в редактора и конфигурирайте стила.
 
@@ -339,7 +347,11 @@ function pow(x, n) {
 
 Тук директивата `"extends"` подчертава че конфигурацията е базирана на "eslint:recommended" набор от настройки. След това ние можем да създадем наши собствени. 
 
+<<<<<<< HEAD
 Също така е възможно да свалите файлове със стилови настройки от мрежата и да разширите вече съществуващите такива. Вижте <http://eslint.org/docs/user-guide/getting-started> за повече детайли относно инсталацията. 
+=======
+It is also possible to download style rule sets from the web and extend them instead. See <https://eslint.org/docs/user-guide/getting-started> for more details about installation.
+>>>>>>> 193319c963b9ba86ac7d9590f7261a36ecdcc4d2
 
 Също някои IDEs имат вграден линтер, който е удобен но не може да се модифицира толкова, колкото ESLint.
 
