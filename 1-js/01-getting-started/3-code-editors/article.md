@@ -31,11 +31,18 @@
 
 Следните опции заслужават вниманието ви:
 
+<<<<<<< HEAD
 - [Atom](https://atom.io/) (междуплатформена, безплатен).
 - [Visual Studio Code](https://code.visualstudio.com/) (междуплатформена, безплатен).
 - [Sublime Text](http://www.sublimetext.com) (междуплатформена, споделен).
 - [Notepad++](https://notepad-plus-plus.org/) (OS Windows, безплатен).
 - [Vim](http://www.vim.org/) и [Emacs](https://www.gnu.org/software/emacs/) също са яки, ако знаете как да ги използвате
+=======
+- [Atom](https://atom.io/) (cross-platform, free).
+- [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
+- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+>>>>>>> 3699f73b4ccb2a57ac5ef990d2687bf31ccf564c
 
 ## Нека да не спорим
 
