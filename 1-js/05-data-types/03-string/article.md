@@ -80,6 +80,7 @@ alert(str1 == str2); // true
 
 | Символ | Описание |
 |-----------|-------------|
+<<<<<<< HEAD
 |`\n`|Нов ред|
 |`\r`|"Carriage return" или Връщане на каретката не е използвано само. Във Windows, текстовите файлове използват комбинация от два символа `\r\n`, за да представляват прекъсване на ред. |
 |`\'`, `\"`|Кавички|
@@ -89,6 +90,17 @@ alert(str1 == str2); // true
 |`\xXX`|Unicode символ с дадения шестнадесетичен Unicode `XX`, напр. `'\x7A'` е същото като `'z'`.|
 |`\uXXXX`|Unicode символ с шестнадесетичния код `XXXX` в UTF-16 кодиране, например `\u00A9` -- е Unicode за символа за авторски права `©`. Трябва да е точно 4 шестнадесетични символи. |
 |`\u{X…XXXXXX}` (1 до 6 шестнадесетични символи)|Unicode символ с дадения UTF-32 кодировка. Някои редки знаци са кодирани с два Unicode символа, като отнемат 4 байта. По този начин можем да вмъкнем дълги кодове. |
+=======
+|`\n`|New line|
+|`\r`|In Windows text files a combination of two characters `\r\n` represents a new break, while on non-Windows OS it's just `\n`. That's for historical reasons, most Windows software also understands `\n`. |
+|`\'`, `\"`|Quotes|
+|`\\`|Backslash|
+|`\t`|Tab|
+|`\b`, `\f`, `\v`| Backspace, Form Feed, Vertical Tab -- kept for compatibility, not used nowadays. |
+|`\xXX`|Unicode character with the given hexadecimal Unicode `XX`, e.g. `'\x7A'` is the same as `'z'`.|
+|`\uXXXX`|A Unicode symbol with the hex code `XXXX` in UTF-16 encoding, for instance `\u00A9` -- is a Unicode for the copyright symbol `©`. It must be exactly 4 hex digits. |
+|`\u{X…XXXXXX}` (1 to 6 hex characters)|A Unicode symbol with the given UTF-32 encoding. Some rare characters are encoded with two Unicode symbols, taking 4 bytes. This way we can insert long codes. |
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 Примери с Unicode:
 
