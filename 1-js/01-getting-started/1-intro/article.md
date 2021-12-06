@@ -71,7 +71,11 @@ JavaScript-a в браузъра може да направи всичко от�
 
 ## Какво не може JavaScript-а в браузъра?
 
+<<<<<<< HEAD
 Възможностите на JavaScript-a в браузъра са ограничени заради безопасността на потребителя. Целта е да се предотврати на зловредните страници достъпът на личната информация на потребителите или навреждането на данните на потребителите.
+=======
+JavaScript's abilities in the browser are limited for the sake of a user's safety. The aim is to prevent an evil webpage from accessing private information or harming the user's data.
+>>>>>>> a82915575863d33db6b892087975f84dea6cb425
 
 Примерите на такива ограничения вкючват:
 Examples of such restrictions include:
@@ -99,9 +103,15 @@ Examples of such restrictions include:
 Има поне *три* чудесни неща относно JavaScript:
 
 ```compare
+<<<<<<< HEAD
 + Пълна интеграция с HTML и CSS.
 + Простите неща се правят просто.
 + Поддържан от основните браузъри и е активиран по подразбиране.
+=======
++ Full integration with HTML/CSS.
++ Simple things are done simply.
++ Supported by all major browsers and enabled by default.
+>>>>>>> a82915575863d33db6b892087975f84dea6cb425
 ```
 
 JavaScript е единствената браузърна технология, който комбинира всичките тези три неща.
@@ -133,6 +143,12 @@ JavaScript е единствената браузърна технология, 
 
 ## Обобщение
 
+<<<<<<< HEAD
 - JavaScript първоначално е създаден като "език за браузъра", но в момента се използва и много други среди.
 - Настоящем, JavaScript има уникалната позиция като най-широко разпространения език с пълна интеграция с HTML и CSS.
 - Има много езици, които се "транспилират" в JavaScript код и предоставят определени подобрения. Препоръчително е да се погледнат, поне за кратко, след като овладеете JavaScript-a.
+=======
+- JavaScript was initially created as a browser-only language, but it is now used in many other environments as well.
+- Today, JavaScript has a unique position as the most widely-adopted browser language, fully integrated with HTML/CSS.
+- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+>>>>>>> a82915575863d33db6b892087975f84dea6cb425
