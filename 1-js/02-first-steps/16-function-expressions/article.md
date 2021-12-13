@@ -12,7 +12,13 @@ function sayHi() {
 
 Има и друг синтаксис за създаване на функция, наречен *Function Expression*.
 
+<<<<<<< HEAD
 Той изглежда така:
+=======
+It allows to create a new function in the middle of any expression.
+
+For example:
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 
 ```js
 let sayHi = function() {
@@ -20,9 +26,25 @@ let sayHi = function() {
 };
 ```
 
+<<<<<<< HEAD
 Тук, функцията се създава и присвоява на променливата експлицитно, като всяка друга стойност. Без значение как е дефинирана функцията, тя е просто стойност, записана в променливата `sayHi`.
 
 Значението на тези примери код е едно и също: "създай функция и  я запиши в променливата `sayHi`".
+=======
+Here we can see a variable `sayHi` getting a value, the new function, created as `function() { alert("Hello"); }`.
+
+As the function creation happens in the context of the assignment expression (to the right side of `=`), this is a *Function Expression*.
+
+Please note, there's no name after the `function` keyword. Omitting a name is allowed for Function Expressions.
+
+Here we immediately assign it to the variable, so the meaning of these code samples is the same: "create a function and put it into the variable `sayHi`".
+
+In more advanced situations, that we'll come across later, a function may be created and immediately called or scheduled for a later execution, not stored anywhere, thus remaining anonymous.
+
+## Function is a value
+
+Let's reiterate: no matter how the function is created, a function is a value. Both examples above store a function is `sayHi` variable.
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 
 Ние дори можем да отпечатаме тази стойност посредством `alert`:
 
@@ -63,11 +85,19 @@ sayHi(); // Здравей    //     този код също работи (за
 2. Ред `(2)` копира я в променливата `func`. Забележете че няма скоби след `sayHi`. Ако имаше, тогава `func = sayHi()` щеше да изпише *резултата от извикването* на `sayHi()` във `func`, не *кода на самата функция* `sayHi`.
 3. Сега функцията може да бъде извикана по двата начина `sayHi()` и `func()`.
 
+<<<<<<< HEAD
 Също така можеше да използваме Function Expression (функционален израз) за да декларираме `sayHi`, на първия ред:
 
 ```js
 let sayHi = function() {
   alert( "Здравей" );
+=======
+We could also have used a Function Expression to declare `sayHi`, in the first line:
+
+```js
+let sayHi = function() { // (1) create
+  alert( "Hello" );
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 };
 
 let func = sayHi;
@@ -90,9 +120,15 @@ let sayHi = function() {
 }*!*;*/!*
 ```
 
+<<<<<<< HEAD
 Отговорът е прост:
 - Няма нужда от `;` в края на блока от код и синтактични структури, които ги използват, като `if { ... }`, `for {  }`, `function f { }` и др.
 - Функционалният израз се използва вътре в инструкцията: `let sayHi = ...;`, като стойност. Това не е блок от код, а по-скоро присвояване на стойност. Знакът точка и запетая `;` е препоръчително да се ползва в края на инструкциите, без значение каква е стойността. Така че точката и запетаята не е свързана с функционалния израз. Тя маркира края на инструкцията.
+=======
+The answer is simple: a Function Expression is created here as `function(…) {…}` inside the assignment statement: `let sayHi = …;`. The semicolon `;` is recommended at the end of the statement, it's not a part of the function syntax.
+
+The semicolon would be there for a simpler assignment, such as `let sayHi = 5;`, and it's also there for a function assignment.
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 ````
 
 ## Функции за обратно извикване

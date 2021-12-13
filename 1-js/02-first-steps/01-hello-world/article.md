@@ -72,7 +72,11 @@ JavaScript програмите могат да бъдат поставяни в
 <script src="/path/to/script.js"></script>
 ```
 
+<<<<<<< HEAD
 Тук `/path/to/script.js` е абсолютният път до скрипта започващ от нивото от което се зарежда и сайта в файловата система. Също така може да се използва и релативен път, от текущата страница, пример за това е `src="script.js"`, което означава че ще бъде достъпен файла `"script.js"` от текущата директория. 
+=======
+Here, `/path/to/script.js` is an absolute path to the script from the site root. One can also provide a relative path from the current page. For instance, `src="script.js"`, just like `src="./script.js"`, would mean a file `"script.js"` in the current folder.
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 
 Може да предоставим и пълен URL адрес. Пример за това е:
 

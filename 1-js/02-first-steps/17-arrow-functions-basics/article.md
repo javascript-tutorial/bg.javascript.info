@@ -5,10 +5,14 @@
 Нарича се "arrow functions" (функции със стрелки / стрелкови функции), защото изглежда така:
 
 ```js
-let func = (arg1, arg2, ..., argN) => expression
+let func = (arg1, arg2, ..., argN) => expression;
 ```
 
+<<<<<<< HEAD
 ...Този код създава функция `func` която приема аргументи `arg1..argN`, след това  изчислява `израза` от дясната страна, който използва аргументите и връща резултат.
+=======
+This creates a function `func` that accepts arguments `arg1..argN`, then evaluates the `expression` on the right side with their use and returns its result.
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 
 С други думи това е по-кратката версия на:
 
