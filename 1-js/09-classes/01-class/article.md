@@ -129,7 +129,11 @@ alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
 
 ## Не е просто синтактична захар
 
+<<<<<<< HEAD
 Понякога хората казват, че `class` е "синтактична захар" (синтаксис, който е предназначен да улесни нещата за четене, но не въвежда нищо ново), защото всъщност бихме могли да декларираме същото без ключовата дума `class`:
+=======
+Sometimes people say that `class` is a "syntactic sugar" (syntax that is designed to make things easier to read, but doesn't introduce anything new), because we could actually declare the same thing without using the `class` keyword at all:
+>>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
 
 ```js run
 // пренаписване на клас Потребител с "pure" функции
