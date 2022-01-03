@@ -214,12 +214,16 @@ alert(age); // "undefined"
 
 Оператора може да бъде използван по два начина:
 
+<<<<<<< HEAD
 1. Като оператор: `typeof x`.
 2. Като функция: `typeof(x)`.
 
 Казано по друг начин, той може да работи без или със скоби, като резултатът остава един и същ.
 
 Изпълнението на `typeof x`, ни дава резултат от тип стринг, съдържащ името на типа.
+=======
+A call to `typeof x` returns a string with the type name:
+>>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
 
 ```js
 typeof undefined // "undefined"
@@ -253,8 +257,26 @@ typeof alert // "function"  (3)
 2. Резултатът от `typeof null` е `"object"`. Това е грешно и е официално признат бъг в оператора `typeof`, оставен с цел съвместимост, на вече съществуващ код. Разбира се `null` не е обект, а специална стойност, със свой собствен тип, затова ще повторим "това е грешка в езика".
 3. Резултатът от `typeof alert` е `"function"`, защото `alert` е функция. Ще изучаваме по-подробно функциите в следващите глави, където ще видим, че в езика JavaScript не съществува специален тип "function". Функциите спадат към типа `object`, но оператора `typeof` ги третира различно и ни връща `"function"`, което само по себе си не е абсолютно правилно, но е доста удобно.
 
+<<<<<<< HEAD
 
 ## Заключение
+=======
+1. `Math` is a built-in object that provides mathematical operations. We will learn it in the chapter <info:number>. Here, it serves just as an example of an object.
+2. The result of `typeof null` is `"object"`. That's an officially recognized error in `typeof`, coming from very early days of JavaScript and kept for compatibility. Definitely, `null` is not an object. It is a special value with a separate type of its own. The behavior of `typeof` is wrong here.
+3. The result of `typeof alert` is `"function"`, because `alert` is a function. We'll study functions in the next chapters where we'll also see that there's no special "function" type in JavaScript. Functions belong to the object type. But `typeof` treats them differently, returning `"function"`. That also comes from the early days of JavaScript. Technically, such behavior isn't correct, but can be convenient in practice.
+
+```smart header="The `typeof(x)` syntax"
+You may also come across another syntax: `typeof(x)`. It's the same as `typeof x`.
+
+To put it clear: `typeof` is an operator, not a function. The parentheses here aren't a part of `typeof`. It's the kind of parentheses used for mathematical grouping.
+
+Usually, such parentheses contain a mathematical expression, such as `(2 + 2)`, but here they contain only one argument `(x)`. Syntactically, they allow to avoid a space between the `typeof` operator and its argument, and some people like it.
+
+Some people prefer `typeof(x)`, although the `typeof x` syntax is much more common.
+```
+
+## Summary
+>>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
 
 В езика JavaScript има седем основни типа данни.
 
@@ -269,8 +291,14 @@ typeof alert // "function"  (3)
 
 Оператора `typeof` ни позволява да разберем какъв тип се съхранява в дадена променлива.
 
+<<<<<<< HEAD
 - Има две форми: `typeof x` или `typeof(x)`.
 - Връща стойност от тип стринг, който съдържа типа на проверяваната стойност, такъв пример е : `"string"`.
 - За `null` връща `"object"` -- това е грешка в езика, null в действителност не е обект.
+=======
+- Usually used as `typeof x`, but `typeof(x)` is also possible.
+- Returns a string with the name of the type, like `"string"`.
+- For `null` returns `"object"` -- this is an error in the language, it's not actually an object.
+>>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
 
 В следващите глави ще се концентрираме върху примитивните типове данни и щом започнем да се чувстваме комфортно с тях ще преминем към обектите.

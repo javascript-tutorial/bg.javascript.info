@@ -164,10 +164,14 @@ alert( "Direct: " + user[id] );
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 `Object.keys(user)` също ги игнорира. Това е част от общия принцип "скриване на символни свойства". Ако друг скрипт или библиотека се изцикли над нашия обект, той няма неочакван достъп до символните свойства.
 =======
 [Object.keys(user)](mdn:js/Object/keys) also ignores them. That's a part of the general "hiding symbolic properties" principle. If another script or a library loops over our object, it won't unexpectedly access a symbolic property.
 >>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
+=======
+[Object.keys(user)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) also ignores them. That's a part of the general "hiding symbolic properties" principle. If another script or a library loops over our object, it won't unexpectedly access a symbolic property.
+>>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
 
 За разлика, [Object.assign](mdn:js/Object/assign) копира и символните и низовите свойства:
 
