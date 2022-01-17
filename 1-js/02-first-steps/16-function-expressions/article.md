@@ -43,8 +43,12 @@ In more advanced situations, that we'll come across later, a function may be cre
 
 ## Function is a value
 
+<<<<<<< HEAD
 Let's reiterate: no matter how the function is created, a function is a value. Both examples above store a function is `sayHi` variable.
 >>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
+=======
+Let's reiterate: no matter how the function is created, a function is a value. Both examples above store a function in the `sayHi` variable.
+>>>>>>> a6fdfda09570a8ce47bb0b83cd7a32a33869cfad
 
 Ние дори можем да отпечатаме тази стойност посредством `alert`:
 
