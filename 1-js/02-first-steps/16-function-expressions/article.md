@@ -13,9 +13,13 @@ function sayHi() {
 Има и друг синтаксис за създаване на функция, наречен *Function Expression*.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Той изглежда така:
 =======
 It allows to create a new function in the middle of any expression.
+=======
+It allows us to create a new function in the middle of any expression.
+>>>>>>> 0f748275e20a81700c8514f22a7cc80c4422d09c
 
 For example:
 >>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269

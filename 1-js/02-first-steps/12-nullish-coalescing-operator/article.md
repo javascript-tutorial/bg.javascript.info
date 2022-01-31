@@ -106,7 +106,11 @@ alert(height ?? 100); // 0
 
 ## Предимства
 
+<<<<<<< HEAD
 Предимството на оператора `??` е доста ниска: `5` в [MDN таблицата](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table), докато на `||` е `6`.
+=======
+The precedence of the `??` operator is the same as `||`. They both equal `4` in the [MDN table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
+>>>>>>> 0f748275e20a81700c8514f22a7cc80c4422d09c
 
 Това означава, че както оператора ИЛИ `||`, нулевия условен оператор `??` се оценява преди `=` и `?`,но след повечето други операции, като `+`, `*`.
 
