@@ -46,13 +46,23 @@ n = 12.345;
     alert( "not a number" / 2 ); // NaN, такова деление е грешно
     ```
 
+<<<<<<< HEAD
     `NaN` е с "лепкав" характер, което означава че всяка следваща операция, след като веднъж сме получили `NaN` в уравнение, ще ни върне стойност `NaN`:
+=======
+    `NaN` is sticky. Any further mathematical operation on `NaN` returns `NaN`:
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 
     ```js run
-    alert( "not a number" / 2 + 5 ); // NaN
+    alert( NaN + 1 ); // NaN
+    alert( 3 * NaN ); // NaN
+    alert( "not a number" / 2 - 1 ); // NaN
     ```
 
+<<<<<<< HEAD
     Така че ако получим стойност `NaN`, където и да е в математическо уравнение, тази стойност ще бъде и резултатът от уравнението.
+=======
+    So, if there's a `NaN` somewhere in a mathematical expression, it propagates to the whole result (there's only one exception to that: `NaN ** 0` is `1`).
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 
 ```smart header="Математическите операции са безопасни"
 Калкулирането в JavaScript е "безопасно". Ние можем да правим всичко: да делим с нула, да третираме не числови стрингове (текст) като числа и т.н.. 

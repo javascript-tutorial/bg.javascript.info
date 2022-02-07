@@ -1,6 +1,10 @@
 # Конструктор, операторът "new"
 
+<<<<<<< HEAD
 Обикновения синтаксис с `{...}` позволява да се създаде един обект. Но често трябва да създаваме много подобни обекти, като множество потребители или елементи от менюто и т.н.
+=======
+The regular `{...}` syntax allows us to create one object. But often we need to create many similar objects, like multiple users or menu items and so on.
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
 
 Това може да стане с помощта на конструкторски функции и с оператора `"new"`.
 
