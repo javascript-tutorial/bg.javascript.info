@@ -37,7 +37,11 @@ let sum = function(a, b) {
 alert( sum(1, 2) ); // 3
 ```
 
+<<<<<<< HEAD
 Както виждате `(a, b) => a + b` означава функция, която приема два аргумента именувани `a` и `b`. По време на изпълнението, тя изчислява израза `a + b` и връща резултата.
+=======
+As you can see, `(a, b) => a + b` means a function that accepts two arguments named `a` and `b`. Upon the execution, it evaluates the expression `a + b` and returns the result.
+>>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 
 - Ако имаме само един аргумент, скобите около параметъра може да не се пишат. Така синтаксисът става дори още по-кратък.
 
@@ -90,7 +94,11 @@ welcome();
 let sum = (a, b) => {  // къдравата скоба отваря многоредова функция
   let result = a + b;
 *!*
+<<<<<<< HEAD
   return result; // ако използваме къдрави скоби, тогава имаме нужда от експлицитен (ясен, изричен) "return" 
+=======
+  return result; // if we use curly braces, then we need an explicit "return"
+>>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 */!*
 };
 
