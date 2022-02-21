@@ -186,6 +186,7 @@ alert( +apples + +oranges ); // 5
 | Предимство | Име | Знак |
 |------------|------|------|
 | ... | ... | ... |
+<<<<<<< HEAD
 | 17 | едноаргументен плюс | `+` |
 | 17 | едноаргументен минус | `-` |
 | 16 | степенуване | `**` |
@@ -198,10 +199,28 @@ alert( +apples + +oranges ); // 5
 | ... | ... | ... |
 
 Както можем да видим, "едноаргументният плюс" има приоритет `17`, който е по-висок от `13`, този на "събиране" (двуаргументният плюс). Ето защо, в израза `"+apples + +oranges"`, едноаргументният плюс се изплълнява преди събирането.
+=======
+| 15 | unary plus | `+` |
+| 15 | unary negation | `-` |
+| 14 | exponentiation | `**` |
+| 13 | multiplication | `*` |
+| 13 | division | `/` |
+| 12 | addition | `+` |
+| 12 | subtraction | `-` |
+| ... | ... | ... |
+| 2 | assignment | `=` |
+| ... | ... | ... |
+
+As we can see, the "unary plus" has a priority of `15` which is higher than the `12` of "addition" (binary plus). That's why, in the expression `"+apples + +oranges"`, unary pluses work before the addition.
+>>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
 
 ## Присвояване
 
+<<<<<<< HEAD
 Нека да отбележим, че знака за присвояване `=` също е оператор. В таблицата за предимство е отбелязан с много нисък приоритет - `3`.
+=======
+Let's note that an assignment `=` is also an operator. It is listed in the precedence table with the very low priority of `2`.
+>>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
 
 Ето защо, когато присвояваме стойност на променлива, като `x = 2 * 2 + 1`, изчисленията се изпълняват първи и след това `=` е изпълнен, запазвайки резулата в `x`.
 
