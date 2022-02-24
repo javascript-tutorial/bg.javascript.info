@@ -25,7 +25,11 @@ alert(user.address.street); // Грешка!
 
 В много практически случаи бихме предпочели да получим `undefined` вместо грешка тук (означаващ "няма улица").
 
+<<<<<<< HEAD
 ...И още един пример. В Уеб разработката, можем да получим обект, който съответства на елемент от уеб страницата, чрез извикване със специален метод, като `document.querySelector('.elem')`, която изисква аргумент за намиране на дадения елемент, и ще връща `null` когато този елемент не е намерен или несъществува.
+=======
+...and another example. In Web development, we can get an object that corresponds to a web page element using a special method call, such as `document.querySelector('.elem')`, and it returns `null` when there's no such element.
+>>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
 
 ```js run
 // document.querySelector('.elem') е `null` ако няма такъв елемент
