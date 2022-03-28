@@ -1,9 +1,15 @@
 
 # Статични свойства и методи
 
+<<<<<<< HEAD
 Можем също така да присвоим метод на самата функция на класа, не на неговия `"prototype"`. Такива методи се наричат *статични*.
 
 В класа те са започват с ключова дума `static`:
+=======
+We can also assign a method to the class as a whole. Such methods are called *static*.
+
+In a class declaration, they are prepended by `static` keyword, like this:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 class User {
@@ -31,9 +37,17 @@ User.staticMethod(); // true
 
 Стойността на `this` в `User.staticMethod()` е конструктора на самия клас `User` (правилото за "обекта преди точката").
 
+<<<<<<< HEAD
 Обикновено статичните методи се използват за имплементиране на функции, които принадлежат към класа, но не и към някакъв конкретен обект от него.
 
 Например, имаме обекти `Article` и се нуждаем от функция, за да ги сравним. Естествено решение би било да се добави метода `Article.compare`, ето така:
+=======
+Usually, static methods are used to implement functions that belong to the class as a whole, but not to any particular object of it.
+
+For instance, we have `Article` objects and need a function to compare them.
+
+A natural solution would be to add `Article.compare` static method:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 class Article {
@@ -63,9 +77,17 @@ articles.sort(Article.compare);
 alert( articles[0].title ); // CSS
 ```
 
+<<<<<<< HEAD
 Тук `Article.compare` стои "над" `Article`, като средство за сравняването им. То не е метод на самия обект `Article`, а по-скоро на целия клас.
 
 Друг пример би било т.нар "фабричен" метод. Представете си че ни трябва няколко начина, за да създадем обект `Article`:
+=======
+Here `Article.compare` method stands "above" articles, as a means to compare them. It's not a method of an article, but rather of the whole class.
+
+Another example would be a so-called "factory" method.
+
+Let's say, we need multiple ways to create an article:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 1. Чрез дадени параметри (`title`, `date` etc).
 2. Празен обект `Article`, което е с днешната дата.
@@ -73,7 +95,11 @@ alert( articles[0].title ); // CSS
 
 Първият начин може да бъде имплементирана от конструктора. А за втория можем да направим статичен метод на класа.
 
+<<<<<<< HEAD
 Например `Article.createTodays()`, ето така:
+=======
+Such as `Article.createTodays()` here:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 class Article {
@@ -100,8 +126,13 @@ alert( article.title ); // "Today's digest"
 Статичните методи се използват и в класове, свързани с базата данни, за търсене/запазване/премахване на записи от базата данни, по следния начин:
 
 ```js
+<<<<<<< HEAD
 // ако приемем, че `Article` е специален клас за управление на статии 
 // то статичен метод за премахване на статията би изглеждала така:
+=======
+// assuming Article is a special class for managing articles
+// static method to remove the article by id:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 Article.remove({id: 12345});
 ```
 

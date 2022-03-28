@@ -128,9 +128,15 @@ E.g. in `user?.address.street.name` the `?.` allows `user` to safely be `null/un
 ```warn header="Не прекалявайте с поизборната верига"
 Трябва да използваме `?.` само когато е добре, че нещо не съществува.
 
+<<<<<<< HEAD
 Например, ако според нашата логика в кода, обекта `user` трябва да е там, но `address` е по-избор, тогава `user.address?.street` би било по-добре.
 
 Така че, ако `user` по някаква грешка е `undefined`, ще знаем за това и ще го оправим. Иначе, грешки в кода могат да бъдат заглушени, когато не е подходящо, и ще стават по-трудни за отстраняване.
+=======
+For example, if according to our code logic `user` object must exist, but `address` is optional, then we should write `user.address?.street`, but not `user?.address?.street`.
+
+Then, if `user` happens to be undefined, we'll see a programming error about it and fix it. Otherwise, if we overuse `?.`, coding errors can be silenced where not appropriate, and become more difficult to debug.
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 ```
 
 ````warn header="Променливата преди `?.` трябва да съществува!"
@@ -150,7 +156,11 @@ user?.address;
 
 Както беше казано преди, `?.` веднага спира ("късо съединение") изпълнението ако лявата част не съществува.
 
+<<<<<<< HEAD
 Така че, ако има допълнителни функции или странични реакции, те не се появяват.
+=======
+So, if there are any further function calls or operations to the right of `?.`, they won't be made.
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 Например:
 
@@ -158,7 +168,11 @@ user?.address;
 let user = null;
 let x = 0;
 
+<<<<<<< HEAD
 user?.sayHi(x++); // несъществува "sayHi", така изпълнението не достига `x++`
+=======
+user?.sayHi(x++); // no "user", so the execution doesn't reach sayHi call and x++
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 alert(x); // 0, стойност не се увеличава
 ```
@@ -206,12 +220,16 @@ let user1 = {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 let user2 = null; // Представете си, не можахме да упълномощим потребителя
 
 let key = "firstName";
 =======
 let user2 = null; 
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
+=======
+let user2 = null;
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 alert( user1?.[key] ); // John
 alert( user2?.[key] ); // undefined
