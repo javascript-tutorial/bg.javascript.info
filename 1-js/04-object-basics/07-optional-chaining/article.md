@@ -36,7 +36,11 @@ alert(user.address.street); // Грешка!
 let html = document.querySelector('.elem').innerHTML; // грешка ако то е `null`
 ```
 
+<<<<<<< HEAD
 Още веднъж, ако елементът не съществува, ще получим грешка при опит за достъп свойстово `.innerHTML` на `null` обект. И в някои случаи, когато отсъствието на елемента е нормално, бихме искали да избегнем грешката и просто да приемем `html = null` като резултат.
+=======
+Once again, if the element doesn't exist, we'll get an error accessing `.innerHTML` property of `null`. And in some cases, when the absence of the element is normal, we'd like to avoid the error and just accept `html = null` as the result.
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 Как бихме могли да направим това?
 
@@ -48,11 +52,27 @@ let user = {};
 alert(user.address ? user.address.street : undefined);
 ```
 
+<<<<<<< HEAD
 Работи, няма грешки... Но е доста неелегантно. Както виждате, `"user.address"` се появява два пъти в кода. За по-дълбоко вложени свойства това се превръща в проблем, тъй като се изискват повече повторения.
 
 Напр. нека опитаме да получим `user.address.street.name`.
 
 Трябва да проверим `user.address` и `user.address.street`:
+=======
+It works, there's no error... But it's quite inelegant. As you can see, the `"user.address"` appears twice in the code.
+
+Here's how the same would look for `document.querySelector`:
+
+```js run
+let html = document.querySelector('.elem') ? document.querySelector('.elem').innerHTML : null;
+```
+
+We can see that the element search `document.querySelector('.elem')` is actually called twice here. Not good.
+
+For more deeply nested properties, it becomes even uglier, as more repetitions are required.
+
+E.g. let's get `user.address.street.name` in a similar fashion.
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 ```js
 let user = {}; // `user` няма адрес
@@ -62,7 +82,11 @@ alert(user.address ? user.address.street ? user.address.street.name : null : nul
 
 Това е просто ужасно, дори някои могат да имат проблеми с разбирането на такъв код.
 
+<<<<<<< HEAD
 Всъщност не ни пука, тъй като има по-добър начин да го напишем използвайки оператора `&&`:
+=======
+There's a little better way to write it, using the `&&` operator:
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 ```js run
 let user = {}; // потребителят е без адрес
@@ -107,7 +131,16 @@ alert( user?.address?.street ); // undefined (Няма грешка)
 
 Кодът е кратък и изчистен, общо взето няма дублиране.
 
+<<<<<<< HEAD
 Прочетенето на адреса с `user?.address` работи дори ако не съществува `user` обект:
+=======
+Here's an example with `document.querySelector`:
+
+```js run
+let html = document.querySelector('.elem')?.innerHTML; // will be null, if there's no element
+```
+
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 Reading the address with `user?.address` works even if `user` object doesn't exist:
 
 ```js run
@@ -128,9 +161,15 @@ E.g. in `user?.address.street.name` the `?.` allows `user` to safely be `null/un
 ```warn header="Не прекалявайте с поизборната верига"
 Трябва да използваме `?.` само когато е добре, че нещо не съществува.
 
+<<<<<<< HEAD
 Например, ако според нашата логика в кода, обекта `user` трябва да е там, но `address` е по-избор, тогава `user.address?.street` би било по-добре.
 
 Така че, ако `user` по някаква грешка е `undefined`, ще знаем за това и ще го оправим. Иначе, грешки в кода могат да бъдат заглушени, когато не е подходящо, и ще стават по-трудни за отстраняване.
+=======
+For example, if according to our code logic `user` object must exist, but `address` is optional, then we should write `user.address?.street`, but not `user?.address?.street`.
+
+Then, if `user` happens to be undefined, we'll see a programming error about it and fix it. Otherwise, if we overuse `?.`, coding errors can be silenced where not appropriate, and become more difficult to debug.
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 ```
 
 ````warn header="Променливата преди `?.` трябва да съществува!"
@@ -150,7 +189,11 @@ user?.address;
 
 Както беше казано преди, `?.` веднага спира ("късо съединение") изпълнението ако лявата част не съществува.
 
+<<<<<<< HEAD
 Така че, ако има допълнителни функции или странични реакции, те не се появяват.
+=======
+So, if there are any further function calls or operations to the right of `?.`, they won't be made.
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 Например:
 
@@ -158,7 +201,11 @@ user?.address;
 let user = null;
 let x = 0;
 
+<<<<<<< HEAD
 user?.sayHi(x++); // несъществува "sayHi", така изпълнението не достига `x++`
+=======
+user?.sayHi(x++); // no "user", so the execution doesn't reach sayHi call and x++
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 alert(x); // 0, стойност не се увеличава
 ```
@@ -181,6 +228,7 @@ let userAdmin = {
 let userGuest = {};
 
 *!*
+<<<<<<< HEAD
 userAdmin.admin?.(); // Аз съм админ
 userGuest.admin?.(); // нищо (няма подобен метод)
 */!*
@@ -192,6 +240,17 @@ userGuest.admin?.(); // нищо (няма подобен метод)
 Тогава `?.()` проверява лявата част: ако съществува функция `admin`, я изпълнява (това е така и за `userGuest`). Иначе (за `userGuest`) изпълнението спира без грешки.
 =======
 Here, in both lines we first use the dot (`userAdmin.admin`) to get `admin` property, because we assume that the user object exists, so it's safe read from it.
+=======
+userAdmin.admin?.(); // I am admin
+*/!*
+
+*!*
+userGuest.admin?.(); // nothing happens (no such method)
+*/!*
+```
+
+Here, in both lines we first use the dot (`userAdmin.admin`) to get `admin` property, because we assume that the `user` object exists, so it's safe read from it.
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 Then `?.()` checks the left part: if the admin function exists, then it runs (that's so for `userAdmin`). Otherwise (for `userGuest`) the evaluation stops without errors.
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
@@ -206,12 +265,16 @@ let user1 = {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 let user2 = null; // Представете си, не можахме да упълномощим потребителя
 
 let key = "firstName";
 =======
 let user2 = null; 
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
+=======
+let user2 = null;
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 alert( user1?.[key] ); // John
 alert( user2?.[key] ); // undefined
@@ -230,10 +293,17 @@ delete user?.name; // Изтриваме свойството user.name ако u
 ```js run
 let user = null;
 
+<<<<<<< HEAD
 user?.name = "John"; // Грешка, не работи
 // защото undefined = "John"
 ```
 Просто не работи толкова умно.
+=======
+user?.name = "John"; // Error, doesn't work
+// because it evaluates to: undefined = "John"
+```
+
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 ````
 
 ## Обобщение
@@ -249,7 +319,11 @@ user?.name = "John"; // Грешка, не работи
 Верига от `?.` позволява безопасен достъп до вложени свойства.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Все още, трябва да използваме `?.` внимателно, само когато е допустимо, че лявата част на извикването не съществува, за да не скрие програмните грешки от нас, ако се появят.
 =======
 Still, we should apply `?.` carefully, only where it's acceptable that the left part doesn't exist. So that it won't hide programming errors from us, if they occur.
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
+=======
+Still, we should apply `?.` carefully, only where it's acceptable, according to our code logic, that the left part doesn't exist. So that it won't hide programming errors from us, if they occur.
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f

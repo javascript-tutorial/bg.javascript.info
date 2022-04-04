@@ -56,7 +56,11 @@ As you can see, `(a, b) => a + b` means a function that accepts two arguments na
     alert( double(3) ); // 6
     ```
 
+<<<<<<< HEAD
 - Ако няма аргументи, скобите ще са празни (но те трябва да присъстват):
+=======
+- If there are no arguments, parentheses are empty, but they must be present:
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
     ```js run
     let sayHi = () => alert("Здравейте!");
@@ -84,9 +88,15 @@ welcome();
 
 ## Многоредови функции със стрелки
 
+<<<<<<< HEAD
 Горният пример взе аргументите от лявата страна на `=>` и ги използва за да изчисли израза от дясната страна. 
 
 Понякога имаме нужда от малко по-сложен код, като множество изрази или инструкции. Това може да се направи, но трябва да ги поставим между къдрави скоби. След това трябва да използваме `return` вътре в скобите.
+=======
+The arrow functions that we've seen so far were very simple. They took arguments from the left of `=>`, evaluated and returned the right-side expression with them.
+
+Sometimes we need a more complex function, with multiple expressions and statements. In that case, we can enclose them in curly braces. The major difference is that curly braces require a `return` within them to return a value (just like a regular function does).
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 Ето така:
 
@@ -117,7 +127,14 @@ alert( sum(1, 2) ); // 3
 
 ## Обобщение
 
+<<<<<<< HEAD
 Функциите със стрелки са полезни за едноредови действия. Те могат да бъдат два вида:
 
 1. Без къдрави скоби: `(...args) => expression` -- дясната страна е израз: функцията го изчислява и връща резултата.
 2. С къдрави скоби: `(...args) => { body }` -- скобите ни позволяват да пишем множество инструкции в една функция, но трябва изрично да ползваме `return`, за да върнем резултат.
+=======
+Arrow functions are handy for simple actions, especially for one-liners. They come in two flavors:
+
+1. Without curly braces: `(...args) => expression` -- the right side is an expression: the function evaluates it and returns the result. Parentheses can be omitted, if there's only a single argument, e.g. `n => n*2`.
+2. With curly braces: `(...args) => { body }` -- brackets allow us to write multiple statements inside the function, but we need an explicit `return` to return something.
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
