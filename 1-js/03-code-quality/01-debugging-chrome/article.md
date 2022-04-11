@@ -42,7 +42,11 @@
 
 След като се изпълни инструкцията, резултатът се показва долу.
 
+<<<<<<< HEAD
 Например `1+2` връща `3`, а `hello("debugger")` не връща нищо и затова резултатът е `undefined`:
+=======
+For example, here `1+2` results in `3`, while the function call `hello("debugger")` returns nothing, so the result is `undefined`:
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
 ![](chrome-sources-console.svg)
 
@@ -66,13 +70,22 @@
 - Да премахнем брейкпойнт като кликнем на него с десен бутон на мишката и изберем Remove.
 - ...И така нататък.
 
+<<<<<<< HEAD
 ```smart header="Conditional breakpoints (Условни брейкпойнти)"
 *Кликване с десен бутон на мишката* върх номера на реда, ни позволява да създадем *conditional (условен)* брейкпойнт. Той се активира само когато зададеното условие е вярно.
+=======
+```smart header="Conditional breakpoints"
+*Right click* on the line number allows to create a *conditional* breakpoint. It only triggers when the given expression, that you should provide when you create it, is truthy.
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
 Това е полезно когато искаме изпълнението на кода да спре при конкретна стойност или параметри на функция.
 ```
 
+<<<<<<< HEAD
 ## Командата Debugger
+=======
+## The command "debugger"
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
 Може да спрем изпълнението на кода и като използваме командата `debugger` в него ето така:
 
@@ -88,8 +101,12 @@ function hello(name) {
 }
 ```
 
+<<<<<<< HEAD
 Това е много удобно, когато сме в code editor (редактор на код) и не искаме да превключваме към браузъра и да гледаме скрипта в инструментите за разработчици, за да поставим брейкпойнт. 
 
+=======
+Such command works only when the development tools are open, otherwise the browser ignores it.
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
 ## Паузирай кода и виж какво се случва
 
@@ -103,7 +120,11 @@ function hello(name) {
 
 1. **`Watch` -- показва текущата стойност за даден израз.**
 
+<<<<<<< HEAD
     Може да натиснете знакът плюс `+` и да въведете израз. Дебъгерът ще покаже неговата стойност във всеки един момент, като я преизчислява автоматично в процеса на изпълнение на кода. 
+=======
+    You can click the plus `+` and input an expression. The debugger will show its value, automatically recalculating it in the process of execution.
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
 2. **`Call Stack` -- показва веригата на вложените извиквания.**
 
@@ -143,12 +164,20 @@ function hello(name) {
 : Подобна е на предишната "Step" команда, но се държи различно ако следващата инструкция е функция. Това важи не за вградена функция като `alert`, а за такава, която ние сме написали.
 =======
 <span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": run the next command, but *don't go into a function*, hotkey `key:F10`.
+<<<<<<< HEAD
 : Similar to the previous "Step" command, but behaves differently if the next statement is a function call. That is: not a built-in, like `alert`, but a function of our own.
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
     Командата "Step" влиза вътре и спира изпълнението оше на първия ред, докато "Step over" изпълнява вложената функция без да влиза вътре в нея.
 
     Изпълнението на кода спира веднага след функцията.
+=======
+: Similar to the previous "Step" command, but behaves differently if the next statement is a function call (not a built-in, like `alert`, but a function of our own).
+
+    If we compare them, the "Step" command goes into a nested function call and pauses the execution at its first line, while "Step over" executes the nested function call invisibly to us, skipping the function internals.
+
+    The execution is then paused immediately after that function call.
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
     Това е добре ако не ни интересува какво се случва вътре във функцията по време на нейното изпълнение.
 
@@ -163,8 +192,13 @@ function hello(name) {
 <span class="devtools" style="background-position:-61px -74px"></span> -- включи/изключи всички брейкпойнти.
 : Този бутон не влияе пряко върху изпълнението на кода. Той включва и изключва всички брейкпойнти.
 
+<<<<<<< HEAD
 <span class="devtools" style="background-position:-90px -146px"></span> -- включи/изключи автоматичната пауза в случай на грешка.
 : Когато е активиран и инструментите на разработчика са отворени, при грешка в кода изпълнението на програмата спира автоматично. Така можем да анализираме променливите и да видим какво се е объркало. Така ако нашият код се счупи, ние можем да отворим дебъгера, да включим тази опция, да презаредим страницата и да видим къде се появява грешката и какъв е контекстът в този момент. 
+=======
+<span class="devtools" style="background-position:-90px -146px"></span> -- enable/disable automatic pause in case of an error.
+: When enabled, if the developer tools is open, an error during the script execution automatically pauses it. Then we can analyze variables in the debugger to see what went wrong. So if our script dies with an error, we can open debugger, enable this option and reload the page to see where it dies and what's the context at that moment.
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
 ```smart header="Continue to here (продължи до тук)"
 Кликване с десния бутон на мишката върху ред от код отваря контекстно меню с чудесна опция наречена "Продължи до тук".
@@ -197,7 +231,11 @@ for (let i = 0; i < 5; i++) {
 
 Когато изпълнението на кода спре, можем да дебъгваме - да прегледаме променливите и да проследим кода, за да видим къде има грешка в изпълнението му.
 
+<<<<<<< HEAD
 Има още много опции на инструментите за разработчици, които не сме разгледали тук. Цялата инструкция е на <https://developers.google.com/web/tools/chrome-devtools>.
+=======
+When paused, we can debug: examine variables and trace the code to see where the execution goes wrong.
+>>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
 Информацията от тази глава е достатъчна да започнете с дебъгването, но по-късно, особено ако ползвате много често браузъра, прегледайте документацията за по-напредналите възможности на инструментите за разработчици.
 
