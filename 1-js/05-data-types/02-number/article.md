@@ -31,7 +31,7 @@ We also can use underscore `_` as the separator:
 let billion = 1_000_000_000;
 ```
 
-Here the underscore `_` plays the role of the "syntactic sugar", it makes the number more readable. The JavaScript engine simply ignores `_` between digits, so it's exactly the same one billion as above.
+Here the underscore `_` plays the role of the "[syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)", it makes the number more readable. The JavaScript engine simply ignores `_` between digits, so it's exactly the same one billion as above.
 
 In real life though, we try to avoid writing long sequences of zeroes. We're too lazy for that. We'll try to write something like `"1bn"` for a billion or `"7.3bn"` for 7 billion 300 million. The same is true for most large numbers.
 
@@ -411,9 +411,14 @@ alert( isFinite(num) );
 Please note that an empty or a space-only string is treated as `0` in all numeric functions including `isFinite`.
 >>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
+<<<<<<< HEAD
 ```smart header="Сравнение с `Object.is`"
 
 Има специален вграден метод [`Object.is`](mdn:js/Object/is) който сравнява стойности като `===`,но е по-надежден за два крайни случая:
+=======
+```smart header="Compare with `Object.is`"
+There is a special built-in method `Object.is` that compares values like `===`, but is more reliable for two edge cases:
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 1. Работи с `NaN`: `Object.is(NaN, NaN) === true`, това е добро нещо.
 2. Стойностите `0` и `-0` са различни: `Object.is(0, -0) === false`, техническо това е вярно, защото вътрешно числото има битов знак, който може да е различен, дори ако всички останали битове са нули.

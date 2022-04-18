@@ -226,7 +226,11 @@ ask(
       return a + b;
     }
     ```
+<<<<<<< HEAD
 - *Функционален израз:* функция, създадена вътре в израз или вътре в друг синтактичен конструкт. Тук функцията е създадена от дясната страна на "израза за присвояване на стойсност" `=`:
+=======
+- *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created on the right side of the "assignment expression" `=`:
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
     ```js
     // Функционален израз
@@ -322,19 +326,32 @@ if (age < 18) {
 *!*
   welcome();                    // \   (стартира)
 */!*
+<<<<<<< HEAD
                                 //  |
   function welcome() {          //  |  
     alert("Здравейте!");        //  |  Функционалната декларация е достъпна
   }                             //  |  навсякъде в блока, където е декларирана
                                 //  |
+=======
+                           //  |
+  function welcome() {     //  |
+    alert("Hello!");       //  |  Function Declaration is available
+  }                        //  |  everywhere in the block where it's declared
+                           //  |
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 *!*
   welcome();                    // /   (стартира)
 */!*
 
 } else {
 
+<<<<<<< HEAD
   function welcome() {    
     alert("Поздравления!");
+=======
+  function welcome() {
+    alert("Greetings!");
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
   }
 }
 

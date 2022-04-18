@@ -447,7 +447,11 @@ counter++;
 - Отместване вдясно ( `>>` )
 - Отместване вдясно и запълване с нули ( `>>>` )
 
+<<<<<<< HEAD
 Тези оператори се използват много рядко. За да ги разберем, трябва да се задълбочим в ниското ниво на представяне на числата и не би било оптимално да го направим в момента, още повече, че скоро няма да ни трябват. Ако сте любопитни, можете да прочетете статията [Побитови оператори](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Bitwise) в MDN. По-практично би било да го направите, когато възникне реална нужда.
+=======
+These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won't need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) chapter on MDN when a need arises.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 ## Запетая
 
