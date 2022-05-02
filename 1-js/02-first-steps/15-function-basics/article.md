@@ -175,7 +175,12 @@ alert( from ); // Ани
 
 Когато дадена стойност е подадена като параметър на функцията, то също се нарича и *аргумент*.
 
+<<<<<<< HEAD
 С други думи, да кажем правилно тези термини:
+=======
+- A parameter is the variable listed inside the parentheses in the function declaration (it's a declaration time term).
+- An argument is the value that is passed to the function when it is called (it's a call time term).
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 - Параметърът е променливата, посочена в скобите в декларацията на функцията (член при декларацията)
 - Аргумент е стойността, която се предава на функцията, когато е извикана (член при извикване).
@@ -225,7 +230,43 @@ function showMessage(from, text = anotherFunction()) {
 С други думи, той се извиква независимо всеки път, когато липсва `text`.
 ```
 
+<<<<<<< HEAD
 ### Алтернативни параметри по подразбиране
+=======
+````smart header="Default parameters in old JavaScript code"
+Several years ago, JavaScript didn't support the syntax for default parameters. So people used other ways to specify them.
+
+Nowadays, we can come across them in old scripts.
+
+For example, an explicit check for `undefined`:
+
+```js
+function showMessage(from, text) {
+*!*
+  if (text === undefined) {
+    text = 'no text given';
+  }
+*/!*
+
+  alert( from + ": " + text );
+}
+```
+
+...Or using the `||` operator:
+
+```js
+function showMessage(from, text) {
+  // If the value of text is falsy, assign the default value
+  // this assumes that text == "" is the same as no text at all
+  text = text || 'no text given';
+  ...
+}
+```
+````
+
+
+### Alternative default parameters
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Понякога има смисъл да задавате стойности по подразбиране за параметри не при деклараране на функциите, а на по-късен етап.
 

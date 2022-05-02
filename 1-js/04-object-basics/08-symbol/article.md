@@ -1,9 +1,22 @@
 
 # Тъпът *Symbol* - Символ
 
+<<<<<<< HEAD
 По спецификация ключовете за свойствата на обекта могат да бъдат или от тип низ, или от тип символ. Не са числа или булеви, а низове или символи, само тези два типа.
 
 Досега използвахме само низове. Сега нека да видим предимствата, които символите могат да ни дадат.
+=======
+By specification, only two primitive types may serve as object property keys:
+
+- string type, or
+- symbol type.
+
+Otherwise, if one uses another type, such as number, it's autoconverted to string. So that `obj[1]` is the same as `obj["1"]`, and `obj[true]` is the same as `obj["true"]`.
+
+Till now we've been using only strings.
+
+Now let's explore symbols, see what they can do for us.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 ## *Symbol*
 
@@ -12,7 +25,10 @@
 Стойност от този тип може да бъде създадена с `Symbol()`:
 
 ```js
+<<<<<<< HEAD
 // id е нов Символ
+=======
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 let id = Symbol();
 ```
 
@@ -38,6 +54,8 @@ alert(id1 == id2); // false
 
 Ако сте запознати с Ruby или друг език, който също има някакви „символи“ - моля, не се заблуждавайте. Символите при JavaScript са различни.
 
+So, to summarize, symbols are "primitive unique values" with optional description. Let's see where we can use them.
+
 ````warn header="Symbols don't auto-convert to a string"
 Повечето стойнисти в JavaScript поддържат имплицитно преобразуване към низ.
 Например, можем да използваме фунцкията `alert` почти с всяка стойност, и то ще работи.
@@ -54,7 +72,12 @@ alert(id); // TypeError: Cannot convert a Symbol value to a string
 
 Това е „езикова защита“ срещу объркване, защото низовете и символите са коренно различни и не бива случайно да ги превръщаме в други.
 
+<<<<<<< HEAD
 Ако наистина искаме да покажем символа, трябва експлицитно да извикаме `.toString()` метода, като тук:
+=======
+If we really want to show a symbol, we need to explicitly call `.toString()` on it, like here:
+
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 ```js run
 let id = Symbol("id");
 *!*
@@ -62,7 +85,12 @@ alert(id.toString()); // Symbol(id), сега то работи
 */!*
 ```
 
+<<<<<<< HEAD
 Или `symbol.description` свойството, за да покажем само описанието му:
+=======
+Or get `symbol.description` property to show the description only:
+
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 ```js run
 let id = Symbol("id");
 *!*
@@ -74,7 +102,12 @@ alert(id.description); // id
 
 ## "Скрити" свойства
 
+<<<<<<< HEAD
 Символите ни позволяват да създадем „скрити“ свойства на обект, до които никоя друга част от кода не може случайно да получи достъп или да презапише.
+=======
+
+Symbols allow us to create "hidden" properties of an object, that no other part of code can accidentally access or overwrite.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Например, ако работим с `user` обекти, които принадлежат на чужд код. Бихме искали да добавим идентификатори към тях.
 
@@ -277,8 +310,14 @@ alert( localSymbol.description ); // name
 
 Символите имат два основни случая на употреба:
 
+<<<<<<< HEAD
 1. "Скрити" свойства на обект.
     Ако искаме да добавим свойство в обект, който "принадлежи" на друг скрипт или библиотека, можем да създадем символ и да го използваме като ключ на свойството. Символините свойства не се показват в `for..in`, така че няма да бъдат обработени случайно заедно с другите свойства. Също така няма да има достъп до него директно, защото друг скрипт няма нашия символ. Така че свойството ще е защитено от случайна употреба или презаписване.
+=======
+1. "Hidden" object properties.
+
+    If we want to add a property into an object that "belongs" to another script or a library, we can create a symbol and use it as a property key. A symbolic property does not appear in `for..in`, so it won't be accidentally processed together with other properties. Also it won't be accessed directly, because another script does not have our symbol. So the property will be protected from accidental use or overwrite.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
     Значи ние можем "тайно" да скрием нещо в обектите, което ни трябват, но на други не би трябвало да го видят, използвайки символичните свойства.
 
