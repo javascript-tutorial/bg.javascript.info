@@ -276,7 +276,11 @@ for (let i = 0; i < 10; i++) {
 
 От техническа гледна точка това е идентично с горния пример. Със сигурност можем просто да сложим кода в блок от `if` вместо да използваме `continue`.
 
+<<<<<<< HEAD
 Но като страничен ефект, това създава още едно ниво на влагане (функцията `alert` се извиква вътре в къдравите скоби). Ако кодът вътре в `if` е по-дълъг от няколко реда това може да намали четимостта.
+=======
+But as a side effect, this created one more level of nesting (the `alert` call inside the curly braces). If the code inside of `if` is longer than a few lines, that may decrease the overall readability.
+>>>>>>> 2901e0c64590a67d8a2bde1ea76a514d96f80469
 ````
 
 ````warn header="Без `break/continue` след оператора '?' в дясната й страна"
