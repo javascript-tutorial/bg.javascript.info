@@ -40,10 +40,14 @@ john.sayHi(); // Здравей приятел!
 Ето парадокса, с който се сблъсква създателят на JavaScript:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 -Има много неща, които човек би искал да направи с примитив като низ или число. Би било чудесно да получите достъп до тях като методи.
 - Примитивите трябва да са възможно най-бързи и леки.
 =======
 - There are many things one would want to do with a primitive like a string or a number. It would be great to access them using methods.
+=======
+- There are many things one would want to do with a primitive, like a string or a number. It would be great to access them using methods.
+>>>>>>> d5e8b6d308869738bd1f08dde62b64c969b0673e
 - Primitives must be as fast and lightweight as possible.
 >>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 

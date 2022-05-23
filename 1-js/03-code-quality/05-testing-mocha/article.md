@@ -55,7 +55,11 @@ describe("pow", function() {
 Спецификацията има 3 основни части, които можете да видите горе:
 
 `describe("title", function() { ... })`
+<<<<<<< HEAD
 : Каква функционалност описваме. В нашия случай описваме функцията `pow`. Използва се да групира "работници" -- блоковете `it`.
+=======
+: What functionality we're describing? In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
+>>>>>>> d5e8b6d308869738bd1f08dde62b64c969b0673e
 
 `it("use case description", function() { ... })`
 : В заглавието на `it` ние описваме *на разбираем за човека език* конкретният *use* кейс, а вторият аргумент е функцията, която го тества.
