@@ -4,7 +4,11 @@
 
 Нулевия условен оператор се пише с двойни въпросителни знака `??`.
 
+<<<<<<< HEAD
 То третира `null` и `undefined` по-подобен начин, ще използваме специален термин тук, в тази статия. Ще кажем, че изразът е "дефиниран" там където нито е `null` нито `undefined`.
+=======
+As it treats `null` and `undefined` similarly, we'll use a special term here, in this article. For brevity, we'll say that a value is "defined" when it's neither `null` nor `undefined`.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 Резултатът от `a ?? b` е:
 
@@ -21,9 +25,17 @@
 result = (a !== null && a !== undefined) ? a : b;
 ```
 
+<<<<<<< HEAD
 Често използваният случай на `??` е да предостави стойност по подразбиране за потенциално недефинирана променлива.
 
 Например, тук показваме `Anonymous` ако `user` не е дефиниран:
+=======
+Now it should be absolutely clear what `??` does. Let's see where it helps.
+
+The common use case for `??` is to provide a default value.
+
+For example, here we show `user` if its value isn't `null/undefined`, otherwise `Anonymous`:
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 ```js run
 let user;
@@ -41,9 +53,15 @@ alert(user ?? "Anonymous"); // John (user defined)
 
 Можем да използваме и последователност от `??` за да изберем първата стойност от списък, който стойности не са `null/undefined`.
 
+<<<<<<< HEAD
 Представете си, че ние имаме потребители и те имат променливите `firstName`, `lastName` и `nickName` за тяхното първо име, фамилно име и прякор.Всички те могат да бъдат `undefined`, ако потребителят реши да не въвежда никаква стойност.
 
 Бихме искали да покажем потребителското име: една от тези три променливи или да покажем „Anonymous“, ако никоя от тях не е зададено.
+=======
+Let's say we have a user's data in variables `firstName`, `lastName` or `nickName`. All of them may be not defined, if the user decided not to fill in the corresponding values.
+
+We'd like to display the user name using one of these variables, or show "Anonymous" if all of them are `null/undefined`.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 Нека използваме `??` оператора, за да изберете първия дефиниран:
 
@@ -114,7 +132,11 @@ The precedence of the `??` operator is the same as `||`. They both equal `4` in 
 
 Това означава, че както оператора ИЛИ `||`, нулевия условен оператор `??` се оценява преди `=` и `?`,но след повечето други операции, като `+`, `*`.
 
+<<<<<<< HEAD
 Ако трябва да изберем стойност с `??` в сложен израз или израз с други оператори, помислете за добавяне на скоби:
+=======
+So we may need to add parentheses in expressions like this:
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 ```js run
 let height = null;
@@ -132,7 +154,11 @@ alert(area); // 5000
 // без скоби
 let area = height ?? 100 * width ?? 50;
 
+<<<<<<< HEAD
 // ...работи по същия начин като този (вероятно не е това, което искаме):
+=======
+// ...works this way (not what we want):
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 let area = height ?? (100 * width) ?? 50;
 ```
 
