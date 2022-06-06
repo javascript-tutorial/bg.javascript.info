@@ -51,7 +51,7 @@ let user = {
 // първо декларираме функцията
 function sayHi() {
   alert("Hello!");
-};
+}
 
 // После я добавяме като метод
 user.sayHi = sayHi;

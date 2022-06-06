@@ -81,7 +81,11 @@ let admin = user;
 user = null;
 ```
 
+<<<<<<< HEAD
 ...Тогава обектът все още е достъпен чрез глобалната променлива `admin`, така че то е в паметта. Ако презапишем също и `admin` променливата, тогава то може да бъде премахнат.
+=======
+...Then the object is still reachable via `admin` global variable, so it must stay in memory. If we overwrite `admin` too, then it can be removed.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 ## Свързани обекти
 
@@ -176,11 +180,19 @@ family = null;
 
 ![](garbage-collection-2.svg)
 
+<<<<<<< HEAD
 Тогава техните референции са маркирани:
 
 ![](garbage-collection-3.svg)
 
 ...И техните референции, докогато е възможно:
+=======
+Then we follow their references are mark referenced objects:
+
+![](garbage-collection-3.svg)
+
+...And continue to follow further references, while possible:
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 ![](garbage-collection-4.svg)
 
@@ -190,13 +202,23 @@ family = null;
 
 Можем също да си представим процеса като разливане на огромна кофа боя от корените, която преминава през всички референции и маркира всички достижими обекти. След това немаркираните се премахват.
 
+<<<<<<< HEAD
 Това е концепцията за това как работи събирачът на отпадъците. JavaScript двигателите прилагат много оптимизации, за да стартират по-бързо и да не повлияят на изпълнението.
+=======
+That's the concept of how garbage collection works. JavaScript engines apply many optimizations to make it run faster and not introduce any delays into the code execution.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 Някои от оптимизациите са:
 
+<<<<<<< HEAD
 - **Generational collection** (Колекция от поколения) -- обектите се разделят на две групи: "нови" и "стари". Появяват се много предмети, вършат си работата и умират бързо, те могат да бъдат почистени агресивно. Тези, които оцеляват достатъчно дълго, стават "стари" и се изследват по-рядко.
 - **Incremental collection** (Постепенно събиране) -- ако има много обекти и се опитаме да ходим и маркираме целия набор от обекти наведнъж, може да отнеме известно време и да въведем видими закъснения в изпълнението. Така двигателят се опитва да раздели събирача на отпадъците на парчета. След това парчетата се изпълняват едно по едно, отделно. Това изисква някои допълнителни счетоводни услуги между тях, за да се проследят промените, но имаме много малки закъснения вместо големи.
 - **Idle-time collection** (Колекция на празен ход) -- Събирачът на отпадъците се опитва да работи само докато процесорът бездейства, за да намали възможния ефект върху изпълнението.
+=======
+- **Generational collection** -- objects are split into two sets: "new ones" and "old ones". In typical code, many objects have a short life span: they appear, do their job and die fast, so it makes sense to track new objects and clear the memory from them if that's the case. Those that survive for long enough, become "old" and are examined less often.
+- **Incremental collection** -- if there are many objects, and we try to walk and mark the whole object set at once, it may take some time and introduce visible delays in the execution. So the engine splits the whole set of existing objects into multiple parts. And then clear these parts one after another. There are many small garbage collections instead of a total one. That requires some extra bookkeeping between them to track changes, but we get many tiny delays instead of a big one.
+- **Idle-time collection** -- the garbage collector tries to run only while the CPU is idle, to reduce the possible effect on the execution.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 Съществуват други оптимизации и аромати на алгоритмите на събирача на отпадъците. Колкото и да бих искал да ги опиша тук, трябва да отложа, защото различните двигатели прилагат различни оптимизации и техники. И, което е още по-важно, нещата се променят с развитието на двигателите, така че изучаването по-дълбоко „предварително“, без реална нужда, вероятно не си струва. Освен ако, разбира се, не става въпрос за чист интерес, тогава по-долу ще има някои връзки за вас.
 
@@ -204,16 +226,30 @@ family = null;
 
 Основните неща, които трябва да знаете:
 
+<<<<<<< HEAD
 - *Garbage collector* (Събирачът на отпадъците) се изпълнява автоматично. Не можем да го насилваме или предотвратяваме.
 - Обектите се запазват в паметта, докато са достъпни.
 - Референцията не е същото като достъпността (от корен): пакет от взаимосвързани обекти могат да станат недостъпни като цяло.
+=======
+- Garbage collection is performed automatically. We cannot force or prevent it.
+- Objects are retained in memory while they are reachable.
+- Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole, as we've seen in the example above.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 Съвременните двигатели прилагат усъвършенствани алгоритми за събирача на отпадъците.
 
 Общата книга "The Garbage Collection Handbook: The Art of Automatic Memory Management" (R. Jones et al) обхваща някои от тях.
 
+<<<<<<< HEAD
 Ако сте запознати с програмирането на ниско ниво, по-подробната информация за V8 събирача на отпадъците е в статията *[A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection)*.
 
 [Блогът V8](https://v8.dev/) също публикува статии за промените в управлението на паметта от време на време. Естествено, за да научите събирача на отпадъците, по-добре се подгответе, като се запознаете с V8 вътрешността като цяло и прочетете блога на [Вячеслав Егоров](http://mrale.ph) работил като един от V8 инженерите. Казвам: "V8", защото е най-добре покрито със статии в интернет. За други двигатели много подходи са сходни, но събирачът на отпадъците се различава в много аспекти.
 
 Задълбочените познания на двигателите са добри, когато се нуждаете от оптимизации на ниско ниво. Би било разумно да планирате това като следваща стъпка, след като сте запознати с езика.
+=======
+If you are familiar with low-level programming, more detailed information about V8's garbage collector is in the article [A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection).
+
+The [V8 blog](https://v8.dev/) also publishes articles about changes in memory management from time to time. Naturally, to learn more about garbage collection, you'd better prepare by learning about V8 internals in general and read the blog of [Vyacheslav Egorov](http://mrale.ph) who worked as one of the V8 engineers. I'm saying: "V8", because it is best covered by articles on the internet. For other engines, many approaches are similar, but garbage collection differs in many aspects.
+
+In-depth knowledge of engines is good when you need low-level optimizations. It would be wise to plan that as the next step after you're familiar with the language.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96

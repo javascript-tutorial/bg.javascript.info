@@ -143,7 +143,11 @@ function addJuice(container) {
 
    Между другото, много редактори, като [WebStorm](https://www.jetbrains.com/webstorm/), разпознават функциите много добре, за да извършват въвеждане на данни и различни автоматични проверки на кода.
 
+<<<<<<< HEAD
     Също така има инструменти като  [JSDoc 3](https://github.com/jsdoc3/jsdoc) които генерират HTML - документация от коментари. Може да прочетете повече информация на <http://usejsdoc.org/>.
+=======
+Also, there are tools like [JSDoc 3](https://github.com/jsdoc3/jsdoc) that can generate HTML-documentation from the comments. You can read more information about JSDoc at <https://jsdoc.app>.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 Защо задачата е решена по този начин?
 Това което е написано, е важно. Но това, което *не* е написано може да бъде още по-важно за да разберете какво се случва. Защо задачата е решена по този начин? Кодът не дава този отговор.

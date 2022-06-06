@@ -115,8 +115,13 @@ let func = sayHi;
 Всичко работи по същия начин.
 
 
+<<<<<<< HEAD
 ````smart header="Защо има точка и запетая в края?"
 Може би се чудите, защо Функционалните изрази имат точка и запетая `;` в края, а декларацията на функцията няма:
+=======
+````smart header="Why is there a semicolon at the end?"
+You might wonder, why do Function Expressions have a semicolon `;` at the end, but Function Declarations do not:
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 ```js
 function sayHi() {
@@ -176,13 +181,21 @@ function showCancel() {
 ("Съгласни ли сте?", showOk, showCancel);
 ```
 
+<<<<<<< HEAD
 В действителност такива функции са доста полезни. Основната разлика между задаването на `въпроси` в реалния живот и примера горе е, че функциите в реалния живот използват много по-сложни начини за взаимодействие с потребителя, вместо обикновеното `потвърди`. В браузъра тази функционалност обикновено извикава добре изглеждащ прозорец с въпрос. Но това е друга история.
+=======
+In practice, such functions are quite useful. The major difference between a real-life `ask` and the example above is that real-life functions use more complex ways to interact with the user than a simple `confirm`. In the browser, such functions usually draw a nice-looking question window. But that's another story.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 **Аргументите `showOk` и `showCancel` на `ask` се наричат *callback functions* (функции за обратно извикване) или просто *callbacks*.**
 
 Идеята е, че подаваме функция и очакваме тя да бъде "повикана обратно" по-късно ако е необходимо. В нашия случай `showOk` става callback при отговор "да", а `showCancel` за отговор "не".
 
+<<<<<<< HEAD
 Може да използваме функционални изрази да напишем съшата функция много по-кратко:
+=======
+We can use Function Expressions to write an equivalent, shorter function:
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 ```js run no-beautify
 function ask(question, yes, no) {
@@ -218,7 +231,11 @@ ask(
 
 Първо, синтаксисът: как да ги разграничаваме в кода.
 
+<<<<<<< HEAD
 - *Декларация на функция:* функция, декларирана като отделна инструкция в основния код.
+=======
+- *Function Declaration:* a function, declared as a separate statement, in the main code flow:
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
     ```js
     // Декларация на функция
@@ -226,7 +243,11 @@ ask(
       return a + b;
     }
     ```
+<<<<<<< HEAD
 - *Функционален израз:* функция, създадена вътре в израз или вътре в друг синтактичен конструкт. Тук функцията е създадена от дясната страна на "израза за присвояване на стойсност" `=`:
+=======
+- *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created on the right side of the "assignment expression" `=`:
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
     ```js
     // Функционален израз
@@ -322,19 +343,32 @@ if (age < 18) {
 *!*
   welcome();                    // \   (стартира)
 */!*
+<<<<<<< HEAD
                                 //  |
   function welcome() {          //  |  
     alert("Здравейте!");        //  |  Функционалната декларация е достъпна
   }                             //  |  навсякъде в блока, където е декларирана
                                 //  |
+=======
+                           //  |
+  function welcome() {     //  |
+    alert("Hello!");       //  |  Function Declaration is available
+  }                        //  |  everywhere in the block where it's declared
+                           //  |
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 *!*
   welcome();                    // /   (стартира)
 */!*
 
 } else {
 
+<<<<<<< HEAD
   function welcome() {    
     alert("Поздравления!");
+=======
+  function welcome() {
+    alert("Greetings!");
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
   }
 }
 
