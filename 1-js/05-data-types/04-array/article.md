@@ -92,6 +92,38 @@ let fruits = [
 Този стил "trailing comma" позволява лесно да се вмъват/премахват елементи, защото всички линии стават еднакви.
 ````
 
+## Get last elements with "at"
+
+[recent browser="new"]
+
+Let's say we want a last element of the array.
+
+Some programming languages allow to use negative indexes for the same purpose, like `fruits[-1]`.
+
+Although, in JavaScript it won't work. The result will be `undefined`, because the index in square brackets is treated literally.
+
+We can explicitly calculate the last element index and then access it: `fruits[fruits.length - 1]`.
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+alert( fruits[fruits.length-1] ); // Plum
+```
+
+A bit cumbersome, isn't it? We need to write the variable name twice.
+
+Luckily, there's a shorter syntax: `fruits.at(-1)`:
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+// same as fruits[fruits.length-1]
+alert( fruits.at(-1) ); // Plum
+```
+
+In other words, `arr.at(i)`:
+- is exactly the same as `arr[i]`, if `i >= 0`.
+- for negative values of `i`, it steps back from the end of the array.
 
 ## Методи pop/push, shift/unshift
 
@@ -137,6 +169,8 @@ Stack обикновено се илюстрира с тесте от карти
 
     alert( fruits ); // Apple, Orange
     ```
+
+    Both `fruits.pop()` and `fruits.at(-1)` return the last element of the array, but `fruits.pop()` also modifies the array by removing it.
 
 `push`
 : Добавя елемент в края на масива:
@@ -445,7 +479,11 @@ alert( "1,2" + 1 ); // "1,21"
 - Ако един от аргументите на `==` е обект а другият е примитивен тип, тогава обектът се конвертира до примитивния, както е обяснено в глава <info:object-toprimitive>.
 - ...С изключение на `null` и `undefined` които са равни `==` един на друг и на нищо друго.
 
+<<<<<<< HEAD
 Стриктното сравнение `===` е още по-просто тъй като не конвертира типовете. 
+=======
+The strict comparison `===` is even simpler, as it doesn't convert types.
+>>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
 
 Така че ако сравнямваме масиви с `==`, те никога не са равни, освен ако не сравняваме две променливи, които сочат към един и същ масив.
 
@@ -465,7 +503,11 @@ alert( 0 == [] ); // вярно
 alert('0' == [] ); // грешно
 ```
 
+<<<<<<< HEAD
 Тук и в двата случая сравняваме примитивен тип с масив. Така че празният масив `[]` се конвертира за целите на сравнението и става празен стринг `''`. 
+=======
+Here, in both cases, we compare a primitive with an array object. So the array `[]` gets converted to primitive for the purpose of comparison and becomes an empty string `''`.
+>>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
 
 След това процесът на сравняване продължава да работи с примитивните типове, както е обяснено в глава <info:type-conversions>:
 
@@ -484,6 +526,7 @@ alert('0' == '' ); // грешно, няма конвертиране към д�
 
 Масивът е специален вид обект, подходящ за сортиране и манипулиране на подредени структури от данни.
 
+<<<<<<< HEAD
 - Деклариране:
 
     ```js
@@ -495,11 +538,33 @@ alert('0' == '' ); // грешно, няма конвертиране към д�
     ```
 
     Извикването на  `new Array(number)` създава празен масив със съответната дължина.
+=======
+The declaration:
+
+```js
+// square brackets (usual)
+let arr = [item1, item2...];
+
+// new Array (exceptionally rare)
+let arr = new Array(item1, item2...);
+```
+
+The call to `new Array(number)` creates an array with the given length, but without elements.
+>>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
 
 - Свойството `length` е дължината на масива или за да бъдем по-точни, последният числов индекс на масива плюс едно. Регулира се автоматично чрез методите на масива.
 - Ако намалим ръчно `length` масивът се скъсява и има загуба на елементи. 
 
+<<<<<<< HEAD
 Може да използваме масива като опашка или стек чрез следните операции:
+=======
+Getting the elements:
+
+- we can get element by its index, like `arr[0]`
+- also we can use `at(i)` method to get negative-index elements, for negative values of `i`, it steps back from the end of the array. In the rest it works same as `arr[i]`, if `i >= 0`.
+
+We can use an array as a deque with the following operations:
+>>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
 
 - `push(...items)` добавя `items` в края.
 - `pop()` премахва последния елемент от масива и го връща като стойност.

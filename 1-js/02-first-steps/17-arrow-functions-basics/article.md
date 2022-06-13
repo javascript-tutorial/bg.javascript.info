@@ -76,8 +76,13 @@ As you can see, `(a, b) => a + b` means a function that accepts two arguments na
 let age = prompt("На каква възраст сте?", 18);
 
 let welcome = (age < 18) ?
+<<<<<<< HEAD
   () => alert('Здравейте') :
   () => alert("Поздравления!");
+=======
+  () => alert('Hello!') :
+  () => alert("Greetings!");
+>>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
 
 welcome();
 ```
