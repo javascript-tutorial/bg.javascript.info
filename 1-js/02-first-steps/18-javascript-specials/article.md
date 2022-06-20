@@ -55,7 +55,11 @@ for(;;) {
 
 Директивата трябва да бъде в началото на скрипта или в началото на тялото на функцията.
 
+<<<<<<< HEAD
 Без `"use strict"`, всичко все още ще работи, но някои функции ще се държат по старомоден начин, или в "съвместим" начин. По принцип предпочитаме модерното поведение.
+=======
+Without `"use strict"`, everything still works, but some features behave in the old-fashioned, "compatible" way. We'd generally prefer the modern behavior.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Някои съвременни характеристики на езика (като класовете, които ще ги научим в бъдеще) активират строгия режин безусловно.
 
@@ -143,8 +147,13 @@ JavaScript поддържа следните оператори:
 Присвояване
 : Има просто присвояване: `a = b` и комбинирано такъв като този `a *= 2`.
 
+<<<<<<< HEAD
 Побитови операции
 : Побитовите операции работят с 32 битови цели числа в най-ниското побитово ниво: погледнете [документацията](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) когато ви e нужнo.
+=======
+Bitwise
+: Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](mdn:/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) when they are needed.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
   ```js run
       alert(5 & 13); // 0101 & 1101 = 0101
@@ -273,7 +282,11 @@ switch (age) {
 3. "Arrow" или т.н. функции със стрелкички:
 
     ```js
+<<<<<<< HEAD
     // изразът е в дясната страна
+=======
+    // expression on the right side
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
     let sum = (a, b) => a + b;
 
     // или многоредов синтаксис с { ... }, тука обаче се нуждаем от израза "return" тук:

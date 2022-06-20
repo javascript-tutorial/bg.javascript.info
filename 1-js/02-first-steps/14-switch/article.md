@@ -143,7 +143,11 @@ switch (a) {
 
 Сега `3` и `5` показват същото съобщение.
 
+<<<<<<< HEAD
 Възможността да "групираме" случаи е страничен ефект от това как `switch/case` работи без `break`. Тук изпълнението на `case 3` започва от ред `(*)` и продължава през `case 5`, защото няма `break`.
+=======
+The ability to "group" cases is a side effect of how `switch/case` works without `break`. Here the execution of `case 3` starts from the line `(*)` and goes through `case 5`, because there's no `break`.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 ## Начина на писане има значение
 

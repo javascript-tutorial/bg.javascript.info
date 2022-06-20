@@ -12,8 +12,13 @@
 
 Ако още не сте избрали интегрирана среда за разработка, обмислете следните опции:
 
+<<<<<<< HEAD
 - [Visual Studio Code](https://code.visualstudio.com/) (междуплатформена, безплатен).
 - [WebStorm](http://www.jetbrains.com/webstorm/) (междуплатформена, платен).
+=======
+- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
+- [WebStorm](https://www.jetbrains.com/webstorm/) (cross-platform, paid).
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 За ОС Windows, съществува също и **"Visual Studio"**, но не го объркайте с *"Visual Studio Code"*. **"Visual Studio"** е платен и мощен редактор само във ОС Windows, незаменим за .NET платформата. Също е добър за писане на JavaScript. Същестува и безплатна версия на *"Visual Studio"* наречена *[Visual Studio Community](https://www.visualstudio.com/vs/community/)*.
 
