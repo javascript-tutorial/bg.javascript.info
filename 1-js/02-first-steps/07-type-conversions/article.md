@@ -6,8 +6,15 @@
 
 Има и случаи, когато трябва изрично да преобразуваме стойност в очаквания тип.
 
+<<<<<<< HEAD
 ```smart header="Все още не говорим за обекти"
 В тази глава няма да покриваме обекти. Вместо това първо ще изучим примитивните типове. По-късно, след като научим за обектите, ще видим как работи преобразуването на обекти в главата <info:object-toprimitive>.
+=======
+```smart header="Not talking about objects yet"
+In this chapter, we won't cover objects. For now, we'll just be talking about primitives.
+
+Later, after we learn about objects, in the chapter <info:object-toprimitive> we'll see how objects fit in.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 ```
 
 ## Преобразуване в символен низ(string)
