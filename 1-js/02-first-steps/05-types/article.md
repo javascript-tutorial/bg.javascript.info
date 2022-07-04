@@ -286,6 +286,7 @@ Some people prefer `typeof(x)`, although the `typeof x` syntax is much more comm
 ```
 
 ## Summary
+<<<<<<< HEAD
 >>>>>>> a6fdfda09570a8ce47bb0b83cd7a32a33869cfad
 
 В езика JavaScript има седем основни типа данни.
@@ -306,6 +307,24 @@ Some people prefer `typeof(x)`, although the `typeof x` syntax is much more comm
 - Връща стойност от тип стринг, който съдържа типа на проверяваната стойност, такъв пример е : `"string"`.
 - За `null` връща `"object"` -- това е грешка в езика, null в действителност не е обект.
 =======
+=======
+
+There are 8 basic data types in JavaScript.
+
+- Seven primitive data types:
+    - `number` for numbers of any kind: integer or floating-point, integers are limited by <code>±(2<sup>53</sup>-1)</code>.
+    - `bigint` for integer numbers of arbitrary length.
+    - `string` for strings. A string may have zero or more characters, there's no separate single-character type.
+    - `boolean` for `true`/`false`.
+    - `null` for unknown values -- a standalone type that has a single value `null`.
+    - `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
+    - `symbol` for unique identifiers.
+- And one non-primitive data type:
+    - `object` for more complex data structures.
+
+The `typeof` operator allows us to see which type is stored in a variable.
+
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 - Usually used as `typeof x`, but `typeof(x)` is also possible.
 - Returns a string with the name of the type, like `"string"`.
 - For `null` returns `"object"` -- this is an error in the language, it's not actually an object.

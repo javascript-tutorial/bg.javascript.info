@@ -132,12 +132,21 @@ JavaScript е единствената браузърна технология, 
 
 Примери на такива езици са:
 
+<<<<<<< HEAD
 - [CoffeeScript](http://coffeescript.org/) е "синтактичната захар" за JavaScript. То въвежда по-къс синтаксис като ни позволява да пишем по-четим и прецизен код. Обикновенно Ruby разработчиците го харесват.
 - [TypeScript](http://www.typescriptlang.org/) e език съсредоточен да добави "писане на стрикни типове данни" за да опрости разработване и поддръжката на сложни системи. Разработва се от Microsoft.
 - [Flow](http://flow.org/) също добавя типизирани данни, но по по-различен начин. Разработва се от Facebook.
 - [Dart](https://www.dartlang.org/) е самостоятелен език, което си има свобствен двигател, което работи в не-браузърни среди (като мобилни приложения), но също може да се транспилира до JavaScript. Разработва се от Google.
 - [Brython](https://brython.info/) е транспилатор от програмния език Python към JavaScript, което ви позволява да напишете приложения с чист Python език без JavaScript.
 - [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) е модерен, сбит и безопасен език за програмиране, която цел може да е Браузър или Node.
+=======
+- [CoffeeScript](https://coffeescript.org/) is a "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](https://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](https://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that enables the writing of applications in pure Python without JavaScript.
+- [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) is a modern, concise and safe programming language that can target the browser or Node.
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 Има и други. Разбира се, дори да използваме един от транспилираните езици, ние също трябва да знаем JavaScript, за да разберем наистина какво правим.
 

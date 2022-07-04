@@ -43,7 +43,11 @@ let user = {     // обект
 
 ![user object](object-user.svg)
 
+<<<<<<< HEAD
 Можем да добавим, изтрием и да четем файловете от него по всяко време.
+=======
+We can add, remove and read files from it at any time.
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 Стойностите на свойствата са достъпни чрез нотацията на точките:
 
@@ -61,7 +65,11 @@ user.isAdmin = true;
 
 ![user object 2](object-user-isadmin.svg)
 
+<<<<<<< HEAD
 За да изтрием свойство можем да използваме `delete` оператора:
+=======
+To remove a property, we can use the `delete` operator:
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 ```js
 delete user.age;
@@ -200,13 +208,21 @@ let bag = {
 };
 ```
 
+<<<<<<< HEAD
 Квадратните скоби са много по-мощни от точковата нотация. Те позволяват всякакви имена на свойства и променливи. Но също така са по-тромави за писане.
+=======
+Square brackets are much more powerful than dot notation. They allow any property names and variables. But they are also more cumbersome to write.
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 Така през повечето време, когато имената на свойствата са известни и прости, се използва точката. И ако имаме нужда от нещо по-сложно, тогава преминаваме към квадратни скоби.
 
 ## Кратък начин за задаване на стойност на свойство
 
+<<<<<<< HEAD
 В реалния код често използваме съществуващите променливи като стойности за имена на свойства.
+=======
+In real code, we often use existing variables as values for property names.
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 Например:
 
@@ -251,7 +267,11 @@ let user = {
 
 ## Ограничения в имената на свойствата
 
+<<<<<<< HEAD
 Както вече знаем, променлива не може да има име, равна на една от запазените за език думи като "for", "let", "return" и други.
+=======
+As we already know, a variable cannot have a name equal to one of the language-reserved words like "for", "let", "return" etc.
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 Но за свойство на обект няма такова ограничение:
 
@@ -324,7 +344,11 @@ alert( "blabla" in user ); // false, user.blabla НЕ съществува
 
 Моля, обърнете внимание, че от лявата страна на `in` трябва да има *име на свойство*. Това обикновено е низ с кавички.
 
+<<<<<<< HEAD
 Ако пропуснем кавички, това означава че е променлива, тя трябва да съдържа действителното име, което трябва да бъде тествано. Например:
+=======
+If we omit quotes, that means a variable should contain the actual name to be tested. For instance:
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 ```js run
 let user = { age: 30 };
@@ -354,7 +378,11 @@ alert( "test" in obj ); // true, свойството съществува!
 Ситуации като тази се случват много рядко, защото `undefined` не трябва да бъде изрично зададена.Използваме най-вече `null` за "непознати" или "празни" стойности. Така че `in` операторът е екзотичен гост в кода.
 
 
+<<<<<<< HEAD
 ## Цикълът "for..in"
+=======
+## The "for..in" loop [#forin]
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 За да итерираме през всички ключове на обекта, съществува специална форма на цикъл: `for..in`. Това е съвсем различно нещо от обикновения `for(;;)` конструкция, която я научихме преди.
 
@@ -411,7 +439,11 @@ for (let code in codes) {
 */!*
 ```
 
+<<<<<<< HEAD
 Обектът може да се използва, за да предложи на потребителя списък с опции. IАко правим сайт главно за немска публика, тогава вероятно искаме `49` да е първият.
+=======
+The object may be used to suggest a list of options to the user. If we're making a site mainly for a German audience then we probably want `49` to be the first.
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 Но ако пуснем кода, виждаме съвсем различна картина:
 
@@ -423,6 +455,7 @@ for (let code in codes) {
 ````smart header="Целочислени свойства? Какво са те?"
 Терминът "Целичислено свойство" означава низ, който може да бъде преобразуван от-и-към целочислена стойност без промяна.
 
+<<<<<<< HEAD
 Така, "49" е целочислено име на свойство, защото когато се трансформира в цяло число и обратно, и все още е същото. Но "+49" и "1.2" не са:
 
 ```js run
@@ -430,6 +463,16 @@ for (let code in codes) {
 alert( String(Math.trunc(Number("49"))) ); // "49", същото, цяло число
 alert( String(Math.trunc(Number("+49"))) ); // "49", не е същото "+49" ⇒ не е цяло число
 alert( String(Math.trunc(Number("1.2"))) ); // "1", не е същото "1.2" ⇒ не е цяло число
+=======
+So, `"49"` is an integer property name, because when it's transformed to an integer number and back, it's still the same. But `"+49"` and `"1.2"` are not:
+
+```js run
+// Number(...) explicitly converts to a number
+// Math.trunc is a built-in function that removes the decimal part
+alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property
+alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
+alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 ```
 ````
 
@@ -478,9 +521,15 @@ for (let code in codes) {
 - Свойствените ключове трябва да са низове или символи (обикновено са низове).
 - Стойностите могат да бъдат от всякакъв тип.
 
+<<<<<<< HEAD
 За достъпим свойството можем да използваме:
 - Точката нотация: `obj.property`.
 - Нотация на квадратни скоби: `obj["property"]`. Квадратните скоби ни позволяват да вземаме ключ от променливата, например `obj[varWithKey]`.
+=======
+To access a property, we can use:
+- The dot notation: `obj.property`.
+- Square brackets notation `obj["property"]`. Square brackets allow taking the key from a variable, like `obj[varWithKey]`.
+>>>>>>> fe1c4a241f12a0939d1e0977cec6504ccd67201f
 
 Допълнителни оператори:
 - За да изтриете свойство: `delete obj.prop`.
