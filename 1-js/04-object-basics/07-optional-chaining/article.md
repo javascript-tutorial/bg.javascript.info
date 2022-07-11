@@ -137,7 +137,7 @@ alert( user?.address?.street ); // undefined (Няма грешка)
 Here's an example with `document.querySelector`:
 
 ```js run
-let html = document.querySelector('.elem')?.innerHTML; // will be null, if there's no element
+let html = document.querySelector('.elem')?.innerHTML; // will be undefined, if there's no element
 ```
 
 >>>>>>> ac7daa516fa8e687427eac51186af97154748afa
@@ -252,8 +252,12 @@ userGuest.admin?.(); // nothing happens (no such method)
 Here, in both lines we first use the dot (`userAdmin.admin`) to get `admin` property, because we assume that the `user` object exists, so it's safe read from it.
 >>>>>>> ac7daa516fa8e687427eac51186af97154748afa
 
+<<<<<<< HEAD
 Then `?.()` checks the left part: if the admin function exists, then it runs (that's so for `userAdmin`). Otherwise (for `userGuest`) the evaluation stops without errors.
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
+=======
+Then `?.()` checks the left part: if the `admin` function exists, then it runs (that's so for `userAdmin`). Otherwise (for `userGuest`) the evaluation stops without errors.
+>>>>>>> 82ed8f11b40bd40797427a5dd1763edbe1fca523
 
 Синтаксиса `?.[]`също работи, ако искаме да използваме скоби `[]` за достъп до свойства вместо точка `.`. Подобно на предишните случаи, то позволява безопасно да четем свойство от обект, който може да не съществува.
 
@@ -286,8 +290,13 @@ alert( user2?.[key] ); // undefined
 delete user?.name; // Изтриваме свойството user.name ако user съществува
 ```
 
+<<<<<<< HEAD
 ````warn header="Можем да използваме `?.` за безопасно четене и изтриване, но не за писане"
 Поизборната верига `?.` няма употреба в лявата част на заданието:
+=======
+````warn header="We can use `?.` for safe reading and deleting, but not writing"
+The optional chaining `?.` has no use on the left side of an assignment.
+>>>>>>> 82ed8f11b40bd40797427a5dd1763edbe1fca523
 
 Например:
 ```js run

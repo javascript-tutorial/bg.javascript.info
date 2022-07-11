@@ -5,7 +5,11 @@
 
 Екипите, които стоят зад JavaScript енджините, имат собствени идеи какво да имплементират първо. Може да решат да имплементират предложения, които все още са на чернова и да отложат неща, които вече са в спецификациите, защото не са толкова интересни или са по-трудни за имплементиране.
 
+<<<<<<< HEAD
 Така че е доста типично е за двигателите да имплементират само част от стандарта.
+=======
+So it's quite common for an engine to implement only part of the standard.
+>>>>>>> 82ed8f11b40bd40797427a5dd1763edbe1fca523
 
 Добър ресурс, където може да видите кои свойства на езика се поддържат към настоящия момент е  <https://kangax.github.io/compat-table/es6/> (доста е голям, а ние имаме да учим още много).
 
@@ -48,6 +52,7 @@ height = (height !== undefined && height !== null) ? height : 100;
 
 Обикновено разработчикът стартира транспилера на собствения си компютър и след това изпраща транслирания код на сървъра.
 
+<<<<<<< HEAD
 Говорейки за имена, [Babel](https://babeljs.io) е един от най-известните транспилери.
 
 <<<<<<< HEAD
@@ -55,6 +60,11 @@ height = (height !== undefined && height !== null) ? height : 100;
 =======
 Modern project build systems, such as [webpack](https://webpack.js.org/), provide means to run transpiler automatically on every code change, so it's very easy to integrate into development process.
 >>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
+=======
+Speaking of names, [Babel](https://babeljs.io) is one of the most prominent transpilers out there.
+
+Modern project build systems, such as [webpack](https://webpack.js.org/), provide a means to run a transpiler automatically on every code change, so it's very easy to integrate into the development process.
+>>>>>>> 82ed8f11b40bd40797427a5dd1763edbe1fca523
 
 ## Полифили
 
@@ -85,9 +95,17 @@ if (!Math.trunc) { // ако функцията не съществува
 }
 ```
 
+<<<<<<< HEAD
 JavaScript е силно динамичен език, скриптовете могат да добавят / модифицират всякакви функции, включително и вградените такива.
 
 Две интересни библиотеки полифили са:
+=======
+JavaScript is a highly dynamic language. Scripts may add/modify any function, even built-in ones.
+
+Two interesting polyfill libraries are:
+- [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
+- [polyfill.io](http://polyfill.io) service that provides a script with polyfills, depending on the features and user's browser.
+>>>>>>> 82ed8f11b40bd40797427a5dd1763edbe1fca523
 
 - [core js](https://github.com/zloirock/core-js), който поддържа много, позволява да се включват само необходимите функции.
 - [polyfill.io](http://polyfill.io) услуга, която предоставя скрипт с полифили, в зависимост от функциите и браузъра на потребителя.
@@ -96,6 +114,7 @@ JavaScript е силно динамичен език, скриптовете м�
 
 В тази глава бихме искали да ви мотивираме да изучавате съвременни и дори "ненадеждни" функции на езика, дори ако те все още не са добре поддържани от JavaScript двигателите.
 
+<<<<<<< HEAD
 Само не забравяйте да използвате транспилер (ако се използва съвременен синтаксис или оператори) и полифили (за да добавите функции, които биха липсвали). И те ще гарантират, че кодът работи.
 
 <<<<<<< HEAD
@@ -103,6 +122,11 @@ JavaScript е силно динамичен език, скриптовете м�
 =======
 For example, later when you're familiar with JavaScript, you can setup a code build system based on [webpack](https://webpack.js.org/) with [babel-loader](https://github.com/babel/babel-loader) plugin.
 >>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
+=======
+Just don't forget to use a transpiler (if using modern syntax or operators) and polyfills (to add functions that may be missing). They'll ensure that the code works.
+
+For example, later when you're familiar with JavaScript, you can setup a code build system based on [webpack](https://webpack.js.org/) with the [babel-loader](https://github.com/babel/babel-loader) plugin.
+>>>>>>> 82ed8f11b40bd40797427a5dd1763edbe1fca523
 
 Добри ресурси, които показват текущото състояние на поддръжка за различните нови функции:
 
