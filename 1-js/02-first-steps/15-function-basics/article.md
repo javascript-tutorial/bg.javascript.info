@@ -175,7 +175,12 @@ alert( from ); // Ани
 
 Когато дадена стойност е подадена като параметър на функцията, то също се нарича и *аргумент*.
 
+<<<<<<< HEAD
 С други думи, да кажем правилно тези термини:
+=======
+- A parameter is the variable listed inside the parentheses in the function declaration (it's a declaration time term).
+- An argument is the value that is passed to the function when it is called (it's a call time term).
+>>>>>>> 7000ede297bfd688f9a3767e8ca43abd9242f322
 
 - Параметърът е променливата, посочена в скобите в декларацията на функцията (член при декларацията)
 - Аргумент е стойността, която се предава на функцията, когато е извикана (член при извикване).
@@ -225,7 +230,43 @@ function showMessage(from, text = anotherFunction()) {
 С други думи, той се извиква независимо всеки път, когато липсва `text`.
 ```
 
+<<<<<<< HEAD
 ### Алтернативни параметри по подразбиране
+=======
+````smart header="Default parameters in old JavaScript code"
+Several years ago, JavaScript didn't support the syntax for default parameters. So people used other ways to specify them.
+
+Nowadays, we can come across them in old scripts.
+
+For example, an explicit check for `undefined`:
+
+```js
+function showMessage(from, text) {
+*!*
+  if (text === undefined) {
+    text = 'no text given';
+  }
+*/!*
+
+  alert( from + ": " + text );
+}
+```
+
+...Or using the `||` operator:
+
+```js
+function showMessage(from, text) {
+  // If the value of text is falsy, assign the default value
+  // this assumes that text == "" is the same as no text at all
+  text = text || 'no text given';
+  ...
+}
+```
+````
+
+
+### Alternative default parameters
+>>>>>>> 7000ede297bfd688f9a3767e8ca43abd9242f322
 
 Понякога има смисъл да задавате стойности по подразбиране за параметри не при деклараране на функциите, а на по-късен етап.
 
@@ -490,7 +531,11 @@ function name(parameters, delimited, by, comma) {
 
 За да направим кога чист и лесен за разбиране, препоръчително е да използаме главно локални вариации и параметри във функцията, не външни вариации.
 
+<<<<<<< HEAD
 Винаги е по-лесно да разберем функция, която получава параметри, разботи с тях и връща резултат от функция, която не получава параметри, но модифицира външни вариации, като страничен ефект.
+=======
+It is always easier to understand a function which gets parameters, works with them and returns a result than a function which gets no parameters, but modifies outer variables as a side effect.
+>>>>>>> 7000ede297bfd688f9a3767e8ca43abd9242f322
 
 Именуване на функциите:
 
