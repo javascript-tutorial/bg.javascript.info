@@ -187,6 +187,7 @@ alert( +apples + +oranges ); // 5
 |------------|------|------|
 | ... | ... | ... |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | 17 | едноаргументен плюс | `+` |
 | 17 | едноаргументен минус | `-` |
 | 16 | степенуване | `**` |
@@ -207,12 +208,25 @@ alert( +apples + +oranges ); // 5
 | 13 | division | `/` |
 | 12 | addition | `+` |
 | 12 | subtraction | `-` |
+=======
+| 14 | unary plus | `+` |
+| 14 | unary negation | `-` |
+| 13 | exponentiation | `**` |
+| 12 | multiplication | `*` |
+| 12 | division | `/` |
+| 11 | addition | `+` |
+| 11 | subtraction | `-` |
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 | ... | ... | ... |
 | 2 | assignment | `=` |
 | ... | ... | ... |
 
+<<<<<<< HEAD
 As we can see, the "unary plus" has a priority of `15` which is higher than the `12` of "addition" (binary plus). That's why, in the expression `"+apples + +oranges"`, unary pluses work before the addition.
 >>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
+=======
+As we can see, the "unary plus" has a priority of `14` which is higher than the `11` of "addition" (binary plus). That's why, in the expression `"+apples + +oranges"`, unary pluses work before the addition.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## Присвояване
 
@@ -313,9 +327,13 @@ alert( n ); // 14
 ```js run
 let n = 2;
 
-n *= 3 + 5;
+n *= 3 + 5; // right part evaluated first, same as n *= 8
 
+<<<<<<< HEAD
 alert( n ); // 16  (дясната част се изчислява първо, същото като n *= 8)
+=======
+alert( n ); // 16  
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 ```
 
 ## Увеличаване/Намаляване
@@ -447,7 +465,11 @@ counter++;
 - Отместване вдясно ( `>>` )
 - Отместване вдясно и запълване с нули ( `>>>` )
 
+<<<<<<< HEAD
 Тези оператори се използват много рядко. За да ги разберем, трябва да се задълбочим в ниското ниво на представяне на числата и не би било оптимално да го направим в момента, още повече, че скоро няма да ни трябват. Ако сте любопитни, можете да прочетете статията [Побитови оператори](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Bitwise) в MDN. По-практично би било да го направите, когато възникне реална нужда.
+=======
+These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won't need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) chapter on MDN when a need arises.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## Запетая
 

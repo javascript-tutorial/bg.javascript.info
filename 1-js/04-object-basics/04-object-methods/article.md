@@ -51,7 +51,7 @@ let user = {
 // първо декларираме функцията
 function sayHi() {
   alert("Hello!");
-};
+}
 
 // После я добавяме като метод
 user.sayHi = sayHi;
@@ -94,7 +94,11 @@ user = {
 
 Както видяхме, може да пропуснем `"function"` и да напишем само `sayHi()`.
 
+<<<<<<< HEAD
 В действителност тези нотации не са напълно идентични. Има леки различия, свързани с обектното унаследяване (ще бъде рязгледано по-късно), но за сега това няма значение. В почти всеки случай се предпочита краткият синтаксис.
+=======
+To tell the truth, the notations are not fully identical. There are subtle differences related to object inheritance (to be covered later), but for now they do not matter. In almost all cases, the shorter syntax is preferred.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## "this" в методите
 

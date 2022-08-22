@@ -2,6 +2,7 @@
 
 В модерния JavaScript, има два вида числа:
 
+<<<<<<< HEAD
 1. Обикновенните числа в JavaScript се запазват в 64-битов фирмат [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), също познати като "двойно прецизни числа с плаваща запетая". TТова са числа, които ще използваме през повечето време и ще говорим за тях в тази глава.
 
 <<<<<<< HEAD
@@ -9,6 +10,11 @@
 =======
 2. BigInt numbers, to represent integers of arbitrary length. They are sometimes needed, because a regular number can't safely exceed <code>2<sup>53</sup></code> or be less than <code>-2<sup>53</sup></code>. As bigints are used in few special areas, we devote them a special chapter <info:bigint>.
 >>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
+=======
+1. Regular numbers in JavaScript are stored in 64-bit format [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754), also known as "double precision floating point numbers". These are numbers that we're using most of the time, and we'll talk about them in this chapter.
+
+2. BigInt numbers represent integers of arbitrary length. They are sometimes needed because a regular integer number can't safely exceed <code>(2<sup>53</sup>-1)</code> or be less than <code>-(2<sup>53</sup>-1)</code>, as we mentioned earlier in the chapter <info:types>. As bigints are used in few special areas, we devote them a special chapter <info:bigint>.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Така че тук ще говорим за обикновените числа. Нека разширим познанията си за тях.
 
@@ -31,7 +37,7 @@ We also can use underscore `_` as the separator:
 let billion = 1_000_000_000;
 ```
 
-Here the underscore `_` plays the role of the "syntactic sugar", it makes the number more readable. The JavaScript engine simply ignores `_` between digits, so it's exactly the same one billion as above.
+Here the underscore `_` plays the role of the "[syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)", it makes the number more readable. The JavaScript engine simply ignores `_` between digits, so it's exactly the same one billion as above.
 
 In real life though, we try to avoid writing long sequences of zeroes. We're too lazy for that. We'll try to write something like `"1bn"` for a billion or `"7.3bn"` for 7 billion 300 million. The same is true for most large numbers.
 
@@ -72,10 +78,14 @@ Just like before, using `"e"` can help. If we'd like to avoid writing the zeroes
 
 ```js
 <<<<<<< HEAD
+<<<<<<< HEAD
 let ms = 1e-6; // шест нули вляво от 1
 =======
 let mcs = 1e-6; // six zeroes to the left from 1
 >>>>>>> a6fdfda09570a8ce47bb0b83cd7a32a33869cfad
+=======
+let mcs = 1e-6; // five zeroes to the left from 1
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 ```
 
 <<<<<<< HEAD
@@ -99,7 +109,13 @@ If we count the zeroes in `0.000001`, there are 6 of them. So naturally it's `1e
 
 // -6 divides by 1 with 6 zeroes
 1.23e-6 === 1.23 / 1000000; // 0.00000123
+<<<<<<< HEAD
 >>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
+=======
+
+// an example with a bigger number
+1234e-2 === 1234 / 100; // 12.34, decimal point moves 2 times
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 ```
 
 ### Шестнадесетично, двоични и осмични числа
@@ -234,7 +250,11 @@ Also could write `(123456).toString(36)`.
     alert( num.toFixed(1) ); // "12.4"
     ```
 
+<<<<<<< HEAD
    Моля, обърнете внимание на този резултат от `toFixed`. Ако десетичната част е по-къса от изискваната, нулите се добавят към края:
+=======
+    Please note that the result of `toFixed` is a string. If the decimal part is shorter than required, zeroes are appended to the end:
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
     ```js run
     let num = 12.34;
@@ -249,7 +269,11 @@ Also could write `(123456).toString(36)`.
 
 ## Неточни изчисления
 
+<<<<<<< HEAD
 Вътрешно, числата са представени в 64-битов формат [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), така че има точно 64 бита за да запазят число: 52 от тях се използват за съхранение на цифрите, 11 от тях съхраняват позицията на десетичната запетая (те са нула за цели числа), и 1 бит е за знака пред числото (положителен/отрицателен).
+=======
+Internally, a number is represented in 64-bit format [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754), so there are exactly 64 bits to store a number: 52 of them are used to store the digits, 11 of them store the position of the decimal point, and 1 bit is for the sign.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 <<<<<<< HEAD
 Ако числото е твърде голямо, тя ще препълни 64-битовата памет, като потенциално би давал безкрайност:
@@ -322,7 +346,7 @@ PHP, Java, C, Perl, Ruby дават абсолютно същия резулта
 
 ```js run
 let sum = 0.1 + 0.2;
-alert( sum.toFixed(2) ); // 0.30
+alert( sum.toFixed(2) ); // "0.30"
 ```
 
 Моля, имайте предвид, че `toFixed` винаги връща низ. Той гарантира, че има 2 числа след десетичната запетая. Това всъщност е удобно, ако имаме електронно пазаруване и трябва да покажем `$0.30`. За други случаи можем да използваме единичния плюс, за да го превърнем в число:
@@ -381,7 +405,11 @@ JavaScript не задейства грешка при такива събити
     alert( isNaN("str") ); // true
     ```
 
+<<<<<<< HEAD
     Нуждаем ли се обаче от тази функция? Не можем ли просто да използваме сравнението `=== NaN`? За съжаление, отговорът е не. Стойността `NaN` е уникален по това, че не е равна на нищо, включително себе си:
+=======
+    But do we need this function? Can't we just use the comparison `=== NaN`? Unfortunately not. The value `NaN` is unique in that it does not equal anything, including itself:
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
     ```js run
     alert( NaN === NaN ); // false
@@ -411,16 +439,54 @@ alert( isFinite(num) );
 Please note that an empty or a space-only string is treated as `0` in all numeric functions including `isFinite`.
 >>>>>>> 4d01fc20d4d82358e61518a31efe80dec9bb2602
 
+<<<<<<< HEAD
 ```smart header="Сравнение с `Object.is`"
 
 Има специален вграден метод [`Object.is`](mdn:js/Object/is) който сравнява стойности като `===`,но е по-надежден за два крайни случая:
+=======
+````smart header="`Number.isNaN` and `Number.isFinite`"
+[Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) and [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite) methods are the more "strict" versions of `isNaN` and `isFinite` functions. They do not autoconvert their argument into a number, but check if it belongs to the `number` type instead.
+
+- `Number.isNaN(value)` returns `true` if the argument belongs to the `number` type and it is `NaN`. In any other case it returns `false`.
+
+    ```js run
+    alert( Number.isNaN(NaN) ); // true
+    alert( Number.isNaN("str" / 2) ); // true
+
+    // Note the difference:
+    alert( Number.isNaN("str") ); // false, because "str" belongs to the string type, not the number type
+    alert( isNaN("str") ); // true, because isNaN converts string "str" into a number and gets NaN as a result of this conversion
+    ```
+
+- `Number.isFinite(value)` returns `true` if the argument belongs to the `number` type and it is not `NaN/Infinity/-Infinity`. In any other case it returns `false`.
+
+    ```js run
+    alert( Number.isFinite(123) ); // true
+    alert( Number.isFinite(Infinity) ); //false
+    alert( Number.isFinite(2 / 0) ); // false
+
+    // Note the difference:
+    alert( Number.isFinite("123") ); // false, because "123" belongs to the string type, not the number type
+    alert( isFinite("123") ); // true, because isFinite converts string "123" into a number 123
+    ```
+
+In a way, `Number.isNaN` and `Number.isFinite` are simpler and more straightforward than `isNaN` and `isFinite` functions. In practice though, `isNaN` and `isFinite` are mostly used, as they're shorter to write.
+````
+
+```smart header="Comparison with `Object.is`"
+There is a special built-in method `Object.is` that compares values like `===`, but is more reliable for two edge cases:
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 1. Работи с `NaN`: `Object.is(NaN, NaN) === true`, това е добро нещо.
 2. Стойностите `0` и `-0` са различни: `Object.is(0, -0) === false`, техническо това е вярно, защото вътрешно числото има битов знак, който може да е различен, дори ако всички останали битове са нули.
 
 Във всички останали случаи, `Object.is(a, b)` е същото като `a === b`.
 
+<<<<<<< HEAD
 Този начин на сравнение често се използва при спецификациите на JavaScript. Когато един вътрешен алгоритъм трябва да сравни две стойности, за да бъдат абсолютно еднакви, той използва `Object.is` (вътрешно извиква [SameValue](https://tc39.github.io/ecma262/#sec-samevalue)).
+=======
+We mention `Object.is` here, because it's often used in JavaScript specification. When an internal algorithm needs to compare two values for being exactly the same, it uses `Object.is` (internally called [SameValue](https://tc39.github.io/ecma262/#sec-samevalue)).
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 ```
 
 
@@ -484,8 +550,13 @@ JavaScript има вграден [Math](https://developer.mozilla.org/en/docs/We
     alert( Math.random() ); // ... (произволни числа)
     ```
 
+<<<<<<< HEAD
 `Math.max(a, b, c...)` / `Math.min(a, b, c...)`
 : Връща най-големия / най-малкия число от подадените аргументи.
+=======
+`Math.max(a, b, c...)` and `Math.min(a, b, c...)`
+: Returns the greatest and smallest from the arbitrary number of arguments.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
     ```js run
     alert( Math.max(3, 5, -10, 0, 1) ); // 5
@@ -518,7 +589,18 @@ JavaScript има вграден [Math](https://developer.mozilla.org/en/docs/We
 - `parseInt(str, base)` връща низа `str` превърнато в цяло число от дадената числова система `base`, `2 ≤ base ≤ 36`.
 - `num.toString(base)` преобразува числото в низ от числова система дадено с `base`.
 
+<<<<<<< HEAD
 За конвертиране на стойности като `12pt` и `100px` към числа:
+=======
+For regular number tests:
+
+- `isNaN(value)` converts its argument to a number and then tests it for being `NaN`
+- `Number.isNaN(value)` checks whether its argument belongs to the `number` type, and if so, tests it for being `NaN`
+- `isFinite(value)` converts its argument to a number and then tests it for not being `NaN/Infinity/-Infinity`
+- `Number.isFinite(value)` checks whether its argument belongs to the `number` type, and if so, tests it for not being `NaN/Infinity/-Infinity`
+
+For converting values like `12pt` and `100px` to a number:
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 - Използвайте `parseInt/parseFloat` за "гъвкаво" преобразуване. То чете число от низ и след това връща стойността, която е успял да прочете преди грешката.
 

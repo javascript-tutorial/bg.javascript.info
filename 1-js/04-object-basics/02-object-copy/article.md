@@ -37,7 +37,11 @@ let user = {
 
 Обектът е запазен някъде в паметта (вдясно в картината), докато променливата `user` (в ляво) има "референция" към него.
 
+<<<<<<< HEAD
 Може да помислим променливата от тип обект, както е `user`, като лист хартия с адреси.
+=======
+We may think of an object variable, such as `user`, like a sheet of paper with the address of the object on it.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Когато изпълняваме някои действия с обекта, примерно вземаме стойноста на свойството `user.name`, JavaScript двугателя търси този адрес и извършва операцията върху този действителен обект.
 
@@ -108,11 +112,17 @@ alert( a == b ); // falsе
 
 Така, копирането на променливата на обекта създава още една референция към същия обект.
 
+<<<<<<< HEAD
 Но какво ще стане, ако трябва да дублираме обект? Да създадете независимо копие, клонинг?
 
 Това също е изпълнимо, но малко по-трудно, тъй като няма вграден метод за това в JavaScript. Всъщност това рядко е необходимо. Копирането чрез референция е добро през повечето време.
 
 Но ако наистина искаме това, тогава трябва да създадем нов обект и да репликираме структурата на съществуващия, като повтаряме неговите свойства и ги копираме на примитивно ниво.
+=======
+But what if we need to duplicate an object?
+
+We can create a new object and replicate the structure of the existing one, by iterating over its properties and copying them on the primitive level.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Като този:
 
@@ -138,10 +148,14 @@ alert( user.name ); // все още "John" e в оригиналния обек
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Също така можем да използваме метода [Object.assign](mdn:js/Object/assign) за този цел.
 =======
 Also we can use the method [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) for that.
 >>>>>>> 3699f73b4ccb2a57ac5ef990d2687bf31ccf564c
+=======
+We can also use the method [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign).
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Синтаксисът е:
 
@@ -206,7 +220,11 @@ There are also other methods of cloning an object, e.g. using the [spread syntax
 ## Nested cloning
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
 
+<<<<<<< HEAD
 Досега приемахме, че всички свойства на `user` са примитивни. Но свойствата могат да бъдат референции към други обекти. Какво да правим с тях?
+=======
+Until now we assumed that all properties of `user` are primitive. But properties can be references to other objects.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Като тези тук:
 ```js run
@@ -221,9 +239,13 @@ let user = {
 alert( user.sizes.height ); // 182
 ```
 
+<<<<<<< HEAD
 Сега не е достатъчно да копираме `clone.sizes = user.sizes`, защото `user.sizes` е обект, и ще се копира чрез референция. Така `clone` и `user` ще споделят същите размери:
 
 Като тук:
+=======
+Now it's not enough to copy `clone.sizes = user.sizes`, because `user.sizes` is an object, and will be copied by reference, so `clone` and `user` will share the same sizes:
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ```js run
 let user = {
@@ -238,12 +260,21 @@ let clone = Object.assign({}, user);
 
 alert( user.sizes === clone.sizes ); // true, същия обект
 
+<<<<<<< HEAD
 // "user" и "clone" споделят размерите
 user.sizes.width++;       // променяте свойсвото от едно място
 alert(clone.sizes.width); // 51, виждате резултата от друго
 ```
 
 За да поправим това, трябва да използваме клониращия цикъл, който изследва всяка стойност на `user[key]` и, ако е обект, след това репликирайте и неговата структура. Това се нарича "deep cloning" (т.н. "дълбоко клониране").
+=======
+// user and clone share sizes
+user.sizes.width++;       // change a property from one place
+alert(clone.sizes.width); // 51, get the result from the other one
+```
+
+To fix that and make `user` and `clone` truly separate objects, we should use a cloning loop that examines each value of `user[key]` and, if it's an object, then replicate its structure as well. That is called a "deep cloning".
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Можем да използваме рекурсия за нейното имплементиране. Или, за да не изобретим колелото отново, вземете съществуваща имплементация, например [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) от JavaScript библеотеката [lodash](https://lodash.com).
 
