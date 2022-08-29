@@ -40,10 +40,14 @@ john.sayHi(); // Здравей приятел!
 Ето парадокса, с който се сблъсква създателят на JavaScript:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 -Има много неща, които човек би искал да направи с примитив като низ или число. Би било чудесно да получите достъп до тях като методи.
 - Примитивите трябва да са възможно най-бързи и леки.
 =======
 - There are many things one would want to do with a primitive like a string or a number. It would be great to access them using methods.
+=======
+- There are many things one would want to do with a primitive, like a string or a number. It would be great to access them using methods.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 - Primitives must be as fast and lightweight as possible.
 >>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
@@ -113,9 +117,16 @@ if (zero) { // zero е true, защото е обект
 }
 ```
 
+<<<<<<< HEAD
 От друга страна, използвайки същите функции `String/Number/Boolean` без `new` е напълно нормално и полезно нещо. Те преобразуват стойността в съответния тип: към низ, число, или булев тип (примитивен).
 
 Например, това е напълно валидно:
+=======
+On the other hand, using the same functions `String/Number/Boolean` without `new` is totally fine and useful thing. They convert a value to the corresponding type: to a string, a number, or a boolean (primitive).
+
+For example, this is entirely valid:
+
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 ```js
 let num = Number("123"); // конвертирате низ в число
 ```
