@@ -12,8 +12,13 @@
 
 Ако още не сте избрали интегрирана среда за разработка, обмислете следните опции:
 
+<<<<<<< HEAD
 - [Visual Studio Code](https://code.visualstudio.com/) (междуплатформена, безплатен).
 - [WebStorm](http://www.jetbrains.com/webstorm/) (междуплатформена, платен).
+=======
+- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
+- [WebStorm](https://www.jetbrains.com/webstorm/) (cross-platform, paid).
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 За ОС Windows, съществува също и **"Visual Studio"**, но не го объркайте с *"Visual Studio Code"*. **"Visual Studio"** е платен и мощен редактор само във ОС Windows, незаменим за .NET платформата. Също е добър за писане на JavaScript. Същестува и безплатна версия на *"Visual Studio"* наречена *[Visual Studio Community](https://www.visualstudio.com/vs/community/)*.
 
@@ -32,6 +37,7 @@
 Следните опции заслужават вниманието ви:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Atom](https://atom.io/) (междуплатформена, безплатен).
 - [Visual Studio Code](https://code.visualstudio.com/) (междуплатформена, безплатен).
 - [Sublime Text](http://www.sublimetext.com) (междуплатформена, споделен).
@@ -39,6 +45,8 @@
 - [Vim](http://www.vim.org/) и [Emacs](https://www.gnu.org/software/emacs/) също са яки, ако знаете как да ги използвате
 =======
 - [Atom](https://atom.io/) (cross-platform, free).
+=======
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 - [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
 - [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.

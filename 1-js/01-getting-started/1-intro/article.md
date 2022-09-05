@@ -42,16 +42,26 @@ The terms above are good to remember because they are used in developer articles
 
 Двигателите са сложни, но основното им е лесно.
 
+<<<<<<< HEAD
 1. Двигателят (вграден ако е браузър) чете ("анализира") скрипт-а.
 2. Тогава го конвертира ("компилира") скрипт-а в машинен език.
 3. И след тогава машинния код се изпълнява.
+=======
+1. The engine (embedded if it's a browser) reads ("parses") the script.
+2. Then it converts ("compiles") the script to machine code.
+3. And then the machine code runs, pretty fast.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 Вдигателят прилага оптимизации във всяка стъпка от процеса. Даже гледа компилирания скрипт, което се изпълнява, анализира данните, които протичат през него и прилага оптимазиции на машинния код на база тези данни. Когато всичко е готово скрипт-ът се изпълнява доста бързо.
 ```
 
 ## Какво може JavaScript в браузъра ?
 
+<<<<<<< HEAD
 Модерният JavaScript е "безопасен" програмен език. То не предоставя ниско ниво на достъп на паметта и процесора, защото първоначално е създаден за браузърите, които не изискват подобно нещо.
+=======
+Modern JavaScript is a "safe" programming language. It does not provide low-level access to memory or the CPU, because it was initially created for browsers which do not require it.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 Способностите на JavaScript-a силно зависят от средата, която се изпълнява. Например [Node.js](https://wikipedia.org/wiki/Node.js) поддържа функции, които позволяват на JavaScript-а да чете/пише случайни файлове, да изпълнява мрежови заявки и т.н.
 
@@ -72,10 +82,14 @@ JavaScript-a в браузъра може да направи всичко от�
 ## Какво не може JavaScript-а в браузъра?
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Възможностите на JavaScript-a в браузъра са ограничени заради безопасността на потребителя. Целта е да се предотврати на зловредните страници достъпът на личната информация на потребителите или навреждането на данните на потребителите.
 =======
 JavaScript's abilities in the browser are limited for the sake of a user's safety. The aim is to prevent an evil webpage from accessing private information or harming the user's data.
 >>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
+=======
+JavaScript's abilities in the browser are limited to protect the user's safety. The aim is to prevent an evil webpage from accessing private information or harming the user's data.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 Примерите на такива ограничения вкючват:
 Examples of such restrictions include:
@@ -86,6 +100,7 @@ Examples of such restrictions include:
 
     Има начини то да взаимодейства с камера/микрофон и други устройства, но те изискват разрешение от потребителя. И така, страниците с активиран JavaScript не могат подло да активират камерата, да наблюдават околноста и да праща тези данни на [Агенцията за Национална Сигурност](https://bg.wikipedia.org/wiki/%D0%90%D0%B3%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B7%D0%B0_%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%B0_%D1%81%D0%B8%D0%B3%D1%83%D1%80%D0%BD%D0%BE%D1%81%D1%82).
 
+<<<<<<< HEAD
 - Различните табове/прозорци в общи линии не знаят за един друг. Понякога да, например когато един прозорец използва JavaScript за да отвори друг. Но дори тогава, JavaScript-а от едната страница може и да няма достъп до другия ако са от различни страници (от различни домейни,протоколи или порти)
 
     Това е наречено "Same Origin Policy" или Същинска Политика за Произход. За да проработи това, *и двете страници* трябва да се съгласят за обмен на данни и да съдържат специален JavaScript код, който се справя с това. Ще разгледаме това по-късно в ръководството.
@@ -97,6 +112,19 @@ Examples of such restrictions include:
 ![](limitations.svg)
 
 Такива ограничения не съществуват ако JavaScript-a е използван извън браузъра, например в сървърите. Също, модерните браузъри имат плъгин-и/разширения, които биха питали за допълнителни разрешения.
+=======
+    There are ways to interact with the camera/microphone and other devices, but they require a user's explicit permission. So a JavaScript-enabled page may not sneakily enable a web-camera, observe the surroundings and send the information to the [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
+- Different tabs/windows generally do not know about each other. Sometimes they do, for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other page if they come from different sites (from a different domain, protocol or port).
+
+    This is called the "Same Origin Policy". To work around that, *both pages* must agree for data exchange and must contain special JavaScript code that handles it. We'll cover that in the tutorial.
+
+    This limitation is, again, for the user's safety. A page from `http://anysite.com` which a user has opened must not be able to access another browser tab with the URL `http://gmail.com`, for example, and steal information from there.
+- JavaScript can easily communicate over the net to the server where the current page came from. But its ability to receive data from other sites/domains is crippled. Though possible, it requires explicit agreement (expressed in HTTP headers) from the remote side. Once again, that's a safety limitation.
+
+![](limitations.svg)
+
+Such limitations do not exist if JavaScript is used outside of the browser, for example on a server. Modern browsers also allow plugins/extensions which may ask for extended permissions.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 ## Какво прави JavaScript-a уникален?
 
@@ -118,7 +146,11 @@ JavaScript е единствената браузърна технология, 
 
 Това е което прави JavaScript-а толкова уникален. Затова е толкова широк разпространен инструмент за създаване на браузърни интерфейси.
 
+<<<<<<< HEAD
 Също така, JavaScript ни позволява за създаването на сървъри, мобилни приложения и други.
+=======
+That said, JavaScript can be used to create servers, mobile applications, etc.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 ## Езици "над" JavaScript
 
@@ -126,12 +158,17 @@ JavaScript е единствената браузърна технология, 
 
 Това е очаквано, защото проектите и изискванията са различни за всеки.
 
+<<<<<<< HEAD
 Така наскоро се появи множество нови езици, които са *transpiled* (преобразувани) в JavaScript, преди да стартират в браузъра.
+=======
+So, recently a plethora of new languages appeared, which are *transpiled* (converted) to JavaScript before they run in the browser.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 Съвременните инструменти правят транспилацията много бърза и прозрачна, като всъщност позволяват на разработчиците да кодират на друг езици и автоматично да го конвертират "под капака'.
 
 Примери на такива езици са:
 
+<<<<<<< HEAD
 - [CoffeeScript](http://coffeescript.org/) е "синтактичната захар" за JavaScript. То въвежда по-къс синтаксис като ни позволява да пишем по-четим и прецизен код. Обикновенно Ruby разработчиците го харесват.
 - [TypeScript](http://www.typescriptlang.org/) e език съсредоточен да добави "писане на стрикни типове данни" за да опрости разработване и поддръжката на сложни системи. Разработва се от Microsoft.
 - [Flow](http://flow.org/) също добавя типизирани данни, но по по-различен начин. Разработва се от Facebook.
@@ -140,6 +177,16 @@ JavaScript е единствената браузърна технология, 
 - [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) е модерен, сбит и безопасен език за програмиране, която цел може да е Браузър или Node.
 
 Има и други. Разбира се, дори да използваме един от транспилираните езици, ние също трябва да знаем JavaScript, за да разберем наистина какво правим.
+=======
+- [CoffeeScript](https://coffeescript.org/) is "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](https://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](https://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that enables the writing of applications in pure Python without JavaScript.
+- [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) is a modern, concise and safe programming language that can target the browser or Node.
+
+There are more. Of course, even if we use one of these transpiled languages, we should also know JavaScript to really understand what we're doing.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 ## Обобщение
 
