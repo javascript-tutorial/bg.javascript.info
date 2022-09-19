@@ -76,9 +76,26 @@ n = 12.345;
 
 ## Типът BigInt [#bigint-type]
 
+<<<<<<< HEAD
 В JavaScript, типът "number" не може да представлява цели числа, по-големи от <code>(2<sup>53</sup>-1)</code> (това е `9007199254740991`), или по-малко от <code>-(-2<sup>53</sup>-1)</code> за отрицателни цисла. Това е техническо ограничение, причинено от вътрешното им представителство.
 
 За повечето цели това е напълно достатъчно, но понякога се нуждаем от наистина големи числа, напр. за криптография или микросекунда с точност.
+=======
+In JavaScript, the "number" type cannot safely represent integer values larger than <code>(2<sup>53</sup>-1)</code> (that's `9007199254740991`), or less than <code>-(2<sup>53</sup>-1)</code> for negatives.
+
+To be really precise, the "number" type can store larger integers (up to <code>1.7976931348623157 * 10<sup>308</sup></code>), but outside of the safe integer range <code>±(2<sup>53</sup>-1)</code> there'll be a precision error, because not all digits fit into the fixed 64-bit storage. So an "approximate" value may be stored.
+
+For example, these two numbers (right above the safe range) are the same:
+
+```js
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+```
+
+So to say, all odd integers greater than <code>(2<sup>53</sup>-1)</code> can't be stored at all in the "number" type.
+
+For most purposes <code>±(2<sup>53</sup>-1)</code> range is quite enough, but sometimes we need the entire range of really big integers, e.g. for cryptography or microsecond-precision timestamps.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 Типът `BigInt` е добавен наскоро към езика, за да представлява цели числа с произволна дължина.
 
@@ -286,6 +303,7 @@ Some people prefer `typeof(x)`, although the `typeof x` syntax is much more comm
 ```
 
 ## Summary
+<<<<<<< HEAD
 >>>>>>> a6fdfda09570a8ce47bb0b83cd7a32a33869cfad
 
 В езика JavaScript има седем основни типа данни.
@@ -306,6 +324,24 @@ Some people prefer `typeof(x)`, although the `typeof x` syntax is much more comm
 - Връща стойност от тип стринг, който съдържа типа на проверяваната стойност, такъв пример е : `"string"`.
 - За `null` връща `"object"` -- това е грешка в езика, null в действителност не е обект.
 =======
+=======
+
+There are 8 basic data types in JavaScript.
+
+- Seven primitive data types:
+    - `number` for numbers of any kind: integer or floating-point, integers are limited by <code>±(2<sup>53</sup>-1)</code>.
+    - `bigint` for integer numbers of arbitrary length.
+    - `string` for strings. A string may have zero or more characters, there's no separate single-character type.
+    - `boolean` for `true`/`false`.
+    - `null` for unknown values -- a standalone type that has a single value `null`.
+    - `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
+    - `symbol` for unique identifiers.
+- And one non-primitive data type:
+    - `object` for more complex data structures.
+
+The `typeof` operator allows us to see which type is stored in a variable.
+
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 - Usually used as `typeof x`, but `typeof(x)` is also possible.
 - Returns a string with the name of the type, like `"string"`.
 - For `null` returns `"object"` -- this is an error in the language, it's not actually an object.
