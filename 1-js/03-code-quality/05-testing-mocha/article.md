@@ -55,7 +55,11 @@ describe("pow", function() {
 Спецификацията има 3 основни части, които можете да видите горе:
 
 `describe("title", function() { ... })`
+<<<<<<< HEAD
 : Каква функционалност описваме. В нашия случай описваме функцията `pow`. Използва се да групира "работници" -- блоковете `it`.
+=======
+: What functionality we're describing? In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 `it("use case description", function() { ... })`
 : В заглавието на `it` ние описваме *на разбираем за човека език* конкретният *use* кейс, а вторият аргумент е функцията, която го тества.
@@ -83,7 +87,11 @@ describe("pow", function() {
 
 Нека видим процеса на разработка в нашия практически пример.
 
+<<<<<<< HEAD
 Първата стъпка вече е готова: имаме начални спецификации за `pow`. Сега нека използване няколко JavaScript библиотеки, за да пуснем тестовете и да видим дали работят (те всички ще са неуспешни).
+=======
+The first step is already complete: we have an initial spec for `pow`. Now, before making the implementation, let's use a few JavaScript libraries to run the tests, just to see that they are working (they will all fail).
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ## Спецификациите в действие
 

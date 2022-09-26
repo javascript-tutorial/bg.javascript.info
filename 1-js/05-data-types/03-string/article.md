@@ -48,7 +48,11 @@ let guestList = "Guests: // Error: Unexpected token ILLEGAL
   * John";
 ```
 
+<<<<<<< HEAD
 Единичните и двойните кавички идват от древни времена на езиковото създаване, когато не се взема предвид необходимостта от многоредови низове. Обратните отметки се появиха много по-късно и по този начин са по-гъвкави.
+=======
+Single and double quotes come from ancient times of language creation, when the need for multiline strings was not taken into account. Backticks appeared much later and thus are more versatile.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 Обратните отметки също ни позволяват да посочим "функция на шаблона" преди първата обратна отметка. Синтаксиса е: <code>func&#96;string&#96;</code>. Функцията `func` се извиква автоматично, получава низа и вградените изрази и може да ги обработва. Това се нарича "етикетирани шаблони". Тази функция улеснява внедряването на персонализирани шаблони, но рядко се използва на практика. Можете да прочетете повече за това в [наръчника](mdn:/JavaScript/Reference/Template_literals#Tagged_templates).
 
@@ -59,10 +63,17 @@ let guestList = "Guests: // Error: Unexpected token ILLEGAL
 ```js run
 let guestList = "Guests:\n * John\n * Pete\n * Mary";
 
+<<<<<<< HEAD
 alert(guestList); // многоредов списък с гости
 ```
 
 Например, тези две линии са еднакви, но за написани различно:
+=======
+alert(guestList); // a multiline list of guests, same as above
+```
+
+As a simpler example, these two lines are equal, just written differently:
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ```js run
 let str1 = "Hello\nWorld"; // два реда, със "символа за нов ред"
@@ -74,9 +85,13 @@ World`;
 alert(str1 == str2); // true
 ```
 
+<<<<<<< HEAD
 Има и други, по-малко срещани "специални" символи.
 
 Ето пълния списък:
+=======
+There are other, less common "special" characters:
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 | Символ | Описание |
 |-----------|-------------|
@@ -93,9 +108,10 @@ alert(str1 == str2); // true
 =======
 |`\n`|New line|
 |`\r`|In Windows text files a combination of two characters `\r\n` represents a new break, while on non-Windows OS it's just `\n`. That's for historical reasons, most Windows software also understands `\n`. |
-|`\'`, `\"`|Quotes|
+|`\'`,&nbsp;`\"`,&nbsp;<code>\\`</code>|Quotes|
 |`\\`|Backslash|
 |`\t`|Tab|
+<<<<<<< HEAD
 |`\b`, `\f`, `\v`| Backspace, Form Feed, Vertical Tab -- kept for compatibility, not used nowadays. |
 |`\xXX`|Unicode character with the given hexadecimal Unicode `XX`, e.g. `'\x7A'` is the same as `'z'`.|
 |`\uXXXX`|A Unicode symbol with the hex code `XXXX` in UTF-16 encoding, for instance `\u00A9` -- is a Unicode for the copyright symbol `©`. It must be exactly 4 hex digits. |
@@ -113,6 +129,19 @@ alert( "\u{1F60D}" ); // 😍, усмихнато лице (друг дълъг 
 Всички специални знаци започват с обратна наклонена черта `\`. Нарича се още "символ за избягване".
 
 Може да го използваме и ако искаме да вмъкнем кавичка в низа.
+=======
+|`\b`, `\f`, `\v`| Backspace, Form Feed, Vertical Tab -- mentioned for completeness, coming from old times, not used nowadays (you can forget them right now). |
+
+As you can see, all special characters start with a backslash character `\`. It is also called an "escape character".
+
+Because it's so special, if we need to show an actual backslash `\` within the string, we need to double it:
+
+```js run
+alert( `The backslash: \\` ); // The backslash: \
+```
+
+So-called "escaped" quotes `\'`, `\"`, <code>\\`</code> are used to insert a quote into the same-quoted string.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 Например:
 
@@ -125,9 +154,10 @@ alert( 'I*!*\'*/!*m the Walrus!' ); // *!*I'm*/!* the Walrus!
 Разбира се, трябва да се избягват само кавичките, които са същите като заграждащите. Така че, като по-елегантно решение, вместо това можем да преминем към двойни кавички или обратни отметки:
 
 ```js run
-alert( `I'm the Walrus!` ); // I'm the Walrus!
+alert( "I'm the Walrus!" ); // I'm the Walrus!
 ```
 
+<<<<<<< HEAD
 Имайте предвид, че обратната наклонена черта `\` служи за правилното четене на низа от JavaScript, след това изчезва. Низът в паметта няма `\`. Можете ясно да видите това в `alert` функцията в примерите по-горе.
 
 Но какво, ако трябва да покажем действителна обратна наклонена черта `\` в дадения низ?
@@ -137,6 +167,9 @@ alert( `I'm the Walrus!` ); // I'm the Walrus!
 ```js run
 alert( `Наклонена черта: \\` ); // Наклонена черта: \
 ```
+=======
+Besides these special characters, there's also a special notation for Unicode codes `\u…`, we'll cover it a bit later in this chapter.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ## Свойството Length
 
@@ -228,7 +261,7 @@ alert( 'InTeRfAcE'.toLowerCase() ); // interface
 
 Или, ако искаме един знак с малки букви:
 
-```js
+```js run
 alert( 'Interface'[0].toLowerCase() ); // 'i'
 ```
 
@@ -324,6 +357,7 @@ if (str.indexOf("Widget") != -1) {
 }
 ```
 
+<<<<<<< HEAD
 #### Побитовия NOT трик
 
 Един от старите трикове, използвани тук, е [Побитовия NOT](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT) `~` оператор. Той преобразува числото в 32-битово цяло число (премахва десетичната част, ако съществува) и след това обръща всички битове в неговото двоично представяне.
@@ -364,6 +398,9 @@ if (~str.indexOf("Widget")) {
 В момента можем да видим този трик само в стария код, како съвременният JavaScript предоставя `.includes` метода (виж надолу).
 
 ### Методите includes, startsWith, endsWith
+=======
+### includes, startsWith, endsWith
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 По-модерните методи [str.includes(substr, pos)](mdn:js/String/includes) връщат `true/false` в зависимост от това дали низът `str` съдържа подниза `substr` в себе си.
 
@@ -385,8 +422,13 @@ alert( "Widget".includes("id", 3) ); // false, в позиция 3 няма "id"
 Методите [str.startsWith](mdn:js/String/startsWith) и [str.endsWith](mdn:js/String/endsWith) правят точно това, на което са наименувани:
 
 ```js run
+<<<<<<< HEAD
 alert( "Widget".startsWith("Wid") ); // true, "Widget" започва с "Wid"
 alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
+=======
+alert( "*!*Wid*/!*get".startsWith("Wid") ); // true, "Widget" starts with "Wid"
+alert( "Wid*!*get*/!*".endsWith("get") ); // true, "Widget" ends with "get"
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 ```
 
 ## Получаване на подниз
@@ -421,9 +463,15 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
     ```
 
 `str.substring(start [, end])`
+<<<<<<< HEAD
 : Връща частта от низа *между* `start` и `end` позиция.
 
     Това е почти същото като метода `slice`, но то позволява позицията `start` да бъде по-голямо от `end` позицията.
+=======
+: Returns the part of the string *between* `start` and `end` (not including `end`).
+
+    This is almost the same as `slice`, but it allows `start` to be greater than `end` (in this case it simply swaps `start` and `end` values).
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
     Например:
 
@@ -459,18 +507,36 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
     alert( str.substr(-4, 2) ); // 'gi', от позиция 4 връща 2 символа
     ```
 
+<<<<<<< HEAD
 Нека обобщим тези методи, за да избегнем объркване:
+=======
+    This method resides in the [Annex B](https://tc39.es/ecma262/#sec-string.prototype.substr) of the language specification. It means that only browser-hosted Javascript engines should support it, and it's not recommended to use it. In practice, it's supported everywhere.
+
+Let's recap these methods to avoid any confusion:
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 | метод | селектира... | отрицателни числа |
 |--------|-----------|-----------|
+<<<<<<< HEAD
 | `slice(start, end)` | от `start` до `end` позиция (не включва `end`) | позволява отрицателни числа |
 | `substring(start, end)` | между `start` и `end` позиция | отрицателни числа означават `0` |
 | `substr(start, length)` | от `start` връща `length` символа | позволява отрицателни числа на `start` позиция |
+=======
+| `slice(start, end)` | from `start` to `end` (not including `end`) | allows negatives |
+| `substring(start, end)` | between `start` and `end` (not including `end`)| negative values mean `0` |
+| `substr(start, length)` | from `start` get `length` characters | allows negative `start` |
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ```smart header="Кое да изберете?"
 Всички те могат да ви свършат работата. Формално, `substr` има незначителен недостатък: то не е описано в основната спецификация на JavaScript, но в Annex B (Приложение Б), който обхваща само браузърни функции, които съществуват главно по исторически причини. Така, не-браузърни среди може и да не успеят да го поддържат. Но на практика работи навсякъде.
 
+<<<<<<< HEAD
 От другите два варианта, `slice` е малко по-гъвкав, позволява отрицателни аргументи и е по-кратко за писане. Така че, достатъчно е да запомните само `slice` от тези три метода.
+=======
+Of the other two variants, `slice` is a little bit more flexible, it allows negative arguments and shorter to write.
+
+So, for practical use it's enough to remember only `slice`.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 ```
 
 ## Сравняване на низове
@@ -498,12 +564,21 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
 Всички низове са кодирани с помощта на [UTF-16](https://en.wikipedia.org/wiki/UTF-16). Толкова: всеки знак има съответния цифров код. Има специални методи, които позволяват да се получи символът за дадения код и обратно.
 
 `str.codePointAt(pos)`
+<<<<<<< HEAD
 : Връща кода на знака в позицията `pos`:
 
     ```js run
     // различните букви имат различни кодове
     alert( "z".codePointAt(0) ); // 122
+=======
+: Returns a decimal number representing the code for the character at position `pos`:
+
+    ```js run
+    // different case letters have different codes
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
     alert( "Z".codePointAt(0) ); // 90
+    alert( "z".codePointAt(0) ); // 122
+    alert( "z".codePointAt(0).toString(16) ); // 7a (if we need a more commonly used hex value of the code)
     ```
 
 `String.fromCodePoint(code)`
@@ -511,6 +586,7 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
 
     ```js run
     alert( String.fromCodePoint(90) ); // Z
+    alert( String.fromCodePoint(0x5a) ); // Z (we can also use a hex value as an argument)
     ```
 
     Можем също да добавяме Unicode символи според техните кодове, използвайки `\u` последвано от шестнадесетичен код:
@@ -577,19 +653,65 @@ alert( 'Österreich'.localeCompare('Zealand') ); // -1
 
 ## Вътрешните елементи, Unicode
 
+<<<<<<< HEAD
 ```warn header="Напреднало знание"
 Разделът навлиза по-дълбоко във вътрешните елементи на низовете. Тези знания ще ви бъдат полезни, ако планирате да се справите с емотикони, редки математически или йероглифични знаци или други редки символи.
 
 Можете да пропуснете раздела, ако не планирате да ги използвате.
+=======
+```warn header="Advanced knowledge"
+The section goes deeper into string internals. This knowledge will be useful for you if you plan to deal with emoji, rare mathematical or hieroglyphic characters or other rare symbols.
+```
+
+## Unicode characters
+
+As we already mentioned, JavaScript strings are based on [Unicode](https://en.wikipedia.org/wiki/Unicode).
+
+Each character is represented by a byte sequence of 1-4 bytes.
+
+JavaScript allows us to specify a character not only by directly including it into a stirng, but also by its hexadecimal Unicode code using these three notations:
+
+- `\xXX` -- a character whose Unicode code point is `U+00XX`.
+
+    `XX` is two hexadecimal digits with value between `00` and `FF`, so `\xXX` notation can be used only for the first 256 Unicode characters (including all 128 ASCII characters).
+
+    These first 256 characters include latin alphabet, most basic syntax characters and some others. For example, `"\x7A"` is the same as `"z"` (Unicode `U+007A`).
+- `\uXXXX` -- a character whose Unicode code point is `U+XXXX` (a character with the hex code `XXXX` in UTF-16 encoding).
+
+    `XXXX` must be exactly 4 hex digits with the value between `0000` and `FFFF`, so `\uXXXX` notation can be used for the first 65536 Unicode characters. Characters with Unicode value greater than `U+FFFF` can also be represented with this notation, but in this case we will need to use a so called surrogate pair (we will talk about surrogate pairs later in this chapter).
+- `\u{X…XXXXXX}` -- a character with any given Unicode code point (a character with the given hex code in UTF-32 encoding).
+
+    `X…XXXXXX` must be a hexadecimal value of 1 to 6 bytes between `0` and `10FFFF` (the highest code point defined by Unicode). This notation allows us to easily represent all existing Unicode characters.
+
+Examples with Unicode:
+
+```js run
+alert( "\uA9" ); // ©, the copyright symbol
+
+alert( "\u00A9" ); // ©, the same as above, using the 4-digit hex notation
+alert( "\u044F" ); // я, the cyrillic alphabet letter
+alert( "\u2191" ); // ↑, the arrow up symbol
+
+alert( "\u{20331}" ); // 佫, a rare Chinese hieroglyph (long Unicode)
+alert( "\u{1F60D}" ); // 😍, a smiling face symbol (another long Unicode)
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 ```
 
 ### surrogate pair - Заместващи двойки
 
 Всички често използвани знаци имат 2-байтови кодове. Буквите на повечето европейски езици, числата и дори повечето йероглифи имат 2-байтово представяне.
 
+<<<<<<< HEAD
 Но 2та байта ни позволяват само 65536 комбинации и това не е достатъчно за всеки възможен символ. Така че редки символи са кодирани с двойка 2-байтови символи, наречени "surrogate pair".
 
 Дължината на такива символи е `2`:
+=======
+Initially, JavaScript was based on UTF-16 encoding that only allowed 2 bytes per character. But 2 bytes only allow 65536 combinations and that's not enough for every possible symbol of Unicode.
+
+So rare symbols that require more than 2 bytes are encoded with a pair of 2-byte characters called "a surrogate pair".
+
+As a side effect, the length of such symbols is `2`:
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ```js run
 alert( '𝒳'.length ); // 2, МАТЕМАТИЧЕСКИ СЦЕНАРЕН КАПИТАЛ X
@@ -597,6 +719,7 @@ alert( '😂'.length ); // 2, ЛИЦЕ СЪЛЗА НА РАДОСТ
 alert( '𩷶'.length ); // 2, рядък китайски йероглиф
 ```
 
+<<<<<<< HEAD
 Имайте предвид, че заместващите двойки не са съществували по времето, когато е създаден JavaScript, и следователно не са правилно обработени от езика!
 
 Всъщност имаме по един символ във всеки от низовете по-горе, но `length` ни показва, че дължината е `2`.
@@ -611,9 +734,26 @@ alert( '𝒳'[1] ); // ...парчета от заместваща двойка
 ```
 
 Имайте предвид, че парчета от заместваща двойка нямат значение един без друг. Така че предупрежденията в горния пример всъщност показват остатъка.
+=======
+That's because surrogate pairs did not exist at the time when JavaScript was created, and thus are not correctly processed by the language!
+
+We actually have a single symbol in each of the strings above, but the `length` property shows a length of `2`.
+
+Getting a symbol can also be tricky, because most language features treat surrogate pairs as two characters.
+
+For example, here we can see two odd characters in the output:
+
+```js run
+alert( '𝒳'[0] ); // shows strange symbols...
+alert( '𝒳'[1] ); // ...pieces of the surrogate pair
+```
+
+Pieces of a surrogate pair have no meaning without each other. So the alerts in the example above actually display garbage.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 Техническо, заместващите двойка се откриват и по техните кодове: ако знакът има код в интервала от `0xd800..0xdbff`,тогава това е първата част от заместващата двойка. Следващата буква (втората част) трябва да има кода в интервал `0xdc00..0xdfff`. Тези интервали са запазени изключително за заместващите двойки по стандарта.
 
+<<<<<<< HEAD
 В горния случай:
 
 ```js run
@@ -621,10 +761,34 @@ alert( '𝒳'[1] ); // ...парчета от заместваща двойка
 
 alert( '𝒳'.charCodeAt(0).toString(16) ); // d835, между 0xd800 и 0xdbff
 alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3, между 0xdc00 и 0xdfff
+=======
+So the methods `String.fromCodePoint` and `str.codePointAt` were added in JavaScript to deal with surrogate pairs.
+
+They are essentially the same as [String.fromCharCode](mdn:js/String/fromCharCode) and [str.charCodeAt](mdn:js/String/charCodeAt), but they treat surrogate pairs correctly.
+
+One can see the difference here:
+
+```js run
+// charCodeAt is not surrogate-pair aware, so it gives codes for the 1st part of 𝒳:
+
+alert( '𝒳'.charCodeAt(0).toString(16) ); // d835
+
+// codePointAt is surrogate-pair aware
+alert( '𝒳'.codePointAt(0).toString(16) ); // 1d4b3, reads both parts of the surrogate pair
+```
+
+That said, if we take from position 1 (and that's rather incorrect here), then they both return only the 2nd part of the pair:
+
+```js run
+alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3
+alert( '𝒳'.codePointAt(1).toString(16) ); // dcb3
+// meaningless 2nd half of the pair
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 ```
 
 По-нататък в главата ще намерите повече начини за справяне със заместващи двойки <info:iterable>. Вероятно има и специални библиотеки за това, но няма достатъчно известни, което да ви ги предложим тук.
 
+<<<<<<< HEAD
 ### Диакритични знаци и нормализиране
 
 В много езици има символи, които са съставени от основния знак и знак над / под него.
@@ -632,6 +796,29 @@ alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3, между 0xdc00 и 0xdfff
 Например, буквата `a` може да бъде основният символ за: `àáâäãåā`. Най-често срещаните "съставни" символи имат собствен код в таблицата UTF-16. Но не всички, защото има твърде много възможни комбинации.
 
 За да поддържате произволни композиции, UTF-16 ни позволява да използваме няколко Unicode символа: основният знак последва от един или много "маркирани" символ,и които го "украсяват".
+=======
+````warn header="Takeaway: splitting strings at an arbitrary point is dangerous"
+We can't just split a string at an arbitrary position, e.g. take `str.slice(0, 4)` and expect it to be a valid string, e.g.:
+
+```js run
+alert( 'hi 😂'.slice(0, 4) ); //  hi [?]
+```
+
+Here we can see a garbage character (first half of the smile surrogate pair) in the output.
+
+Just be aware of it if you intend to reliably work with surrogate pairs. May not be a big problem, but at least you should understand what happens.
+````
+
+### Diacritical marks and normalization
+
+In many languages, there are symbols that are composed of the base character with a mark above/under it.
+
+For instance, the letter `a` can be the base character for these characters: `àáâäãåā`.
+
+Most common "composite" characters have their own code in the Unicode table. But not all of them, because there are too many possible combinations.
+
+To support arbitrary compositions, Unicode standard allows us to use several Unicode characters: the base character followed by one or many "mark" characters that "decorate" it.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 Например, ако имаме `S` последвано от специалния символ "точка отгоре" (код `\u0307`), тосе  показва като Ṡ.
 
@@ -678,12 +865,17 @@ alert( "S\u0307\u0323".normalize().length ); // 1
 alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
 ```
 
+<<<<<<< HEAD
 В действителност това не винаги е така. Причината е, че символът `Ṩ` е "достатъчно обичаен", така създателите на UTF-16 го включиха в основната таблица и му дадоха кода.
+=======
+In reality, this is not always the case. The reason being that the symbol `Ṩ` is "common enough", so Unicode creators included it in the main table and gave it the code.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 Ако искате да научите повече за правилата и вариантите за нормализиране -- те са описани в приложението на стандарта Unicode: [Unicode Normalization Forms](http://www.unicode.org/reports/tr15/), но за повечето практически цели информацията от този раздел е достатъчна.
 
 ## Обобщение
 
+<<<<<<< HEAD
 - Има 3 вида кавички. Обратните отметки позволяват на низ да обхваща множество редове и вгражда изрази `${…}`.
 - Низовете в JavaScript са кодирани с помощта на UTF-16.
 - Можем да използваме специални знаци като `\n` и вмъкнете букви от техния Unicode, като използвате `\u...`.
@@ -692,6 +884,16 @@ alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
 - За да направите низ на малки или големи букви, използвайте: `toLowerCase/toUpperCase`.
 - За да търсите подниз, използвайте: `indexOf`, или `includes/startsWith/endsWith` за прости проверки.
 - За да сравните низовете според езика, използвайте: `localeCompare`, в противен случай те се сравняват по символни кодове.
+=======
+- There are 3 types of quotes. Backticks allow a string to span multiple lines and embed expressions `${…}`.
+- Strings in JavaScript are encoded using UTF-16, with surrogate pairs for rare characters (and these cause glitches).
+- We can use special characters like `\n` and insert letters by their Unicode using `\u...`.
+- To get a character, use: `[]`.
+- To get a substring, use: `slice` or `substring`.
+- To lowercase/uppercase a string, use: `toLowerCase/toUpperCase`.
+- To look for a substring, use: `indexOf`, or `includes/startsWith/endsWith` for simple checks.
+- To compare strings according to the language, use: `localeCompare`, otherwise they are compared by character codes.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 Има и други полезни метода в низове:
 
