@@ -48,9 +48,15 @@ let guestList = "Guests: // Error: Unexpected token ILLEGAL
   * John";
 ```
 
+<<<<<<< HEAD
 Единичните и двойните кавички идват от древни времена на езиковото създаване, когато не се взема предвид необходимостта от многоредови низове. Обратните отметки се появиха много по-късно и по този начин са по-гъвкави.
 
 Обратните отметки също ни позволяват да посочим "функция на шаблона" преди първата обратна отметка. Синтаксиса е: <code>func&#96;string&#96;</code>. Функцията `func` се извиква автоматично, получава низа и вградените изрази и може да ги обработва. Това се нарича "етикетирани шаблони". Тази функция улеснява внедряването на персонализирани шаблони, но рядко се използва на практика. Можете да прочетете повече за това в [наръчника](mdn:/JavaScript/Reference/Template_literals#Tagged_templates).
+=======
+Single and double quotes come from ancient times of language creation, when the need for multiline strings was not taken into account. Backticks appeared much later and thus are more versatile.
+
+Backticks also allow us to specify a "template function" before the first backtick. The syntax is: <code>func&#96;string&#96;</code>. The function `func` is called automatically, receives the string and embedded expressions and can process them. This feature is called "tagged templates", it's rarely seen, but you can read about it in the MDN: [Template literals](mdn:/JavaScript/Reference/Template_literals#Tagged_templates).
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ## Специални символи
 
@@ -59,10 +65,17 @@ let guestList = "Guests: // Error: Unexpected token ILLEGAL
 ```js run
 let guestList = "Guests:\n * John\n * Pete\n * Mary";
 
+<<<<<<< HEAD
 alert(guestList); // многоредов списък с гости
 ```
 
 Например, тези две линии са еднакви, но за написани различно:
+=======
+alert(guestList); // a multiline list of guests, same as above
+```
+
+As a simpler example, these two lines are equal, just written differently:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ```js run
 let str1 = "Hello\nWorld"; // два реда, със "символа за нов ред"
@@ -74,9 +87,13 @@ World`;
 alert(str1 == str2); // true
 ```
 
+<<<<<<< HEAD
 Има и други, по-малко срещани "специални" символи.
 
 Ето пълния списък:
+=======
+There are other, less common special characters:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 | Символ | Описание |
 |-----------|-------------|
@@ -93,9 +110,10 @@ alert(str1 == str2); // true
 =======
 |`\n`|New line|
 |`\r`|In Windows text files a combination of two characters `\r\n` represents a new break, while on non-Windows OS it's just `\n`. That's for historical reasons, most Windows software also understands `\n`. |
-|`\'`, `\"`|Quotes|
+|`\'`,&nbsp;`\"`,&nbsp;<code>\\`</code>|Quotes|
 |`\\`|Backslash|
 |`\t`|Tab|
+<<<<<<< HEAD
 |`\b`, `\f`, `\v`| Backspace, Form Feed, Vertical Tab -- kept for compatibility, not used nowadays. |
 |`\xXX`|Unicode character with the given hexadecimal Unicode `XX`, e.g. `'\x7A'` is the same as `'z'`.|
 |`\uXXXX`|A Unicode symbol with the hex code `XXXX` in UTF-16 encoding, for instance `\u00A9` -- is a Unicode for the copyright symbol `©`. It must be exactly 4 hex digits. |
@@ -113,6 +131,19 @@ alert( "\u{1F60D}" ); // 😍, усмихнато лице (друг дълъг 
 Всички специални знаци започват с обратна наклонена черта `\`. Нарича се още "символ за избягване".
 
 Може да го използваме и ако искаме да вмъкнем кавичка в низа.
+=======
+|`\b`, `\f`, `\v`| Backspace, Form Feed, Vertical Tab -- mentioned for completeness, coming from old times, not used nowadays (you can forget them right now). |
+
+As you can see, all special characters start with a backslash character `\`. It is also called an "escape character".
+
+Because it's so special, if we need to show an actual backslash `\` within the string, we need to double it:
+
+```js run
+alert( `The backslash: \\` ); // The backslash: \
+```
+
+So-called "escaped" quotes `\'`, `\"`, <code>\\`</code> are used to insert a quote into the same-quoted string.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 Например:
 
@@ -125,9 +156,10 @@ alert( 'I*!*\'*/!*m the Walrus!' ); // *!*I'm*/!* the Walrus!
 Разбира се, трябва да се избягват само кавичките, които са същите като заграждащите. Така че, като по-елегантно решение, вместо това можем да преминем към двойни кавички или обратни отметки:
 
 ```js run
-alert( `I'm the Walrus!` ); // I'm the Walrus!
+alert( "I'm the Walrus!" ); // I'm the Walrus!
 ```
 
+<<<<<<< HEAD
 Имайте предвид, че обратната наклонена черта `\` служи за правилното четене на низа от JavaScript, след това изчезва. Низът в паметта няма `\`. Можете ясно да видите това в `alert` функцията в примерите по-горе.
 
 Но какво, ако трябва да покажем действителна обратна наклонена черта `\` в дадения низ?
@@ -137,6 +169,9 @@ alert( `I'm the Walrus!` ); // I'm the Walrus!
 ```js run
 alert( `Наклонена черта: \\` ); // Наклонена черта: \
 ```
+=======
+Besides these special characters, there's also a special notation for Unicode codes `\u…`, it's rarely used and is covered in the optional chapter about [Unicode](info:unicode).
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ## Свойството Length
 
@@ -151,33 +186,55 @@ alert( `My\n`.length ); // 3
 ```warn header="`length` е свойство"
 Хората с опит на някои други езици понякога грешат, като извикват `str.length()` вместо `str.length`. Това не работи.
 
+<<<<<<< HEAD
 Моля, имайте предвид, че `str.length` е числово свойство, а не функция. Не е необходимо да добавяте скоби след него.
+=======
+Please note that `str.length` is a numeric property, not a function. There is no need to add parenthesis after it. Not `.length()`, but `.length`.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 ```
 
 ## Достъп до символите
 
+<<<<<<< HEAD
 За да получите символа на позиция `pos`, използвайте квадратни скоби `[pos]` или извикайте метода [str.charAt(pos)](mdn:js/String/charAt). Първият знак започва от нулевата позиция:
+=======
+To get a character at position `pos`, use square brackets `[pos]` or call the method [str.at(pos)](mdn:js/String/at). The first character starts from the zero position:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ```js run
 let str = `Hello`;
 
 // първият знак
 alert( str[0] ); // H
-alert( str.charAt(0) ); // H
+alert( str.at(0) ); // H
 
 // последният знак
 alert( str[str.length - 1] ); // o
+alert( str.at(-1) );
 ```
 
+<<<<<<< HEAD
 Квадратните скоби са модерен начин, за да получите символа, докато `charAt` съществува най-вече по исторически причини.
 
 Единствената разлика между тях е, че ако не бъде намерен символ, `[]` връща `undefined`, а `charAt` връща празен низ:
+=======
+As you can see, the `.at(pos)` method has a benefit of allowing negative position. If `pos` is negative, then it's counted from the end of the string.
+
+So `.at(-1)` means the last character, and `.at(-2)` is the one before it, etc.
+
+The square brackets always return `undefined` for negative indexes, for instance:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ```js run
 let str = `Hello`;
 
+<<<<<<< HEAD
 alert( str[1000] ); // undefined
 alert( str.charAt(1000) ); // '' (празен низ)
+=======
+alert( str[-2] ); // undefined
+alert( str.at(-2) ); // l
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 ```
 
 Можем също да итерираме символите, използвайки `for..of`:
@@ -228,7 +285,7 @@ alert( 'InTeRfAcE'.toLowerCase() ); // interface
 
 Или, ако искаме един знак с малки букви:
 
-```js
+```js run
 alert( 'Interface'[0].toLowerCase() ); // 'i'
 ```
 
@@ -324,6 +381,7 @@ if (str.indexOf("Widget") != -1) {
 }
 ```
 
+<<<<<<< HEAD
 #### Побитовия NOT трик
 
 Един от старите трикове, използвани тук, е [Побитовия NOT](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT) `~` оператор. Той преобразува числото в 32-битово цяло число (премахва десетичната част, ако съществува) и след това обръща всички битове в неговото двоично представяне.
@@ -364,6 +422,9 @@ if (~str.indexOf("Widget")) {
 В момента можем да видим този трик само в стария код, како съвременният JavaScript предоставя `.includes` метода (виж надолу).
 
 ### Методите includes, startsWith, endsWith
+=======
+### includes, startsWith, endsWith
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 По-модерните методи [str.includes(substr, pos)](mdn:js/String/includes) връщат `true/false` в зависимост от това дали низът `str` съдържа подниза `substr` в себе си.
 
@@ -385,8 +446,13 @@ alert( "Widget".includes("id", 3) ); // false, в позиция 3 няма "id"
 Методите [str.startsWith](mdn:js/String/startsWith) и [str.endsWith](mdn:js/String/endsWith) правят точно това, на което са наименувани:
 
 ```js run
+<<<<<<< HEAD
 alert( "Widget".startsWith("Wid") ); // true, "Widget" започва с "Wid"
 alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
+=======
+alert( "*!*Wid*/!*get".startsWith("Wid") ); // true, "Widget" starts with "Wid"
+alert( "Wid*!*get*/!*".endsWith("get") ); // true, "Widget" ends with "get"
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 ```
 
 ## Получаване на подниз
@@ -421,9 +487,15 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
     ```
 
 `str.substring(start [, end])`
+<<<<<<< HEAD
 : Връща частта от низа *между* `start` и `end` позиция.
 
     Това е почти същото като метода `slice`, но то позволява позицията `start` да бъде по-голямо от `end` позицията.
+=======
+: Returns the part of the string *between* `start` and `end` (not including `end`).
+
+    This is almost the same as `slice`, but it allows `start` to be greater than `end` (in this case it simply swaps `start` and `end` values).
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
     Например:
 
@@ -459,18 +531,36 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
     alert( str.substr(-4, 2) ); // 'gi', от позиция 4 връща 2 символа
     ```
 
+<<<<<<< HEAD
 Нека обобщим тези методи, за да избегнем объркване:
+=======
+    This method resides in the [Annex B](https://tc39.es/ecma262/#sec-string.prototype.substr) of the language specification. It means that only browser-hosted Javascript engines should support it, and it's not recommended to use it. In practice, it's supported everywhere.
+
+Let's recap these methods to avoid any confusion:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 | метод | селектира... | отрицателни числа |
 |--------|-----------|-----------|
+<<<<<<< HEAD
 | `slice(start, end)` | от `start` до `end` позиция (не включва `end`) | позволява отрицателни числа |
 | `substring(start, end)` | между `start` и `end` позиция | отрицателни числа означават `0` |
 | `substr(start, length)` | от `start` връща `length` символа | позволява отрицателни числа на `start` позиция |
+=======
+| `slice(start, end)` | from `start` to `end` (not including `end`) | allows negatives |
+| `substring(start, end)` | between `start` and `end` (not including `end`)| negative values mean `0` |
+| `substr(start, length)` | from `start` get `length` characters | allows negative `start` |
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ```smart header="Кое да изберете?"
 Всички те могат да ви свършат работата. Формално, `substr` има незначителен недостатък: то не е описано в основната спецификация на JavaScript, но в Annex B (Приложение Б), който обхваща само браузърни функции, които съществуват главно по исторически причини. Така, не-браузърни среди може и да не успеят да го поддържат. Но на практика работи навсякъде.
 
+<<<<<<< HEAD
 От другите два варианта, `slice` е малко по-гъвкав, позволява отрицателни аргументи и е по-кратко за писане. Така че, достатъчно е да запомните само `slice` от тези три метода.
+=======
+Of the other two variants, `slice` is a little bit more flexible, it allows negative arguments and shorter to write.
+
+So, for practical use it's enough to remember only `slice`.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 ```
 
 ## Сравняване на низове
@@ -493,6 +583,7 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
 
     Това може да доведе до странни резултати, ако сортираме имена на държави. Обикновено хората биха очаквали `Zealand` да дойде след `Österreich` в листа.
 
+<<<<<<< HEAD
 За да разберем какво се случва, нека прегледаме вътрешното представяне на низове в JavaScript.
 
 Всички низове са кодирани с помощта на [UTF-16](https://en.wikipedia.org/wiki/UTF-16). Толкова: всеки знак има съответния цифров код. Има специални методи, които позволяват да се получи символът за дадения код и обратно.
@@ -503,7 +594,20 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
     ```js run
     // различните букви имат различни кодове
     alert( "z".codePointAt(0) ); // 122
+=======
+To understand what happens, we should be aware that strings in Javascript are encoded using [UTF-16](https://en.wikipedia.org/wiki/UTF-16). That is: each character has a corresponding numeric code.
+
+There are special methods that allow to get the character for the code and back:
+
+`str.codePointAt(pos)`
+: Returns a decimal number representing the code for the character at position `pos`:
+
+    ```js run
+    // different case letters have different codes
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
     alert( "Z".codePointAt(0) ); // 90
+    alert( "z".codePointAt(0) ); // 122
+    alert( "z".codePointAt(0).toString(16) ); // 7a (if we need a hexadecimal value)
     ```
 
 `String.fromCodePoint(code)`
@@ -511,6 +615,7 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
 
     ```js run
     alert( String.fromCodePoint(90) ); // Z
+<<<<<<< HEAD
     ```
 
     Можем също да добавяме Unicode символи според техните кодове, използвайки `\u` последвано от шестнадесетичен код:
@@ -518,6 +623,9 @@ alert( "Widget".endsWith("get") ); // true, "Widget" завършва "get"
     ```js run
     // 90 е 5a в шестнадесетична система
     alert( '\u005a' ); // Z
+=======
+    alert( String.fromCodePoint(0x5a) ); // Z (we can also use a hex value as an argument)
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
     ```
 
 Сега нека видим знаците между `65..220` (латинската азбука и други допълнителни такива) като направите низ от тях:
@@ -529,6 +637,7 @@ for (let i = 65; i <= 220; i++) {
   str += String.fromCodePoint(i);
 }
 alert( str );
+// Output:
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 // ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜ
 ```
@@ -557,7 +666,11 @@ alert( str );
 
 Така че, браузърът трябва да знае езика за сравнение.
 
+<<<<<<< HEAD
 За щастие, всички съвременни браузъри (IE10- изисква допълнителната библиотека [Intl.js](https://github.com/andyearnshaw/Intl.js/)) поддържаща стандарта за интернационализация [ECMA-402](http://www.ecma-international.org/ecma-402/1.0/ECMA-402.pdf).
+=======
+Luckily, modern browsers support the internationalization standard [ECMA-402](https://www.ecma-international.org/publications-and-standards/standards/ecma-402/).
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 Той осигурява специален метод за сравняване на низове на различни езици, следвайки техните правила.
 
@@ -575,6 +688,7 @@ alert( 'Österreich'.localeCompare('Zealand') ); // -1
 
 Този метод всъщност има два допълнителни аргумента, посочени в [докиментацията си](mdn:js/String/localeCompare), което му позволява да посочи езика (по подразбиране взето от средата, редът на буквите зависи от езика) и да настроите допълнителни правила като чувствителност към малка/голяма буква или трябва ли `"a"` и `"á"` да се считат като еднакви и т.н.
 
+<<<<<<< HEAD
 ## Вътрешните елементи, Unicode
 
 ```warn header="Напреднало знание"
@@ -692,6 +806,17 @@ alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
 - За да направите низ на малки или големи букви, използвайте: `toLowerCase/toUpperCase`.
 - За да търсите подниз, използвайте: `indexOf`, или `includes/startsWith/endsWith` за прости проверки.
 - За да сравните низовете според езика, използвайте: `localeCompare`, в противен случай те се сравняват по символни кодове.
+=======
+## Summary
+
+- There are 3 types of quotes. Backticks allow a string to span multiple lines and embed expressions `${…}`.
+- We can use special characters, such as a line break `\n`.
+- To get a character, use: `[]`.
+- To get a substring, use: `slice` or `substring`.
+- To lowercase/uppercase a string, use: `toLowerCase/toUpperCase`.
+- To look for a substring, use: `indexOf`, or `includes/startsWith/endsWith` for simple checks.
+- To compare strings according to the language, use: `localeCompare`, otherwise they are compared by character codes.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 Има и други полезни метода в низове:
 
@@ -699,4 +824,10 @@ alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
 - `str.repeat(n)` -- повтаря низа `n` пъти.
 - ...и други, които можете да ги намерите в [ръководството му](mdn:js/String).
 
+<<<<<<< HEAD
 Низовете също имат и методи за търсене / замяна с регулярни изрази. Но това е голяма тема, така че е обяснено в тема <info:regular-expressions>.
+=======
+Strings also have methods for doing search/replace with regular expressions. But that's big topic, so it's explained in a separate tutorial section <info:regular-expressions>.
+
+Also, as of now it's important to know that strings are based on Unicode encoding, and hence there're issues with comparisons. There's more about Unicode in the chapter <info:unicode>.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
