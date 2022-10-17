@@ -59,7 +59,11 @@ alert( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100
 
 Решението е сложно от гледна точка на времето [O(n<sup>2</sup>)](https://en.wikipedia.org/wiki/Big_O_notation). С други думи, ако увеличим размера на масива 2 пъти, алгоритъмът ще работи 4 пъти по-дълго.
 
+<<<<<<< HEAD
 При големи масиви (1000, 10000 or more items) такива алгоритми могат да доведат до сериозно забавяне.
+=======
+For big arrays (1000, 10000 or more items) such algorithms can lead to serious sluggishness.
+>>>>>>> bf7d8bb1af3b416d393af1c15b03cb1352da1f9c
 
 # ПО-бързо решение
 
@@ -91,4 +95,8 @@ alert( getMaxSubSum([-1, -2, -3]) ); // 0
 
 Алгоритъмът се нуждае точно от 1 обхождане на масива, така че сложността е O(n).
 
+<<<<<<< HEAD
 Може да намерите повече информация за алгоритъма тук: [Maximum subarray problem](http://en.wikipedia.org/wiki/Maximum_subarray_problem). Ако все още не е ясно какво се случва, тогава моля проследете алгоритъма с горните примери и вижте как работи. Това е по-добре от всякакви описания. 
+=======
+You can find more detailed information about the algorithm here: [Maximum subarray problem](http://en.wikipedia.org/wiki/Maximum_subarray_problem). If it's still not obvious why that works, then please trace the algorithm on the examples above, see how it works, that's better than any words.
+>>>>>>> bf7d8bb1af3b416d393af1c15b03cb1352da1f9c

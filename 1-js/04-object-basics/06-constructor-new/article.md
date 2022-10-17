@@ -189,8 +189,13 @@ alert( new SmallUser().name );  // John
 
 Обикновено конструкторите нямат декларацията `return`.Тук споменаваме специалното поведение с връщането на обекти главно в името на цялостността на ръководството.
 
+<<<<<<< HEAD
 ````smart header="Пропускане на скоби"
 Между другото, можем да пропуснем скобите след `new`, ако нямаме аргументи:
+=======
+````smart header="Omitting parentheses"
+By the way, we can omit parentheses after `new`:
+>>>>>>> bf7d8bb1af3b416d393af1c15b03cb1352da1f9c
 
 ```js
 let user = new User; // <-- няма скоби
