@@ -55,7 +55,11 @@ describe("pow", function() {
 Спецификацията има 3 основни части, които можете да видите горе:
 
 `describe("title", function() { ... })`
+<<<<<<< HEAD
 : Каква функционалност описваме. В нашия случай описваме функцията `pow`. Използва се да групира "работници" -- блоковете `it`.
+=======
+: What functionality we're describing? In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 `it("use case description", function() { ... })`
 : В заглавието на `it` ние описваме *на разбираем за човека език* конкретният *use* кейс, а вторият аргумент е функцията, която го тества.
@@ -71,6 +75,7 @@ describe("pow", function() {
 
 Етапите на разработка на софтуер обикновено изглеждат така:
 
+<<<<<<< HEAD
 1. Пише се начални спецификации с тестове за най-основната функционалност.
 2. Прави се първоначална имплементация.
 3. За да проверим дали работи, ние стартираме [Mocha](http://mochajs.org/) (скоро и повече детайли) която стартира спецификациите. Докато функционалността не е завършена, ще се появяват грешки. Ние правим промени, докато всичко започне да работи.
@@ -78,20 +83,39 @@ describe("pow", function() {
 5. Добавяме още *use* кейсове към спецификациите, които вероятно още не се поддържат от имплементацията. Тестовете започват да се чупят.
 6. Връщаме се на стъпка 3, актуализираме имплементацията докато тестовете не дават вече грешки. 
 7. Повтаряме стъпки 3-6 докато функционалността е готова.
+=======
+1. An initial spec is written, with tests for the most basic functionality.
+2. An initial implementation is created.
+3. To check whether it works, we run the testing framework [Mocha](https://mochajs.org/) (more details soon) that runs the spec. While the functionality is not complete, errors are displayed. We make corrections until everything works.
+4. Now we have a working initial implementation with tests.
+5. We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.
+6. Go to 3, update the implementation till tests give no errors.
+7. Repeat steps 3-6 till the functionality is ready.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Този вид разработване на софтуер, се нарича *итеративен*. Ние пишем спецификациите, имплементираме го, уверяваме се че тестовете минават и пишем още тестове, уверяваме се, че те също работят и т.н. Накрая имаме работеща имплементация и тестове към нея. 
 
 Нека видим процеса на разработка в нашия практически пример.
 
+<<<<<<< HEAD
 Първата стъпка вече е готова: имаме начални спецификации за `pow`. Сега нека използване няколко JavaScript библиотеки, за да пуснем тестовете и да видим дали работят (те всички ще са неуспешни).
+=======
+The first step is already complete: we have an initial spec for `pow`. Now, before making the implementation, let's use a few JavaScript libraries to run the tests, just to see that they are working (they will all fail).
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 ## Спецификациите в действие
 
 В това ръководство ние ще използваме следните JavaScript библиотеки за тестовете:
 
+<<<<<<< HEAD
 - [Mocha](http://mochajs.org/) -- основният фреймуърк: тя осигурява основните тестови функции включително `describe` и `it` и основната функция, която стартира тестовете.
 - [Chai](http://chaijs.com) -- библиотека с мното assertions (допускания). Тя позволява да използваме множество различни допускания, за сега ние имаме нужда само от `assert.equal`.
 - [Sinon](http://sinonjs.org/) -- библиотека, която проследява функции, емулира вградени функции и още. Ще имаме нужда от нея по-късно.
+=======
+- [Mocha](https://mochajs.org/) -- the core framework: it provides common testing functions including `describe` and `it` and the main function that runs tests.
+- [Chai](https://www.chaijs.com/) -- the library with many assertions. It allows to use a lot of different assertions, for now we need only `assert.equal`.
+- [Sinon](https://sinonjs.org/) -- a library to spy over functions, emulate built-in functions and more, we'll need it much later.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Тези библиотеки са подходящи както за тестване в браузъра, така и за тестване на сървъра. Тук ще тестваме в браузъра. 
 
@@ -366,6 +390,7 @@ describe("Степен", function() {
 ```smart header="Други допускания"
 Обърнете внимание на допускането `assert.isNaN`: то проверява за `NaN`.
 
+<<<<<<< HEAD
 Има и други допускания в [Chai](http://chaijs.com), например:
 
 - `assert.equal(value1, value2)` -- проверява за равенство `value1 == value2`.
@@ -374,6 +399,16 @@ describe("Степен", function() {
 - `assert.isTrue(value)` -- проверява дали стойността е истина `value === true`
 - `assert.isFalse(value)` -- проверява дали стойността е неистина `value === false`
 - ...пълният списък е на [docs](http://chaijs.com/api/assert/)
+=======
+There are other assertions in [Chai](https://www.chaijs.com/) as well, for instance:
+
+- `assert.equal(value1, value2)` -- checks the equality  `value1 == value2`.
+- `assert.strictEqual(value1, value2)` -- checks the strict equality `value1 === value2`.
+- `assert.notEqual`, `assert.notStrictEqual` -- inverse checks to the ones above.
+- `assert.isTrue(value)` -- checks that `value === true`
+- `assert.isFalse(value)` -- checks that `value === false`
+- ...the full list is in the [docs](https://www.chaijs.com/api/assert/)
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 ```
 
 Така че трябва да добавим няколко реда към `pow`:
