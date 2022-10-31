@@ -136,7 +136,22 @@ alert( article.title ); // "Today's digest"
 Article.remove({id: 12345});
 ```
 
+<<<<<<< HEAD
 ## Статични свойства
+=======
+````warn header="Static methods aren't available for individual objects"
+Static methods are callable on classes, not on individual objects.
+
+E.g. such code won't work:
+
+```js
+// ...
+article.createTodays(); /// Error: article.createTodays is not a function
+```
+````
+
+## Static properties
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 [recent browser=Chrome]
 

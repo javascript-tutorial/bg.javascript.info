@@ -12,8 +12,13 @@
 
 Ако още не сте избрали интегрирана среда за разработка, обмислете следните опции:
 
+<<<<<<< HEAD
 - [Visual Studio Code](https://code.visualstudio.com/) (междуплатформена, безплатен).
 - [WebStorm](http://www.jetbrains.com/webstorm/) (междуплатформена, платен).
+=======
+- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
+- [WebStorm](https://www.jetbrains.com/webstorm/) (cross-platform, paid).
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 За ОС Windows, съществува също и **"Visual Studio"**, но не го объркайте с *"Visual Studio Code"*. **"Visual Studio"** е платен и мощен редактор само във ОС Windows, незаменим за .NET платформата. Също е добър за писане на JavaScript. Същестува и безплатна версия на *"Visual Studio"* наречена *[Visual Studio Community](https://www.visualstudio.com/vs/community/)*.
 
@@ -29,6 +34,7 @@
 
 Напрактика, леките редактори имат много повече добавки включващи анализатор на синтаксиса на ниво директория и автоматично довършване, така че няма строга граница между леките редактори и средите за разработка.
 
+<<<<<<< HEAD
 Следните опции заслужават вниманието ви:
 
 <<<<<<< HEAD
@@ -43,6 +49,13 @@
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
 - [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
 >>>>>>> 3699f73b4ccb2a57ac5ef990d2687bf31ccf564c
+=======
+There are many options, for instance:
+
+- [Sublime Text](https://www.sublimetext.com/) (cross-platform, shareware).
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
+- [Vim](https://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 ## Нека да не спорим
 
@@ -50,4 +63,13 @@
 
 Има и други отлични редактори по нашия свят. Изберете този, който най-много ви харесва.
 
+<<<<<<< HEAD
 Изборът на редактор, също като другите инструменти, е индивидуално и зависи от проектите, навиците и персоналните предпочитания.
+=======
+The choice of an editor, like any other tool, is individual and depends on your projects, habits, and personal preferences.
+
+The author's personal opinion:
+
+- I'd use [Visual Studio Code](https://code.visualstudio.com/) if I develop mostly frontend.
+- Otherwise, if it's mostly another language/platform and partially frontend, then consider other editors, such as XCode (Mac), Visual Studio (Windows) or Jetbrains family (Webstorm, PHPStorm, RubyMine etc, depending on the language).
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
