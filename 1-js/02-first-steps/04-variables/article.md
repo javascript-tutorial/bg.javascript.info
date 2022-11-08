@@ -64,7 +64,11 @@ let age = 25;
 let message = 'Hello';
 ```
 
+<<<<<<< HEAD
 Някои хора също дефинират няколко променливи с този многоредов стил:
+=======
+Some people also define multiple variables in this multiline style:
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 ```js no-beautify
 let user = 'John',
@@ -106,6 +110,11 @@ let user = 'John'
 
 Също така, можем и да променим стойността колкото пъти си искаме:
 
+<<<<<<< HEAD
+=======
+We can also change it as many times as we want:
+
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 ```js run
 let message;
 
@@ -151,8 +160,13 @@ let message = "That"; // SyntaxError: 'message' has already been declared
 Така че, трябва да декларираме променливата веднъж и след това да я реферираме без `let`.
 ````
 
+<<<<<<< HEAD
 ```smart header="Функционални езици"
 Интересно е да бележим, че съществува [функционални](https://bg.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5) програмни езици, като [Scala](http://www.scala-lang.org/) или [Erlang](http://www.erlang.org/), които забраняват промяната на стойностите на променливите.
+=======
+```smart header="Functional languages"
+It's interesting to note that there exist [functional](https://en.wikipedia.org/wiki/Functional_programming) programming languages, like [Scala](https://www.scala-lang.org/) or [Erlang](https://www.erlang.org/) that forbid changing variable values.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 При такива езици, веднъж когато стойността е запазена "в кутията", то е завинаги там. Ако се наложи да запазим нещо друго, езика ни принуждава да създадем нова кутия (да декларираме нова променлива). Не можем да използваме старата.
 
@@ -193,12 +207,21 @@ let 1a; // неможе да започне с цифра
 let my-name; // тиретата "-" не са разрешени в името
 ```
 
+<<<<<<< HEAD
 ```smart header="Главните и малките букви са от значение"
 Променливите `apple` и `AppLE` са две различни променливи.
 ```
 
 ````smart header="Нелатинските букви са разрешени, но не се препоръчват"
 Възможно е да използвате всякакъв език, включително кирилица или даже йероглифи, като тези:
+=======
+```smart header="Case matters"
+Variables named `apple` and `APPLE` are two different variables.
+```
+
+````smart header="Non-Latin letters are allowed, but not recommended"
+It is possible to use any language, including cyrillic letters, Chinese logograms and so on, like this:
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 ```js
 let имя = '...';
@@ -259,9 +282,15 @@ const myBirthday = '18.04.1982';
 myBirthday = '01.01.2001'; // грешка,  стойността не може да се промени
 ```
 
+<<<<<<< HEAD
 Когато програмистите са сигурни в това, че стойността на променливата никога няма да се промени, тогава те могат да ги декларират с `const` за да са гарантирани в това и ясно да съобщават този факт с всички.
 
 ### Константи с главна буква
+=======
+When a programmer is sure that a variable will never change, they can declare it with `const` to guarantee and clearly communicate that fact to everyone.
+
+### Uppercase constants
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Има широко разпространена практика да се използват константи като псевдоними за трудно запомнящи се стойности, които са известни преди изпълнението.
 
@@ -290,14 +319,23 @@ alert(color); // #FF7F00
 
 Това, че "константа", просто означава, че стойността на променливата никога не се променя. Но има константи, които са известни с приоритет преди изпълнението (като шестнадесетична стойност за червено) и има константи, които се *изчисляват* по време на изпълнение, по време на екзекуция на скрипта, но не се променят след първоначалното им присвояване.
 
+<<<<<<< HEAD
 Например:
+=======
+For instance:
+
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 ```js
 const pageLoadTime = /* времето, което се е заредил уеб страницата */;
 ```
 
 Стойността на „pageLoadTime“ не е известна преди зареждането на страницата, така че се наименуван нормално. Но тя все още е константа, защото не се променя след присвояването.
 
+<<<<<<< HEAD
 С други думи, константи наименувани с главна буква се използват само като псевдоними за "hard-coded" (или кодирани ръчно) стойности.
+=======
+In other words, capital-named constants are only used as aliases for "hard-coded" values.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 ## Наименувайте нещата правилно
 
