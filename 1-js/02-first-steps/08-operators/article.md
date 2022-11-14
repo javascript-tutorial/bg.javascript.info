@@ -50,8 +50,14 @@
 Например:
 
 ```js run
+<<<<<<< HEAD
 alert( 5 % 2 ); // 1, остатък от 5, разделен на 2
 alert( 8 % 3 ); // 2, остатък от 8, разделен на 3
+=======
+alert( 5 % 2 ); // 1, a remainder of 5 divided by 2
+alert( 8 % 3 ); // 2, a remainder of 8 divided by 3
+alert( 8 % 4 ); // 2, 0 remainder of 8 divided by 4
+>>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 ```
 
 ### Степенуване **
@@ -68,7 +74,13 @@ alert( 2 ** 3 ); // 8  (2 * 2 * 2, 3 пъти)
 alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2, 4 пъти)
 ```
 
+<<<<<<< HEAD
 Математически, експоненцията е дефинирана и за нецелочислени числа. Например, квадратен корен е експоненция от `1/2`:
+=======
+Just like in maths, the exponentiation operator is defined for non-integer numbers as well.
+
+For example, a square root is an exponentiation by ½:
+>>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 
 ```js run
 alert( 4 ** (1/2) ); // 2 (степен на 1/2 е същата като квадратен корен)
@@ -336,10 +348,14 @@ let n = 2;
 n *= 3 + 5; // right part evaluated first, same as n *= 8
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 alert( n ); // 16  (дясната част се изчислява първо, същото като n *= 8)
 =======
 alert( n ); // 16  
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+alert( n ); // 16
+>>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 ```
 
 ## Увеличаване/Намаляване
