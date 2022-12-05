@@ -165,12 +165,20 @@ let message = "That"; // SyntaxError: 'message' has already been declared
 Интересно е да бележим, че съществува [функционални](https://bg.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%BE_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5) програмни езици, като [Scala](http://www.scala-lang.org/) или [Erlang](http://www.erlang.org/), които забраняват промяната на стойностите на променливите.
 =======
 ```smart header="Functional languages"
+<<<<<<< HEAD
 It's interesting to note that there exist [functional](https://en.wikipedia.org/wiki/Functional_programming) programming languages, like [Scala](https://www.scala-lang.org/) or [Erlang](https://www.erlang.org/) that forbid changing variable values.
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+It's interesting to note that there exist so-called [pure functional](https://en.wikipedia.org/wiki/Purely_functional_programming) programming languages, such as [Haskell](https://en.wikipedia.org/wiki/Haskell), that forbid changing variable values.
+>>>>>>> 1ce5644a15ee141fbe78c0fb79c8f40d870d7043
 
 При такива езици, веднъж когато стойността е запазена "в кутията", то е завинаги там. Ако се наложи да запазим нещо друго, езика ни принуждава да създадем нова кутия (да декларираме нова променлива). Не можем да използваме старата.
 
+<<<<<<< HEAD
 От пръв поглед може да ви се види малко странно, но тези езици са способни на доста сериозни разработки. Повече от това, има области като паралелни изчисления, където това ограничение носи определени ползи. Изучаване на подобен език (дори ако не планирате да го използвате скоро) се препоръчва, за да разширите знанията си.
+=======
+Though it may seem a little odd at first sight, these languages are quite capable of serious development. More than that, there are areas like parallel computations where this limitation confers certain benefits.
+>>>>>>> 1ce5644a15ee141fbe78c0fb79c8f40d870d7043
 ```
 
 ## Именуване на променливи [#variable-naming]

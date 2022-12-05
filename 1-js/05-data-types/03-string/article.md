@@ -811,7 +811,7 @@ alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
 
 - There are 3 types of quotes. Backticks allow a string to span multiple lines and embed expressions `${…}`.
 - We can use special characters, such as a line break `\n`.
-- To get a character, use: `[]`.
+- To get a character, use: `[]` or `at` method.
 - To get a substring, use: `slice` or `substring`.
 - To lowercase/uppercase a string, use: `toLowerCase/toUpperCase`.
 - To look for a substring, use: `indexOf`, or `includes/startsWith/endsWith` for simple checks.
@@ -830,4 +830,7 @@ alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
 Strings also have methods for doing search/replace with regular expressions. But that's big topic, so it's explained in a separate tutorial section <info:regular-expressions>.
 
 Also, as of now it's important to know that strings are based on Unicode encoding, and hence there're issues with comparisons. There's more about Unicode in the chapter <info:unicode>.
+<<<<<<< HEAD
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+>>>>>>> 1ce5644a15ee141fbe78c0fb79c8f40d870d7043

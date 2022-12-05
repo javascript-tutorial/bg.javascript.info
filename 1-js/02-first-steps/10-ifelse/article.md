@@ -184,10 +184,17 @@ alert( message );
 
 В началото може да е трудно да разберете какво се случва. Но след по-подробно разглеждане можем да видим, че това е просто обикновена последователност от тестове:
 
+<<<<<<< HEAD
 1. Първият терминален оператор проверява `age < 3`.
 2. Ако е вярно -- връща `'Здравей, бебчо!'`. Иначе продължава израза след '":"', проверявайки `age < 18`.
 3. Ако е вярно -- връща `'Здравей!'`. Иначе продължава израза след '":"', проверявайки `age < 100`.
 4. Ако е вярно -- връща `'Поздрави!'`. Иначе продължава израза след '":"', и връща `'Каква необичайна възраст!'`.
+=======
+1. The first question mark checks whether `age < 3`.
+2. If true -- it returns `'Hi, baby!'`. Otherwise, it continues to the expression after the colon ":", checking `age < 18`.
+3. If that's true -- it returns `'Hello!'`. Otherwise, it continues to the expression after the next colon ":", checking `age < 100`.
+4. If that's true -- it returns `'Greetings!'`. Otherwise, it continues to the expression after the last colon ":", returning `'What an unusual age!'`.
+>>>>>>> 1ce5644a15ee141fbe78c0fb79c8f40d870d7043
 
 Ето как изглежда ако бихме използвали `if..else`:
 
