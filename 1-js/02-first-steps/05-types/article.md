@@ -239,7 +239,11 @@ alert(age); // "undefined"
 
 `typeof` оператора връща типът, на даден аргумент. Той е полезен, когато искаме да обработим данни от различен тип, по различен начин или просто искаме да проверим типът на дадени данни.
 
+<<<<<<< HEAD
 Оператора може да бъде използван по два начина:
+=======
+The `typeof` operator returns the type of the operand. It's useful when we want to process values of different types differently or just want to do a quick check.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 <<<<<<< HEAD
 1. Като оператор: `typeof x`.
