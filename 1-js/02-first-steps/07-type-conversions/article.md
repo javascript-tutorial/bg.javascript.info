@@ -39,7 +39,11 @@ alert(typeof value); // символен низ
 
 ## Преубразуване в число(number)
 
+<<<<<<< HEAD
 Преобразуването в число се случва автоматично в математически функции и изрази.
+=======
+Numeric conversion in mathematical functions and expressions happens automatically.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 Например, когато делене `/` се използва с нечислов тип:
 
