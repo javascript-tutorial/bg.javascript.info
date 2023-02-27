@@ -48,7 +48,7 @@ alert(user ?? "Anonymous"); // Anonymous (user is undefined)
 ```js run
 let user = "John";
 
-alert(user ?? "Anonymous"); // John (user is not null/udefined)
+alert(user ?? "Anonymous"); // John (user is not null/undefined)
 ```
 
 Можем да използваме и последователност от `??` за да изберем първата стойност от списък, който стойности не са `null/undefined`.
