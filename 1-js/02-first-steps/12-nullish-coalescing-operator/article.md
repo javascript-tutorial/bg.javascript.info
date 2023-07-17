@@ -48,7 +48,7 @@ alert(user ?? "Anonymous"); // Anonymous (user is undefined)
 ```js run
 let user = "John";
 
-alert(user ?? "Anonymous"); // John (user is not null/udefined)
+alert(user ?? "Anonymous"); // John (user is not null/undefined)
 ```
 
 Можем да използваме и последователност от `??` за да изберем първата стойност от списък, който стойности не са `null/undefined`.
@@ -93,9 +93,13 @@ alert(firstName || lastName || nickName || "Anonymous"); // Supercoder
 */!*
 ```
 
+<<<<<<< HEAD
 ИЛИ `||` операторът съществува от началото на JavaScript, така че разработчиците го използваха за такива цели дълго време.
 
 От друга страна, нулевият условен оператор `??` е добавен към JavaScript едва наскоро, и причината за това беше, че хората не бяха съвсем доволни с `||`.
+=======
+Historically, the OR `||` operator was there first. It's been there since the beginning of JavaScript, so developers were using it for such purposes for a long time.
+>>>>>>> 733ff697c6c1101c130e2996f7eca860b2aa7ab9
 
 Важната разлика е в това:
 
