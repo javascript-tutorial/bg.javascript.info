@@ -107,6 +107,7 @@ typeof function(){} == "function" // функциите се третират с
 
 Ние използваме браузър като работна среда, така че обикновените функции на потребителския интерфейс ще са:
 
+<<<<<<< HEAD
 [`prompt(question, [default])`](mdn:api/Window/prompt)
 : Да попитаме за `question`, и да върнем това, което потребителят е въвел или `null` ако са натиснали "Cancel" (Отказ).
 
@@ -115,6 +116,16 @@ typeof function(){} == "function" // функциите се третират с
 
 [`alert(message)`](mdn:api/Window/alert)
 : Изпринтира `message`.
+=======
+[`prompt(question, [default])`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
+: Ask a `question`, and return either what the visitor entered or `null` if they clicked "cancel".
+
+[`confirm(question)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm)
+: Ask a `question` and suggest to choose between Ok and Cancel. The choice is returned as `true/false`.
+
+[`alert(message)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
+: Output a `message`.
+>>>>>>> 285083fc71ee3a7cf55fd8acac9c91ac6f62105c
 
 Всички тези функции са *модални*, т.е. спират изпълнението на кода и не позволяват на посетителя да взаимодейства със страницата, докато не отговори.
 
@@ -152,8 +163,12 @@ JavaScript поддържа следните оператори:
 : Побитовите операции работят с 32 битови цели числа в най-ниското побитово ниво: погледнете [документацията](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) когато ви e нужнo.
 =======
 Bitwise
+<<<<<<< HEAD
 : Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](mdn:/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) when they are needed.
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+: Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) when they are needed.
+>>>>>>> 285083fc71ee3a7cf55fd8acac9c91ac6f62105c
 
   ```js run
       alert(5 & 13); // 0101 & 1101 = 0101
