@@ -322,8 +322,12 @@ In contrast, `Symbol.toPrimitive` is stricter, it *must* return a primitive, oth
 =======
 If we pass an object as an argument, then there are two stages of calculations:
 1. The object is converted to a primitive (using the rules described above).
+<<<<<<< HEAD
 2. If the necessary for further calculations, the resulting primitive is also converted.
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+2. If necessary for further calculations, the resulting primitive is also converted.
+>>>>>>> 285083fc71ee3a7cf55fd8acac9c91ac6f62105c
 
 Например:
 
