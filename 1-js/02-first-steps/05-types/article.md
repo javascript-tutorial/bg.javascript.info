@@ -106,6 +106,7 @@ For most purposes <code>±(2<sup>53</sup>-1)</code> range is quite enough, but s
 const bigInt = 1234567890123456789012345678901234567890n;
 ```
 
+<<<<<<< HEAD
 Тъй като номерата на BigInt рядко са необходими, ние не ги обхващаме тук, а им посвещаваме отделна глава <info:bigint>. Прочетете го, когато имате нужда от толкова големи числа.
 
 ```smart header="Проблеми със съвместимостта"
@@ -115,6 +116,11 @@ const bigInt = 1234567890123456789012345678901234567890n;
 Можете да проверите [таблицата за съвместимост на BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility), за да знаете кои версии на браузърите се поддържат.
 
 ## Низ
+=======
+As `BigInt` numbers are rarely needed, we don't cover them here, but devoted them a separate chapter <info:bigint>. Read it when you need such big numbers.
+
+## String
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 
 Низовете в JavaScript трябва да бъде в кавички.
 
