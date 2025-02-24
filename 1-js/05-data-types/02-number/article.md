@@ -13,8 +13,12 @@
 =======
 1. Regular numbers in JavaScript are stored in 64-bit format [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754), also known as "double precision floating point numbers". These are numbers that we're using most of the time, and we'll talk about them in this chapter.
 
+<<<<<<< HEAD
 2. BigInt numbers represent integers of arbitrary length. They are sometimes needed because a regular integer number can't safely exceed <code>(2<sup>53</sup>-1)</code> or be less than <code>-(2<sup>53</sup>-1)</code>, as we mentioned earlier in the chapter <info:types>. As bigints are used in few special areas, we devote them a special chapter <info:bigint>.
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+2. BigInt numbers represent integers of arbitrary length. They are sometimes needed because a regular integer number can't safely exceed <code>(2<sup>53</sup>-1)</code> or be less than <code>-(2<sup>53</sup>-1)</code>, as we mentioned earlier in the chapter <info:types>. As bigints are used in a few special areas, we devote them to a special chapter <info:bigint>.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 Така че тук ще говорим за обикновените числа. Нека разширим познанията си за тях.
 
@@ -64,7 +68,11 @@ In other words, `e` multiplies the number by `1` with the given zeroes count.
 1.23e6 === 1.23 * 1000000; // e6 means *1000000
 ```
 
+<<<<<<< HEAD
 Сега нека напишем нещо много малко. Да речем, 1 микросекунда (един милион част от секундата):
+=======
+Now let's write something very small. Say, 1 microsecond (one-millionth of a second):
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 ```js
 let mсs = 0.000001;
@@ -153,13 +161,23 @@ alert( num.toString(16) );  // ff
 alert( num.toString(2) );   // 11111111
 ```
 
+<<<<<<< HEAD
 Основата `base` може да варира от `2` до `36`. По подразбиране е `10`.
+=======
+The `base` can vary from `2` to `36`. By default, it's `10`.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 Често срещани случаи за употреба са:
 
+<<<<<<< HEAD
 - **base=16** се използва за шестнадесети цветове, кодиране на символи и т.н., цифрите могат да бъдат `0..9` или `A..F`.
 - **base=2** е най-вече за отстраняване на грешки в побитовите операции, цифрите могат да бъдат `0` или `1`.
 - **base=36** е максимумът, цифрите могат да бъдат `0..9` или `A..Z`. Цялата латинска азбука се използва за представяне на число. Забавен, но полезен случай на `36` е, когато трябва да превърнем дълъг цифров идентификатор в нещо по-кратко, например да направите кратък URL адрес. Може просто да го представя в числовата система с основа `36`:
+=======
+- **base=16** is used for hex colors, character encodings etc, digits can be `0..9` or `A..F`.
+- **base=2** is mostly for debugging bitwise operations, digits can be `0` or `1`.
+- **base=36** is the maximum, digits can be `0..9` or `A..Z`. The whole Latin alphabet is used to represent a number. A funny, but useful case for `36` is when we need to turn a long numeric identifier into something shorter, for example, to make a short url. Can simply represent it in the numeral system with base `36`:
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
     ```js run
     alert( 123456..toString(36) ); // 2n9c
@@ -168,7 +186,11 @@ alert( num.toString(2) );   // 11111111
 ```warn header="Две точки за извикване на фунцкии"
 Моля, обърнете внимание, че двете точки в `123456..toString(36)` не е печатна грешка.Ако искаме да извикаме метод директно на число, като `toString` в по-горния пример, тогава трябва да поставим две точки `..` след него.
 
+<<<<<<< HEAD
 Ако поставим една точка: `123456.toString(36)`, тогава ще имаме грешка, защото JavaScript синтаксисът предполага десетичната част след първата точка. И ако поставим още една точка, тогава JavaScript знае, че десетичната част е празна и извиква метода.
+=======
+If we placed a single dot: `123456.toString(36)`, then there would be an error, because JavaScript syntax implies the decimal part after the first dot. And if we place one more dot, then JavaScript knows that the decimal part is empty and now uses the method.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 <<<<<<< HEAD
 Също така можем да пишем `(123456).toString(36)`.
@@ -192,10 +214,14 @@ Also could write `(123456).toString(36)`.
 
 `Math.round`
 <<<<<<< HEAD
+<<<<<<< HEAD
 : закръгля до най-близко цяло число: `3.1` става `3`, `3.6` става `4` и `-1.1` става `-1`.
 =======
 : Rounds to the nearest integer: `3.1` becomes `3`, `3.6` becomes `4`, the middle case: `3.5` rounds up to `4` too.
 >>>>>>> f6ae0b5a5f3e48074312ca3e47c17c92a5a52328
+=======
+: Rounds to the nearest integer: `3.1` becomes `3`, `3.6` becomes `4`. In the middle cases `3.5` rounds up to `4`, and `-3.5` rounds up to `-3`.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 `Math.trunc` (не се поддържа от Internet Explorer)
 : Премахва всичко след десетичната запетая без закръгляне: `3.1` става `3`, `-1.1` става `-1`.
@@ -205,8 +231,10 @@ Also could write `(123456).toString(36)`.
 |   | `Math.floor` | `Math.ceil` | `Math.round` | `Math.trunc` |
 |---|---------|--------|---------|---------|
 |`3.1`|  `3`    |   `4`  |    `3`  |   `3`   |
+|`3.5`|  `3`    |   `4`  |    `4`  |   `3`   |
 |`3.6`|  `3`    |   `4`  |    `4`  |   `3`   |
 |`-1.1`|  `-2`    |   `-1`  |    `-1`  |   `-1`   |
+|`-1.5`|  `-2`    |   `-1`  |    `-1`  |   `-1`   |
 |`-1.6`|  `-2`    |   `-1`  |    `-2`  |   `-1`   |
 
 
@@ -262,10 +290,14 @@ Also could write `(123456).toString(36)`.
     ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     Можем да го преобразуваме в число, използвайки единичния плюс или чрез извикване на функцията `Number()`: `+num.toFixed(5)`.
 =======
     We can convert it to a number using the unary plus or a `Number()` call, e.g write `+num.toFixed(5)`.
 >>>>>>> ac7daa516fa8e687427eac51186af97154748afa
+=======
+    We can convert it to a number using the unary plus or a `Number()` call, e.g. write `+num.toFixed(5)`.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 ## Неточни изчисления
 
@@ -316,10 +348,20 @@ Ouch! Imagine you're making an e-shopping site and the visitor puts `$0.10` and 
 Числото се съхранява в паметта в двоичния му вид, последователност от битове - нули и единици. Но дроб като `0.1`, `0.2` които изглеждат прости в десетичната цифрова система, всъщност са безкрайни дроби в своята двоична форма.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 С други думи, какво е `0.1`? Той е разделението на десет `1/10`, една-десета. В десетичната система такива числа са лесно представими.Сравнете го с една трета: `1/3`. Става безкраен дроб `0.33333(3)`.
 =======
 What is `0.1`? It is one divided by ten `1/10`, one-tenth. In decimal numeral system such numbers are easily representable. Compare it to one-third: `1/3`. It becomes an endless fraction `0.33333(3)`.
 >>>>>>> ac7daa516fa8e687427eac51186af97154748afa
+=======
+```js run
+alert(0.1.toString(2)); // 0.0001100110011001100110011001100110011001100110011001101
+alert(0.2.toString(2)); // 0.001100110011001100110011001100110011001100110011001101
+alert((0.1 + 0.2).toString(2)); // 0.0100110011001100110011001100110011001100110011001101
+```
+
+What is `0.1`? It is one divided by ten `1/10`, one-tenth. In the decimal numeral system, such numbers are easily representable. Compare it to one-third: `1/3`. It becomes an endless fraction `0.33333(3)`.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 И така, разделение по степен `10` гарантира, че ще работи добре в десетичната система, но не и разделянето по `3`. По същата причина, в двоичната цифрова система, разделянето по степен на `2` гарантирано ще работи, но `1/10` става безкрайна двоична фракция.
 
@@ -339,7 +381,11 @@ alert( 0.1.toFixed(20) ); // 0.10000000000000000555
 ```smart header="Не е само в JavaScript"
 Същият проблем съществува и в много други програмни езици.
 
+<<<<<<< HEAD
 PHP, Java, C, Perl, Ruby дават абсолютно същия резултат, тъй като те са базирани на един и същ цифров формат.
+=======
+PHP, Java, C, Perl, and Ruby give exactly the same result, because they are based on the same numeric format.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 ```
 
 Можем ли да заобиколим проблема? Със сигурност най-надеждният метод е да се закръгли резултатът с помощта на метод [toFixed(n)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed):
@@ -363,7 +409,11 @@ alert( (0.1 * 10 + 0.2 * 10) / 10 ); // 0.3
 alert( (0.28 * 100 + 0.14 * 100) / 100); // 0.4200000000000001
 ```
 
+<<<<<<< HEAD
 Така че подходът за умножение / деление намалява грешката, но не я премахва напълно.
+=======
+So, the multiply/divide approach reduces the error, but doesn't remove it totally.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 Понякога бихме могли да се опитаме да избегнем дробите изобщо. Всякаш имаме работа в магазин, и съхраняваме цените в центове вместо в долари. Но какво ще стане, ако приложим отстъпка от 30%? На практика рядко е възможно напълно избягване на дробите. Просто ги закръглете, за да им изрежете "опашките" когато е необходимо.
 
@@ -385,7 +435,11 @@ JavaScript не задейства грешка при такива събити
 
 Това е така, защото знакът е представен от един бит, така че то може да бъде зададен или не за всяко число, включително нула.
 
+<<<<<<< HEAD
 В повечето случаи разликата е незабележима, тъй като операторите са подходящи да ги третират като еднакви.
+=======
+In most cases, the distinction is unnoticeable, because operators are suited to treat them as the same.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 ```
 
 ## Тестване: isFinite и isNaN
@@ -450,7 +504,7 @@ Please note that an empty or a space-only string is treated as `0` in all numeri
 ````smart header="`Number.isNaN` and `Number.isFinite`"
 [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) and [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite) methods are the more "strict" versions of `isNaN` and `isFinite` functions. They do not autoconvert their argument into a number, but check if it belongs to the `number` type instead.
 
-- `Number.isNaN(value)` returns `true` if the argument belongs to the `number` type and it is `NaN`. In any other case it returns `false`.
+- `Number.isNaN(value)` returns `true` if the argument belongs to the `number` type and it is `NaN`. In any other case, it returns `false`.
 
     ```js run
     alert( Number.isNaN(NaN) ); // true
@@ -461,7 +515,7 @@ Please note that an empty or a space-only string is treated as `0` in all numeri
     alert( isNaN("str") ); // true, because isNaN converts string "str" into a number and gets NaN as a result of this conversion
     ```
 
-- `Number.isFinite(value)` returns `true` if the argument belongs to the `number` type and it is not `NaN/Infinity/-Infinity`. In any other case it returns `false`.
+- `Number.isFinite(value)` returns `true` if the argument belongs to the `number` type and it is not `NaN/Infinity/-Infinity`. In any other case, it returns `false`.
 
     ```js run
     alert( Number.isFinite(123) ); // true
@@ -480,8 +534,12 @@ In a way, `Number.isNaN` and `Number.isFinite` are simpler and more straightforw
 There is a special built-in method `Object.is` that compares values like `===`, but is more reliable for two edge cases:
 
 1. It works with `NaN`: `Object.is(NaN, NaN) === true`, that's a good thing.
+<<<<<<< HEAD
 2. Values `0` and `-0` are different: `Object.is(0, -0) === false`, technically that's correct, because internally the number has a sign bit that may be different even if all other bits are zeroes.
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+2. Values `0` and `-0` are different: `Object.is(0, -0) === false`, technically that's correct because internally the number has a sign bit that may be different even if all other bits are zeroes.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 Във всички останали случаи, `Object.is(a, b)` е същото като `a === b`.
 
@@ -503,7 +561,11 @@ alert( +"100px" ); // NaN
 
 Единственото изключение са интервалите в началото или в края на низа, тъй като те се игнорират.
 
+<<<<<<< HEAD
 Но в реалния живот често имаме стойности в единици, като `"100px"` или `"12pt"` в CSS. В много страни символът на валутата е след сумата, така че ако имаме `"19€"` бихме искали да извлечем числова стойност от това.
+=======
+But in real life, we often have values in units, like `"100px"` or `"12pt"` in CSS. Also in many countries, the currency symbol goes after the amount, so we have `"19€"` and would like to extract a numeric value out of that.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 При такива ситуации идват на помощ `parseInt` и `parseFloat`.
 
@@ -614,4 +676,8 @@ For converting values like `12pt` and `100px` to a number:
 
 Повече математически функции:
 
+<<<<<<< HEAD
 - Погледнете в [Math](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math) обекта когато са ви нужни. Библиотеката е много малка, но може да покрие основните ви нужди.
+=======
+- See the [Math](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math) object when you need them. The library is very small but can cover basic needs.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
