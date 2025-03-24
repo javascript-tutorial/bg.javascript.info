@@ -15,7 +15,11 @@ The JavaScript language steadily evolves. New proposals to the language appear r
 So it's quite common for an engine to implement only part of the standard.
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
+<<<<<<< HEAD
 Добър ресурс, където може да видите кои свойства на езика се поддържат към настоящия момент е  <https://kangax.github.io/compat-table/es6/> (доста е голям, а ние имаме да учим още много).
+=======
+A good page to see the current state of support for language features is <https://compat-table.github.io/compat-table/es6/> (it's big, we have a lot to study yet).
+>>>>>>> 3d7abb9cc8fa553963025547717f06f126c449b6
 
 Като програмисти, бихме искали да използваме най-новите налични функции. Колкото повече добри неща - толкова по-добре!
 
@@ -106,6 +110,7 @@ JavaScript е силно динамичен език, скриптовете м�
 =======
 JavaScript is a highly dynamic language. Scripts may add/modify any function, even built-in ones.
 
+<<<<<<< HEAD
 Two interesting polyfill libraries are:
 - [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
 - [polyfill.io](https://polyfill.io/) service that provides a script with polyfills, depending on the features and user's browser.
@@ -113,6 +118,9 @@ Two interesting polyfill libraries are:
 
 - [core js](https://github.com/zloirock/core-js), който поддържа много, позволява да се включват само необходимите функции.
 - [polyfill.io](http://polyfill.io) услуга, която предоставя скрипт с полифили, в зависимост от функциите и браузъра на потребителя.
+=======
+One interesting polyfill library is [core-js](https://github.com/zloirock/core-js), which supports a wide range of features and allows you to include only the ones you need.
+>>>>>>> 3d7abb9cc8fa553963025547717f06f126c449b6
 
 ## Обобщение
 
@@ -132,7 +140,13 @@ Just don't forget to use a transpiler (if using modern syntax or operators) and 
 For example, later when you're familiar with JavaScript, you can setup a code build system based on [webpack](https://webpack.js.org/) with the [babel-loader](https://github.com/babel/babel-loader) plugin.
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
+<<<<<<< HEAD
 Добри ресурси, които показват текущото състояние на поддръжка за различните нови функции:
+=======
+Good resources that show the current state of support for various features:
+- <https://compat-table.github.io/compat-table/es6/> - for pure JavaScript.
+- <https://caniuse.com/> - for browser-related functions.
+>>>>>>> 3d7abb9cc8fa553963025547717f06f126c449b6
 
 - <https://kangax.github.io/compat-table/es6/> - за чист JavaScript.
 - <https://caniuse.com/> - за функции, свързани с браузъра.
