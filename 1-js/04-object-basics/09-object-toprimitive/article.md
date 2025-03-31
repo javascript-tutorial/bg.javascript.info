@@ -354,7 +354,11 @@ let obj = {
   }
 };
 
+<<<<<<< HEAD
 alert(obj + 2); // 22 ("2" + 2), преобразуване в примитивен връща низ => конкатенация
+=======
+alert(obj + 2); // "22" ("2" + 2), conversion to primitive returned a string => concatenation
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 ```
 
 ## Обобщение
