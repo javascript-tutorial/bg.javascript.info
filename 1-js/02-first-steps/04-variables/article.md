@@ -93,16 +93,26 @@ let user = 'John'
 *!*var*/!* message = 'Hello';
 ```
 
+<<<<<<< HEAD
 Ключовата дума `var` е почти същото като на `let`. То също декларира променлива, но е малко по-различен, от стила на "старата школа".
 
 Има тънки различия между `let` и `var`, но засега те не ни засягат. Ще ги разгледаме подробно в главата <info:var>.
+=======
+The `var` keyword is *almost* the same as `let`. It also declares a variable but in a slightly different, "old-school" way.
+
+There are subtle differences between `let` and `var`, but they do not matter to us yet. We'll cover them in detail in the chapter <info:var>.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 ````
 
 ## Аналогия в реалния живот
 
 Лесно можем да схванем концепцията на "променливата", ако я представим като "кутия" с данни, с уникално именуван стикер върху нея.
 
+<<<<<<< HEAD
 Например, променливата `message` можем да си въобразим като кутия, наименуван като `"message"`, със стойност  `"Hello!"` в нея:
+=======
+For instance, the variable `message` can be imagined as a box labelled `"message"` with the value `"Hello!"` in it:
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 ![ ](variable.svg)
 
@@ -228,15 +238,23 @@ Variables named `apple` and `APPLE` are two different variables.
 ```
 
 ````smart header="Non-Latin letters are allowed, but not recommended"
+<<<<<<< HEAD
 It is possible to use any language, including cyrillic letters, Chinese logograms and so on, like this:
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
+=======
+It is possible to use any language, including Cyrillic letters, Chinese logograms and so on, like this:
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 ```js
 let имя = '...';
 let 我 = '...';
 ```
 
+<<<<<<< HEAD
 Технически няма грешка тука, такива имена са позволени, но има международна традиция да се използва английския език при писане на имена на променливи. Дори ако пишем малък скрипт, това може да има дълъг живот за напред. На хората от други страни може да им се наложи да ги прочетат някое време.
+=======
+Technically, there is no error here. Such names are allowed, but there is an international convention to use English in variable names. Even if we're writing a small script, it may have a long life ahead. People from other countries may need to read it sometime.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 ````
 
 ````warn header="Запазени имена"
@@ -291,16 +309,24 @@ myBirthday = '01.01.2001'; // грешка,  стойността не може 
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Когато програмистите са сигурни в това, че стойността на променливата никога няма да се промени, тогава те могат да ги декларират с `const` за да са гарантирани в това и ясно да съобщават този факт с всички.
 
 ### Константи с главна буква
 =======
 When a programmer is sure that a variable will never change, they can declare it with `const` to guarantee and clearly communicate that fact to everyone.
+=======
+When a programmer is sure that a variable will never change, they can declare it with `const` to guarantee and communicate that fact to everyone.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 ### Uppercase constants
 >>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
+<<<<<<< HEAD
 Има широко разпространена практика да се използват константи като псевдоними за трудно запомнящи се стойности, които са известни преди изпълнението.
+=======
+There is a widespread practice to use constants as aliases for difficult-to-remember values that are known before execution.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 Такива константи се назовават с главни букви и подчертаване.
 
@@ -325,7 +351,11 @@ alert(color); // #FF7F00
 
 Кога трябва да използваме главни букви за константа и кога трябва да я наименуваме нормално? Нека да поясним това.
 
+<<<<<<< HEAD
 Това, че "константа", просто означава, че стойността на променливата никога не се променя. Но има константи, които са известни с приоритет преди изпълнението (като шестнадесетична стойност за червено) и има константи, които се *изчисляват* по време на изпълнение, по време на екзекуция на скрипта, но не се променят след първоначалното им присвояване.
+=======
+Being a "constant" just means that a variable's value never changes. But some constants are known before execution (like a hexadecimal value for red) and some constants are *calculated* in run-time, during the execution, but do not change after their initial assignment.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 <<<<<<< HEAD
 Например:
@@ -337,7 +367,11 @@ For instance:
 const pageLoadTime = /* времето, което се е заредил уеб страницата */;
 ```
 
+<<<<<<< HEAD
 Стойността на „pageLoadTime“ не е известна преди зареждането на страницата, така че се наименуван нормално. Но тя все още е константа, защото не се променя след присвояването.
+=======
+The value of `pageLoadTime` is not known before the page load, so it's named normally. But it's still a constant because it doesn't change after the assignment.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 <<<<<<< HEAD
 С други думи, константи наименувани с главна буква се използват само като псевдоними за "hard-coded" (или кодирани ръчно) стойности.
@@ -351,18 +385,31 @@ In other words, capital-named constants are only used as aliases for "hard-coded
 
 Името на променливата трябва да има чисто и  очевидно значение, описващо данните, което съхранява.
 
+<<<<<<< HEAD
 Наименуването на променливите е едно от най-важните и сложни умения в програмирането. Бърз поглед към имената на променливите може да разкрие кой код е написан от начинаещ или опитен разработчик.
 
 В реален проект по-голямата част от времето се изразходва за модифициране и разширяване на съществуваща кодова база, а не за писане на нещо напълно отделно от нулата. Когато се върнем към някакъв код, след като направим нещо друго за известно време, е много по-лесно да намерим информация, която е добре етикетирана. Или с други думи, когато променливите имат добри имена.
+=======
+Variable naming is one of the most important and complex skills in programming. A glance at variable names can reveal which code was written by a beginner versus an experienced developer.
+
+In a real project, most of the time is spent modifying and extending an existing code base rather than writing something completely separate from scratch. When we return to some code after doing something else for a while, it's much easier to find information that is well-labelled. Or, in other words, when the variables have good names.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 Моля, отделете време за размисъл за правилното име за променливата, преди да я декларирате. Ако направите това, ще ви се отплати щедро.
 
 Някои добри правила за да следваме са:
 
+<<<<<<< HEAD
 - Използвайте лесно четими имена за човека като `userName` или `shoppingCart`.
 - Стойте далеч от съкращения или кратки имена като `a`, `b`, `c`, освен ако наистина знаеш какво правиш.
 - Направете имената максимално описателни и кратки. Примери за лоши имена са `data` и `value`. Такива имена не казват нищо. Добре е да ги използвате само ако контекстът на кода прави изключително очевидно към кои данни или стойности реферират променливите.
 - Съгласете се за условията в рамките на вашия екип и в собствения си ум. Ако посетителят на сайта се нарича `user`, тогава трябва да назовем подобни променливи `currentUser` или `newUser` вместо `currentVisitor` или `newManInTown`.
+=======
+- Use human-readable names like `userName` or `shoppingCart`.
+- Stay away from abbreviations or short names like `a`, `b`, and `c`, unless you know what you're doing.
+- Make names maximally descriptive and concise. Examples of bad names are `data` and `value`. Such names say nothing. It's only okay to use them if the context of the code makes it exceptionally obvious which data or value the variable is referencing.
+- Agree on terms within your team and in your mind. If a site visitor is called a "user" then we should name related variables `currentUser` or `newUser` instead of `currentVisitor` or `newManInTown`.
+>>>>>>> 035c5267ba80fa7b55878f7213cbde449b4092d9
 
 Звучи просто? Наистина е така, но създаването на описателни и кратки имена на променливи на практика не е така. Пробвайте го.
 
