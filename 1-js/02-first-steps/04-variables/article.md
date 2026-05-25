@@ -205,7 +205,11 @@ let userName;
 let test123;
 ```
 
+<<<<<<< HEAD
 Когато името съдържа много думи, предимно се използва [camelCase](https://en.wikipedia.org/wiki/CamelCase). Това, camelCase, е практика на писане на фрази като думите се пишат едно след други слято като всяка дума освен първата започва на главна буква: `многоДълъгИзразОтДумиКатоТози`.
+=======
+When the name contains multiple words, [camelCase](https://en.wikipedia.org/wiki/CamelCase) is commonly used. That is: words go one after another, with each word except the first starting with a capital letter: `myVeryLongName`.
+>>>>>>> 52c1e61915bc8970a950a3f59bd845827e49b4bf
 
 Какво е интересното тук -- символа `'$'` и долната черта `'_'` също могат да се използват в имената. Те са обикновенни символи, също като буквите, без никакво специално значение.
 
