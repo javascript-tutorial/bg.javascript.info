@@ -6,7 +6,13 @@
 
 Обект може да бъде създаден с фигурни скоби `{…}` с незадължителен списък на *свойства*. Свойството е двойка от "ключ: стойност", където `ключът` е низ (също се нарича и "име на свойството"), и `стойност`, което може да бъде всичко.
 
+<<<<<<< HEAD
 Можем да си представим обект като шкаф с подписани файлове. Всяка част от данните се съхранява в своя файл с ключ. Лесно е да намерите файл по неговото име или да добавите / премахнете  даден файл.
+=======
+An object can be created with curly braces `{…}` with an optional list of *properties*. A property is a "key: value" pair, where `key` is a string (also called a "property name"), and `value` can be anything.
+
+We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It's easy to find a file by its name or add/remove a file.
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 ![](object.svg)
 
@@ -19,7 +25,11 @@ let user = {};  // синстаксиса "литерал на обект"
 
 ![](object-user-empty.svg)
 
+<<<<<<< HEAD
 Обикновено се използват фигурните скоби `{...}`. Тази деклерация се нарича *литерал на обект*.
+=======
+Usually, the curly braces `{...}` are used. That declaration is called an *object literal*.
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 ## Литерали и свойства
 

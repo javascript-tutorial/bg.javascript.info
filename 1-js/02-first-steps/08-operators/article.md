@@ -306,7 +306,13 @@ alert( b ); // 4
 alert( c ); // 4
 ```
 
+<<<<<<< HEAD
 Веригата от присвоявания се изпълнява от дясно на ляво. Първо, най-десният израз `2 + 2` е изпълнен и е присвоен от променливите отляво: `c`, `b` и `a`. Накрая, всички променливи споделят една стойност.
+=======
+Chained assignments evaluate from right to left. First, the rightmost expression `2 + 2` is evaluated and then assigned to the variables on the left: `c`, `b` and `a`. At the end, all the variables share a single value.
+
+Once again, for the purposes of readability it's better to split such code into a few lines:
+>>>>>>> 725653fd99b19d42195e837ac3bb23c1784f8f6e
 
 Още веднъж, за целите на четимостта е по-добре да разделите такъв код на няколко реда:
 ```js
