@@ -215,8 +215,16 @@ alert( undefined == 0 ); // невярно (3)
 
 ## Обобщение
 
+<<<<<<< HEAD
 - Операторите за сравнение връщат булева стойност.
 - Символните низове(текст) се сравняват символ по символ в "лексикографски" ред.
 - Когато се сравняват стойности от различни типове, те се преобразуват в числа (с изключение на строга проверка за равенство).
 - Стойностите `null` и `undefined` са равни `==` само една на друга, и на никоя друга стойност.
 - Бъдете внимателни, когато използвате сравнения като `>` или `<` с променливи, които понякога могат да бъдат `null/undefined`. Проверката за `null/undefined` отделно е добра идея.
+=======
+- Comparison operators return a boolean value.
+- Strings are compared letter-by-letter in the "dictionary" order.
+- When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
+- The values `null` and `undefined` are equal `==` to themselves and each other, but do not equal any other value.
+- Be careful when using comparisons like `>` or `<` with variables that can occasionally be `null/undefined`. Checking for `null/undefined` separately is a good idea.
+>>>>>>> 20208769e528337949e946f526534d61d38bac47
